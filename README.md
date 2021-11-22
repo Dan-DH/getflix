@@ -23,6 +23,7 @@ Each person is going to do at least a little bit of backend work. However, each 
     - Complete
 - Docker
 - VS Code
+- Adobe XD
 
 ### Languages :
 - HTML
