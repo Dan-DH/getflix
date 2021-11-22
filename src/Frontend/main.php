@@ -13,7 +13,7 @@
 <body>
     <header>
         <nav class="navbar navbar-dark bg-dark">
-
+            <a class="navbar-brand" href="#"><img src="../assets/Getflix.png"></a>
         </nav>
     </header>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
