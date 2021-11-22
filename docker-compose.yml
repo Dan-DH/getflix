@@ -22,8 +22,8 @@ services:
     container_name: getflix-database
     restart: always
     volumes:
-      - ./Backend/DB:/docker-entrypoint-initdb.d/
-      - getflix_data:./Backend/DB
+      - ./src/Backend:/docker-entrypoint-initdb.d/
+      - getflix_data:/var/lib/mysql
     env_file:
       - ./getflix.env
     networks:
