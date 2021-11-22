@@ -14,5 +14,7 @@
 
     $pdo = openConnection();
 
-    print_r($pdo->query("SELECT * FROM users WHERE userID = 3;")->fetchAll(PDO::FETCH_OBJ));
+    echo "<pre>";
+    print_r($pdo->query("SELECT * FROM users;")->fetchAll(PDO::FETCH_OBJ));
+    echo "</pre>";
     ?>
