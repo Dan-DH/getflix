@@ -1,7 +1,7 @@
 FROM php:7.3-apache
 
 ## Copy source code
-COPY ./source /var/www/html
+COPY ./ /var/www/html
 
 ## Install git and unzip
 RUN apt-get update && apt-get install -y --no-install-recommends git unzip && \

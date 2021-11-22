@@ -1,16 +1,16 @@
-version: '3.8'
+version: '3.3'
 
 services:
   ## PHP-Apache service
   server:
     build:
-      context: ./application
+      context: ./
     container_name: getflix-webserver
     ports:
       - 80:80
     restart: always
     volumes:
-      - ./application/source:/var/www/html
+      - ./Frontend/Volumes:/var/www/html
     env_file:
       - ./getflix.env
     networks:
@@ -22,7 +22,7 @@ services:
     container_name: getflix-database
     restart: always
     volumes:
-      - ./database:/docker-entrypoint-initdb.d/
+      - ./Backend:/docker-entrypoint-initdb.d/
       - getflix_data:/var/lib/mysql
     env_file:
       - ./getflix.env
