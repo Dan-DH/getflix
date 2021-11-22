@@ -10,7 +10,7 @@ services:
       - 80:80
     restart: always
     volumes:
-      - ./Frontend:/var/www/html
+      - ./src:/var/www/html
     env_file:
       - ./getflix.env
     networks:
@@ -22,8 +22,8 @@ services:
     container_name: getflix-database
     restart: always
     volumes:
-      - ./Backend:/docker-entrypoint-initdb.d/
-      - getflix_data:/var/lib/mysql
+      - ./Backend/DB:/docker-entrypoint-initdb.d/
+      - getflix_data:./Backend/DB
     env_file:
       - ./getflix.env
     networks:
