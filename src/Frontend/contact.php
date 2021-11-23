@@ -1,3 +1,4 @@
+<?php //include('../Backend/server.php')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +13,18 @@
     <form action="" method="post">
         <label for="issue">Specify your issue:<br>
         <select name="issue" id="issue_type">
-            <option value="not_loading">Movies not loading</option>
-            <option value="cannot_update">Cannot update my profile info</option>
-            <option value="other">Other</option>
-        </select><br>
-        Tell us more about your issue:<br>
-        <textarea name="issue" id="problem" cols="30" rows="10"></textarea>
+            <option name="issue" value="select">Please, specify your issue</option>
+            <option value="not_loading" name="issue">Movies not loading</option>
+            <option value="cannot_update" name='issue'>Cannot update my profile info</option>
+            <option value="other" name="issue">Other</option>
+        </select><br><br>
+        
+        <textarea name="message" id="problem" cols="30" rows="10" placeholder="Tell us more about your issue" ></textarea>
         </label>
         <br>
-        <button>Send</button>
+        <button id='submit'>Send</button>
     </form>
+    </div>
+    </main>
 </body>
 </html>

@@ -97,6 +97,7 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Shivani : 
     - dropdown menus with Bootstrap 5, refine notifications icon on navigation. 
     - Also, body background color more transparent and make titles and images pop more.
+    - Footer.
 - Daniel : 
     - Database modified + new Account (settings) page. 
     - Light/Dark versions ? Maybe later. 
@@ -105,7 +106,7 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
     - PDO vs mySQLi ? What's better/easier so implement ? 
 - Teo :
     - Check if field is blank, and/or the email/username already exists. 
-    - Footer + tutorials.
+    - Tutorials.
 
 
 ## Resources
@@ -114,4 +115,7 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 
 - https://code.tutsplus.com/tutorials/how-to-use-sessions-and-session-variables-in-php--cms-31839
 - https://www.youtube.com/watch?v=ShbHwaiyOps
+    - Blog post : https://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
 - https://stackoverflow.com/questions/20397267/alternative-to-localstorage-for-php
+- https://designcorral.com/blog/email-already-exists-in-php/
+- https://www.formget.com/login-form-in-php/
