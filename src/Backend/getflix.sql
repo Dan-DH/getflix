@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 DROP DATABASE IF EXISTS getflix;
 
 CREATE DATABASE IF NOT EXISTS getflix;
@@ -8,6 +10,7 @@ CREATE TABLE users (
 	userID int(10) not null primary key auto_increment,
 	email varchar(255) not null,
 	login varchar(255) not null,
+	password varchar(255) not null,
 	acc_date datetime not null default(curtime())
 );
 
@@ -46,10 +49,10 @@ INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("Moo
 
 INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("Arrival", "https://4.bp.blogspot.com/-1db3a4cyBh4/Whw_Ogz-hvI/AAAAAAAAAYo/EbnVoliKkwMvB5-xwVe72dQRLUrG86PNACLcBGAs/s1600/Arrival-Poster.png", "https://www.youtube.com/watch?v=tFMo3UJ4B4g", "Drama / Sci-Fy", 7.9, "A linguist works with the military to communicate with alien lifeforms after twelve mysterious spacecraft appear around the world.");
 
-INSERT INTO users (email, login) VALUES ("daniel@getflix.com", "Dan-DH");
-INSERT INTO users (email, login) VALUES ("brigita@getflix.com", "Brigita Sabutyte");
-INSERT INTO users (email, login) VALUES ("shivani@getflix.com", "ShivaniKhatri");
-INSERT INTO users (email, login) VALUES ("teosuperlongemailtoseewhathappens@getflix.co.uk", "Teo");
+INSERT INTO users (email, login, password) VALUES ("daniel@getflix.com", "Dan-DH", "holaworld");
+INSERT INTO users (email, login, password) VALUES ("brigita@getflix.com", "Brigita Sabutyte", "12345");
+INSERT INTO users (email, login, password) VALUES ("shivani@getflix.com", "ShivaniKhatri", "shivani");
+INSERT INTO users (email, login, password) VALUES ("teosuperlongemailtoseewhathappens@getflix.co.uk", "Teo", "testpass");
 
 INSERT INTO comments (userID, movieID, comment) VALUES (1, 1, "Watched this so much as a kid the VHS tape broke :)");
 
@@ -66,3 +69,4 @@ INSERT INTO comments (userID, movieID, comment) VALUES (2, 3, "That's a great id
 INSERT INTO contact (email, message) VALUES ("notindatabase@gmail.com", "I want to unsubscribe for the service");
 
 INSERT INTO contact (email, message) VALUES ("daniel@getflix.com", "Love this, you should charge more");
+>>>>>>> b2d95626948501eeccc1daa38cdbbac237fabfde

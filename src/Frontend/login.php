@@ -19,7 +19,7 @@
 
     <main>
         <div class="fill_form">
-            <form action="" method="post">
+            <form action="../Backend/server.php" method="post">
                 <h2>Log in</h2>
                 <input type="text" placeholder="username / email" class="sf" name="userinfo">
                 <input type="password" placeholder="password" class="sf" name="password">

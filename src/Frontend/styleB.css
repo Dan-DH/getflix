@@ -1,0 +1,93 @@
+body {
+    background: black;
+    color: white;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 3px;
+}
+main {
+    
+    margin-top: 2em;
+}
+
+.navbar {
+    margin: 0em 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    text-transform: uppercase;
+    color: #2DB5E1;
+    font-size: 50px;
+    text-shadow: 5px 2px 10px #7D9BA5;
+}
+    button {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: 2px;
+        font-size: 17px;
+        width: 6.5em;
+        height: 2.5em;
+        border: 3px solid;
+        border-radius: 10px;
+        text-transform: uppercase;
+    }
+    button:hover {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+
+#home {
+    background-color: black;
+    color: #2DB5E1;
+    border-color: #2DB5E1;
+    border-radius: 5pxpx;
+}
+
+#logout {
+    background-color: #2DB5E1;
+    color: white;
+    border-color: #2DB5E1;
+    border-radius: 5px;
+}
+
+/*---------------------Sign up / Login content---------------------*/
+
+.fill_form {
+    background-color: #7d9ba53d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 30%;
+    text-transform: uppercase;
+    color: #2DB5E1;
+    border-radius: 10px;
+}
+form {
+    display: grid;
+    width: 70%;
+    padding: 2em;
+}
+h2 {
+    font-size: 28px;
+}
+#issue_type, #problem, #email{
+    margin: 0.6em 0em;
+    padding: 1em;
+    border: 2px solid #2DB5E1;
+    background-color: black;
+    color: #51d0fa;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+#submit {
+    margin: 2.5em 0.5em;
+    background-color: #2DB5E1;
+    color: white;
+    border-color: #2DB5E1;
+    font-size: 16px;
+}

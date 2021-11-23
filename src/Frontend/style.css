@@ -1,68 +1,68 @@
 body {
-    background: black;
-    color: white;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    letter-spacing: 3px;
+  background: black;
+  color: white;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 3px;
 }
 main {
-    margin-top: 1em;
+  margin-top: 1em;
 }
 
 .navbar {
-    margin: 0em 3em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  margin: 0em 3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
-    text-transform: uppercase;
-    color: #2DB5E1;
-    font-size: 50px;
-    text-shadow: 5px 2px 10px #7D9BA5;
+  text-transform: uppercase;
+  color: #2db5e1;
+  font-size: 50px;
+  text-shadow: 5px 2px 10px #7d9ba5;
 }
 
 button {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    letter-spacing: 2px;
-    font-size: 17px;
-    width: 6.5em;
-    height: 2.5em;
-    border: 3px solid;
-    border-radius: 10px;
-    text-transform: uppercase;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 2px;
+  font-size: 17px;
+  width: 6.5em;
+  height: 2.5em;
+  border: 3px solid;
+  border-radius: 10px;
+  text-transform: uppercase;
 }
 button:hover {
-    cursor: pointer;
-    font-weight: bold;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 a {
-    text-decoration: none;
-    color: #2DB5E1;
-    font-size: 15px;
+  text-decoration: none;
+  color: #2db5e1;
+  font-size: 15px;
 }
-a:hover{
-    text-decoration: underline;
+a:hover {
+  text-decoration: underline;
 }
 
 #sign {
-    background-color: black;
-    color: #2DB5E1;
-    border-color: #2DB5E1;
+  background-color: black;
+  color: #2db5e1;
+  border-color: #2db5e1;
 }
 
 #login {
-    background-color: #2DB5E1;
-    color: white;
-    border-color: #2DB5E1;
+  background-color: #2db5e1;
+  color: white;
+  border-color: #2db5e1;
 }
-
 
 /*---------------------Sign up / Login content---------------------*/
 
 .fill_form {
+<<<<<<< HEAD
     background-color: #7d9ba53d;
     display: flex;
     justify-content: center;
@@ -71,40 +71,51 @@ a:hover{
     text-transform: uppercase;
     color: #2DB5E1;
     border-radius: 10px;
+=======
+  background-color: #7d9ba53d;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 30%;
+  text-transform: uppercase;
+  color: #2db5e1;
+  border-radius: 10px;
+>>>>>>> 1aade3c4bf44c05b5d0aa760cf132f005ee92562
 }
 form {
-    display: grid;
-    width: 70%;
-    padding: 2em;
+  display: grid;
+  width: 70%;
+  padding: 2em;
 }
 h2 {
-    font-size: 28px;
+  font-size: 28px;
 }
-.sf{
-    margin: 0.6em 0em;
-    padding: 1em;
-    border: 2px solid #2DB5E1;
-    background-color: black;
-    color: #51d0fa;
-    font-weight: bold;
-    border-radius: 8px;
+.sf {
+  margin: 0.6em 0em;
+  padding: 1em;
+  border: 2px solid #2db5e1;
+  background-color: black;
+  color: #51d0fa;
+  font-weight: bold;
+  border-radius: 8px;
 }
 
 .submit {
-    margin: 2.5em 0em;
-    background-color: #2DB5E1;
-    color: white;
-    border-color: #2DB5E1;
-    font-size: 16px;
+  margin: 2.5em 0em;
+  background-color: #2db5e1;
+  color: white;
+  border-color: #2db5e1;
+  font-size: 16px;
 }
 
 footer {
-    display: grid;
-    justify-content: space-between;
-    margin: 3em auto;
-    max-width: 90%;
+  display: grid;
+  justify-content: space-between;
+  margin: 3em auto;
+  max-width: 90%;
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 992px) {
     h1 {
         font-size: 35px;
@@ -121,27 +132,48 @@ footer {
     .fill_form {
         width: 70%;
     }
+=======
+@media screen and (max-width: 880px) {
+  h1 {
+    font-size: 35px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  button,
+  .submit {
+    font-size: 13px;
+  }
+  a,
+  p {
+    font-size: 11px;
+  }
+  .fill_form {
+    width: 70%;
+  }
+>>>>>>> 1aade3c4bf44c05b5d0aa760cf132f005ee92562
 }
 
 @media screen and (max-width: 460px) {
-    button {
-        font-size: 11px;
-        border: 2px solid;
-    }
-    .navbar {
-        margin: auto;
-        width: 90%;
-    }
-    h1 {
-        font-size: 25px;
-    }
-    h2 {
-        font-size: 18px;
-    }
-    .fill_form {
-        width: 90%;
-    }
-    button, .submit {
-        font-size: 10px;
-    }
+  button {
+    font-size: 11px;
+    border: 2px solid;
+  }
+  .navbar {
+    margin: auto;
+    width: 90%;
+  }
+  h1 {
+    font-size: 25px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .fill_form {
+    width: 90%;
+  }
+  button,
+  .submit {
+    font-size: 10px;
+  }
 }
