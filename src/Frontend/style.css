@@ -10,7 +10,7 @@ main {
 }
 
 .navbar {
-    margin: 0em 4em;
+    margin: 0em 3em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,7 +67,7 @@ a:hover{
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    max-width: 30%;
+    width: 30%;
     text-transform: uppercase;
     color: #2DB5E1;
     border-radius: 10px;
@@ -90,10 +90,58 @@ h2 {
     border-radius: 8px;
 }
 
-#submit {
+.submit {
     margin: 2.5em 0em;
     background-color: #2DB5E1;
     color: white;
     border-color: #2DB5E1;
     font-size: 16px;
+}
+
+footer {
+    display: grid;
+    justify-content: space-between;
+    margin: 3em auto;
+    max-width: 90%;
+}
+
+@media screen and (max-width: 880px) {
+    h1 {
+        font-size: 35px;
+    }
+    h2 {
+        font-size: 22px;
+    }
+    button, .submit {
+        font-size: 13px;
+    }
+    a, p {
+        font-size: 11px;
+    }
+    .fill_form {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    button {
+        font-size: 11px;
+        border: 2px solid;
+    }
+    .navbar {
+        margin: auto;
+        width: 90%;
+    }
+    h1 {
+        font-size: 25px;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    .fill_form {
+        width: 90%;
+    }
+    button, .submit {
+        font-size: 10px;
+    }
 }

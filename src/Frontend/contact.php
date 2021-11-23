@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Contact us</title>
 </head>
 <body>
-    <h3>Contact Us</h3>
+    <h2>Contact Us</h2>
     <form action="" method="post">
         <label for="issue">Specify your issue:<br>
         <select name="issue" id="issue_type">
