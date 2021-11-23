@@ -39,6 +39,7 @@
     <footer> <p>Copyright &#169; 2021 </p> 
         <p>A collab between <a href="https://github.com/Dan-DH">Daniel</a>, <a href="https://github.com/Brigilets">Brigita</a>, <a href="https://github.com/ShivaniKhatri96/">Shivani</a> and <a href="https://github.com/teo-cozma">Teodora</a>.</p>
     </footer>
+
 </body>
 
 </html>

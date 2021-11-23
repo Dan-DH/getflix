@@ -1,6 +1,14 @@
 <?php 
 //session_start();
 // Connecting to the database (see Brigi or Dan for code)
+
+function openConnection() { 
+    $dbhost = "database"; 
+    $dbuser = "root";
+    $dbpass = "getflixRoot";
+    $db = "getflix";
+    //do we need the charset?
+
     try {
         $pdo = new PDO("mysql:host=$dbhost;dbname=$db",$dbuser,$dbpass);
         //echo "Connected";

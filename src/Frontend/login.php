@@ -23,16 +23,11 @@
                 <h2>Log in</h2>
                 <input type="text" placeholder="username / email" class="sf" name="userinfo">
                 <input type="password" placeholder="password" class="sf" name="password">
-
                 <button type="submit" class="submit">Login</button>
                 <a href="#">Forgot password ?</a>
-
                 <p>Not yet a member ? <a href="signup.php">Sign up !</a></p>
-
             </form>
         </div>
-    
-    </main>
-    
+    </main>   
 </body>
 </html>
