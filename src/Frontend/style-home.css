@@ -1,10 +1,28 @@
 .navbar-bg{
-    background-color: black;
+ background-color:black;
 }
 .white-font {
     color:white;
 }
-a:hover {
-    color: lightblue;
-    font-size: 1.1em;
+.nav-link:hover {
+    color:lightskyblue;
+    font-size: 1.1rem;
 }
+.nav-link:active {
+    color: lightseagreen;
+  }
+.font-size {
+    font-size: 120%;
+}
+.font-align {
+    color: white;
+}
+#searchbar {
+    border-radius: 1rem;
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .dropdown-menu {
+        margin-left: -6rem;
+    }
+ }
