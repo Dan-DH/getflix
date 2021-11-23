@@ -69,9 +69,11 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
         - Click = overlay with movie information + comments.
 - Pass recovery page (random string generator)
 - Contact form
+
 - Account page (Settings -> change)
 - Footer
     - Contact us
+    - Copyright
     - Links to our Githubs.
 
 **Backend work**
@@ -83,7 +85,33 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Writing HTML for Sign up and Log in
 - Finding a good color scheme
 
+## Day two (23/11) :
+**Tasks** :
+
+- Shivani : continue the main page.
+- Brigita : method for MySQL, connecting databases, PDO.
+- Teo : research on session system (registration, connection/disconnection).
+- Dan : more data in database.
+
+**Afternoon meet (13:30)**
+- Shivani : 
+    - dropdown menus with Bootstrap 5, refine notifications icon on navigation. 
+    - Also, body background color more transparent and make titles and images pop more.
+- Daniel : 
+    - Database modified + new Account (settings) page. 
+    - Light/Dark versions ? Maybe later. 
+    - + Local storage.
+- Brigita : 
+    - PDO vs mySQLi ? What's better/easier so implement ? 
+- Teo :
+    - Check if field is blank, and/or the email/username already exists. 
+    - Footer + tutorials.
+
 
 ## Resources
 - https://dev.to/techworld_with_nana/top-8-docker-best-practices-for-using-docker-in-production-1m39
 - https://www.section.io/engineering-education/dockerized-php-apache-and-mysql-container-development-environment/
+
+- https://code.tutsplus.com/tutorials/how-to-use-sessions-and-session-variables-in-php--cms-31839
+- https://www.youtube.com/watch?v=ShbHwaiyOps
+- https://stackoverflow.com/questions/20397267/alternative-to-localstorage-for-php

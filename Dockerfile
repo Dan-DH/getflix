@@ -15,8 +15,3 @@ RUN curl --silent --show-error https://getcomposer.org/installer | \
 RUN docker-php-ext-install pdo pdo_mysql mysqli gettext
 RUN a2enmod rewrite headers ssl
 
-FROM mariadb:10.4.2
-
-RUN mysql -u root -pgetflixRoot
-RUN create database croquetas;
-
