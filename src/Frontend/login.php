@@ -18,13 +18,15 @@
 
     <main>
         <div class="fill_form">
-            <form action="" method="post">
+            <form action="../Backend/server.php" method="post">
                 <h2>Log in</h2>
-                <input type="text" placeholder="username / email" class="sf">
-                <input type="password" placeholder="password" class="sf">
+                <input type="text" placeholder="username / email" class="sf" name="userinfo">
+                <input type="password" placeholder="password" class="sf" name="password">
 
-                <button type="submit" id="submit">Submit</button>
+                <button type="submit" class="submit">Login</button>
                 <a href="#">Forgot password ?</a>
+
+                <p>Not yet a member ? <a href="signup.php">Sign up !</a></p>
 
             </form>
         </div>
