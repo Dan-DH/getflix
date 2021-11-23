@@ -67,7 +67,7 @@ a:hover{
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    width: 30%;
+    width: 40%;
     text-transform: uppercase;
     color: #2DB5E1;
     border-radius: 10px;
@@ -105,7 +105,7 @@ footer {
     max-width: 90%;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 992px) {
     h1 {
         font-size: 35px;
     }
