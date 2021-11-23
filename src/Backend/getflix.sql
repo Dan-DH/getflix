@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 DROP DATABASE IF EXISTS getflix;
 
 CREATE DATABASE IF NOT EXISTS getflix;
@@ -69,4 +67,3 @@ INSERT INTO comments (userID, movieID, comment) VALUES (2, 3, "That's a great id
 INSERT INTO contact (email, message) VALUES ("notindatabase@gmail.com", "I want to unsubscribe for the service");
 
 INSERT INTO contact (email, message) VALUES ("daniel@getflix.com", "Love this, you should charge more");
->>>>>>> b2d95626948501eeccc1daa38cdbbac237fabfde
