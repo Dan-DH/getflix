@@ -1,44 +1,50 @@
 <?php 
 
-// Connecting to the database (see Brigi or Dan for code)
+function openConnection() { 
+    $dbhost = "database"; 
+    $dbuser = "root";
+    $dbpass = "getflixRoot";
+    $db = "getflix";
+    //do we need the charset?
 
-// $db = mysqli_connect ('localhost', 'root', '', 'signup');
+    try {
+        $pdo = new PDO("mysql:host=$dbhost;dbname=$db",$dbuser,$dbpass);
+        //echo "Connected";
+        return $pdo;
+    } catch (PDOException $e) {
+        echo "Connection failed : " . $e->getMessage();
+    }
+};
 
-/*
-$servername = "localhost";
-$username = "username";
-$password = "password";
+if (isset($_POST['userinfo']) && isset($_POST['password'])) {
+    $pdo = openConnection();
+    $username = $_POST['userinfo'];
+    //$email = $_POST['email'];
+    $password = $_POST['password'];
 
-try {
-    $db = new PDO("mysql:host=$servername; dbname=myDB", $username, $password);
+    //selecting field to query (login/email)
+    if (strpos($username, "@")) {
+        $login ="SELECT * FROM users WHERE email = $username AND password = $password;";
+    } else {
+        $login = "SELECT * FROM users WHERE login = 'Dan-DH' AND password = 'holaworld'";
+    };
 
-        // PDO error mode to exception
-        $conn -> setAttribute (PDO :: ATTR_ERRMODE, PDO :: ERROMODE_EXCEPTION);
-        echo "Connected successfully";
-        
-} catch (PDOException $e) {
-    echo "Connection failed : " . $e->getMessage();
-}
- 
-*/
+    $t = $pdo->query($login)->fetchAll();
 
-// declaring variables for submission
-/*$username = "";
-$email = "";
-$errors = array();
-*/
+    echo count($t) > 0 ? "Welcome back, {$t[0][2]}" : "Incorrect login credentials, please try again";
+};
 
-// if the signup submit button is clicked
-/*
-if (isset($_POST['signup'])) {
-    
-    $username = mysql_real_escape_string($_POST['username']);
-    $email = mysql_real_escape_string($_POST['email']);
-    $password1 = mysql_real_escape_string($_POST['password1']);
-    $password2 = mysql_real_escape_string($_POST['password2']);
-    
+/* if ($password1 != $password2) { 
+    echo "Passwords do not match";
+    break;
+}  */
 
-    // making sure the fields are filled
+/* $username = $_POST['username'];
+$email = $_POST['email'];
+$password1 = $_POST['password1'];
+$password2 = $_POST['password2']; */
+
+/*     // making sure the fields are filled out
     if (empty($username)) {
         array_push($errors, "Username is required");
     }
@@ -50,8 +56,7 @@ if (isset($_POST['signup'])) {
     }
     if ($password1 != $password2) {
         array_push($errors, "Passwords do not match");
-    }
-
+    } */
     // No errors, save user to database
     /*
     if (count($errors) ==0) {
@@ -62,6 +67,4 @@ if (isset($_POST['signup'])) {
     
 }
 */
-
-
 ?>
