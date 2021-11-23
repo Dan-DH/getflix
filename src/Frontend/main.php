@@ -1,3 +1,11 @@
+<?php //include('../Backend/server.php');
+
+// if user is not logged in, page is inaccessible
+    if (empty($_SESSION['username'])){
+        header('location: login.php');
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +33,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    
+    <div class="content">
+        <?php if (isset($_SESSION['success'])): ?>
+            <div class="error-success">
+                <h3>
+                    <?php
+                        echo $_SESSION['success'];
+                        unset($_SESSION['success']);
+                    ?>
+                </h3>
+            </div>
+        <?php endif ?>
+
+        <?php if (isset($_SESSION['username'])): ?>
+            <p>Welcome back <strong> <?php echo $_SESSION['username']; ?> </strong>. Ready to chill?</p>
+            <p><a href="../Frontend/login.php?logout='1'"><strong>Logout</strong></a></p>
+        <?php endif ?>
+    </div>
+
+
 </body>
 
 </html>
