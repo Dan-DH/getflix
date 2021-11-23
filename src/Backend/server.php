@@ -24,9 +24,9 @@ if (isset($_POST['userinfo']) && isset($_POST['password'])) {
 
     //selecting field to query (login/email)
     if (strpos($username, "@")) {
-        $login ="SELECT * FROM users WHERE email = $username AND password = $password;";
+        $login = $pdo->prepare("SELECT 'userID' FROM users WHERE email = $username AND password = $password;");
     } else {
-        $login = "SELECT * FROM users WHERE login = 'Dan-DH' AND password = 'holaworld'";
+        $login = $pdo->prepare("SELECT 'userID' FROM users WHERE login = 'Dan-DH' AND password = 'holaworld'");
     };
 
     $t = $pdo->query($login)->fetchAll();
