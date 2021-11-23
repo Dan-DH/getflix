@@ -9,11 +9,16 @@
 <body>
     <h3>Contact Us</h3>
     <form action="" method="post">
-        <label for="issue">Specify your issue:
-        <input type="text" name="issue">
-        Tell us more about your issue:
+        <label for="issue">Specify your issue:<br>
+        <select name="issue" id="issue_type">
+            <option value="not_loading">Movies not loading</option>
+            <option value="cannot_update">Cannot update my profile info</option>
+            <option value="other">Other</option>
+        </select><br>
+        Tell us more about your issue:<br>
         <textarea name="issue" id="problem" cols="30" rows="10"></textarea>
         </label>
+        <br>
         <button>Send</button>
     </form>
 </body>
