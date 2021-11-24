@@ -1,6 +1,12 @@
 <?php 
-//session_start();
-// Connecting to the database (see Brigi or Dan for code)
+session_start();
+
+// declaring variables for submission
+$username = "";
+$email = "";
+$errors = array();
+
+// Connecting to the database
 
 function openConnection() { 
     $dbhost = "database"; 
@@ -16,7 +22,8 @@ function openConnection() {
     } catch (PDOException $e) {
         echo "Connection failed : " . $e->getMessage();
     }
-};
+}
+
 if (isset($_POST['userinfo']) && isset($_POST['password'])) {
     $pdo = openConnection();
     $username = $_POST['userinfo'];
@@ -29,90 +36,94 @@ if (isset($_POST['userinfo']) && isset($_POST['password'])) {
         $login = "SELECT * FROM users WHERE login = 'Dan-DH' AND password = 'holaworld'";
     };
     $t = $pdo->query($login)->fetchAll();
-// declaring variables for submission
-/*
-$username = "";
-$email = "";
-$errors = array();
-*/
 
-// if the signup submit button is clicked
-/*
-if (isset($_POST['signup'])) {
-    // Protection against MySQL injection
-    $username = stripslashes($username);
-    $password = stripslashes($password);
-    
-    $username = mysql_real_escape_string($_POST['username']);
-    $email = mysql_real_escape_string($_POST['email']);
-    $password1 = mysql_real_escape_string($_POST['password1']);
-    $password2 = mysql_real_escape_string($_POST['password2']);
-    
 
-/* $username = $_POST['username'];
-$email = $_POST['email'];
-$password1 = $_POST['password1'];
-$password2 = $_POST['password2']; */
-
-/*     // making sure the fields are filled out
-    if (empty($username)) {
-        array_push($errors, "Username is required");
-    }
-    if (empty($email)) {
-        array_push($errors, "Email is required");
-    }
-    if (empty($password1)) {
-        array_push($errors, "Password is required");
-    }
-    if ($password1 != $password2) {
-        array_push($errors, "Passwords do not match");
-    }
-    // checking database ofr existing user information
-    $user_check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email' LIMIT 1";
-    $results = db_exec($db, $user_check_query);
-    $user = db_fetch_assoc($results);
-    if ($user) {
-        if ($user['username'] === $username) {
-            array_push($errors, "Username is taken");
-        }
-        if ($user['email'] === $email) {
-            array_push($errors, "Email is already registered");
-        }
-    }
-    // No errors, save user to database
-    /*
-    if (count($errors) == 0) {
-        $sql = "INSERT INTO user (username, email, password)
-                VALUES ('$username', '$email', '$password')";
-        mysqli_query($db, $sql);
-        $_SESSION['username'] = $username;
-        $_SESSION['success'] = "Welcome !;
-        header('location: ../Frontend/main.php');
-    }
-    // Log user from login page
-    if (isset($_POST['])) {
+    // if the signup submit button is clicked
+    if (isset($_POST['signup'])) {
+        // Protection against MySQL injection
+        $username = stripslashes($username);
+        $password = stripslashes($password);
+        
+        // Which syntax do we keep ? This...
         $username = mysql_real_escape_string($_POST['username']);
-        $password = mysql_real_escape_string($_POST['password']);
-        // ensure the fields are filled properly
+        $email = mysql_real_escape_string($_POST['email']);
+        $password1 = mysql_real_escape_string($_POST['password1']);
+        $password2 = mysql_real_escape_string($_POST['password2']);
+        
+        // ... or this?
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password1 = $_POST['password1'];
+        $password2 = $_POST['password2']; 
+
+
+        // making sure the fields are filled out
         if (empty($username)) {
-        array_push($errors, "Username is required");
+            array_push($errors, "Username is required");
         }
-        if (empty($password)) {
+        if (empty($email)) {
+            array_push($errors, "Email is required");
+        }
+        if (empty($password1)) {
             array_push($errors, "Password is required");
         }
-        if(count($errors) == 0) {
-            $password = md5($password); // encrypt password before comparing it with the database
-            $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' ";
-            $result = mysqli_query($db, $query);
-            if (mysqli_num_rows($result) == 1) {
-                // log user in
-                $_SESSION['username'] = $username;
-                $_SESSION['success'] = "Welcome back !;
-                header('location: ../Frontend/main.php');
-            } else {
-                array_push($errors, "Wrong username/password combo.")
+        if ($password1 != $password2) {
+            array_push($errors, "Passwords do not match");
+        }
+
+        // checking database for existing user information
+        $user_check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email' LIMIT 1";
+        $results = db_exec($db, $user_check_query);
+        $user = db_fetch_assoc($results);
+        if ($user) {
+            if ($user['username'] === $username) {
+                array_push($errors, "Username is taken");
+            }
+            if ($user['email'] === $email) {
+                array_push($errors, "Email is already registered");
             }
         }
+
+        // No errors, save user to database
+        if (count($errors) == 0) {
+            $sql = "INSERT INTO user (username, email, password)
+                    VALUES ('$username', '$email', '$password')";
+            
+            // Will need to "convert" to PDO syntax
+            mysqli_query($db, $sql);
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "Welcome !";
+            header('location: ../Frontend/main.php');
+        }
+
+
+        // Log user from login page (priority for today, 24/11 !!!)
+        if (isset($_POST['login-user'])) {
+            $username = mysql_real_escape_string($_POST['username']);
+            $password = mysql_real_escape_string($_POST['password']);
+
+            // ensure the fields are filled properly
+            if (empty($username)) {
+            array_push($errors, "Username is required");
+            }
+            if (empty($password)) {
+                array_push($errors, "Password is required");
+            }
+            if(count($errors) == 0) {
+                $password = md5($password); // encrypt password before comparing it with the database
+                $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' ";
+                $result = mysqli_query($db, $query);
+                if (mysqli_num_rows($result) == 1) {
+                    // log user in
+                    $_SESSION['username'] = $username;
+                    $_SESSION['success'] = "Welcome back !";
+                    header('location: ../Frontend/main.php');
+                } else {
+                    array_push($errors, "Wrong username/password combo.");
+                }
+            }
+        }
+            
     }
     
     // Logout
@@ -122,5 +133,4 @@ $password2 = $_POST['password2']; */
         header('location: ../Frontend/login.php');
     }
 }
-*/
 ?>

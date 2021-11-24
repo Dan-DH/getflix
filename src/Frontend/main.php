@@ -92,11 +92,15 @@
                             <i class="fa fa-id-card white-font"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Account Page</a></li>
+                            <li><a class="dropdown-item" href="./account.php">Account Page</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Contact Page</a></li>
+                            <li><a class="dropdown-item" href="./contact.php">Contact Page</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item fw-bold" href="./login.php">Log out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -106,7 +110,17 @@
     <div>
         <h3 id="comedy">Comedy</h3>
     </div>
-
+<!-- <main>
+<ul class="pic">
+      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
+      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
+      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
+      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
+      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
+      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
+      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
+    </ul>
+    </main> -->
     <footer id="footer">
         <div class="container text-center">
             <div class="row d-flex">
