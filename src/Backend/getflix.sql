@@ -39,6 +39,18 @@ CREATE TABLE movies (
 	synopsis varchar(255) not null
 );
 
+CREATE TABLE achievements (
+	userID int(10) not null primary key auto_increment,
+	movie_achievement1 bit(1) not null default 0,
+	movie_achievement3 bit(1) not null default 0,
+	movie_achievement5 bit(1) not null default 0,
+	comment_achievement1 bit(1) not null default 0,
+	comment_achievement3 bit(1) not null default 0,
+	comment_achievement5 bit(1) not null default 0,
+	contact_achievement bit(1) not null default 0,
+	achievements_all bit(1) not null default 0
+);
+
 INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("Jurassic Park", "https://image.tmdb.org/t/p/original/5V4wkqAIjcRL1TqXiB9iNn0EPrI.jpg", "https://www.youtube.com/watch?v=QWBKEmWWL38", "Action / Adventure / Sci-Fy", 8.1, "A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.");
 
 INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("The Matrix", "https://fanart.tv/fanart/movies/603/movieposter/the-matrix-53b1a283180a1.jpg", "https://www.youtube.com/watch?v=vKQi3bBA1y8", "Action / Sci-Fy", 8.7, "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.");
@@ -54,6 +66,11 @@ INSERT INTO users (email, login, password) VALUES ("brigita@getflix.com", "Brigi
 INSERT INTO users (email, login, password) VALUES ("shivani@getflix.com", "ShivaniKhatri", "shivani");
 INSERT INTO users (email, login, password) VALUES ("teosuperlongemailtoseewhathappens@getflix.co.uk", "Teo", "testpass");
 
+INSERT INTO achievements () VALUES();
+INSERT INTO achievements () VALUES();
+INSERT INTO achievements () VALUES();
+INSERT INTO achievements () VALUES();
+
 INSERT INTO comments (userID, movieID, comment) VALUES (1, 1, "Watched this so much as a kid the VHS tape broke :)");
 
 INSERT INTO comments (userID, movieID, comment) VALUES (2, 1, "It's okay");
@@ -66,6 +83,6 @@ INSERT INTO comments (userID, movieID, comment) VALUES (2, 3, "Making a bunch of
 
 INSERT INTO comments (userID, movieID, comment) VALUES (2, 3, "That's a great idea");
 
-INSERT INTO contact (email, message) VALUES ("notindatabase@gmail.com", "I want to unsubscribe for the service");
+INSERT INTO contact (name, email, issue, message) VALUES ("Pixie", "notindatabase@gmail.com", "Achievement not unlocking", "I want to unsubscribe for the service");
 
-INSERT INTO contact (email, message) VALUES ("daniel@getflix.com", "Love this, you should charge more");
+INSERT INTO contact (name, email, issue, message) VALUES ("Dixie", "daniel@getflix.com", "No movies in home", "Love this, you should charge more");

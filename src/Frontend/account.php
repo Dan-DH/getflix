@@ -49,29 +49,68 @@
     </div>
 
     <div class="col-12 col-md-7 containerAchievement">
-        <div class="row rowAchievement">
-            <div class="col-12 col-md-6 achievementRow1">
-                <img class="achievImage" src="../assets/achievement1.jpg" alt="Level 1" width="150" height="150">
+        <div class="row rowAchievement text-center">
+            <h3>Your achievements</h3>
+            <div class="col-6 col-md-6 achievementRow">
+                <img class="achievImage" src="../assets/achievement1.jpg" alt="Level 1">
                 <span>Watched your first movie</span><br>
-                <img class="achievImage" src="../assets/achievement2.jpg" alt="Level 2" width="150" height="150">
+                <img class="achievImage" src="../assets/achievement2.jpg" alt="Level 2">
                 <span>Watched five movies</span><br>
-                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 3" width="150" height="150">
+                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 3">
                 <span>Watched ten movies</span><br>
-                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 1" width="150" height="150">
+                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 1">
                 <span>Contacted the team</span>
             </div>
-            <div class="col-12 col-md-6 achievementRow2">
-                <img class="achievImage" src="../assets/achievement1.jpg" alt="Level 1" width="150" height="150">
+            <div class="col-6 col-md-6 achievementRow">
+                <img class="achievImage" src="../assets/achievement1.jpg" alt="Level 1">
                 <span>Wrote your first comment</span><br>
-                <img class="achievImage" src="../assets/achievement2.jpg" alt="Level 1" width="150" height="150">
+                <img class="achievImage" src="../assets/achievement2.jpg" alt="Level 1">
                 <span>Wrote five comments</span><br>
-                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 1" width="150" height="150">
+                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 1">
                 <span>Wrote ten comments</span><br>
-                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 1" width="150" height="150">
+                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 1">
                 <span>Got all achievements !!</span>
             </div>
         </div>
     </div>
 </div>
+
+<footer id="footer">
+        <div class="container text-center">
+            <div class="row d-flex">
+                <div class="col order-md-2 d-none d-sm-block">
+                    A collab between <a class="navig-link" href="https://github.com/Dan-DH" target="_blank"
+                        rel="noopener">Daniel</a>, <a class=" navig-link" href="https://github.com/Brigilets"
+                        target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link"
+                        href="https://github.com/ShivaniKhatri96/" target="_blank" rel="noopener">Shivani</a> and <a
+                        class=" navig-link" href="https://github.com/teo-cozma" target="_blank"
+                        rel="noopener">Teodora</a>.
+                </div>
+                <div class="col-3 order-md-4  text-center hide2">
+                    <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
+                        <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
+                    </a>
+                </div>
+                <div class="col-3 text-center hide2">
+                    <a href="https://github.com/Dan-DH" target="_blank" rel="noopener">
+                        <img src="../assets/daniIcon.webp" alt="githubLink" class="portrait">
+                    </a>
+                </div>
+                <div class="col-3 text-center hide2">
+                    <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
+                        <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
+                    </a>
+                </div>
+                <div class="col-3  text-center hide2">
+                    <a href="https://github.com/ShivaniKhatri96" target="_blank" rel="noopener">
+                        <img src="../assets/shivaniIcon.webp" alt="githubLink" class="portrait">
+                    </a>
+                </div>
+                <div class="col col-md-12 mt-2 order-md-1">
+                    Copyright &#169; 2021
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
