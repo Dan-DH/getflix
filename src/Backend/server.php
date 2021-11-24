@@ -1,4 +1,6 @@
 <?php 
+//session_start();
+// Connecting to the database (see Brigi or Dan for code)
 
 function openConnection() { 
     $dbhost = "database"; 
@@ -15,29 +17,37 @@ function openConnection() {
         echo "Connection failed : " . $e->getMessage();
     }
 };
-
 if (isset($_POST['userinfo']) && isset($_POST['password'])) {
     $pdo = openConnection();
     $username = $_POST['userinfo'];
     //$email = $_POST['email'];
     $password = $_POST['password'];
-
     //selecting field to query (login/email)
     if (strpos($username, "@")) {
         $login ="SELECT * FROM users WHERE email = $username AND password = $password;";
     } else {
         $login = "SELECT * FROM users WHERE login = 'Dan-DH' AND password = 'holaworld'";
     };
-
     $t = $pdo->query($login)->fetchAll();
+// declaring variables for submission
+/*
+$username = "";
+$email = "";
+$errors = array();
+*/
 
-    echo count($t) > 0 ? "Welcome back, {$t[0][2]}" : "Incorrect login credentials, please try again";
-};
-
-/* if ($password1 != $password2) { 
-    echo "Passwords do not match";
-    break;
-}  */
+// if the signup submit button is clicked
+/*
+if (isset($_POST['signup'])) {
+    // Protection against MySQL injection
+    $username = stripslashes($username);
+    $password = stripslashes($password);
+    
+    $username = mysql_real_escape_string($_POST['username']);
+    $email = mysql_real_escape_string($_POST['email']);
+    $password1 = mysql_real_escape_string($_POST['password1']);
+    $password2 = mysql_real_escape_string($_POST['password2']);
+    
 
 /* $username = $_POST['username'];
 $email = $_POST['email'];
@@ -56,24 +66,33 @@ $password2 = $_POST['password2']; */
     }
     if ($password1 != $password2) {
         array_push($errors, "Passwords do not match");
-    } */
+    }
+    // checking database ofr existing user information
+    $user_check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email' LIMIT 1";
+    $results = db_exec($db, $user_check_query);
+    $user = db_fetch_assoc($results);
+    if ($user) {
+        if ($user['username'] === $username) {
+            array_push($errors, "Username is taken");
+        }
+        if ($user['email'] === $email) {
+            array_push($errors, "Email is already registered");
+        }
+    }
     // No errors, save user to database
     /*
     if (count($errors) == 0) {
         $sql = "INSERT INTO user (username, email, password)
                 VALUES ('$username', '$email', '$password')";
         mysqli_query($db, $sql);
-
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "Welcome !;
         header('location: ../Frontend/main.php');
     }
-
     // Log user from login page
     if (isset($_POST['])) {
         $username = mysql_real_escape_string($_POST['username']);
         $password = mysql_real_escape_string($_POST['password']);
-
         // ensure the fields are filled properly
         if (empty($username)) {
         array_push($errors, "Username is required");
@@ -81,12 +100,10 @@ $password2 = $_POST['password2']; */
         if (empty($password)) {
             array_push($errors, "Password is required");
         }
-
         if(count($errors) == 0) {
             $password = md5($password); // encrypt password before comparing it with the database
             $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' ";
             $result = mysqli_query($db, $query);
-
             if (mysqli_num_rows($result) == 1) {
                 // log user in
                 $_SESSION['username'] = $username;
@@ -96,10 +113,8 @@ $password2 = $_POST['password2']; */
                 array_push($errors, "Wrong username/password combo.")
             }
         }
-
     }
     
-
     // Logout
     if (isset($_GET['logout'])) {
         session_destroy();
