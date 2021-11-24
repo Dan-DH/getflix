@@ -108,6 +108,18 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
     - Check if field is blank, and/or the email/username already exists. 
     - Tutorials.
 
+## Day three (24/11) :
+
+**Morning meet**
+- Make a test.php ? Unit testing
+- Adding animations to the pages (achievements)
+
+Tasks :
+- Shivani : frontend work on the main page (movie menus, carousel ?);
+- Daniel : account page (front and back);
+- Teo : testing the login page with the existing database, then research into unit testing and creating a back office.
+- Brigita : finishing the contact page + 
+
 
 ## Resources
 - https://dev.to/techworld_with_nana/top-8-docker-best-practices-for-using-docker-in-production-1m39
