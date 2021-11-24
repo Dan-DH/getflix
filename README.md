@@ -131,3 +131,5 @@ Tasks :
 - https://stackoverflow.com/questions/20397267/alternative-to-localstorage-for-php
 - https://designcorral.com/blog/email-already-exists-in-php/
 - https://www.formget.com/login-form-in-php/
+------------------
+https://flickity.metafizzy.co/ for carousel - Javascript library
