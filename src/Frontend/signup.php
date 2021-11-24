@@ -1,4 +1,4 @@
-<?php //include('../Backend/server.php')?>
+<?php include('../Backend/server.php')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,22 +12,22 @@
     <div class="navbar">
         <h1>Getflix</h1>
         <div class="buttons">
-            <button type="button" id="login">Log in</button>
-            <button type="button" id="sign">Sign up</button>
+            <button type="submit" id="login">Log in</button>
+            <button type="submit" id="sign">Sign up</button>
         </div>
     </div>
 
     <main>
         <div class="fill_form">
-            <form action="" method="post">
-            
-            <!-- Validation errors -->
-            <!--<?php// include('../Backend/errors.php')?>-->
+            <form action="signup.php" method="post">
 
                 <h2>Sign up</h2>
-                <input type="text" placeholder="username" class="sf" name="username">
-                <input type="text" placeholder="email" class="sf" name="email">
-                <input type="password" placeholder="password" class="sf" name="password1">
+                <!-- Validation errors -->
+                <?php include('../Backend/errors.php')?>
+                
+                <input type="text" placeholder="username" class="sf" name="username" value="<?php echo $username; ?>">
+                <input type="text" placeholder="email" class="sf" name="email" value="<?php echo $email; ?>">
+                <input type="password" placeholder="password" class="sf" name="password1" >
                 <input type="password" placeholder="confirm password" class="sf" name="password2">
 
                 <button type="submit" class="submit" name="signup">Submit</button>
@@ -36,8 +36,29 @@
             </form>
         </div>
     </main>
-    <footer> <p>Copyright &#169; 2021 </p> 
+    <footer id="desktop_footer"> 
+        <p>Copyright &#169; 2021</p> 
         <p>A collab between <a href="https://github.com/Dan-DH">Daniel</a>, <a href="https://github.com/Brigilets">Brigita</a>, <a href="https://github.com/ShivaniKhatri96/">Shivani</a> and <a href="https://github.com/teo-cozma">Teodora</a>.</p>
+    </footer>
+
+    <footer id="mobile_footer">
+
+        <div class="footer_img">
+            <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
+                <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
+            </a>
+            <a href="https://github.com/Dan-DH" target="_blank" rel="noopener">
+                <img src="../assets/daniIcon.webp" alt="githubLink" class="portrait">
+            </a>
+            <a href="https://github.com/ShivaniKhatri96" target="_blank" rel="noopener">
+                <img src="../assets/shivaniIcon.webp" alt="githubLink" class="portrait">
+            </a>
+            <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
+                <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
+            </a>
+        </div>
+        <p>Copyright &#169; 2021</p>
+            
     </footer>
 
 </body>
