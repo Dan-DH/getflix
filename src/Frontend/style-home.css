@@ -55,3 +55,17 @@ a {
         display: none;
           }
  }
+/* 
+ ul.pic {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    width: 600px;
+    overflow-x: auto;
+    background-color: #ddd;
+  }
+  ul.pic li {
+    display: inline;
+    width: 150px;
+    height: 150px;
+  } */
