@@ -55,17 +55,23 @@ a {
         display: none;
           }
  }
-/* 
- ul.pic {
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-    width: 600px;
-    overflow-x: auto;
-    background-color: #ddd;
-  }
-  ul.pic li {
-    display: inline;
-    width: 150px;
-    height: 150px;
-  } */
+/* The box-sizing property allows us to include the padding and border in an element's total width and height. */
+ * {box-sizing: border-box;}
+
+ /* body { font-family: sans-serif; } */
+ /* .carousel {
+     background: black;
+ } */
+
+ .carousel-cell {
+   width: 28%;
+   height: 200px;
+   margin-right: 10px;
+   background: #8C8;
+   border-radius: 5px;
+   counter-increment: carousel-cell;
+ }
+ 
+
+
+  
