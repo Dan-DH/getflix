@@ -85,32 +85,76 @@ a:hover {
   padding: 0;
 }
 
-.containerForm {
+.containerForm,
+.containerAchievement {
   background-color: #7d9ba53d;
   margin: 0 auto;
   border-radius: 10px;
   padding: 2% 3%;
 }
 
-.achievImage {
-  margin: 2% 0;
-}
-
 .containerAchievement {
   display: flex;
-  /* flex: 1 0 100%; */
   align-items: center;
-  background-color: pink;
 }
 
-.achievementRow2 {
-  background-color: red;
+.achievImage {
+  margin: 5% 0;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 
-.achievementRow1 {
-  background-color: blue;
+.rowAchievement {
+  width: 100%;
+  margin: 0;
+}
+
+.achievementRow {
+  text-align: center;
+}
+
+h3 {
+  font-weight: bold;
 }
 
 span {
   color: #51d0fa;
+  padding-left: 5px;
+  display: none;
+}
+
+#footer {
+  width: 100%;
+  height: 70px;
+}
+
+.portrait {
+  border-radius: 50%;
+  max-width: 50%;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .hide2 {
+    display: none;
+  }
+
+  .userform {
+    margin: 1% 0;
+  }
+
+  .achievementRow {
+    text-align: left;
+  }
+
+  span {
+    display: inline;
+  }
+
+  .achievImage {
+    margin: 2% 0;
+    width: 150px;
+    height: 150px;
+  }
 }
