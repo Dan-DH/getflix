@@ -29,28 +29,76 @@
 print_r($_POST);
 echo'</pre';*/
 //$message_sent=false;
-if((isset($_POST['email'])&&  $_POST['email'] !="")&&isset($_POST['submit'])){
-    if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-        //getting data from the form
+function openConnection() { 
+    $dbhost = "database"; 
+    $dbuser = "root";
+    $dbpass = "getflixRoot";
+    $db = "getflix";
+    //do we need the charset?
 
-        function openConnection() { 
-            $name = $_POST['name'];
-$email = $_POST['email'];
-$issue = $_POST['issue'];
-$message = $_POST['message'];
-            $dbhost = "database"; 
-            $dbuser = "root";
-            $dbpass = "getflixRoot";
-            $db = "getflix";
-            //do we need the charset?
-    
-            $pdo = new PDO("mysql:host=$dbhost;dbname=$db",$dbuser,$dbpass);
-            echo "connected";
-            return $pdo;
-        };
-    
-        $pdo = openConnection();
-        $pdo->query("SELECT * FROM contact;")->fetchAll(PDO::FETCH_OBJ));
+    try {
+        $pdo = new PDO("mysql:host=$dbhost;dbname=$db",$dbuser,$dbpass);
+        //echo "Connected";
+        return $pdo;
+    } catch (PDOException $e) {
+        echo "Connection failed : " . $e->getMessage();
+    }
+};
+
+$status="";
+//validation for form method
+if($_SERVER['REQUEST_METHOD'=='POST']){
+  //  $pdo = openConnection();
+//getting data from the form
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $issue = $_POST['issue'];
+    $message = $_POST['message'];
+$contact_date = date(("j M Y H:i:s ") . "<br>");
+//validation for unfilled fields native php function empty()
+   if(empty($name) || empty($email) || empty($issue) || empty($message)){
+       $status="Please fill in all the fields";
+       echo $status;
+   }else{//checking if name is not too long
+       if(strlen($name)>255){
+           $status="Please, enter a valid name.";
+           echo $status;
+           //validating email for case not valid
+       }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+           $status='Please, enter a valid email address.';
+           echo $status;
+       }else{
+           $sql="INSERT INTO contact (name, email ,issue ,message,contact_date) VALUES(:name, :email, :issue, :message, :contact_date)";
+           //$stmt= statement
+           $stmt = $pdo->prepare($sql);
+           $stmt->execute(['name'=>$name, 'email'=>$email, 'issue'=>$issue, 'message'=>$message, 'contact_date'=>$contact_date]);
+           
+           $status = "Your message was sent, well get back to you shortly.";
+           $name="";
+           $email="";
+           $issue="";
+           $message="";
+           $contact_date="";
+/*echo '<pre>';
+print_r($stmt);
+echo'</pre';*/
+           echo $status;
+       }
+   }
+   }
+   // if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+        
+       /* 
+     
+           if (strpos($username, "@")) {
+            $contact ="SELECT * FROM contact WHERE name = $name AND email = $email AND issue=$issue AND message = $message;";
+        } else {
+            $contact = "SELECT * FROM contact WHERE name = 'Dan-DH' AND email = 'daniel@getflix.com' AND issue = 'other' AND message = 'Love this, you should charge more' ";
+        }
+        $t = $pdo->query($contact)->fetchAll();
+            
+           
+      //  $pdo->query("SELECT * FROM contact;")->fetchAll(PDO::FETCH_OBJ));
        /* echo "<pre>";
         print_r($pdo->query("SELECT * FROM contact;")->fetchAll(PDO::FETCH_OBJ));
         echo "</pre>";*/
@@ -66,21 +114,23 @@ $message = $_POST['message'];
   //sending out email
 //mail($to,$issue,$body);
 //$message_sent=true;
-echo "<h3>Thanks, we'll be in touch!</h3>";
+/*echo "<h3>Thanks, we'll be in touch!</h3>";
     }
     else{
         //if email was invalid
-      echo'Please, enter valid email address';
+      echo'Please, enter valid email';
     }
-}
+}else{
+    echo'<h3>Please enter valid email address';
+};*/
 ?>
 
     <input type="text" name="name" placeholder='Please, nter your name' id="name">
     <input type="email" name="email" placeholder="Please,enter your email" id="email">
         <label for="issue_type">
         <select name="issue" id="issue_type">
-            <option value="select">Please, specify your issue</option>
-            <option value="movies notloading">Movies not loading</option>
+            <option value="">Please, specify your issue</option>
+            <option value="movies not loading">Movies not loading</option>
             <option value="cannot update my profile">Cannot update my profile info</option>
             <option value="other">Other</option>
         </select><br><br>

@@ -14,7 +14,7 @@ CREATE TABLE users (
 
 CREATE TABLE contact (
 	messageID int(10) not null primary key auto_increment,
-	name varchar(25) not null,
+	name varchar(255) not null,
 	email varchar(255) not null,
 	issue varchar(225) not null,
 	message varchar(255) not null,
