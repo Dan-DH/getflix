@@ -67,7 +67,7 @@ a:hover {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  width: 30%;
+  width: 50%;
   text-transform: uppercase;
   color: #2db5e1;
   border-radius: 10px;
@@ -98,14 +98,18 @@ h2 {
   font-size: 16px;
 }
 
-footer {
-  display: grid;
-  justify-content: space-between;
-  margin: 3em auto;
-  max-width: 90%;
+#desktop_footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+}
+#mobile_footer {
+  display: none;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 992px) {
   h1 {
     font-size: 35px;
   }
@@ -118,7 +122,7 @@ footer {
   }
   a,
   p {
-    font-size: 11px;
+    font-size: 12px;
   }
   .fill_form {
     width: 70%;
