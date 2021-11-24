@@ -100,17 +100,13 @@ a:hover {
   display: flex;
   /* flex: 1 0 100%; */
   align-items: center;
-  background-color: pink;
 }
 
-.achievementRow2 {
-  background-color: red;
-}
-
-.achievementRow1 {
-  background-color: blue;
+.rowAchievement {
+  width: 100%;
 }
 
 span {
   color: #51d0fa;
+  padding-left: 5px;
 }

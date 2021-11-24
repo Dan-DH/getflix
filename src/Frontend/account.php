@@ -49,7 +49,7 @@
     </div>
 
     <div class="col-12 col-md-7 containerAchievement">
-        <div class="row">
+        <div class="row rowAchievement">
             <div class="col-12 col-md-6 achievementRow1">
                 <img class="achievImage" src="../assets/achievement1.jpg" alt="Level 1" width="150" height="150">
                 <span>Watched your first movie</span><br>
