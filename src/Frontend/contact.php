@@ -29,73 +29,84 @@
 print_r($_POST);
 echo'</pre';*/
 //$message_sent=false;
-function openConnection() { 
-    $dbhost = "database"; 
-    $dbuser = "root";
-    $dbpass = "getflixRoot";
-    $db = "getflix";
+ 
+/*$dbhost = "database"; 
+   $dbuser = "root";
+   $dbpass = "getflixRoot";
+   $db = "getflix";*/
     //do we need the charset?
 
-    try {
+   /* try {
         $pdo = new PDO("mysql:host=$dbhost;dbname=$db",$dbuser,$dbpass);
         //echo "Connected";
         return $pdo;
     } catch (PDOException $e) {
         echo "Connection failed : " . $e->getMessage();
     }
-};
+};*/
+//
+$database=mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
 
 $status="";
 //validation for form method
-if($_SERVER['REQUEST_METHOD'=='POST']){
-  //  $pdo = openConnection();
+if(isset($_POST['submit'])){
+   //$pdo = openConnection();
 //getting data from the form
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $issue = $_POST['issue'];
-    $message = $_POST['message'];
-$contact_date = date(("j M Y H:i:s ") . "<br>");
+    $name = mysqli_real_escape_string($database,$_POST['name']);
+    $email = mysqli_real_escape_string($database,$_POST['email']);
+    $issue = mysqli_real_escape_string($database, $_POST['issue']);
+    $message = mysqli_real_escape_string($database, $_POST['message']);
+
+// added automatically $contact_date =mysqli_real_escape_string($database,date("j M Y H:i:s "));
 //validation for unfilled fields native php function empty()
    if(empty($name) || empty($email) || empty($issue) || empty($message)){
        $status="Please fill in all the fields";
        echo $status;
-   }else{//checking if name is not too long
-       if(strlen($name)>255){
+   };//checking if name is not too long
+   if(strlen($name)>255){
            $status="Please, enter a valid name.";
            echo $status;
            //validating email for case not valid
-       }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+       };if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
            $status='Please, enter a valid email address.';
            echo $status;
        }else{
-           $sql="INSERT INTO contact (name, email ,issue ,message,contact_date) VALUES(:name, :email, :issue, :message, :contact_date)";
-           //$stmt= statement
+// IF EVERYTHING IS CORRECTLY FILLED
+          //executing query and returning the message
+   //query to insert the variables into DB
+           $sql="INSERT INTO contact (name, email ,issue ,message) VALUES('$name', '$email', '$issue', '$message')";
+          mysqli_query($database, $sql);   
+           $status= "Your message was sent, we'll be in touch with you shortly.";
+           echo $status;
+          
+        };
+           /*$stmt= statement
            $stmt = $pdo->prepare($sql);
-           $stmt->execute(['name'=>$name, 'email'=>$email, 'issue'=>$issue, 'message'=>$message, 'contact_date'=>$contact_date]);
+           $stmt->execute(['name'=>$name, 'email'=>$email, 'issue'=>$issue, 'message'=>$message, 'contact_date'=>$databasetact_date]);
            
            $status = "Your message was sent, well get back to you shortly.";
            $name="";
            $email="";
            $issue="";
            $message="";
-           $contact_date="";
+           $databasetact_date="";*/
 /*echo '<pre>';
 print_r($stmt);
-echo'</pre';*/
-           echo $status;
+echo'</pre';
+           echo $status;*/
        }
-   }
-   }
+    
+   
    // if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
         
        /* 
      
            if (strpos($username, "@")) {
-            $contact ="SELECT * FROM contact WHERE name = $name AND email = $email AND issue=$issue AND message = $message;";
+            $databasetact ="SELECT * FROM contact WHERE name = $name AND email = $email AND issue=$issue AND message = $message;";
         } else {
-            $contact = "SELECT * FROM contact WHERE name = 'Dan-DH' AND email = 'daniel@getflix.com' AND issue = 'other' AND message = 'Love this, you should charge more' ";
+            $databasetact = "SELECT * FROM contact WHERE name = 'Dan-DH' AND email = 'daniel@getflix.com' AND issue = 'other' AND message = 'Love this, you should charge more' ";
         }
-        $t = $pdo->query($contact)->fetchAll();
+        $t = $pdo->query($databasetact)->fetchAll();
             
            
       //  $pdo->query("SELECT * FROM contact;")->fetchAll(PDO::FETCH_OBJ));
@@ -125,8 +136,8 @@ echo'</pre';*/
 };*/
 ?>
 
-    <input type="text" name="name" placeholder='Please, nter your name' id="name">
-    <input type="email" name="email" placeholder="Please,enter your email" id="email">
+    <input type="text" name="name" placeholder='Please, enter your name' id="name">
+    <input type="text" name="email" placeholder="Please,enter your email" id="email">
         <label for="issue_type">
         <select name="issue" id="issue_type">
             <option value="">Please, specify your issue</option>
