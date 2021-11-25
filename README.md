@@ -134,6 +134,16 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Shivani : continuing the home page
 - Teo : testing the login and logout, then adding data on the signup.
 
+**Afternoon meets**
+- Technical challenges :
+    - [ ] Connecting the database to the contact page to save comments ;
+    - Connecting the database to the login page ; 
+    - Connecting db to the API page.
+    - How to incorporate and view the movies according the genre ;
+    - Problems with password encryption interfering with logging in ;
+    - [x] Making the 'test.php' completely inaccessible if there's no one logged in ; 
+    - [x] Making the correct messages appear on the sign in page, if the information is already taken.
+
 
 ## Resources
 - https://dev.to/techworld_with_nana/top-8-docker-best-practices-for-using-docker-in-production-1m39

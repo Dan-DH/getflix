@@ -11,7 +11,6 @@ $errors = array();
 $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
 
     // if the signup submit button is clicked
-    
     if (isset($_POST['signup'])) {
         // Protection against MySQL injection
         /*
@@ -19,32 +18,12 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
         $email = stripslashes($email);
         $password = stripslashes($password);
         */
-        /*
-        $email = test_input($_POST["email"]);
-        if (strlen($email) > 255) {
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $emailErr = "Invalid email format";
-                }
-        } else {
-            echo "Invalid email";
-        }
-        */
         
-        
-        // Which syntax do we keep ? This...
         $username = mysqli_real_escape_string($database, $_POST['username']);
         $email = mysqli_real_escape_string($database, $_POST['email']);
         $password1 = mysqli_real_escape_string($database, $_POST['password1']);
         $password2 = mysqli_real_escape_string($database, $_POST['password2']);
         
-        // ... or this?
-        /*
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $password1 = $_POST['password1'];
-        $password2 = $_POST['password2']; 
-        */
-
         // making sure the fields are filled out
         if (empty($username)) {
             array_push($errors, "Username is required");
@@ -60,27 +39,26 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
         }
 
         // checking database for existing user information
-        /*
-        $user_check_query = "SELECT * FROM users WHERE username = '$username' OR email = '$email' LIMIT 1";
+        $user_check_query = "SELECT * FROM getflix.users WHERE login = '$username' OR email = '$email' LIMIT 1";
         $result = mysqli_query($database, $user_check_query);
         $user = mysqli_fetch_assoc($result);
 
         if ($user) {
-            if ($user['username'] === $username) {
+            if ($user['login'] === $username) {
                 array_push($errors, "Username is taken");
             }
             if ($user['email'] === $email) {
                 array_push($errors, "Email is already registered");
             }
         }
-        */
 
         // No errors, save user to database
         if (count($errors) == 0) {
-            $password = md5($password1); //password encryption before storage
-            $sql = "INSERT INTO getflix.users (login, email, password) VALUES ('$username', '$email', '$password')";
+            //$password = md5($password1); //password encryption before storage
+            $password = $password1;
+            $query = "INSERT INTO getflix.users (login, email, password) VALUES ('$username', '$email', '$password')";
             
-            mysqli_query($database, $sql);
+            mysqli_query($database, $query);
 
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "Logged in !";
@@ -111,7 +89,7 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
             if (mysqli_num_rows($result) == 1) {
                 // log user in
                 $_SESSION['username'] = $username;
-                $_SESSION['success'] = "Welcome back $username!";
+                $_SESSION['success'] = "Welcome back $username! Ready to chill ?";
                 header('location: ../Frontend/test.php');
             } else {
                 array_push($errors, "Wrong user / password combo.");
@@ -119,12 +97,13 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
         }
     }
     
-// Logout
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['username']);
-    header('location: login.php');
-}
+    // Logout
+    if (isset($_GET['logout'])) {
+        session_destroy();
+        unset($_SESSION['username']);
+        unset($_SESSION['password']);
+        header('location: ../Frontend/login.php');
+    }
 
 /*
 function openConnection() { 

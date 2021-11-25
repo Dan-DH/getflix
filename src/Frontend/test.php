@@ -1,12 +1,7 @@
 <?php include('../Backend/server.php');
 //if user is not logged in, page is inaccessible
     if (empty($_SESSION['username'])){
-        header('location: login.php');
-    }
-    if (isset($_GET['logout'])) {
-        session_destroy();
-        unset($_SESSION['username']);
-        header('location: login.php');
+        header('location: ../Frontend/login.php');
     }
 ?>
 
@@ -103,7 +98,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item fw-bold" href="login.php" name="logout" href="login.php?logout='1'"> <strong>Log out</strong> </a></li>
+                            <li><a class="dropdown-item fw-bold" href="login.php" name="logout"> <strong>Log out</strong> </a></li>
                         </ul>
                     </div>
                 </div>
@@ -124,7 +119,7 @@
         <?php endif ?>
 
         <?php if (isset($_SESSION['username'])): ?>
-            <h3>Ready to chill?</h3>
+            <p><a href="test.php?logout='1'">Logout</a></p>
         <?php endif ?>
     </div> 
 
@@ -142,43 +137,7 @@
       <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
     </ul>
     </main> -->
-    <footer id="footer">
-        <div class="container text-center">
-            <div class="row d-flex">
-                <div class="col order-md-2 d-none d-sm-block">
-                    A collab between <a class="navig-link" href="https://github.com/Dan-DH" target="_blank"
-                        rel="noopener">Daniel</a>, <a class=" navig-link" href="https://github.com/Brigilets"
-                        target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link"
-                        href="https://github.com/ShivaniKhatri96/" target="_blank" rel="noopener">Shivani</a> and <a
-                        class=" navig-link" href="https://github.com/teo-cozma" target="_blank"
-                        rel="noopener">Teodora</a>.
-                </div>
-                <div class="col-3 order-md-4  text-center hide2">
-                    <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
-                        <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
-                    </a>
-                </div>
-                <div class="col-3 text-center hide2">
-                    <a href="https://github.com/Dan-DH" target="_blank" rel="noopener">
-                        <img src="../assets/daniIcon.webp" alt="githubLink" class="portrait">
-                    </a>
-                </div>
-                <div class="col-3  text-center hide2">
-                    <a href="https://github.com/ShivaniKhatri96" target="_blank" rel="noopener">
-                        <img src="../assets/shivaniIcon.webp" alt="githubLink" class="portrait">
-                    </a>
-                </div>
-                <div class="col-3 text-center hide2">
-                    <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
-                        <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
-                    </a>
-                </div>
-                <div class="col col-md-12 mt-2 order-md-1">
-                    Copyright &#169; 2021
-                </div>
-            </div>
-        </div>
-    </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
