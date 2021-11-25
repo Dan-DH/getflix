@@ -86,7 +86,8 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Finding a good color scheme
 
 ## Day two (23/11) :
-**Tasks** :
+
+**Tasks :**
 
 - Shivani : continue the main page.
 - Brigita : method for MySQL, connecting databases, PDO.
@@ -114,16 +115,24 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Make a test.php ? Unit testing
 - Adding animations to the pages (achievements)
 
-Tasks :
+**Tasks :**
 - Shivani : frontend work on the main page (movie menus, carousel ?);
 - Daniel : account page (front and back);
 - Teo : testing the login page with the existing database, then research into unit testing and creating a back office.
 - Brigita : finishing the contact page.
 
-Technical difficulties :
+**Technical difficulties :**
 - Establishing a connection to the database with PDO -> switch to mysqli, which led to some more difficulties in terms of which parameters and their values to insert in that line of code.
 - Creating a "carousel" (or similar) display on the main page that would allow one to navigate one row of movies.
 - Pending : having access to the main page once the correct data is input.
+
+## Day four (25/11) :
+
+**Morning meet**
+- Brigita : finish the Contact page (PDO vs mysqli);
+- Daniel : creating APIs
+- Shivani : continuing the home page
+- Teo : testing the login and logout, then adding data on the signup.
 
 
 ## Resources
@@ -137,4 +146,7 @@ Technical difficulties :
 - https://designcorral.com/blog/email-already-exists-in-php/
 - https://www.formget.com/login-form-in-php/
 
-- 
+- https://www.w3schools.com/howto/howto_js_password_validation.asp
+- https://www.codespeedy.com/create-a-simple-contact-form-in-php-mysql/
+
+- https://www.studentstutorial.com/php/login-logout-with-session

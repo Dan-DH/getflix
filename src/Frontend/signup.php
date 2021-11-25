@@ -27,8 +27,8 @@
                 
                 <input type="text" placeholder="username" class="sf" name="username" value="<?php echo $username; ?>">
                 <input type="text" placeholder="email" class="sf" name="email" value="<?php echo $email; ?>">
-                <input type="password" placeholder="password" class="sf" name="password1" >
-                <input type="password" placeholder="confirm password" class="sf" name="password2">
+                <input type="password" placeholder="password" class="sf" name="password1" value="<?php echo $password1; ?>">
+                <input type="password" placeholder="confirm password" class="sf" name="password2" value="<?php echo $password2; ?>">
 
                 <button type="submit" class="submit" name="signup">Submit</button>
 
