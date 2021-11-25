@@ -36,25 +36,28 @@ function openConnection() {
     $db = "getflix";
     //do we need the charset?
 
-    try {
+   /* try {
         $pdo = new PDO("mysql:host=$dbhost;dbname=$db",$dbuser,$dbpass);
         //echo "Connected";
         return $pdo;
     } catch (PDOException $e) {
         echo "Connection failed : " . $e->getMessage();
     }
-};
+};*/
+//
+$con=mysqli_connect('localhost','root','getfixRoot','getflix') or die(mysqli_error());
 
 $status="";
 //validation for form method
-if($_SERVER['REQUEST_METHOD'=='POST']){
-  //  $pdo = openConnection();
+if($_SERVER['REQUEST_METHOD'=='POST']&& isset($_POST['submit'])){
+   //$pdo = openConnection();
 //getting data from the form
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $issue = $_POST['issue'];
-    $message = $_POST['message'];
-$contact_date = date(("j M Y H:i:s ") . "<br>");
+    $name = $con->real_escape_string($_POST['name']);
+    $email = $con->real_escape_string($_POST['email']);
+    $issue = $con->real_escape_string($_POST['issue']);
+    $message = $con->real_escape_string($_POST['message']);
+
+$contact_date = $con->real_escape_string(date(("j M Y H:i:s ") . "<br>"));
 //validation for unfilled fields native php function empty()
    if(empty($name) || empty($email) || empty($issue) || empty($message)){
        $status="Please fill in all the fields";
@@ -68,8 +71,16 @@ $contact_date = date(("j M Y H:i:s ") . "<br>");
            $status='Please, enter a valid email address.';
            echo $status;
        }else{
-           $sql="INSERT INTO contact (name, email ,issue ,message,contact_date) VALUES(:name, :email, :issue, :message, :contact_date)";
-           //$stmt= statement
+           //query to insert the variables into DB
+           $sql="INSERT INTO contact (name, email ,issue ,message,contact_date) VALUES('".$name.", ".$email.", ".$issue.", ".$message.", ".$contact_date."')";
+          //executing query and returning the message
+          if(!$result = $con->query($sql)){
+              die('Error occured [' .$con->error . ']');
+          }else{
+              echo "Your message was sent, we'll be in touch with you shortly.";
+          };
+        };
+           /*$stmt= statement
            $stmt = $pdo->prepare($sql);
            $stmt->execute(['name'=>$name, 'email'=>$email, 'issue'=>$issue, 'message'=>$message, 'contact_date'=>$contact_date]);
            
@@ -78,10 +89,10 @@ $contact_date = date(("j M Y H:i:s ") . "<br>");
            $email="";
            $issue="";
            $message="";
-           $contact_date="";
-/*echo '<pre>';
+           $contact_date="";*/
+echo '<pre>';
 print_r($stmt);
-echo'</pre';*/
+echo'</pre';
            echo $status;
        }
    }
