@@ -70,7 +70,7 @@ a {
     height: 150px;
   } */
 
-  .content {
+  .content, .success {
       display: flex;
       justify-content: center;
       text-align: center;
