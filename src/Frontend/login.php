@@ -28,7 +28,7 @@
 
                 <?php include('../Backend/errors.php') ?>
 
-                <input type="text" placeholder="username / email" class="sf" name="userinfo" value="<?php echo $userinfo; ?>">
+                <input type="text" placeholder="username" class="sf" name="username" value="<?php echo $username; ?>">
                 <input type="password" placeholder="password" class="sf" name="password" value="<?php echo $password; ?>">
                 <button type="submit" class="submit" name="login">Login</button>
 

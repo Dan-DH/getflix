@@ -78,42 +78,41 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
         // No errors, save user to database
         if (count($errors) == 0) {
             $password = md5($password1); //password encryption before storage
-            $sql = "INSERT INTO getflix.user (username, email, password) VALUES ('$username', '$email', '$password')";
+            $sql = "INSERT INTO getflix.users (login, email, password) VALUES ('$username', '$email', '$password')";
             
-            // Will need to "convert" to PDO syntax
             mysqli_query($database, $sql);
 
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "Logged in !";
-            header('location: ../Frontend/main.php'); //redirect to main
+            header('location: ../Frontend/test.php'); //redirect to main (test)
         }
     }
     
 
 
-    // Log user from login page (priority for today, 24/11 !!!)
+    // Log user from login page
     if (isset($_POST['login'])) {
-        $userinfo = mysqli_real_escape_string($database, $_POST['userinfo']);
+        $username = mysqli_real_escape_string($database, $_POST['username']);
         $password = mysqli_real_escape_string($database, $_POST['password']);
 
         // ensure the fields are filled properly
-        if (empty($userinfo)) {
-        array_push($errors, "Username / email is required");
+        if (empty($username)) {
+        array_push($errors, "Username is required");
         }
         if (empty($password)) {
             array_push($errors, "Password is required");
         }
         if(count($errors) == 0) {
-            $password = md5($password); // encrypt password before comparing it with the database
+            //$password = md5($password); // encrypt password before comparing it with the database
 
-            $query = "SELECT * FROM getflix.users WHERE login='$userinfo' AND email='$userinfo' AND password='$password'";
+            $query = "SELECT * FROM getflix.users WHERE login='$username' AND password='$password'";
 
-            $results = mysqli_query($database, $query);
-            if (mysqli_num_rows($results) == 1) {
+            $result = mysqli_query($database, $query);
+            if (mysqli_num_rows($result) == 1) {
                 // log user in
                 $_SESSION['username'] = $username;
-                $_SESSION['success'] = "Welcome back !";
-                header('location: ../Frontend/main.php');
+                $_SESSION['success'] = "Welcome back $username!";
+                header('location: ../Frontend/test.php');
             } else {
                 array_push($errors, "Wrong user / password combo.");
             }
@@ -147,9 +146,9 @@ function openConnection() {
 
     // When entering the user information
     /*
-    if (isset($_POST['userinfo']) && isset($_POST['password'])) {
+    if (isset($_POST['username']) && isset($_POST['password'])) {
         $pdo = openConnection();
-        $username = $_POST['userinfo'];
+        $username = $_POST['username'];
         //$email = $_POST['email'];
         $password = $_POST['password'];
         //selecting field to query (login/email)

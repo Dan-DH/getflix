@@ -69,3 +69,9 @@ a {
     width: 150px;
     height: 150px;
   } */
+
+  .content {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+  }
