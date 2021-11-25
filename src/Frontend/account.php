@@ -23,23 +23,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['password'] == $_POST['password2']) {
         $newValues = [];
         foreach ($_POST as $k => $v) {
-            if ($v == null) {
-                $newValues[$k] = $resultData[$k];
-            } else {
-                $newValues[$k] = $v;
-            }
+            $v != null ? $newValues[$k] = $v : true;
         };
     
-        array_pop($newValues);
+        count($newValues) > 3 ? array_pop($newValues): true;
     
         foreach ($newValues as $k => $v) {
             $queryUpdate = "UPDATE users SET $k = '$v' WHERE userID = $id;";
             $updateSent = mysqli_query($database, $queryUpdate);
         };
 
-        $errors = "Your data has been updated";
+        $info = "Your data has been updated";
     } else {
-        $errors = "Passwords must match";
+        $info = "Passwords must match";
     }
 }
 ?>
@@ -75,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="password" class="inputfield" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"><br>
             <label for="password2">Repeat password:</label><br>
             <input type="password" class="inputfield" id="password2" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"s><br>
-            <?php echo "<p class='error'>$errors</p>"?>
+            <?php echo "<p class='info'>$info</p>"?>
             <div class="text-center">
                 <button type="submit" class="submit">Update my data</button>
             </div>
