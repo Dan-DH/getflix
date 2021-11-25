@@ -1,14 +1,47 @@
 <?php 
 //for testing purposes
 session_start();
-$_SESSION["userID"] = 1;
+$_SESSION["userID"] = 3;
 //actual code
 $id = $_SESSION["userID"];
 $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
 $login = mysqli_real_escape_string($database, $_SESSION["login"]);
 $query = "SELECT * FROM achievements WHERE userID = $id;";
 $result = mysqli_query($database, $query)-> fetch_array(MYSQLI_ASSOC);
-//print_r($result);
+$queryData = "SELECT * FROM users WHERE userID = $id;";
+$resultData = mysqli_query($database, $queryData)-> fetch_array(MYSQLI_ASSOC);
+//print_r($resultData);
+
+//POST request
+$login = mysqli_real_escape_string($database, $_POST['login']);
+$email = mysqli_real_escape_string($database, $_POST['email']);
+$password1 = mysqli_real_escape_string($database, $_POST['password']);
+$password2 = mysqli_real_escape_string($database, $_POST['password2']);
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if ($_POST['password'] == $_POST['password2']) {
+        $newValues = [];
+        foreach ($_POST as $k => $v) {
+            if ($v == null) {
+                $newValues[$k] = $resultData[$k];
+            } else {
+                $newValues[$k] = $v;
+            }
+        };
+    
+        array_pop($newValues);
+    
+        foreach ($newValues as $k => $v) {
+            $queryUpdate = "UPDATE users SET $k = '$v' WHERE userID = $id;";
+            $updateSent = mysqli_query($database, $queryUpdate);
+        };
+
+        $errors = "Your data has been updated";
+    } else {
+        $errors = "Passwords must match";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -33,15 +66,16 @@ $result = mysqli_query($database, $query)-> fetch_array(MYSQLI_ASSOC);
 </div>
 <div class="row userform">
     <div class="col-12 col-md-4 containerForm">
-        <form action="account.php">
+        <form action="account.php" method="post">
             <label for="login">Current login:</label><br>
-            <input type="text" class="inputfield" id="login" name="login" value="Dan-DH"><br>
+            <input type="text" class="inputfield" id="login" name="login" placeholder="<?php echo $resultData['login']?>" value=""><br>
             <label for="email">Current email:</label><br>
-            <input type="text" class="inputfield" id="email" name="email" value="daniel.diaz.hdez@gmail.com"><br>
-            <label for="npassword">New password:</label><br>
-            <input type="password" class="inputfield" id="npassword" name="npassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
-            <label for="rpassword">Repeat password:</label><br>
-            <input type="password" class="inputfield" id="rpassword" name="rpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+            <input type="text" class="inputfield" id="email" name="email" placeholder="<?php echo $resultData['email']?>" value=""><br>
+            <label for="password">New password:</label><br>
+            <input type="password" class="inputfield" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"><br>
+            <label for="password2">Repeat password:</label><br>
+            <input type="password" class="inputfield" id="password2" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"s><br>
+            <?php echo "<p class='error'>$errors</p>"?>
             <div class="text-center">
                 <button type="submit" class="submit">Update my data</button>
             </div>

@@ -85,6 +85,10 @@ a:hover {
   padding: 0;
 }
 
+.error {
+  font-weight: bold;
+}
+
 .containerForm,
 .containerAchievement {
   background-color: #7d9ba53d;
