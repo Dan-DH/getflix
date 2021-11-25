@@ -1,3 +1,16 @@
+<?php 
+//for testing purposes
+session_start();
+$_SESSION["userID"] = 1;
+//actual code
+$id = $_SESSION["userID"];
+$database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
+$login = mysqli_real_escape_string($database, $_SESSION["login"]);
+$query = "SELECT * FROM achievements WHERE userID = $id;";
+$result = mysqli_query($database, $query)-> fetch_array(MYSQLI_ASSOC);
+//print_r($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +23,7 @@
     <title>Account</title>
 </head>
 <body>
+
 <div class="navbar">
         <h1>Getflix</h1>
         <div class="buttons">
@@ -41,10 +55,6 @@
                 <li class="passList">A number</li>
                 <li class="passList">Minimum 8 characters</li>
             </ul>
-<!--             <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-            <p id="number" class="invalid">A <b>number</b></p>
-            <p id="length" class="invalid">Minimum <b>8 characters</b></p> -->
         </div>
     </div>
 
@@ -52,23 +62,23 @@
         <div class="row rowAchievement text-center">
             <h3>Your achievements</h3>
             <div class="col-6 col-md-6 achievementRow">
-                <img class="achievImage" src="../assets/achievement1.jpg" alt="Level 1">
+                <img class="achievImage <?php echo $result["movie_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.jpg" alt="Level 1" id="movie1">
                 <span>Watched your first movie</span><br>
-                <img class="achievImage" src="../assets/achievement2.jpg" alt="Level 2">
+                <img class="achievImage <?php echo $result["movie_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.jpg" alt="Level 2" id="movie3">
                 <span>Watched five movies</span><br>
-                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 3">
+                <img class="achievImage <?php echo $result["movie_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.jpg" alt="Level 3" id="movie5">
                 <span>Watched ten movies</span><br>
-                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 1">
+                <img class="achievImage <?php echo $result["contact_achievement"] ? 'trans' : ''; ?>" src="../assets/achievement3.jpg" alt="Level 1" id="contact">
                 <span>Contacted the team</span>
             </div>
             <div class="col-6 col-md-6 achievementRow">
-                <img class="achievImage" src="../assets/achievement1.jpg" alt="Level 1">
+                <img class="achievImage <?php echo $result["comment_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.jpg" alt="Level 1" id="comment1">
                 <span>Wrote your first comment</span><br>
-                <img class="achievImage" src="../assets/achievement2.jpg" alt="Level 1">
+                <img class="achievImage <?php echo $result["comment_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.jpg" alt="Level 1" id="comment3">
                 <span>Wrote five comments</span><br>
-                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 1">
+                <img class="achievImage <?php echo $result["comment_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.jpg" alt="Level 1" id="comment5">
                 <span>Wrote ten comments</span><br>
-                <img class="achievImage" src="../assets/achievement3.jpg" alt="Level 1">
+                <img class="achievImage <?php echo $result["achievements_all"] ? 'trans' : ''; ?>" src="../assets/achievement3.jpg" alt="Level 1" id="all">
                 <span>Got all achievements !!</span>
             </div>
         </div>
@@ -84,8 +94,7 @@
                         target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link"
                         href="https://github.com/ShivaniKhatri96/" target="_blank" rel="noopener">Shivani</a> and <a
                         class=" navig-link" href="https://github.com/teo-cozma" target="_blank"
-                        rel="noopener">Teodora</a>.
-                </div>
+                        rel="noopener">Teodora</a>.comment_achievement1
                 <div class="col-3 order-md-4  text-center hide2">
                     <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
                         <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
