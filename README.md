@@ -118,7 +118,12 @@ Tasks :
 - Shivani : frontend work on the main page (movie menus, carousel ?);
 - Daniel : account page (front and back);
 - Teo : testing the login page with the existing database, then research into unit testing and creating a back office.
-- Brigita : finishing the contact page + 
+- Brigita : finishing the contact page.
+
+Technical difficulties :
+- Establishing a connection to the database with PDO -> switch to mysqli, which led to some more difficulties in terms of which parameters and their values to insert in that line of code.
+- Creating a "carousel" (or similar) display on the main page that would allow one to navigate one row of movies.
+- Pending : having access to the main page once the correct data is input.
 
 
 ## Resources
@@ -131,3 +136,5 @@ Tasks :
 - https://stackoverflow.com/questions/20397267/alternative-to-localstorage-for-php
 - https://designcorral.com/blog/email-already-exists-in-php/
 - https://www.formget.com/login-form-in-php/
+
+- 
