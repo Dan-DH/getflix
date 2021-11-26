@@ -15,6 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="./style-home.css">
     <title>Document</title>
 </head>
@@ -105,7 +106,8 @@
             </div>
         </nav>
     </header>
-
+    
+<main>
     <div class="content">
         <?php if (isset($_SESSION['success'])): ?>
             <div class="error success">
@@ -127,17 +129,52 @@
     <div>
         <h3 id="comedy">Comedy</h3>
     </div>
-<!-- <main>
-<ul class="pic">
-      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
-      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
-      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
-      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
-      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
-      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
-      <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
-    </ul>
-    </main> -->
+    <div class="carousel" data-flickity='{ "groupCells": true}'>
+<?php
+//  $apikey = "271b40684c0dc7716d75c02906a97e9f";
+// include ("../movie-api/api_toprated.php");
+// foreach($toprated->results as $p){
+//     echo '<div class="carousel-cell"><img src="https://image.tmdb.org/t/p/w500'. $p->poster_path . '"></div>' ;
+// }
+?>
+    <div class="carousel-cell">
+    <img data-tab="bright" src="http://www.thebrandage.com/assets/image/uploads/haberler/Bright_TUR.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="avatar" src="https://i.pinimg.com/736x/a4/23/f8/a423f86593029b7d2a6d9f1e1fd1e406---movies-movies-to-watch-online.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="thor" src="https://mikeantjones.files.wordpress.com/2012/04/thor-film-poster.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="john" src="https://images-na.ssl-images-amazon.com/images/I/91H06HPhX%2BL._SY717_.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="deadpool2" src="https://icdn3.digitaltrends.com/image/deadpool-2-thanksgiving-poster-1294x2048.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="fight" src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="bright" src="http://www.thebrandage.com/assets/image/uploads/haberler/Bright_TUR.jpg"/>
+    <div class="carousel-cell">
+    <img data-tab="avatar" src="https://i.pinimg.com/736x/a4/23/f8/a423f86593029b7d2a6d9f1e1fd1e406---movies-movies-to-watch-online.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="thor" src="https://mikeantjones.files.wordpress.com/2012/04/thor-film-poster.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="john" src="https://images-na.ssl-images-amazon.com/images/I/91H06HPhX%2BL._SY717_.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="deadpool2" src="https://icdn3.digitaltrends.com/image/deadpool-2-thanksgiving-poster-1294x2048.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="fight" src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"/>
+    </div>
+    </div>
+
+    </main>
     <footer id="footer">
         <div class="container text-center">
             <div class="row d-flex">
@@ -181,7 +218,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-        
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        <!-- <div class="content">
+            <?php if (isset($_SESSION['success'])): ?>
+                <div class="error-success">
+                    <h3>
+                        <?php
+                            echo $_SESSION['success'];
+                            unset($_SESSION['success']);
+                        ?>
+                    </h3>
+                </div>
+            <?php endif ?>
+    
+            <?php if (isset($_SESSION['username'])): ?>
+                <p>Welcome back <strong> <?php echo $_SESSION['username']; ?> </strong>. Ready to chill?</p>
+                <p><a href="../Frontend/login.php?logout='1'"><strong>Logout</strong></a></p>
+            <?php endif ?>
+        </div> -->
 </body>
 
 </html>
+

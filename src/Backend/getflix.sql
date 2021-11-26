@@ -33,8 +33,8 @@ CREATE TABLE movies (
 	movieID int(10) not null primary key auto_increment,
 	title varchar(255) not null,
 	image varchar(255) not null,
-	trailer varchar(255) not null,
-	genre varchar(255) not null,
+	trailer varchar(255),
+	genre varchar(255),
 	rating float(2) not null,
 	synopsis varchar(255) not null
 );

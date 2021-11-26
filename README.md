@@ -162,6 +162,8 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - https://stackoverflow.com/questions/20397267/alternative-to-localstorage-for-php
 - https://designcorral.com/blog/email-already-exists-in-php/
 - https://www.formget.com/login-form-in-php/
+------------------
+- https://flickity.metafizzy.co/ for carousel - Javascript library
 
 - https://www.w3schools.com/howto/howto_js_password_validation.asp
 - https://www.codespeedy.com/create-a-simple-contact-form-in-php-mysql/
