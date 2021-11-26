@@ -1,4 +1,4 @@
-<?php include('../Backend/server.php');
+<?php include('../Backend/PDOserver.php');
 //if user is not logged in, page is inaccessible
     if (empty($_SESSION['username'])){
         header('location: ../Frontend/login.php');
