@@ -111,7 +111,14 @@
     
 <main>
 <div class="carousel" data-flickity='{ "groupCells": true}'>
-    <div class="carousel-cell">
+<?php
+ $apikey = "271b40684c0dc7716d75c02906a97e9f";
+include ("../movie-api/api_toprated.php");
+foreach($toprated->results as $p){
+    echo '<div class="carousel-cell"><img src="https://image.tmdb.org/t/p/w500'. $p->poster_path . '"></div>' ;
+}
+?>
+    <!-- <div class="carousel-cell">
     <img data-tab="bright" src="http://www.thebrandage.com/assets/image/uploads/haberler/Bright_TUR.jpg"/>
     </div>
     <div class="carousel-cell">
@@ -146,7 +153,7 @@
     </div>
     <div class="carousel-cell">
     <img data-tab="fight" src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"/>
-    </div>
+    </div> -->
     </div>
 
     </main>
@@ -214,3 +221,4 @@
 </body>
 
 </html>
+

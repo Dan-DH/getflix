@@ -31,7 +31,7 @@
 </section>
 </body>
 </html> -->
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,8 +79,9 @@ body { font-family: sans-serif; }
 <body>
 <h1>Flickity - groupCells</h1>
 
-<!-- Flickity HTML init -->
+Flickity HTML init
 <div class="carousel" data-flickity='{ "groupCells": true }'>
+
   <div class="carousel-cell"></div>
   <div class="carousel-cell"></div>
   <div class="carousel-cell"></div>
@@ -95,4 +96,5 @@ body { font-family: sans-serif; }
 </div>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
-</html>
+</html> -->
+
