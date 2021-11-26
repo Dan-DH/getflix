@@ -98,3 +98,13 @@ Flickity HTML init
 </body>
 </html> -->
 
+<?php
+ $apikey = "271b40684c0dc7716d75c02906a97e9f";
+include ("../movie-api/api_toprated.php");
+foreach($toprated->results as $p){
+  echo "<pre>";
+    print_r($p) ;
+    echo "</pre>";
+
+}
+?>
