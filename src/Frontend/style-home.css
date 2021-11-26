@@ -77,6 +77,8 @@ a {
     /* background-size: cover; */
 }
  
-
-
-  
+  .content, .success {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+  }

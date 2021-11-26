@@ -1,11 +1,9 @@
-<!-- <?php //include('../Backend/server.php');
-
-// if user is not logged in, page is inaccessible
-    // if (empty($_SESSION['username'])){
-    //     header('location: login.php');
-    // }
-
- ?> -->
+<?//php include('../Backend/server.php');
+//if user is not logged in, page is inaccessible
+    //if (empty($_SESSION['username'])){
+     //    header('location: login.php');
+//    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -101,7 +99,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item fw-bold" href="./login.php">Log out</a></li>
+                            <li><a class="dropdown-item fw-bold" href="login.php?logout='1'" name="logout">Log out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -110,7 +108,28 @@
     </header>
     
 <main>
-<div class="carousel" data-flickity='{ "groupCells": true}'>
+    <div class="content">
+        <?php if (isset($_SESSION['success'])): ?>
+            <div class="error success">
+                <h3>
+                    <?php
+                        echo $_SESSION['success'];
+                        unset($_SESSION['success']);
+                    ?>
+                </h3>
+            </div>
+        <?php endif ?>
+
+        <?php if (isset($_SESSION['username'])): ?>
+            <p>Welcome back <strong> <?php echo $_SESSION['username']; ?> </strong>. Ready to chill?</p>
+            <!--<p><a href="login.php?logout='1'"><strong>Logout</strong></a></p>-->
+        <?php endif ?>
+    </div> 
+
+    <div>
+        <h3 id="comedy">Comedy</h3>
+    </div>
+    <div class="carousel" data-flickity='{ "groupCells": true}'>
 <?php
  $apikey = "271b40684c0dc7716d75c02906a97e9f";
 include ("../movie-api/api_toprated.php");
@@ -138,7 +157,6 @@ foreach($toprated->results as $p){
     </div>
     <div class="carousel-cell">
     <img data-tab="bright" src="http://www.thebrandage.com/assets/image/uploads/haberler/Bright_TUR.jpg"/>
-    </div>
     <div class="carousel-cell">
     <img data-tab="avatar" src="https://i.pinimg.com/736x/a4/23/f8/a423f86593029b7d2a6d9f1e1fd1e406---movies-movies-to-watch-online.jpg"/>
     </div>
@@ -178,14 +196,14 @@ foreach($toprated->results as $p){
                         <img src="../assets/daniIcon.webp" alt="githubLink" class="portrait">
                     </a>
                 </div>
-                <div class="col-3 text-center hide2">
-                    <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
-                        <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
-                    </a>
-                </div>
                 <div class="col-3  text-center hide2">
                     <a href="https://github.com/ShivaniKhatri96" target="_blank" rel="noopener">
                         <img src="../assets/shivaniIcon.webp" alt="githubLink" class="portrait">
+                    </a>
+                </div>
+                <div class="col-3 text-center hide2">
+                    <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
+                        <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
                     </a>
                 </div>
                 <div class="col col-md-12 mt-2 order-md-1">

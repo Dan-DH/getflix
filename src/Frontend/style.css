@@ -98,7 +98,7 @@ h2 {
   font-size: 16px;
 }
 
-#desktop_footer {
+footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -108,8 +108,12 @@ h2 {
 #mobile_footer {
   display: none;
 }
+.portrait {
+  border-radius: 50%;
+  max-width: 50%;
+}
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 992px) and (min-width: 460px) {
   h1 {
     font-size: 35px;
   }
@@ -118,14 +122,28 @@ h2 {
   }
   button,
   .submit {
-    font-size: 13px;
+    font-size: 14px;
   }
   a,
   p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .fill_form {
     width: 70%;
+  }
+
+  #desktop_footer {
+    display: none;
+  }
+  #mobile_footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .footer_img {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 2em;
   }
 }
 
@@ -150,5 +168,23 @@ h2 {
   button,
   .submit {
     font-size: 10px;
+  }
+
+  a,
+  p {
+    font-size: 13px;
+  }
+
+  #desktop_footer {
+    display: none;
+  }
+  #mobile_footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .footer_img {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
   }
 }

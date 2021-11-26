@@ -86,7 +86,8 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Finding a good color scheme
 
 ## Day two (23/11) :
-**Tasks** :
+
+**Tasks :**
 
 - Shivani : continue the main page.
 - Brigita : method for MySQL, connecting databases, PDO.
@@ -114,11 +115,34 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Make a test.php ? Unit testing
 - Adding animations to the pages (achievements)
 
-Tasks :
+**Tasks :**
 - Shivani : frontend work on the main page (movie menus, carousel ?);
 - Daniel : account page (front and back);
 - Teo : testing the login page with the existing database, then research into unit testing and creating a back office.
-- Brigita : finishing the contact page + 
+- Brigita : finishing the contact page.
+
+**Technical difficulties :**
+- Establishing a connection to the database with PDO -> switch to mysqli, which led to some more difficulties in terms of which parameters and their values to insert in that line of code.
+- Creating a "carousel" (or similar) display on the main page that would allow one to navigate one row of movies.
+- Pending : having access to the main page once the correct data is input.
+
+## Day four (25/11) :
+
+**Morning meet**
+- Brigita : finish the Contact page (PDO vs mysqli);
+- Daniel : creating APIs
+- Shivani : continuing the home page
+- Teo : testing the login and logout, then adding data on the signup.
+
+**Afternoon meets**
+- Technical challenges :
+    - [ ] Connecting the database to the contact page to save comments ;
+    - Connecting the database to the login page ; 
+    - Connecting db to the API page.
+    - How to incorporate and view the movies according the genre ;
+    - Problems with password encryption interfering with logging in ;
+    - [x] Making the 'test.php' completely inaccessible if there's no one logged in ; 
+    - [x] Making the correct messages appear on the sign in page, if the information is already taken.
 
 
 ## Resources
@@ -133,3 +157,8 @@ Tasks :
 - https://www.formget.com/login-form-in-php/
 ------------------
 https://flickity.metafizzy.co/ for carousel - Javascript library
+
+- https://www.w3schools.com/howto/howto_js_password_validation.asp
+- https://www.codespeedy.com/create-a-simple-contact-form-in-php-mysql/
+
+- https://www.studentstutorial.com/php/login-logout-with-session

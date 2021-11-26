@@ -85,6 +85,10 @@ a:hover {
   padding: 0;
 }
 
+.info {
+  font-weight: bold;
+}
+
 .containerForm,
 .containerAchievement {
   background-color: #7d9ba53d;
@@ -103,6 +107,11 @@ a:hover {
   border-radius: 50%;
   width: 100px;
   height: 100px;
+  opacity: 0.2;
+}
+
+.trans {
+  opacity: 1;
 }
 
 .rowAchievement {
