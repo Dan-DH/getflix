@@ -98,7 +98,10 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item fw-bold" href="login.php" name="logout"> <strong>Log out</strong> </a></li>
+                            <li>
+                                <?php if (isset($_SESSION['username'])): ?>
+                                    <a class="dropdown-item fw-bold" href="test.php?logout='1'" name="logout"> <strong>Log out</strong> </a></li>
+                                <?php endif ?>
                         </ul>
                     </div>
                 </div>
@@ -112,15 +115,17 @@
                 <h3>
                     <?php
                         echo $_SESSION['success'];
-                        unset($_SESSION['success']);
+                        //unset($_SESSION['success']);
                     ?>
                 </h3>
             </div>
         <?php endif ?>
-
-        <?php if (isset($_SESSION['username'])): ?>
-            <p><a href="test.php?logout='1'">Logout</a></p>
-        <?php endif ?>
+        
+        <!--
+        <?php //if (isset($_SESSION['username'])): ?>
+            //$_SESSION['success'] = ;
+        <?php //endif ?> 
+        -->
     </div> 
 
     <div>

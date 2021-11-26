@@ -144,6 +144,13 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
     - [x] Making the 'test.php' completely inaccessible if there's no one logged in ; 
     - [x] Making the correct messages appear on the sign in page, if the information is already taken.
 
+## Day five (25/11) :
+
+- Teo : keep the user logged in, even after refreshing the page + adapt to PDO.
+- Shivani and Dan : transfer data from movie API to our database, and then get it back to the main page + search page.
+- Make a proper welcome page that includes the sign up form but also a "sneak peek" into what the site offers.
+
+
 
 ## Resources
 - https://dev.to/techworld_with_nana/top-8-docker-best-practices-for-using-docker-in-production-1m39
@@ -160,3 +167,8 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - https://www.codespeedy.com/create-a-simple-contact-form-in-php-mysql/
 
 - https://www.studentstutorial.com/php/login-logout-with-session
+
+- https://www.w3schools.com/PHP/php_sessions.asp
+- https://www.w3schools.com/php/php_mysql_connect.asp
+- https://stackoverflow.com/questions/33368507/how-to-stay-signed-in-even-after-clicking-refresh-button
+- https://phpdelusions.net/pdo
