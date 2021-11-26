@@ -6,10 +6,29 @@ $username = "";
 $email = "";
 $errors = array();
 
-// Connecting to the database
-$database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
+// declaring variables for db connection
+$servername = "database";
+$db_user = "root";
+$db_password = "getflixRoot";
+$dbname = "getflix";
 
-    // if the signup submit button is clicked
+// Connecting to the database
+try {
+    $db = new PDO("mysql:host=$servername;dbname=$dbname",$db_user, $db_password);
+    //$db = new PDO ()
+    // set error mode to exception
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
+    /*
+    $statement = $connect->prepare("SELECT login, :email, password FROM getflix.users");
+    $statement->execute();
+    $user = $statement->fetch();*/
+} 
+catch (PDOException $e) {
+    echo "Connection failed : " . $e->getMessage();
+}
+
+// if the signup submit button is clicked
     if (isset($_POST['signup'])) {
         // Protection against MySQL injection
         /*
@@ -18,10 +37,10 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
         $password = stripslashes($password);
         */
 
-        $username = mysqli_real_escape_string($database, $_POST['username']);
-        $email = mysqli_real_escape_string($database, $_POST['email']);
-        $password1 = mysqli_real_escape_string($database, $_POST['password1']);
-        $password2 = mysqli_real_escape_string($database, $_POST['password2']);
+        $username = strip_tags($_REQUEST['username']);
+        $email = strip_tags($_REQUEST['email']);
+        $password1 = strip_tags($_REQUEST['password1']);
+        $password2 = strip_tags($_REQUEST['password2']);
         
         // making sure the fields are filled out
         if (empty($username)) {
@@ -42,6 +61,8 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
 
         // checking database for existing user information
 
+        // mysqli
+        /*
         $user_check_query = "SELECT * FROM getflix.users WHERE login = '$username' OR email = '$email' LIMIT 1";
         $result = mysqli_query($database, $user_check_query);
         $user = mysqli_fetch_assoc($result);
@@ -54,6 +75,7 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
                 array_push($errors, "Email is already registered");
             }
         }
+        */
 
         // No errors, save user to database
         if (count($errors) == 0) {
@@ -68,13 +90,14 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
             header('location: ../Frontend/test.php'); //redirect to main (test)
         }
     }
-    
+
     // Log user from login page
     if (isset($_POST['login'])) {
 
-        $username = mysqli_real_escape_string($database, $_POST['username']);
-        $email = mysqli_real_escape_string($database, $_POST['username']);
-        $password = mysqli_real_escape_string($database, $_POST['password']);
+        $username = strip_tags($_REQUEST['userinfo']);
+        $email = strip_tags($_REQUEST['userinfo']);
+        $password = strip_tags($_REQUEST['password']);
+        //$hash_encrypt = password_hash($password, PASSWORD_DEFAULT);
 
         // ensure the fields are filled properly
         if (empty($username)) {
@@ -86,19 +109,30 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
         if (empty($password)) {
             array_push($errors, "Password is required");
         }
-        if (count($errors) == 0){
-            //$password = md5($password); // encrypt password before comparing it with the database
+        // if (count($errors) == 0)
+        else {
+            try {
+                $select_stmt = $db->prepare("SELECT * FROM users WHERE login=:uname OR email=:uemail");
 
-            $query = "SELECT * FROM getflix.users WHERE login='$username' AND password='$password'";
+                $select_stmt->execute(array('uname'=>$username, 'uemail'=>$email));
 
-            $result = mysqli_query($database, $query);
-            if (mysqli_num_rows($result) == 1) {
-                // log user in
-                $_SESSION['username'] = $username;
-                $_SESSION['success'] = "Welcome back $username! Ready to chill ?";
-                header('location: ../Frontend/test.php');
-            } else {
-                array_push($errors, "Wrong user / password combo.");
+                $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
+
+                if($select_stmt->rowCount() > 0) {
+                    if ($username == $row['username'] OR $email == $row['email']) {
+                        if (password_verify($password, $row['password'])) {
+                            $_SESSION['login'] = $username;
+                            $_SESSION['success'] = "Welcome back $username! Ready to chill ?";
+                            header('location: ../Frontend/test.php');
+                        }
+                        else {
+                            array_push($errors, "Wrong user / password combo.");
+                        }
+                    }
+                }
+
+            } catch (PDOException $e) {
+                echo "Data retrieval failed : " . $e->getMessage();
             }
         }
     }
