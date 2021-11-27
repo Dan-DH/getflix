@@ -31,7 +31,7 @@
 </section>
 </body>
 </html> -->
-<!-- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,15 +96,22 @@ Flickity HTML init
 </div>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
-</html> -->
 
+</html> 
 <?php
- $apikey = "271b40684c0dc7716d75c02906a97e9f";
-include ("../movie-api/api_toprated.php");
-foreach($toprated->results as $p){
-  echo "<pre>";
-    print_r($p) ;
-    echo "</pre>";
+//  $apikey = "271b40684c0dc7716d75c02906a97e9f";
+// include ("../movie-api/api_toprated.php");
+// foreach($toprated->results as $p){
+//   echo "<pre>";
+//     print_r($p) ;
+//     echo "</pre>";
 
-}
+// }
 ?>
+    <?php
+//  $apikey = "271b40684c0dc7716d75c02906a97e9f";
+// include ("../movie-api/api_toprated.php");
+// foreach($toprated->results as $p){
+//     echo '<div class="carousel-cell"><img src="https://image.tmdb.org/t/p/w500'. $p->poster_path . '"></div>' ;
+// }
+// ?>
