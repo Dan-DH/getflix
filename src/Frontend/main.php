@@ -124,9 +124,9 @@
         <?php endif ?>
     </div> 
 <main>
-    <!-- <div>
+    <div>
         <h3 id="comedy">Comedy</h3>
-    </div> -->
+    </div>
 
 <div class="carousel" data-flickity='{ "groupCells": true }'>
 
