@@ -1,4 +1,4 @@
-<?php include('../Backend/server.php')?>
+<?php include('../Backend/PDOserver.php')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +28,7 @@
 
                 <?php include('../Backend/errors.php') ?>
 
-                <input type="text" placeholder="username" class="sf" name="username" value="<?php echo $username; ?>">
+                <input type="text" placeholder="userinfo" class="sf" name="userinfo" value="<?php echo $username; ?>">
                 <input type="password" placeholder="password" class="sf" name="password" value="<?php echo $password; ?>">
                 <button type="submit" class="submit" name="login">Login</button>
 

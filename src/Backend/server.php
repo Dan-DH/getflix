@@ -7,7 +7,6 @@ $email = "";
 $errors = array();
 
 // Connecting to the database
-//$mysqli = new mysqli("127.0.0.1", "root", "root", "getflix-database");
 $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
 
     // if the signup submit button is clicked
@@ -18,7 +17,7 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
         $email = stripslashes($email);
         $password = stripslashes($password);
         */
-        
+
         $username = mysqli_real_escape_string($database, $_POST['username']);
         $email = mysqli_real_escape_string($database, $_POST['email']);
         $password1 = mysqli_real_escape_string($database, $_POST['password1']);
@@ -31,6 +30,9 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
         if (empty($email)) {
             array_push($errors, "Email is required");
         }
+        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            array_push($errors, "Enter a valid email");
+        }
         if (empty($password1)) {
             array_push($errors, "Password is required");
         }
@@ -39,6 +41,7 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
         }
 
         // checking database for existing user information
+
         $user_check_query = "SELECT * FROM getflix.users WHERE login = '$username' OR email = '$email' LIMIT 1";
         $result = mysqli_query($database, $user_check_query);
         $user = mysqli_fetch_assoc($result);
@@ -66,21 +69,24 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
         }
     }
     
-
-
     // Log user from login page
     if (isset($_POST['login'])) {
+
         $username = mysqli_real_escape_string($database, $_POST['username']);
+        $email = mysqli_real_escape_string($database, $_POST['username']);
         $password = mysqli_real_escape_string($database, $_POST['password']);
 
         // ensure the fields are filled properly
         if (empty($username)) {
-        array_push($errors, "Username is required");
+        array_push($errors, "Username / email is required");
         }
+        elseif (empty($email)) {
+            array_push($errors, "Username / email is required");
+            }
         if (empty($password)) {
             array_push($errors, "Password is required");
         }
-        if(count($errors) == 0) {
+        if (count($errors) == 0){
             //$password = md5($password); // encrypt password before comparing it with the database
 
             $query = "SELECT * FROM getflix.users WHERE login='$username' AND password='$password'";
@@ -99,45 +105,8 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
     
     // Logout
     if (isset($_GET['logout'])) {
+        session_unset();
         session_destroy();
-        unset($_SESSION['username']);
-        unset($_SESSION['password']);
         header('location: ../Frontend/login.php');
     }
-
-/*
-function openConnection() { 
-    $dbhost = "database"; 
-    $dbuser = "root";
-    $dbpass = "getflixRoot";
-    $db = "getflix";
-    //do we need the charset?
-
-    try {
-        $pdo = new PDO("mysql:host=$dbhost;dbname=$db",$dbuser,$dbpass);
-        //echo "Connected";
-        return $pdo;
-    } catch (PDOException $e) {
-        echo "Connection failed : " . $e->getMessage();
-    }
-}
-*/
-
-    // When entering the user information
-    /*
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        $pdo = openConnection();
-        $username = $_POST['username'];
-        //$email = $_POST['email'];
-        $password = $_POST['password'];
-        //selecting field to query (login/email)
-        if (strpos($username, "@")) {
-            $login ="SELECT * FROM users WHERE email = $username AND password = $password;";
-        } else {
-            $login = "SELECT * FROM users WHERE login = 'Dan-DH' AND password = 'holaworld'";
-        };
-        $t = $pdo->query($login)->fetchAll();
-    }
-    */
-
 ?>
