@@ -1,0 +1,36 @@
+version: '3.3'
+
+services:
+  ## PHP-Apache service
+  server:
+    build:
+      context: ./
+    container_name: getflix-webserver
+    ports:
+      - 8082:80
+    restart: always
+    volumes:
+      - ./src:/var/www/html
+    env_file:
+      - ./getflix.env
+    networks:
+      - getflix
+
+  ## Mariadb service 
+  database:
+    image: mariadb:10.4.2
+    container_name: getflix-database
+    restart: always
+    volumes:
+      - ./src/Backend:/docker-entrypoint-initdb.d/
+      - getflix_data:/var/lib/mysql
+    env_file:
+      - ./getflix.env
+    networks:
+      - getflix
+
+networks:
+  getflix:
+
+volumes:
+  getflix_data:
