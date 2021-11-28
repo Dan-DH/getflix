@@ -128,7 +128,7 @@
         <h3 id="comedy">Comedy</h3>
     </div>
 
-<div class="carousel" data-flickity='{ "groupCells": true }'>
+<div class="carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
 
 <div class="carousel-cell">
 <img data-tab="bright" src="http://www.thebrandage.com/assets/image/uploads/haberler/Bright_TUR.jpg"/>

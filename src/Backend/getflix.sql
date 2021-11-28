@@ -33,8 +33,8 @@ CREATE TABLE movies (
 	movieID int(10) not null primary key auto_increment,
 	title varchar(255) not null,
 	image varchar(255) not null,
-	trailer varchar(255),
-	genre varchar(255),
+	trailer varchar(255) not null,
+	genre varchar(255) not null,
 	rating float(2) not null,
 	synopsis varchar(255) not null
 );
@@ -50,7 +50,36 @@ CREATE TABLE achievements (
 	contact_achievement bit(1) not null default 0,
 	achievements_all bit(1) not null default 0
 );
-
+-- WITH cte AS (
+-- 	SELECT
+-- 		movieID,
+-- 		title,
+-- 		image,
+-- 		trailer,
+-- 		genre,
+-- 		rating,
+-- 		synopsis,
+-- 		ROW_NUMBER() OVER (
+-- 			PARTITION BY 
+-- 			title,
+-- 			image,
+-- 			trailer,
+-- 			genre,
+-- 			rating,
+-- 			synopsis
+-- 		ORDER BY
+-- 			title,
+-- 			image,
+-- 			trailer,
+-- 			genre,
+-- 			rating,
+-- 			synopsis
+-- 		)row_num 
+-- 		FROM 
+-- 			movies
+-- )
+-- DELETE FROM cte
+-- WHERE row_num > 1;
 --Adding movies to the DB. To be replaced with the data from the Movie DB API
 -- INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("Jurassic Park", "https://image.tmdb.org/t/p/original/5V4wkqAIjcRL1TqXiB9iNn0EPrI.jpg", "https://www.youtube.com/watch?v=QWBKEmWWL38", "Action / Adventure / Sci-Fy", 8.1, "A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.");
 
