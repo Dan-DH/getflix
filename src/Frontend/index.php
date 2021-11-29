@@ -1,5 +1,5 @@
-<?php/* include('../Backend/PDOserver.php');
-include('../Backend/errors.php');
+<?phpinclude('../Backend/PDOserver.php');
+/*include('../Backend/errors.php');
 //include('../Backend/test.php')
 include('../Frontend/account.php');
 include('../Frontend/contact.php');
