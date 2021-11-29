@@ -120,6 +120,6 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
     if (isset($_GET['logout'])) {
         session_unset();
         session_destroy();
-        header('location: ../Frontend/login.php');
+        header('location: ../Frontend/index.php');
     }
 ?>

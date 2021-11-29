@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-<?php include('../Backend/server.php')?>
-=======
-<?php include('../Backend/PDOserver.php')?>
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
+<?php 
+//include('../Backend/server.php');
+include('../Backend/PDOserver.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
