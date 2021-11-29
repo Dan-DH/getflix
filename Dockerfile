@@ -4,7 +4,11 @@ FROM php:7.3-apache
 COPY ./ /var/www/html
 
 ## Install git and unzip
+<<<<<<< HEAD
 RUN apt-get update && apt-get install -y --no-install-recommends git unzip  && \
+=======
+RUN apt-get update && apt-get install -y --no-install-recommends git unzip && \
+>>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
     rm -rf /var/lib/apt/lists/*
 
 ## Install composer
