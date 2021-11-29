@@ -3,6 +3,9 @@
 session_start();
 $_SESSION["userID"] = 3;
 //actual code
+if (empty($_SESSION['username'])){
+    header('location: ../Frontend/index.php');
+};
 $id = $_SESSION["userID"];
 $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
 $login = mysqli_real_escape_string($database, $_SESSION["login"]);

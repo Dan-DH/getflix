@@ -149,4 +149,24 @@ catch (PDOException $e) {
         session_destroy();
         header('location: ../Frontend/index.php');
     }
+
+    // // update account info
+    // if (isset($_GET['update'])) {
+    //     $username = strip_tags($_POST['username']);
+    //     $email = strip_tags($_POST['email']);
+    //     $password1 = strip_tags($_POST['password1']);
+    //     $password2 = strip_tags($_POST['password2']);
+    // }
+
+    // $login = mysqli_real_escape_string($database, $_SESSION["login"]);
+    // $query = "SELECT * FROM achievements WHERE userID = $id;";
+    // $result = mysqli_query($database, $query)-> fetch_array(MYSQLI_ASSOC);
+    // $queryData = "SELECT * FROM users WHERE userID = $id;";
+    // $resultData = mysqli_query($database, $queryData)-> fetch_array(MYSQLI_ASSOC);
+    // //print_r($resultData);
+
+    // $login = strip_tags($database, $_POST['login']);
+    // $email = strip_tags($database, $_POST['email']);
+    // $password1 = strip_tags($database, $_POST['password']);
+    // $password2 = strip_tags($database, $_POST['password2']);
 ?>
