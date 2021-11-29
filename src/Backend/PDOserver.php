@@ -147,6 +147,6 @@ catch (PDOException $e) {
     if (isset($_GET['logout'])) {
         session_unset();
         session_destroy();
-        header('location: ../Frontend/login.php');
+        header('location: ../Frontend/index.php');
     }
 ?>

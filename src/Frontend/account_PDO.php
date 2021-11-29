@@ -3,7 +3,7 @@ include('../Backend/resetPassword.php');
 //include('../Backend/PDOserver.php');
 
 if (empty($_SESSION['username'])){
-    header('location: ../Frontend/login.php');
+    header('location: ../Frontend/index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ if (empty($_SESSION['username'])){
         <h1>Getflix</h1>
         <div class="buttons">
             <a href="./test.php"><button type="button" id="home">Home</button></a>
-            <a href="./login.php"><button type="button" id="logout">Log out</button></a>
+            <a href="./index.php"><button type="button" id="logout">Log out</button></a>
         </div>
     </div>
 
