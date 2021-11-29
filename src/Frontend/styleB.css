@@ -110,10 +110,10 @@ footer {
 #mobile_footer {
   display: none;
 }
-.portrait {
+/*.portrait {
   border-radius: 50%;
   max-width: 50%;
-}
+}*/
 
 @media screen and (max-width: 992px) and (min-width: 460px) {
   h1 {
@@ -134,18 +134,16 @@ footer {
     width: 70%;
   }
 
-  #desktop_footer {
+  #mobile_footer {
     display: none;
   }
-  #mobile_footer {
+  #desktop_footer {
     display: flex;
     justify-content: center;
     flex-direction: column;
   }
   .footer_img {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    padding: 2em;
+  display:none
   }
 }
 
