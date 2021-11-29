@@ -1,13 +1,4 @@
-<?php include('../Backend/PDOserver.php');
-include('../Backend/errors.php');
-//include('../Backend/test.php')
-include('../Frontend/account.php');
-include('../Frontend/contact.php');
-include('../Frontend/home.php');
-include('../Frontend/main.php');
-include('../Frontend/rough.php');
-include('../Frontend/signup.php');
-?>
+<?php include('../Backend/PDOserver.php')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +26,7 @@ include('../Frontend/signup.php');
             <form action="login.php" method="post">
                 <h2>Log in</h2>
 
-                <?php include('../Backend/errors.php'); ?>
+                <?php include('../Backend/errors.php') ?>
 
                 <input type="text" placeholder="userinfo" class="sf" name="userinfo" value="<?php echo $username; ?>">
                 <input type="password" placeholder="password" class="sf" name="password" value="<?php echo $password; ?>">
