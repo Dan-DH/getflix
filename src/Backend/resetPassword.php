@@ -67,7 +67,7 @@ try {
             $sql = "UPDATE users SET password = '$new_password' WHERE login = '$username'";
             $db->prepare($sql)->execute([$new_password, $username]);
                 $_SESSION['username'] = $username;
-                $_SESSION['success'] = "Your information has been updated!";
+                $_SESSION['updated'] = "Your information has been updated!";
                 header('location: ../Frontend/account_PDO.php'); //redirect to main (test)
         }
     }

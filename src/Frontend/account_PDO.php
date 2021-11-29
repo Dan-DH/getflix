@@ -45,7 +45,12 @@ if (empty($_SESSION['username'])){
 
                 <button type="submit" class="submit" name="update">Update</button>
 
-                
+                <h3>
+                    <?php
+                        echo $_SESSION['updated'];
+                        //unset($_SESSION['success']);
+                    ?>
+                </h3>
             </form>
         </div>
     </main>
