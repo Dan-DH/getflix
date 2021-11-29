@@ -153,5 +153,26 @@ echo'</pre';
     </form>
     </div>
     </main>
+
+    <footer id="mobile_footer">
+
+<div class="footer_img">
+    <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
+        <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
+    </a>
+    <a href="https://github.com/Dan-DH" target="_blank" rel="noopener">
+        <img src="../assets/daniIcon.webp" alt="githubLink" class="portrait">
+    </a>
+    <a href="https://github.com/ShivaniKhatri96" target="_blank" rel="noopener">
+        <img src="../assets/shivaniIcon.webp" alt="githubLink" class="portrait">
+    </a>
+    <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
+        <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
+    </a>
+
+</div>
+<p>Copyright &#169; 2021</p>
+    
+</footer>
 </body>
 </html>
