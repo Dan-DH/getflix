@@ -50,6 +50,25 @@ CREATE TABLE achievements (
 	contact_achievement bit(1) not null default 0,
 	achievements_all bit(1) not null default 0
 );
+--SELECT 
+-- DELETE
+-- FROM movies
+-- WHERE movieID NOT IN 
+-- (
+-- 	SELECT MAX(ID)
+-- 	FROM movies
+-- 	GROUP BY 
+-- )
+-- SELECT
+-- 		movieID,	
+-- 		title,
+-- 		image,
+-- 		trailer,
+-- 		genre,
+-- 		rating,
+-- 		synopsis
+-- FROM
+-- 		movies;
 -- WITH cte AS (
 -- 	SELECT
 -- 		movieID,
