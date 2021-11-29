@@ -1,12 +1,12 @@
 <?php include('../Backend/PDOserver.php');
-include('../Backend/errors.php');
+/*include('../Backend/errors.php');
 //include('../Backend/test.php')
 include('../Frontend/account.php');
 include('../Frontend/contact.php');
 include('../Frontend/home.php');
 include('../Frontend/main.php');
 include('../Frontend/rough.php');
-include('../Frontend/signup.php');
+include('../Frontend/signup.php');*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
