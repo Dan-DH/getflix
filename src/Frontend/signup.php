@@ -27,7 +27,7 @@
 
                 <h2>Sign up</h2>
                 <!-- Validation errors -->
-                <?php include('../Backend/errors.php')?>
+                <?php include('../Backend/errors.php');?>
                 
                 <input type="text" placeholder="username" class="sf" name="username" value="<?php echo $username; ?>">
                 <input type="text" placeholder="email" class="sf" name="email" value="<?php echo $email; ?>">

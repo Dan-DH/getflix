@@ -1,12 +1,7 @@
-<?php include('../Backend/server.php');
+<?php include('../Backend/PDOserver.php');
 //if user is not logged in, page is inaccessible
     if (empty($_SESSION['username'])){
-        header('location: index.php');
-    }
-    if (isset($_GET['logout'])) {
-        session_destroy();
-        unset($_SESSION['username']);
-        header('location: index.php');
+        header('location: ../Frontend/login.php');
     }
 ?>
 
@@ -95,7 +90,7 @@
                             <i class="fa fa-id-card white-font"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="./account.php">Account Page</a></li>
+                            <li><a class="dropdown-item" href="./account_PDO.php">Account Page</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
