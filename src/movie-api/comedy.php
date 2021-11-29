@@ -69,4 +69,39 @@
 //       $query = "Update movies set trailer = 'https://www.youtube.com/watch?v=$tr' where movieID = ".($key).";";
 //       $result = mysqli_query($database, $query);
 // }  
+
+
+
+// foreach($movies as $id){
+//       foreach($id->genre_ids as $i){
+//             if($i == 35){
+//                   //echo "35: comedy";
+//                    $query = "INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ('$id->title','https://image.tmdb.org/t/p/w500$id->poster_path','$id->video','$i',$id->vote_average,'$id->overview');";
+//                         $result = mysqli_query($database, $query);
+//             }
+//             if($i == 28){
+//                   //echo "28: Action";
+//                   $query = "INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ('$id->title','https://image.tmdb.org/t/p/w500$id->poster_path','$id->video','$i',$id->vote_average,'$id->overview');";
+//                   $result = mysqli_query($database, $query);
+//             }
+//             if($i == 18){
+//                   //echo "18: Drama";
+//                   $query = "INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ('$id->title','https://image.tmdb.org/t/p/w500$id->poster_path','$id->video','$i',$id->vote_average,'$id->overview');";
+//                   $result = mysqli_query($database, $query);
+//             }
+//             if($i == 10751){
+//                   //echo "10751: Family";
+//                   $query = "INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ('$id->title','https://image.tmdb.org/t/p/w500$id->poster_path','$id->video','$i',$id->vote_average,'$id->overview');";
+//                   $result = mysqli_query($database, $query);
+//             }
+//             if($i == 14){
+//                   //echo "14: Fantasy";
+//                   $query = "INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ('$id->title','https://image.tmdb.org/t/p/w500$id->poster_path','$id->video','$i',$id->vote_average,'$id->overview');";
+//                   $result = mysqli_query($database, $query);
+//             }
+//       } 
+// }
+
+// -- DELETE FROM cte
+// -- WHERE row_num > 1;
 ?>
