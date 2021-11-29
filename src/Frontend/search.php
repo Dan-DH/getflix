@@ -1,8 +1,40 @@
-<?//php include('../Backend/server.php');
-//if user is not logged in, page is inaccessible
-    //if (empty($_SESSION['username'])){
-     //    header('location: login.php');
-//    }
+<?php 
+//actual code
+//$id = $_SESSION["userID"];
+$database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
+$login = mysqli_real_escape_string($database, $_SESSION["login"]);
+$query = "SELECT * FROM achievements WHERE userID = $id;";
+$result = mysqli_query($database, $query)-> fetch_array(MYSQLI_ASSOC);
+$queryData = "SELECT * FROM users WHERE userID = $id;";
+$resultData = mysqli_query($database, $queryData)-> fetch_array(MYSQLI_ASSOC);
+//print_r($resultData);
+
+//POST request
+$login = mysqli_real_escape_string($database, $_POST['login']);
+$email = mysqli_real_escape_string($database, $_POST['email']);
+$password1 = mysqli_real_escape_string($database, $_POST['password']);
+$password2 = mysqli_real_escape_string($database, $_POST['password2']);
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if ($_POST['password'] == $_POST['password2']) {
+        $newValues = [];
+        foreach ($_POST as $k => $v) {
+            $v != null ? $newValues[$k] = $v : true;
+        };
+    
+        count($newValues) > 3 ? array_pop($newValues): true;
+    
+        foreach ($newValues as $k => $v) {
+            $queryUpdate = "UPDATE users SET $k = '$v' WHERE userID = $id;";
+            $updateSent = mysqli_query($database, $queryUpdate);
+        };
+
+        $info = "Your data has been updated";
+    } else {
+        $info = "Passwords must match";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,8 +90,6 @@
                             <div class="col">
                                 <input class="collapse" id="searchbar" type="search" placeholder="Search"
                                     aria-label="Search">
-                                <!-- <input class="form-control collapse" id="searchbar" type="search" placeholder="Search" 
-                                        aria-label="Search"> -->
                             </div>
                             <div class="col  mt-lg-1">
                                 <!-- class="btn" -->
@@ -99,13 +129,15 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item fw-bold" href="index.php?logout='1'" name="logout">Log out</a></li>
+                            <li><a class="dropdown-item fw-bold" href="login.php?logout='1'" name="logout">Log out</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
+    
+<main>
     <div class="content">
         <?php if (isset($_SESSION['success'])): ?>
             <div class="error success">
@@ -117,56 +149,49 @@
                 </h3>
             </div>
         <?php endif ?>
-
-        <?php if (isset($_SESSION['username'])): ?>
-            <p>Welcome back <strong> <?php echo $_SESSION['username']; ?> </strong>. Ready to chill?</p>
-            <!--<p><a href="login.php?logout='1'"><strong>Logout</strong></a></p>-->
-        <?php endif ?>
     </div> 
-<main>
+
     <div>
-        <h3 id="comedy">Comedy</h3>
+        <?php echo '<h3 id="comedy">Results for: ' . $search . ' </h3>';?>
+    </div>
+    <div class="carousel" data-flickity='{ "groupCells": true}'>
+    <div class="carousel-cell">
+    <img data-tab="bright" src="http://www.thebrandage.com/assets/image/uploads/haberler/Bright_TUR.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="avatar" src="https://i.pinimg.com/736x/a4/23/f8/a423f86593029b7d2a6d9f1e1fd1e406---movies-movies-to-watch-online.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="thor" src="https://mikeantjones.files.wordpress.com/2012/04/thor-film-poster.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="john" src="https://images-na.ssl-images-amazon.com/images/I/91H06HPhX%2BL._SY717_.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="deadpool2" src="https://icdn3.digitaltrends.com/image/deadpool-2-thanksgiving-poster-1294x2048.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="fight" src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="bright" src="http://www.thebrandage.com/assets/image/uploads/haberler/Bright_TUR.jpg"/>
+    <div class="carousel-cell">
+    <img data-tab="avatar" src="https://i.pinimg.com/736x/a4/23/f8/a423f86593029b7d2a6d9f1e1fd1e406---movies-movies-to-watch-online.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="thor" src="https://mikeantjones.files.wordpress.com/2012/04/thor-film-poster.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="john" src="https://images-na.ssl-images-amazon.com/images/I/91H06HPhX%2BL._SY717_.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="deadpool2" src="https://icdn3.digitaltrends.com/image/deadpool-2-thanksgiving-poster-1294x2048.jpg"/>
+    </div>
+    <div class="carousel-cell">
+    <img data-tab="fight" src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"/>
+    </div>
     </div>
 
-<div class="carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
-
-<div class="carousel-cell">
-<img data-tab="bright" src="http://www.thebrandage.com/assets/image/uploads/haberler/Bright_TUR.jpg"/>
-</div>
-<div class="carousel-cell">
-<img data-tab="avatar" src="https://i.pinimg.com/736x/a4/23/f8/a423f86593029b7d2a6d9f1e1fd1e406---movies-movies-to-watch-online.jpg"/>
-</div>
-<div class="carousel-cell">
-<img data-tab="thor" src="https://mikeantjones.files.wordpress.com/2012/04/thor-film-poster.jpg"/>
-</div>
-<div class="carousel-cell">
-<img data-tab="john" src="https://images-na.ssl-images-amazon.com/images/I/91H06HPhX%2BL._SY717_.jpg"/>
-</div>
-<div class="carousel-cell">
-<img data-tab="deadpool2" src="https://icdn3.digitaltrends.com/image/deadpool-2-thanksgiving-poster-1294x2048.jpg"/>
-</div>
-<div class="carousel-cell">
-<img data-tab="fight" src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"/>
-</div>
-<div class="carousel-cell">
-<img data-tab="bright" src="http://www.thebrandage.com/assets/image/uploads/haberler/Bright_TUR.jpg"/>
-</div>
-<div class="carousel-cell">
-<img data-tab="avatar" src="https://i.pinimg.com/736x/a4/23/f8/a423f86593029b7d2a6d9f1e1fd1e406---movies-movies-to-watch-online.jpg"/>
-</div>
-<div class="carousel-cell">
-<img data-tab="thor" src="https://mikeantjones.files.wordpress.com/2012/04/thor-film-poster.jpg"/>
-</div>
-<div class="carousel-cell">
-<img data-tab="john" src="https://images-na.ssl-images-amazon.com/images/I/91H06HPhX%2BL._SY717_.jpg"/>
-</div>
-<div class="carousel-cell">
-<img data-tab="deadpool2" src="https://icdn3.digitaltrends.com/image/deadpool-2-thanksgiving-poster-1294x2048.jpg"/>
-</div>
-<div class="carousel-cell">
-<img data-tab="fight" src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"/>
-</div>
-</div>
     </main>
     <footer id="footer">
         <div class="container text-center">
@@ -212,23 +237,6 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-        <!-- <div class="content">
-            <?php if (isset($_SESSION['success'])): ?>
-                <div class="error-success">
-                    <h3>
-                        <?php
-                            echo $_SESSION['success'];
-                            unset($_SESSION['success']);
-                        ?>
-                    </h3>
-                </div>
-            <?php endif ?>
-    
-            <?php if (isset($_SESSION['username'])): ?>
-                <p>Welcome back <strong> <?php echo $_SESSION['username']; ?> </strong>. Ready to chill?</p>
-                <p><a href="../Frontend/login.php?logout='1'"><strong>Logout</strong></a></p>
-            <?php endif ?>
-        </div> -->
 </body>
 
 </html>

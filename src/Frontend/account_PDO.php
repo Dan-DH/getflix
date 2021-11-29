@@ -1,6 +1,10 @@
-<?php 
-//include('../Backend/server.php');
-include('../Backend/PDOserver.php');
+<?php
+include('../Backend/resetPassword.php');
+//include('../Backend/PDOserver.php');
+
+if (empty($_SESSION['username'])){
+    header('location: ../Frontend/index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,33 +13,44 @@ include('../Backend/PDOserver.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Sign up</title>
+   
+    <!-- Bootstrap link 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+    <title>Update account information</title>
 </head>
 <body>
     <div class="navbar">
         <h1>Getflix</h1>
         <div class="buttons">
-            <button type="submit" id="login">Log in</button>
-            <button type="submit" id="sign">Sign up</button>
+            <a href="./test.php"><button type="button" id="home">Home</button></a>
+            <a href="./index.php"><button type="button" id="logout">Log out</button></a>
         </div>
     </div>
 
     <main>
         <div class="fill_form">
-            <form action="signup.php" method="post">
+            <form action="account_PDO.php" method="post">
+                <h2>Change account information</h2>
 
-                <h2>Sign up</h2>
-                <!-- Validation errors -->
-                <?php include('../Backend/errors.php');?>
-                
+                <?php include('../Backend/errors.php'); ?>
+
                 <input type="text" placeholder="username" class="sf" name="username" value="<?php echo $username; ?>">
+
                 <input type="text" placeholder="email" class="sf" name="email" value="<?php echo $email; ?>">
-                <input type="password" placeholder="password" class="sf" name="password1" value="<?php echo $password1; ?>">
-                <input type="password" placeholder="confirm password" class="sf" name="password2" value="<?php echo $password2; ?>">
 
-                <button type="submit" class="submit" name="signup">Submit</button>
+                <input type="password" placeholder="new password" class="sf" name="new_password1" value="<?php echo $new_password1; ?>">
 
-                <p>Already a member ? <a href="index.php">Log in !</a></p>
+                <input type="password" placeholder="confirm new password" class="sf" name="new_password2" value="<?php echo $new_password2; ?>">
+
+                <button type="submit" class="submit" name="update">Update</button>
+
+                <h3>
+                    <?php
+                        echo $_SESSION['updated'];
+                        //unset($_SESSION['success']);
+                    ?>
+                </h3>
             </form>
         </div>
     </main>
@@ -59,6 +74,7 @@ include('../Backend/PDOserver.php');
             <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
                 <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
             </a>
+
         </div>
         <p>Copyright &#169; 2021</p>
             

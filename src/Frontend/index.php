@@ -23,7 +23,7 @@
 
     <main>
         <div class="fill_form">
-            <form action="login.php" method="post">
+            <form action="index.php" method="post">
                 <h2>Log in</h2>
 
                 <?php include('../Backend/errors.php') ?>
