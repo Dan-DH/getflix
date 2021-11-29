@@ -15,4 +15,3 @@ RUN curl --silent --show-error https://getcomposer.org/installer | \
 RUN docker-php-ext-install pdo pdo_mysql mysqli gettext
 RUN a2enmod rewrite headers ssl
 
-CMD sed -i "s/80/$PORT/g" /etc/apache2/sites-enabled/000-default.conf /etc/apache2/ports.conf && docker-php-entrypoint apache2-foreground

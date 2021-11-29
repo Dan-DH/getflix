@@ -1,4 +1,4 @@
-<?phpinclude('../Backend/PDOserver.php');
+<?php include('../Backend/PDOserver.php');
 /*include('../Backend/errors.php');
 //include('../Backend/test.php')
 include('../Frontend/account.php');
