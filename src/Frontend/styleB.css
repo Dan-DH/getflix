@@ -90,4 +90,78 @@ h2 {
     color: white;
     border-color: #2DB5E1;
     font-size: 16px;
-}
+    @media screen and (max-width: 992px) and (min-width: 460px) {
+        h1 {
+          font-size: 35px;
+        }
+        h2 {
+          font-size: 22px;
+        }
+        button,
+        .submit {
+          font-size: 14px;
+        }
+        a,
+        p {
+          font-size: 14px;
+        }
+        .fill_form {
+          width: 70%;
+        }
+      
+        #desktop_footer {
+          display: none;
+        }
+        #mobile_footer {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+        }
+        .footer_img {
+          display: grid;
+          grid-template-columns: auto auto auto auto;
+          padding: 2em;
+        }
+      }
+  @media screen and (max-width: 460px) {
+    button {
+      font-size: 11px;
+      border: 2px solid;
+    }
+    .navbar {
+      margin: auto;
+      width: 90%;
+    }
+    h1 {
+      font-size: 25px;
+    }
+    h2 {
+      font-size: 18px;
+    }
+    .fill_form {
+      width: 90%;
+    }
+    button,
+    .submit {
+      font-size: 10px;
+    }
+  
+    a,
+    p {
+      font-size: 13px;
+    }
+  
+    #desktop_footer {
+      display: none;
+    }
+    #mobile_footer {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .footer_img {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+    }
+  }
+  
