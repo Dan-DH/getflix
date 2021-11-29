@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleB.css">
+    <!--<link rel="stylesheet" href="styleB.css">-->
+    <link rel="stylesheet" href="style.css">
     <title>Contact us</title>
 </head>
 <body>
@@ -13,8 +14,8 @@
 <div class="navbar">
         <h1>Getflix</h1>
         <div class="buttons">
-            <button type="button" id="home" href="index.php">HOME</button>
-            <button type="button" id="logout" href="login.php">LOG OUT</button>
+            <button type="button" id="home" href="./index.php">HOME</button>
+            <button type="button" id="logout" href="./login.php">LOG OUT</button>
         </div>
     </div>
 
@@ -80,73 +81,20 @@ if(isset($_POST['submit'])){
            echo $status;
           
         };
-           /*$stmt= statement
-           $stmt = $pdo->prepare($sql);
-           $stmt->execute(['name'=>$name, 'email'=>$email, 'issue'=>$issue, 'message'=>$message, 'contact_date'=>$databasetact_date]);
-           
-           $status = "Your message was sent, well get back to you shortly.";
-           $name="";
-           $email="";
-           $issue="";
-           $message="";
-           $databasetact_date="";*/
-/*echo '<pre>';
-print_r($stmt);
-echo'</pre';
-           echo $status;*/
-       }
-    
-   
-   // if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-        
-       /* 
-     
-           if (strpos($username, "@")) {
-            $databasetact ="SELECT * FROM contact WHERE name = $name AND email = $email AND issue=$issue AND message = $message;";
-        } else {
-            $databasetact = "SELECT * FROM contact WHERE name = 'Dan-DH' AND email = 'daniel@getflix.com' AND issue = 'other' AND message = 'Love this, you should charge more' ";
-        }
-        $t = $pdo->query($databasetact)->fetchAll();
-            
-           
-      //  $pdo->query("SELECT * FROM contact;")->fetchAll(PDO::FETCH_OBJ));
-       /* echo "<pre>";
-        print_r($pdo->query("SELECT * FROM contact;")->fetchAll(PDO::FETCH_OBJ));
-        echo "</pre>";*/
-
- //setting up where it will be sent as an email, would like to set it up to be sent to DB
- //$to = 'example@email.com';
-// $body = "";
-  // Adding body of the message
- // $body.= "From: ".$name. "\r\n\"; 
-  //$body.="Email: ".$userEmail. "\r\n\";
-  //$body.="Message: ".$message. "\r\n\";
-
-  //sending out email
-//mail($to,$issue,$body);
-//$message_sent=true;
-/*echo "<h3>Thanks, we'll be in touch!</h3>";
     }
-    else{
-        //if email was invalid
-      echo'Please, enter valid email';
-    }
-}else{
-    echo'<h3>Please enter valid email address';
-};*/
 ?>
 
-    <input type="text" name="name" placeholder='Please, enter your name' id="name">
-    <input type="text" name="email" placeholder="Please,enter your email" id="email">
-        <label for="issue_type">
-        <select name="issue" id="issue_type">
+    <input type="text" name="name" placeholder='Please, enter your name' id="name" href="index.php" class="sf" >
+    <input type="text" name="email" placeholder="Please,enter your email" id="email" href="home.php" class="sf" >
+        <label for="issue_type" >
+        <select name="issue" id="issue_type" class="sf">
             <option value="">Please, specify your issue</option>
             <option value="movies not loading">Movies not loading</option>
             <option value="cannot update my profile">Cannot update my profile info</option>
             <option value="other">Other</option>
         </select><br><br>
         
-        <textarea name="message" id="problem" cols="30" rows="10" placeholder="Tell us more about your issue" ></textarea>
+        <textarea name="message" id="problem" cols="30" rows="10" class="sf" placeholder="Tell us more about your issue" ></textarea>
         </label>
         <br>
         <button name="submit" id='submit'>Send</button>
@@ -178,6 +126,5 @@ echo'</pre';
         <p>Copyright &#169; 2021</p>
             
     </footer>
-
 </body>
 </html>
