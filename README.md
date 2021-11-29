@@ -134,8 +134,6 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Shivani : continuing the home page
 - Teo : testing the login and logout, then adding data on the signup.
 
-<<<<<<< HEAD
-=======
 **Afternoon meets**
 - Technical challenges :
     - [ ] Connecting the database to the contact page to save comments ;
@@ -153,7 +151,6 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Make a proper welcome page that includes the sign up form but also a "sneak peek" into what the site offers.
 
 
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
 
 ## Resources
 - https://dev.to/techworld_with_nana/top-8-docker-best-practices-for-using-docker-in-production-1m39
@@ -165,16 +162,13 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - https://stackoverflow.com/questions/20397267/alternative-to-localstorage-for-php
 - https://designcorral.com/blog/email-already-exists-in-php/
 - https://www.formget.com/login-form-in-php/
-<<<<<<< HEAD
-=======
 ------------------
 - https://flickity.metafizzy.co/ for carousel - Javascript library
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
 
 - https://www.w3schools.com/howto/howto_js_password_validation.asp
 - https://www.codespeedy.com/create-a-simple-contact-form-in-php-mysql/
 
-<<<<<<< HEAD
+
 - https://www.studentstutorial.com/php/login-logout-with-session
 =======
 - https://www.studentstutorial.com/php/login-logout-with-session
@@ -183,4 +177,15 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - https://www.w3schools.com/php/php_mysql_connect.asp
 - https://stackoverflow.com/questions/33368507/how-to-stay-signed-in-even-after-clicking-refresh-button
 - https://phpdelusions.net/pdo
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
+
+- https://www.php.net/manual/fr/pdo.query.php
+- https://forums.commentcamarche.net/forum/affich-19242774-l-equivalent-de-mysql-query-avec-pdo
+- https://stackoverflow.com/questions/26137972/php-pdo-alternative-for-mysqli-num-rows
+
+- https://www.sqlshack.com/different-ways-to-sql-delete-duplicate-rows-from-a-sql-table/
+- https://www.sqlservertutorial.net/sql-server-basics/delete-duplicates-sql-server/
+- https://www.mssqltips.com/sqlservertip/4486/find-and-remove-duplicate-rows-from-a-sql-server-table/
+
+- https://stackoverflow.com/questions/34578093/forgotten-password-script-with-pdo-decrypt-needed
+- https://www.dailyaspirants.com/2020/10/how-to-get-forgot-password-and-reset-password.html
+- https://thisinterestsme.com/php-reset-password-form/

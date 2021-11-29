@@ -99,7 +99,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item fw-bold" href="login.php?logout='1'" name="logout">Log out</a></li>
+                            <li><a class="dropdown-item fw-bold" href="index.php?logout='1'" name="logout">Log out</a></li>
                         </ul>
                     </div>
                 </div>

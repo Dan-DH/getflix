@@ -12,7 +12,7 @@ $db_user = "root";
 $db_password = "getflixRoot";
 $dbname = "getflix";
 
-// Connecting to the database
+///Connecting to the database///
 try {
     $db = new PDO("mysql:host=$servername;dbname=$dbname",$db_user, $db_password);
     // set error mode to exception
@@ -27,7 +27,7 @@ catch (PDOException $e) {
     echo "Connection failed : " . $e->getMessage();
 }
 
-    // Log user from login page
+/// Log user from login page///
     if (isset($_POST['login'])) {
 
         if (isset($_SESSION['username'])) {
@@ -35,11 +35,11 @@ catch (PDOException $e) {
         }
         
         $username = strip_tags($_POST['userinfo']);
-        //$email = strip_tags($_POST['userinfo']);
+        $email = strip_tags($_POST['userinfo']);
         $password = strip_tags($_POST['password']);
         //$hash_encrypt = password_hash($password, PASSWORD_DEFAULT);
 
-        // ensure the fields are filled properly
+        // ensure the fields are filled properly :
         if (empty($username)) {
         array_push($errors, "Username / email is required");
         }
@@ -49,45 +49,38 @@ catch (PDOException $e) {
         if (empty($password)) {
             array_push($errors, "Password is required");
         }
-        if (count($errors) == 0) {
-            try {
-                // Select query
-                $select_stmt=$db->prepare("SELECT * FROM getflix.users WHERE login='$username' AND password='$password'");
-                // Execute query
-                $select_stmt->execute(array($username,$password));
-                $row=$select_stmt->fetch(PDO::FETCH_ASSOC);
-                //echo " <br> Data retrieved";
 
-                // Checking database for corresponding user information
-                try {
-                    if($select_stmt->rowCount() > 0) {
-                        try {
-                            if ($username == $row["username"] /*OR $email == $row["email"]*/) {
-                                if (password_verify($password, $row["password"])) {
-                                    $_SESSION['username'] = $username;
-                                    $_SESSION['success'] = "Welcome back $username! Ready to chill ?";
-                                    header('location: ../Frontend/test.php');
-                                }
-                                else {
-                                    array_push($errors, "Wrong user / password combo");
-                                }
-                            } else {
-                                array_push($errors, "Wrong username or email");
-                            }
-                        } catch (PDOException $e) {
-                            echo "Login failed : " . $e->getMessage();
-                        }
-                    }
-                } catch (PDOException $e) {
-                    echo "Data verification failed : " . $e->getMessage();
+        // If information is correctly input :
+        try {
+            if (count($errors) == 0) {
+                // select query
+                $sql = "SELECT * FROM users WHERE (login='$username' OR email='$email') AND password='$password'";
+                $result = $db->prepare($sql); 
+
+                $result->execute();
+                $row_count = $result->fetchColumn();
+                //echo $row_count;
+
+                if ($row_count > 0) {
+                    //echo "some form of success";
+                    // Logged in
+                    $_SESSION['username'] = $username;
+                    $_SESSION['success'] = "Welcome back $username! Ready to chill ?";
+                    header('location: ../Frontend/test.php');
                 }
-            } catch (PDOException $e) {
-                echo "Data retrieval failed : " . $e->getMessage();
-            }
+                else {
+                    array_push($errors, "Wrong user / password combo.");
+                }
+                
+            } 
+        } 
+        catch (PDOException $e) {
+            echo "Login failed : " . $e->getMessage();
         }
+        
     }
 
-    // creating a new account
+    ///creating a new account///
     if (isset($_REQUEST['signup'])) {
         // Protection against MySQL injection
         /*
@@ -145,17 +138,15 @@ catch (PDOException $e) {
                     header('location: ../Frontend/test.php'); //redirect to main (test)
                 }
             }
-            
         } catch (PDOEexception $e) {
-                echo "Login failed : " . $e->getMessage();
-            }
-        
+            echo "Login failed : " . $e->getMessage();
+        }
     }
     
     // Logout
     if (isset($_GET['logout'])) {
         session_unset();
         session_destroy();
-        header('location: ../Frontend/login.php');
+        header('location: ../Frontend/index.php');
     }
 ?>

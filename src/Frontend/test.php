@@ -1,19 +1,7 @@
-<<<<<<< HEAD
-<?php include('../Backend/server.php');
-//if user is not logged in, page is inaccessible
-    if (empty($_SESSION['username'])){
-        header('location: index.php');
-    }
-    if (isset($_GET['logout'])) {
-        session_destroy();
-        unset($_SESSION['username']);
-        header('location: index.php');
-=======
 <?php include('../Backend/PDOserver.php');
 //if user is not logged in, page is inaccessible
     if (empty($_SESSION['username'])){
-        header('location: ../Frontend/login.php');
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
+        header('location: ../Frontend/index.php');
     }
 ?>
 
@@ -102,7 +90,7 @@
                             <i class="fa fa-id-card white-font"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="./account.php">Account Page</a></li>
+                            <li><a class="dropdown-item" href="./account_PDO.php">Account Page</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -110,14 +98,10 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-<<<<<<< HEAD
-                            <li><a class="dropdown-item fw-bold" href="login.php" name="logout" href="login.php?logout='1'"> <strong>Log out</strong> </a></li>
-=======
                             <li>
                                 <?php if (isset($_SESSION['username'])): ?>
                                     <a class="dropdown-item fw-bold" href="test.php?logout='1'" name="logout"> <strong>Log out</strong> </a></li>
                                 <?php endif ?>
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
                         </ul>
                     </div>
                 </div>
@@ -131,28 +115,17 @@
                 <h3>
                     <?php
                         echo $_SESSION['success'];
-<<<<<<< HEAD
-                        unset($_SESSION['success']);
-=======
                         //unset($_SESSION['success']);
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
                     ?>
                 </h3>
             </div>
         <?php endif ?>
-<<<<<<< HEAD
-
-        <?php if (isset($_SESSION['username'])): ?>
-            <h3>Ready to chill?</h3>
-        <?php endif ?>
-=======
         
         <!--
         <?php //if (isset($_SESSION['username'])): ?>
             //$_SESSION['success'] = ;
         <?php //endif ?> 
         -->
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
     </div> 
 
     <div>

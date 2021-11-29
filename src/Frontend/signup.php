@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-<?php include('../Backend/server.php')?>
-=======
-<?php include('../Backend/PDOserver.php')?>
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
+<?php 
+//include('../Backend/server.php');
+include('../Backend/PDOserver.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +26,7 @@
 
                 <h2>Sign up</h2>
                 <!-- Validation errors -->
-                <?php include('../Backend/errors.php')?>
+                <?php include('../Backend/errors.php');?>
                 
                 <input type="text" placeholder="username" class="sf" name="username" value="<?php echo $username; ?>">
                 <input type="text" placeholder="email" class="sf" name="email" value="<?php echo $email; ?>">
