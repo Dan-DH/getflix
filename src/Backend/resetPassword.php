@@ -38,40 +38,38 @@ try {
             header('location: account_PDO.php');
         }*/
             
-            // Declaring variables on the page
-            //$data = [
-                $username = strip_tags($_POST['username']);
-                $email = strip_tags($_POST['email']);
-                $new_password1 = strip_tags($_POST['new_password1']);
-                $new_password2 = strip_tags($_POST['new_password2']);
-            //];
+        // Declaring variables on the page
+        //$data = [
+            $username = strip_tags($_POST['username']);
+            $email = strip_tags($_POST['email']);
+            $new_password1 = strip_tags($_POST['new_password1']);
+            $new_password2 = strip_tags($_POST['new_password2']);
+        //];
 
-            // Ensure the fields are filled properly :
-            if (empty($username)) {
-                array_push($errors, "Please enter your username");
-            }
-            if (empty($email)) {
-                array_push($errors, "Please enter your email");
-            }
-            if (empty($new_password1)) {
-                array_push($errors, "Please make a new password");
-            }
-            if ($new_password1 != $new_password2) {
-                array_push($errors, "Passwords do not match");
-            }
-            else {
-                // New password is confirmed
-                $new_password = $new_password1;
-                
-                // New password will be set
-                $sql = "UPDATE users SET password = '$new_password' WHERE login = '$login'";
-                $db->prepare($sql)->execute($new_password);
-                    //$_SESSION['username'] = $username;
-                    $_SESSION['success'] = "Your information has been updated!";
-                    header('location: ../Frontend/account_PDO.php'); //redirect to main (test)
-            }
+        // Ensure the fields are filled properly :
+        if (empty($username)) {
+            array_push($errors, "Please enter your username");
+        }
+        if (empty($email)) {
+            array_push($errors, "Please enter your email");
+        }
+        if (empty($new_password1)) {
+            array_push($errors, "Please make a new password");
+        }
+        if ($new_password1 != $new_password2) {
+            array_push($errors, "Passwords must match");
+        }
+        else {
+            // New password is confirmed
+            $new_password = $new_password1;
             
-        
+            // New password will be set
+            $sql = "UPDATE users SET password = '$new_password' WHERE login = '$username'";
+            $db->prepare($sql)->execute([$new_password, $username]);
+                $_SESSION['username'] = $username;
+                $_SESSION['success'] = "Your information has been updated!";
+                header('location: ../Frontend/account_PDO.php'); //redirect to main (test)
+        }
     }
 } catch (PDOEexception $e) {
     echo "Update failed : " . $e->getMessage();
