@@ -90,7 +90,7 @@
                             <i class="fa fa-id-card white-font"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="./account.php">Account Page</a></li>
+                            <li><a class="dropdown-item" href="./account_PDO.php">Account Page</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

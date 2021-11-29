@@ -174,3 +174,15 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - https://www.w3schools.com/php/php_mysql_connect.asp
 - https://stackoverflow.com/questions/33368507/how-to-stay-signed-in-even-after-clicking-refresh-button
 - https://phpdelusions.net/pdo
+
+- https://www.php.net/manual/fr/pdo.query.php
+- https://forums.commentcamarche.net/forum/affich-19242774-l-equivalent-de-mysql-query-avec-pdo
+- https://stackoverflow.com/questions/26137972/php-pdo-alternative-for-mysqli-num-rows
+
+- https://www.sqlshack.com/different-ways-to-sql-delete-duplicate-rows-from-a-sql-table/
+- https://www.sqlservertutorial.net/sql-server-basics/delete-duplicates-sql-server/
+- https://www.mssqltips.com/sqlservertip/4486/find-and-remove-duplicate-rows-from-a-sql-server-table/
+
+- https://stackoverflow.com/questions/34578093/forgotten-password-script-with-pdo-decrypt-needed
+- https://www.dailyaspirants.com/2020/10/how-to-get-forgot-password-and-reset-password.html
+- https://thisinterestsme.com/php-reset-password-form/

@@ -1,4 +1,11 @@
-<?php include('../Backend/PDOserver.php')?>
+<?php
+include('../Backend/resetPassword.php');
+//include('../Backend/PDOserver.php');
+
+if (empty($_SESSION['username'])){
+    header('location: ../Frontend/login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,30 +17,35 @@
     <!-- Bootstrap link 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
-    <title>Login</title>
+    <title>Update account information</title>
 </head>
 <body>
     <div class="navbar">
         <h1>Getflix</h1>
         <div class="buttons">
-            <button type="submit" id="login" href>Log in</button>
-            <button type="submit" id="sign">Sign up</button>
+            <a href="./test.php"><button type="button" id="home">Home</button></a>
+            <a href="./login.php"><button type="button" id="logout">Log out</button></a>
         </div>
     </div>
 
     <main>
         <div class="fill_form">
-            <form action="login.php" method="post">
-                <h2>Log in</h2>
+            <form action="account_PDO.php" method="post">
+                <h2>Change account information</h2>
 
                 <?php include('../Backend/errors.php'); ?>
 
-                <input type="text" placeholder="userinfo" class="sf" name="userinfo" value="<?php echo $username; ?>">
-                <input type="password" placeholder="password" class="sf" name="password" value="<?php echo $password; ?>">
-                <button type="submit" class="submit" name="login">Login</button>
+                <input type="text" placeholder="username" class="sf" name="username" value="<?php echo $username; ?>">
 
-                <a href="#">Forgot password ?</a>
-                <p>Not yet a member ? <a href="signup.php">Sign up !</a></p>
+                <input type="text" placeholder="email" class="sf" name="email" value="<?php echo $email; ?>">
+
+                <input type="password" placeholder="new password" class="sf" name="new_password1" value="<?php echo $new_password1; ?>">
+
+                <input type="password" placeholder="confirm new password" class="sf" name="new_password2" value="<?php echo $new_password2; ?>">
+
+                <button type="submit" class="submit" name="update">Update</button>
+
+                
             </form>
         </div>
     </main>
