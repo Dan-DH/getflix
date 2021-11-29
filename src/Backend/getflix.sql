@@ -33,8 +33,8 @@ CREATE TABLE movies (
 	movieID int(10) not null primary key auto_increment,
 	title varchar(255) not null,
 	image varchar(255) not null,
-	trailer varchar(255),
-	genre varchar(255),
+	trailer varchar(255) not null,
+	genre varchar(255) not null,
 	rating float(2) not null,
 	synopsis varchar(255) not null
 );
@@ -50,17 +50,46 @@ CREATE TABLE achievements (
 	contact_achievement bit(1) not null default 0,
 	achievements_all bit(1) not null default 0
 );
-
+-- WITH cte AS (
+-- 	SELECT
+-- 		movieID,
+-- 		title,
+-- 		image,
+-- 		trailer,
+-- 		genre,
+-- 		rating,
+-- 		synopsis,
+-- 		ROW_NUMBER() OVER (
+-- 			PARTITION BY 
+-- 			title,
+-- 			image,
+-- 			trailer,
+-- 			genre,
+-- 			rating,
+-- 			synopsis
+-- 		ORDER BY
+-- 			title,
+-- 			image,
+-- 			trailer,
+-- 			genre,
+-- 			rating,
+-- 			synopsis
+-- 		)row_num 
+-- 		FROM 
+-- 			movies
+-- )
+-- DELETE FROM cte
+-- WHERE row_num > 1;
 --Adding movies to the DB. To be replaced with the data from the Movie DB API
-INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("Jurassic Park", "https://image.tmdb.org/t/p/original/5V4wkqAIjcRL1TqXiB9iNn0EPrI.jpg", "https://www.youtube.com/watch?v=QWBKEmWWL38", "Action / Adventure / Sci-Fy", 8.1, "A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.");
+-- INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("Jurassic Park", "https://image.tmdb.org/t/p/original/5V4wkqAIjcRL1TqXiB9iNn0EPrI.jpg", "https://www.youtube.com/watch?v=QWBKEmWWL38", "Action / Adventure / Sci-Fy", 8.1, "A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.");
 
-INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("The Matrix", "https://fanart.tv/fanart/movies/603/movieposter/the-matrix-53b1a283180a1.jpg", "https://www.youtube.com/watch?v=vKQi3bBA1y8", "Action / Sci-Fy", 8.7, "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.");
+-- INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("The Matrix", "https://fanart.tv/fanart/movies/603/movieposter/the-matrix-53b1a283180a1.jpg", "https://www.youtube.com/watch?v=vKQi3bBA1y8", "Action / Sci-Fy", 8.7, "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.");
 
-INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("The Lion King", "https://fanart.tv/fanart/movies/8587/movieposter/the-lion-king-524fb69e8c273.jpg", "https://www.youtube.com/watch?v=lFzVJEksoDY", "Animation / Adventure / Drama", 8.5, "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.");
+-- INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("The Lion King", "https://fanart.tv/fanart/movies/8587/movieposter/the-lion-king-524fb69e8c273.jpg", "https://www.youtube.com/watch?v=lFzVJEksoDY", "Animation / Adventure / Drama", 8.5, "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.");
 
-INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("Moonrise Kingdom", "https://fanart.tv/fanart/movies/83666/movieposter/moonrise-kingdom-52fba7d1779b3.jpg", "https://www.youtube.com/watch?v=YxwuXWtusGA", "Comedy / Drama / Romance", 7.8, "A pair of young lovers flee their New England town, which causes a local search party to fan out to find them.");
+-- INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("Moonrise Kingdom", "https://fanart.tv/fanart/movies/83666/movieposter/moonrise-kingdom-52fba7d1779b3.jpg", "https://www.youtube.com/watch?v=YxwuXWtusGA", "Comedy / Drama / Romance", 7.8, "A pair of young lovers flee their New England town, which causes a local search party to fan out to find them.");
 
-INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("Arrival", "https://4.bp.blogspot.com/-1db3a4cyBh4/Whw_Ogz-hvI/AAAAAAAAAYo/EbnVoliKkwMvB5-xwVe72dQRLUrG86PNACLcBGAs/s1600/Arrival-Poster.png", "https://www.youtube.com/watch?v=tFMo3UJ4B4g", "Drama / Sci-Fy", 7.9, "A linguist works with the military to communicate with alien lifeforms after twelve mysterious spacecraft appear around the world.");
+-- INSERT INTO movies (title, image, trailer, genre, rating, synopsis) VALUES ("Arrival", "https://4.bp.blogspot.com/-1db3a4cyBh4/Whw_Ogz-hvI/AAAAAAAAAYo/EbnVoliKkwMvB5-xwVe72dQRLUrG86PNACLcBGAs/s1600/Arrival-Poster.png", "https://www.youtube.com/watch?v=tFMo3UJ4B4g", "Drama / Sci-Fy", 7.9, "A linguist works with the military to communicate with alien lifeforms after twelve mysterious spacecraft appear around the world.");
 
 --Creating users
 INSERT INTO users (email, login, password) VALUES ("daniel@getflix.com", "Dan-DH", "holaworld");

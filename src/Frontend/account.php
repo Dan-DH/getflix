@@ -52,7 +52,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Account</title>
 </head>
 <body>
-
 <div class="navbar">
         <h1>Getflix</h1>
         <div class="buttons">

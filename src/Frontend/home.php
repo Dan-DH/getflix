@@ -1,20 +1,8 @@
-<<<<<<< HEAD
-<?php include('../Backend/server.php');
+<?//php include('../Backend/server.php');
 //if user is not logged in, page is inaccessible
-    if (empty($_SESSION['username'])){
-        header('location: index.php');
-    }
-    if (isset($_GET['logout'])) {
-        session_destroy();
-        unset($_SESSION['username']);
-        header('location: index.php');
-=======
-<?php include('../Backend/PDOserver.php');
-//if user is not logged in, page is inaccessible
-    if (empty($_SESSION['username'])){
-        header('location: ../Frontend/login.php');
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
-    }
+    //if (empty($_SESSION['username'])){
+     //    header('location: login.php');
+//    }
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +16,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./style-home.css">
-    <title>Home page (test) </title>
+    <title>Document</title>
 </head>
 
 <body>
@@ -110,14 +98,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-<<<<<<< HEAD
-                            <li><a class="dropdown-item fw-bold" href="login.php" name="logout" href="login.php?logout='1'"> <strong>Log out</strong> </a></li>
-=======
-                            <li>
-                                <?php if (isset($_SESSION['username'])): ?>
-                                    <a class="dropdown-item fw-bold" href="test.php?logout='1'" name="logout"> <strong>Log out</strong> </a></li>
-                                <?php endif ?>
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
+                            <li><a class="dropdown-item fw-bold" href="login.php?logout='1'" name="logout">Log out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -131,28 +112,16 @@
                 <h3>
                     <?php
                         echo $_SESSION['success'];
-<<<<<<< HEAD
                         unset($_SESSION['success']);
-=======
-                        //unset($_SESSION['success']);
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
                     ?>
                 </h3>
             </div>
         <?php endif ?>
-<<<<<<< HEAD
 
         <?php if (isset($_SESSION['username'])): ?>
-            <h3>Ready to chill?</h3>
+            <p>Welcome back <strong> <?php echo $_SESSION['username']; ?> </strong>. Ready to chill?</p>
+            <!--<p><a href="login.php?logout='1'"><strong>Logout</strong></a></p>-->
         <?php endif ?>
-=======
-        
-        <!--
-        <?php //if (isset($_SESSION['username'])): ?>
-            //$_SESSION['success'] = ;
-        <?php //endif ?> 
-        -->
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
     </div> 
 
     <div>
@@ -169,7 +138,43 @@
       <li><a href="#"><img src="http://www.google.com.au/intl/en_com/images/srpr/logo1w.png" width="150" height="150"/></a></li>
     </ul>
     </main> -->
-    
+    <footer id="footer">
+        <div class="container text-center">
+            <div class="row d-flex">
+                <div class="col order-md-2 d-none d-sm-block">
+                    A collab between <a class="navig-link" href="https://github.com/Dan-DH" target="_blank"
+                        rel="noopener">Daniel</a>, <a class=" navig-link" href="https://github.com/Brigilets"
+                        target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link"
+                        href="https://github.com/ShivaniKhatri96/" target="_blank" rel="noopener">Shivani</a> and <a
+                        class=" navig-link" href="https://github.com/teo-cozma" target="_blank"
+                        rel="noopener">Teodora</a>.
+                </div>
+                <div class="col-3 order-md-4  text-center hide2">
+                    <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
+                        <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
+                    </a>
+                </div>
+                <div class="col-3 text-center hide2">
+                    <a href="https://github.com/Dan-DH" target="_blank" rel="noopener">
+                        <img src="../assets/daniIcon.webp" alt="githubLink" class="portrait">
+                    </a>
+                </div>
+                <div class="col-3  text-center hide2">
+                    <a href="https://github.com/ShivaniKhatri96" target="_blank" rel="noopener">
+                        <img src="../assets/shivaniIcon.webp" alt="githubLink" class="portrait">
+                    </a>
+                </div>
+                <div class="col-3 text-center hide2">
+                    <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
+                        <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
+                    </a>
+                </div>
+                <div class="col col-md-12 mt-2 order-md-1">
+                    Copyright &#169; 2021
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
@@ -180,5 +185,3 @@
 </body>
 
 </html>
-
-

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <?php include('../Backend/server.php')?>
-=======
-<?php include('../Backend/PDOserver.php')?>
->>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,33 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Sign up</title>
+   
+    <!-- Bootstrap link 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+    <title>Login</title>
 </head>
 <body>
     <div class="navbar">
         <h1>Getflix</h1>
         <div class="buttons">
-            <button type="submit" id="login">Log in</button>
+            <button type="submit" id="login" href>Log in</button>
             <button type="submit" id="sign">Sign up</button>
         </div>
     </div>
 
     <main>
         <div class="fill_form">
-            <form action="signup.php" method="post">
+            <form action="index.php" method="post">
+                <h2>Log in</h2>
 
-                <h2>Sign up</h2>
-                <!-- Validation errors -->
-                <?php include('../Backend/errors.php')?>
-                
+                <?php include('../Backend/errors.php') ?>
+
                 <input type="text" placeholder="username" class="sf" name="username" value="<?php echo $username; ?>">
-                <input type="text" placeholder="email" class="sf" name="email" value="<?php echo $email; ?>">
-                <input type="password" placeholder="password" class="sf" name="password1" value="<?php echo $password1; ?>">
-                <input type="password" placeholder="confirm password" class="sf" name="password2" value="<?php echo $password2; ?>">
+                <input type="password" placeholder="password" class="sf" name="password" value="<?php echo $password; ?>">
+                <button type="submit" class="submit" name="login">Login</button>
 
-                <button type="submit" class="submit" name="signup">Submit</button>
-
-                <p>Already a member ? <a href="index.php">Log in !</a></p>
+                <a href="#">Forgot password ?</a>
+                <p>Not yet a member ? <a href="signup.php">Sign up !</a></p>
             </form>
         </div>
     </main>
@@ -60,6 +57,7 @@
             <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
                 <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
             </a>
+
         </div>
         <p>Copyright &#169; 2021</p>
             

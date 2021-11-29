@@ -107,11 +107,14 @@ a:hover {
   border-radius: 50%;
   width: 100px;
   height: 100px;
+<<<<<<< HEAD
+=======
   opacity: 0.2;
 }
 
 .trans {
   opacity: 1;
+>>>>>>> 7a1e8055917d1f32356d08a0e170fa072c7138b8
 }
 
 .rowAchievement {

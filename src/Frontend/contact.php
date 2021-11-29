@@ -13,7 +13,7 @@
 <div class="navbar">
         <h1>Getflix</h1>
         <div class="buttons">
-            <button type="button" id="home" href="main.php">HOME</button>
+            <button type="button" id="home" href="index.php">HOME</button>
             <button type="button" id="logout" href="login.php">LOG OUT</button>
         </div>
     </div>
