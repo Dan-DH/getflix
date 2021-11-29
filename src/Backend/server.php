@@ -17,6 +17,19 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
         $email = stripslashes($email);
         $password = stripslashes($password);
         */
+        /*
+        $email = test_input($_POST["email"]);
+        if (strlen($email) > 255) {
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $emailErr = "Invalid email format";
+                }
+        } else {
+            echo "Invalid email";
+        }
+        */
+        
+        
+        // Which syntax do we keep ? This...
 
         $username = mysqli_real_escape_string($database, $_POST['username']);
         $email = mysqli_real_escape_string($database, $_POST['email']);
