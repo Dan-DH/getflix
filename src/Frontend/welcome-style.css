@@ -24,4 +24,23 @@ body {
 
 #CTA {
     font-size: 30px;
+    text-align: center;
+    margin: 3em;
 }
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    width: 40%;
+    margin: 2em;
+}
+#info2 {
+    justify-content: right;
+}
+/* footer{
+    position: relative;
+}
+*/
