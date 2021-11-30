@@ -150,6 +150,19 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Shivani and Dan : transfer data from movie API to our database, and then get it back to the main page + search page.
 - Make a proper welcome page that includes the sign up form but also a "sneak peek" into what the site offers.
 
+## Day six (26/11) : 
+- Technical issues : lost in PDO translation, error messages popping up, buttons not working properly (redirecting to irrelevant pages).
+
+## Day seven (29/11) :
+- Some technical issues resolved over the weekend : managed to make buttons work properly to direct to relevant pages, log in and sign up pages still connected to database + account page (though still some issues with the proper display of error messages ; resolved in the afternoon).
+- Style changes : log in and sign up buttons removed from the navbar as they are redundant.
+- Deployment strategy : how can we use Heroku to deploy our final site ?
+- Movie list API ! how to use SQL SELECT or other methods to sort and categorise movies based on gerne + avoid duplicates ?
+
+## Day eight (30/11) : 
+- Create a welcome page that will introduce first-timers to our site (see Netflix).
+- Duplicates being resolved.
+- PDO connection established well with account and contact page (+ styles accepted).
 
 
 ## Resources
@@ -189,3 +202,8 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - https://stackoverflow.com/questions/34578093/forgotten-password-script-with-pdo-decrypt-needed
 - https://www.dailyaspirants.com/2020/10/how-to-get-forgot-password-and-reset-password.html
 - https://thisinterestsme.com/php-reset-password-form/
+
+- https://www.youtube.com/watch?v=Zm1T3YBZtP0
+
+- https://devcenter.heroku.com/articles/local-development-with-docker-compose
+- https://www.freecodecamp.org/news/how-to-deploy-an-application-to-heroku/
