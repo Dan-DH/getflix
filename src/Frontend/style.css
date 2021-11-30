@@ -185,3 +185,30 @@ footer {
     grid-template-columns: auto auto auto auto;
   }
 }
+
+/* For account_PDO */
+
+@media screen and (min-width: 992px) {
+  .account_content {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
+
+.achievements_board {
+  display: grid;
+  grid-gap: 0.5em;
+}
+
+.achievImage {
+  width: 50px;
+  height: 50px;
+}
+
+@media screen and (max-width: 992px) {
+  .achievements_board {
+    display: grid;
+    grid-gap: 1em;
+  }
+}
+
