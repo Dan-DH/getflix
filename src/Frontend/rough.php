@@ -31,5 +31,68 @@
 </section>
 </body>
 </html> -->
+<?php
+// $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
+// if(!$database){
+//   die("Connection failed: " . mysqli_connect_error());
+// }
+// $query= "Select * from movies";
+// // $query= "Select * from movies where genre=35";
+// // $query ="Select image from movies where movieID = 1";
+// // $query ="SELECT image FROM movies WHERE genre LIKE "%28%";
+// $result = mysqli_query($database, $query);
+// while($data = $result->fetch_assoc()) {
+//   ?>
+<!-- //   <div class="carousel-cell">
+// <img src="<?php echo $data['image']; ?>" width="100" height="100"> 
+// </div>
+     <?php
+  //  } -->
+  ?> 
+    <!-- <div>
+        <h3 id="comedy">Comedy</h3>
+    </div> -->
 
+    <!-- <div class="carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'> -->
 
+<?php
+// $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
+// if(!$database){
+//   die("Connection failed: " . mysqli_connect_error());
+// }
+// $query= "Select * from movies";
+// // $query= "Select * from movies where genre=35";
+// // $query ="Select image from movies where movieID = 1";
+// // $query ="SELECT image FROM movies WHERE genre LIKE "%28%";
+// $result = mysqli_query($database, $query);
+// while($data = $result->fetch_assoc()) {}
+
+// declaring variables for db connection
+// $servername = "database";
+// $db_user = "root";
+// $db_password = "getflixRoot";
+// $dbname = "getflix";
+// ///Connecting to the database///
+// try{
+//     $db= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
+//     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// }
+// catch (PDOException $e) {
+//     echo "Connection failed : " . $e->getMessage();
+// }
+// $query= "Select image from movies where genre like '%35%'";
+// $data= $db->query($query);
+// $data->setFetchMode(PDO::FETCH_ASSOC);
+// foreach($data as $row) {
+//     foreach($row as $name=>$value){
+//         ?>
+<!-- //         <div class="carousel-cell">
+//         <img src="<?php echo $value; ?>">
+//         </div>
+//         <?php -->
+//     }
+// }
+
+?>
+
+</div>
