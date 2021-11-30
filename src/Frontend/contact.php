@@ -11,7 +11,7 @@ if (empty($_SESSION['username'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href="styleB.css">-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleB.css">
     <title>Contact us</title>
 </head>
 <body>
@@ -125,6 +125,7 @@ if (empty($_SESSION['username'])){
             <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
                 <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
             </a>
+
         </div>
         <p>Copyright &#169; 2021</p>  
     </footer>
