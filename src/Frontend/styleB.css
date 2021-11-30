@@ -100,7 +100,7 @@ h2 {
   font-size: 16px;
 }
 
-footer {
+#desktop_footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -110,10 +110,10 @@ footer {
 #mobile_footer {
   display: none;
 }
-/*.portrait {
+.portrait {
   border-radius: 50%;
   max-width: 50%;
-}*/
+}
 
 @media screen and (max-width: 992px) and (min-width: 460px) {
   h1 {
@@ -122,12 +122,10 @@ footer {
   h2 {
     font-size: 22px;
   }
-  button,
-  #submit {
+  button, #submit {
     font-size: 14px;
   }
-  a,
-  p {
+  a,p {
     font-size: 14px;
   }
   .fill_form {
