@@ -1,12 +1,13 @@
 <?php 
 //actual code
 //$id = $_SESSION["userID"];
+/*
 $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
 $login = mysqli_real_escape_string($database, $_SESSION["login"]);
 $query = "SELECT * FROM achievements WHERE userID = $id;";
-$result = mysqli_query($database, $query)-> fetch_array(MYSQLI_ASSOC);
+$result = mysqli_query($database, $query)->fetch_array(MYSQLI_ASSOC);
 $queryData = "SELECT * FROM users WHERE userID = $id;";
-$resultData = mysqli_query($database, $queryData)-> fetch_array(MYSQLI_ASSOC);
+$resultData = mysqli_query($database, $queryData)/*->fetch_array(MYSQLI_ASSOC);
 //print_r($resultData);
 
 //POST request
@@ -34,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $info = "Passwords must match";
     }
-}
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="./style-home.css">
-    <title>Document</title>
+    <title>Search results for</title>
 </head>
 
 <body>

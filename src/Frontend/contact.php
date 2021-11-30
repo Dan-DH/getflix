@@ -11,13 +11,13 @@ if (empty($_SESSION['username'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href="styleB.css">-->
-    <link rel="stylesheet" href="styleB.css">
+    <link rel="stylesheet" href="style.css">
     <title>Contact us</title>
 </head>
 <body>
 
 <div class="navbar">
-    <h1>Getflix</h1>
+    <a href="test.php"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
     <div class="buttons">
         <a href="./test.php"><button type="button" id="home">HOME</button></a>
         <?php if (isset($_SESSION['username'])): ?>

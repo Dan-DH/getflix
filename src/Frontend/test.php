@@ -24,7 +24,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-bg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="test.php">
                     <img src="../assets/Getflix.png" width="200rem" height="80rem">
                 </a>
                 <button class="navbar-toggler font-color" type="button" data-bs-toggle="collapse"
