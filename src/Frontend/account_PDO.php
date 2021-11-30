@@ -21,7 +21,9 @@ if (empty($_SESSION['username'])){
 </head>
 <body>
     <div class="navbar">
-        <h1>Getflix</h1>
+        <a href="test.php"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
+
+        <!--<h1>Getflix</h1>-->
         <div class="buttons">
             <a href="./test.php"><button type="button" id="home">Home</button></a>
             <a href="./index.php"><button type="button" id="logout">Log out</button></a>
@@ -44,13 +46,16 @@ if (empty($_SESSION['username'])){
                 <input type="password" placeholder="confirm new password" class="sf" name="new_password2" value="<?php echo $new_password2; ?>">
 
                 <button type="submit" class="submit" name="update">Update</button>
-
-                <h3>
-                    <?php
-                        echo $_SESSION['updated'];
-                        //unset($_SESSION['success']);
-                    ?>
-                </h3>
+                <div class="content">
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <h3>
+                            <?php
+                                echo $_SESSION['updated'];
+                                unset($_SESSION['updated']);
+                            ?>
+                        </h3>
+                    <?php endif ?>
+                </div>
             </form>
         </div>
     </main>

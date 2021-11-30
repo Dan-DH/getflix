@@ -1,7 +1,7 @@
 <?//php include('../Backend/server.php');
-//if user is not logged in, page is inaccessible
-    //if (empty($_SESSION['username'])){
-     //    header('location: login.php');
+// if user is not logged in, page is inaccessible
+//     if (empty($_SESSION['username'])){
+//         header('location: index.php');
 //    }
 ?>
 
@@ -39,16 +39,16 @@
                             <a class="nav-link navig-link white-font  me-lg-5 fs-5" href="#comedy">Comedy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#">Action</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#action">Action</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#">Drama</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#drama">Drama</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#">Family</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#family">Family</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#">Fantasy</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#fantasy">Fantasy</a>
                         </li>
 
                     </ul>
@@ -99,7 +99,8 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item fw-bold" href="index.php?logout='1'" name="logout">Log out</a></li>
+                            <li><a class="dropdown-item fw-bold" href="index.php?logout='1'" name="logout">Log out</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -107,57 +108,169 @@
         </nav>
     </header>
     <div class="content">
-        <?php if (isset($_SESSION['success'])): ?>
-            <div class="error success">
-                <h3>
-                    <?php
+        <!-- <?php if (isset($_SESSION['success'])): ?>
+        <div class="error success">
+            <h3>
+                <?php
                         echo $_SESSION['success'];
                         unset($_SESSION['success']);
                     ?>
-                </h3>
-            </div>
+            </h3>
+        </div>
         <?php endif ?>
 
         <?php if (isset($_SESSION['username'])): ?>
-            <p>Welcome back <strong> <?php echo $_SESSION['username']; ?> </strong>. Ready to chill?</p>
-            <!--<p><a href="login.php?logout='1'"><strong>Logout</strong></a></p>-->
-        <?php endif ?>
-    </div> 
-<main>
-    <div>
-        <h3 id="comedy">Comedy</h3>
+        <p>Welcome back <strong>
+                <?php echo $_SESSION['username']; ?>
+            </strong>. Ready to chill?</p>
+        <p><a href="login.php?logout='1'"><strong>Logout</strong></a></p>
+        <?php endif ?> -->
     </div>
+    <main>
+        <div class="container-fluid">
+            <?php
+                // $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
+                // if(!$database){
+                //   die("Connection failed: " . mysqli_connect_error());
+                // }
+                // $query= "Select * from movies";
+                // // $query= "Select * from movies where genre=35";
+                // // $query ="Select image from movies where movieID = 1";
+                // // $query ="SELECT image FROM movies WHERE genre LIKE "%28%";
+                // $result = mysqli_query($database, $query);
+                // while($data = $result->fetch_assoc()) {}
 
-<div class="carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
-<?php
-$database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
-if(!$database){
-  die("Connection failed: " . mysqli_connect_error());
-}
-$query= "Select * from movies";
-// $query= "Select * from movies where genre=35";
-// $query ="Select image from movies where movieID = 1";
-// $query ="Select image from movies where genre=35";
-$result = mysqli_query($database, $query);
-while($data = $result->fetch_assoc()) {
-  ?>
-  <div class="carousel-cell">
-<img src="<?php echo $data['image']; ?>" width="100" height="100"> 
-</div>
-     <?php
-   }
-  ?> 
-</div>
+                // declaring variables for db connection
+                $servername = "database";
+                $db_user = "root";
+                $db_password = "getflixRoot";
+                $dbname = "getflix";
+                ///Connecting to the database///
+                try{
+                    $db= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
+                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                }
+                catch (PDOException $e) {
+                    echo "Connection failed : " . $e->getMessage();
+                }
+            ?>
+            <div class="row" id="comedy">
+                <div class="col-12 fs-4 mb-3 ms-3" >
+                    Comedy
+                </div>
+                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }' >
+                    <?php
+                        $query= "Select image from movies where genre like '%35%'";
+                        $data= $db->query($query);
+                        $data->setFetchMode(PDO::FETCH_ASSOC);
+                        foreach($data as $row) {
+                                foreach($row as $name=>$value){
+                                    ?>
+                                        <div class="carousel-cell">
+                                                <img src="<?php echo $value; ?>">
+                                        </div>
+                                    <?php
+                                }
+                        }
+                    ?>
+                </div>
+            </div>
+            <div class="row" id="action">
+                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
+                        Action
+                </div>
+                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
+                    <?php
+                        $query= "Select image from movies where genre like '%28%'";
+                        $data= $db->query($query);
+                        $data->setFetchMode(PDO::FETCH_ASSOC);
+                        foreach($data as $row) {
+                            foreach($row as $name=>$value){
+                                ?>
+                                    <div class="carousel-cell">
+                                        <img src="<?php echo $value; ?>">
+                                    </div>
+                                <?php
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
+            <div class="row" id="drama">
+                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
+                    Drama
+                </div>
+                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
+                    <?php
+                        $query= "Select image from movies where genre like '%18%'";
+                        $data= $db->query($query);
+                        $data->setFetchMode(PDO::FETCH_ASSOC);
+                        foreach($data as $row) {
+                            foreach($row as $name=>$value){
+                                ?>
+                                    <div class="carousel-cell">
+                                         <img src="<?php echo $value; ?>">
+                                    </div>
+                                <?php
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
+            <div class="row" id="family">
+                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
+                    Family
+                </div>
+                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
+                    <?php
+                        $query= "Select image from movies where genre like '%10751%'";
+                        $data= $db->query($query);
+                        $data->setFetchMode(PDO::FETCH_ASSOC);
+                        foreach($data as $row) {
+                            foreach($row as $name=>$value){
+                                ?>
+                                    <div class="carousel-cell">
+                                        <img src="<?php echo $value; ?>">
+                                    </div>
+                                <?php
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
+            <div class="row" id="fantasy">
+                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
+                    Fantasy
+                </div>
+                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
+                    <?php
+                        $query= "Select image from movies where genre like '%14%'";
+                        $data= $db->query($query);
+                        $data->setFetchMode(PDO::FETCH_ASSOC);
+                        foreach($data as $row) {
+                            foreach($row as $name=>$value){
+                                ?>
+                                    <div class="carousel-cell">
+                                        <img src="<?php echo $value; ?>">
+                                    </div>
+                                <?php
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+
     </main>
     <footer id="footer">
         <div class="container text-center">
             <div class="row d-flex">
                 <div class="col order-md-2 d-none d-sm-block">
-                    A collab between <a class="navig-link" href="https://github.com/Dan-DH" target="_blank"
-                        rel="noopener">Daniel</a>, <a class=" navig-link" href="https://github.com/Brigilets"
-                        target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link"
+                    A collab between <a class="navig-link2" href="https://github.com/Dan-DH" target="_blank"
+                        rel="noopener">Daniel</a>, <a class=" navig-link2" href="https://github.com/Brigilets"
+                        target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link2"
                         href="https://github.com/ShivaniKhatri96/" target="_blank" rel="noopener">Shivani</a> and <a
-                        class=" navig-link" href="https://github.com/teo-cozma" target="_blank"
+                        class=" navig-link2" href="https://github.com/teo-cozma" target="_blank"
                         rel="noopener">Teodora</a>.
                 </div>
                 <div class="col-3 order-md-4  text-center hide2">
@@ -192,25 +305,6 @@ while($data = $result->fetch_assoc()) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-        <!-- <div class="content">
-            <?php if (isset($_SESSION['success'])): ?>
-                <div class="error-success">
-                    <h3>
-                        <?php
-                            echo $_SESSION['success'];
-                            unset($_SESSION['success']);
-                        ?>
-                    </h3>
-                </div>
-            <?php endif ?>
-    
-            <?php if (isset($_SESSION['username'])): ?>
-                <p>Welcome back <strong> <?php echo $_SESSION['username']; ?> </strong>. Ready to chill?</p>
-                <p><a href="../Frontend/login.php?logout='1'"><strong>Logout</strong></a></p>
-            <?php endif ?>
-        </div> -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
-
 </html>
-
