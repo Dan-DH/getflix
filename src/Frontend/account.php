@@ -1,46 +1,69 @@
 <?php 
 //for testing purposes
-session_start();
-$_SESSION["userID"] = 3;
+// session_start();
+// $_SESSION["username"] = "Dario";
+
 //actual code
-if (empty($_SESSION['username'])){
-    header('location: ../Frontend/index.php');
-};
-$id = $_SESSION["userID"];
-$database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
-$login = mysqli_real_escape_string($database, $_SESSION["login"]);
-$query = "SELECT * FROM achievements WHERE userID = $id;";
-$result = mysqli_query($database, $query)-> fetch_array(MYSQLI_ASSOC);
-$queryData = "SELECT * FROM users WHERE userID = $id;";
-$resultData = mysqli_query($database, $queryData)-> fetch_array(MYSQLI_ASSOC);
-//print_r($resultData);
+include_once "../api/Database.php";
+$database = new Database();
+$db = $database->connect();
 
-//POST request
-$login = mysqli_real_escape_string($database, $_POST['login']);
-$email = mysqli_real_escape_string($database, $_POST['email']);
-$password1 = mysqli_real_escape_string($database, $_POST['password']);
-$password2 = mysqli_real_escape_string($database, $_POST['password2']);
+//show user data
+$user = $_SESSION['username'];
+$query = "SELECT * FROM users WHERE login = '$user';";
+$stmt = $db->prepare($query);
+$stmt->execute();
+$resultData = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// update account info
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $login = strip_tags($_POST['login']);
+    $email = strip_tags($_POST['email']);
+    $password = strip_tags($_POST['password']);
+    $password2 = strip_tags($_POST['password2']);
 
-    if ($_POST['password'] == $_POST['password2']) {
+    //error checks
+    $info = [];
+    $password != $password2 ? array_push($info, "Passwords must match") : true;
+
+    if (isset($login) || isset($email)) {
+        //checking if new username or password already exists
+       $check = $db->prepare("SELECT * FROM users WHERE login='$login' OR email='$email';");
+       $check->execute();
+       $checkResult = $check->fetch(PDO::FETCH_ASSOC);
+       $check->rowCount() > 0 ? array_push($info, "Login or email already in use") : true;
+    };
+
+    if (count($info) == 0) {
+        //adding data to array if not null
         $newValues = [];
         foreach ($_POST as $k => $v) {
             $v != null ? $newValues[$k] = $v : true;
         };
-    
-        count($newValues) > 3 ? array_pop($newValues): true;
-    
+
+        //removing second password from array
+        array_key_exists('password2', $newValues) ? array_pop($newValues): true;
+
+        //updating the database
         foreach ($newValues as $k => $v) {
-            $queryUpdate = "UPDATE users SET $k = '$v' WHERE userID = $id;";
-            $updateSent = mysqli_query($database, $queryUpdate);
+            $update_stmt=$db->prepare("UPDATE users SET $k = '$v' WHERE login = '$user';");
+            $update_stmt->execute();
         };
 
+        //updating username in SESSION if needed
+        if (isset($login)) {
+            $_SESSION['username'] = $login;
+        };
+
+        //updating form fields
+        $query = "SELECT * FROM users WHERE login = '$user';";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $resultData = $stmt->fetch(PDO::FETCH_ASSOC);
+
         $info = "Your data has been updated";
-    } else {
-        $info = "Passwords must match";
-    }
-}
+    }   
+};
 ?>
 
 <!DOCTYPE html>
@@ -62,8 +85,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="./login.php"><button type="button" id="logout">Log out</button></a>
         </div>
 </div>
+
 <div class="row userform">
     <div class="col-12 col-md-4 containerForm">
+
         <form action="account.php" method="post">
             <label for="login">Current login:</label><br>
             <input type="text" class="inputfield" id="login" name="login" placeholder="<?php echo $resultData['login']?>" value=""><br>
@@ -73,7 +98,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="password" class="inputfield" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"><br>
             <label for="password2">Repeat password:</label><br>
             <input type="password" class="inputfield" id="password2" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"s><br>
-            <?php echo "<p class='info'>$info</p>"?>
+            <?php if ($info[0] == "Login or email already in use") {
+                echo "<p class='info'>Login or email already in use</p>";
+            } elseif ($info[0] == "Passwords must match") {
+                echo "<p class='info'>Passwords must match</p>";
+            } else {
+                echo "<p class='info'>$info</p>";
+            } ?>
             <div class="text-center">
                 <button type="submit" class="submit">Update my data</button>
             </div>
@@ -126,7 +157,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link"
                         href="https://github.com/ShivaniKhatri96/" target="_blank" rel="noopener">Shivani</a> and <a
                         class=" navig-link" href="https://github.com/teo-cozma" target="_blank"
-                        rel="noopener">Teodora</a>.comment_achievement1
+                        rel="noopener">Teodora</a>
                 <div class="col-3 order-md-4  text-center hide2">
                     <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
                         <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
