@@ -124,7 +124,7 @@ if(isset($_POST['submit'])){
             </a>
 
         </div>
-        <p>Copyright &#169; 2021</p>
+        <p>Copyright &#169; 2021 </p>
             
     </footer>
 </body>
