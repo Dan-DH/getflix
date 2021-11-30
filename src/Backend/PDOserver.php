@@ -28,57 +28,57 @@ catch (PDOException $e) {
 }
 
 /// Log user from login page///
-    // if (isset($_POST['login'])) {
+    if (isset($_POST['login'])) {
 
-    //     if (isset($_SESSION['username'])) {
-    //         header('location: test.php');
-    //     }
+        if (isset($_SESSION['username'])) {
+            header('location: test.php');
+        }
         
-    //     $username = strip_tags($_POST['userinfo']);
-    //     $email = strip_tags($_POST['userinfo']);
-    //     $password = strip_tags($_POST['password']);
-    //     //$hash_encrypt = password_hash($password, PASSWORD_DEFAULT);
+        $username = strip_tags($_POST['userinfo']);
+        $email = strip_tags($_POST['userinfo']);
+        $password = strip_tags($_POST['password']);
+        //$hash_encrypt = password_hash($password, PASSWORD_DEFAULT);
 
-    //     // ensure the fields are filled properly :
-    //     if (empty($username)) {
-    //     array_push($errors, "Username / email is required");
-    //     }
-    //     /*elseif (empty($email)) {
-    //         array_push($errors, "Username / email is required");
-    //     }*/
-    //     if (empty($password)) {
-    //         array_push($errors, "Password is required");
-    //     }
+        // ensure the fields are filled properly :
+        if (empty($username)) {
+        array_push($errors, "Username / email is required");
+        }
+        /*elseif (empty($email)) {
+            array_push($errors, "Username / email is required");
+        }*/
+        if (empty($password)) {
+            array_push($errors, "Password is required");
+        }
 
-    //     // If information is correctly input :
-    //     try {
-    //         if (count($errors) == 0) {
-    //             // select query
-    //             $sql = "SELECT * FROM users WHERE (login='$username' OR email='$email') AND password='$password'";
-    //             $result = $db->prepare($sql); 
+        // If information is correctly input :
+        try {
+            if (count($errors) == 0) {
+                // select query
+                $sql = "SELECT * FROM users WHERE (login='$username' OR email='$email') AND password='$password'";
+                $result = $db->prepare($sql); 
 
-    //             $result->execute();
-    //             $row_count = $result->fetchColumn();
-    //             //echo $row_count;
+                $result->execute();
+                $row_count = $result->fetchColumn();
+                //echo $row_count;
 
-    //             if ($row_count > 0) {
-    //                 //echo "some form of success";
-    //                 // Logged in
-    //                 $_SESSION['username'] = $username;
-    //                 $_SESSION['success'] = "Welcome back $username! Ready to chill ?";
-    //                 header('location: ../Frontend/test.php');
-    //             }
-    //             else {
-    //                 array_push($errors, "Wrong user / password combo.");
-    //             }
+                if ($row_count > 0) {
+                    //echo "some form of success";
+                    // Logged in
+                    $_SESSION['username'] = $username;
+                    $_SESSION['success'] = "Welcome back $username! Ready to chill ?";
+                    header('location: ../Frontend/test.php');
+                }
+                else {
+                    array_push($errors, "Wrong user / password combo.");
+                }
                 
-    //         } 
-    //     } 
-    //     catch (PDOException $e) {
-    //         echo "Login failed : " . $e->getMessage();
-    //     }
+            } 
+        } 
+        catch (PDOException $e) {
+            echo "Login failed : " . $e->getMessage();
+        }
         
-    // }
+    }
 
     ///creating a new account///
     if (isset($_REQUEST['signup'])) {
@@ -149,44 +149,3 @@ catch (PDOException $e) {
         session_destroy();
         header('location: ../Frontend/index.php');
     }
-
-    // update account info
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $login = strip_tags($_POST['login']);
-        $email = strip_tags($_POST['email']);
-        $password1 = strip_tags($_POST['password1']);
-        $password2 = strip_tags($_POST['password2']);
-
-        if ($_POST['password'] == $_POST['password2']) {
-            //adding data to array if not null
-            $newValues = [];
-            foreach ($_POST as $k => $v) {
-                $v != null ? $newValues[$k] = $v : true;
-            };
-
-            //removing second password from array
-            count($newValues) > 3 ? array_pop($newValues): true;
-
-            $holder = $_SESSION['username'];
-
-            foreach ($newValues as $k => $v) {
-                $update_stmt=$db->prepare("UPDATE users SET $k = '$v' WHERE login = '$holder';");
-                $update_stmt->execute();
-            };
-
-            //updating username in SESSION if needed
-            if (isset($_POST['login'])) {
-                $_SESSION['username'] = $_POST['login'];
-            };
-
-            //updating form fields
-            GLOBAL $id;
-            GLOBAL $database;
-            $insert_stmt=$db->prepare("SELECT * FROM users WHERE login = '$login';");
-            $insert_stmt->execute();
-
-            $info = "Your data has been updated";
-        } else {
-            $info = "Passwords must match";
-        };
-}
