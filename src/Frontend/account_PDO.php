@@ -44,13 +44,16 @@ if (empty($_SESSION['username'])){
                 <input type="password" placeholder="confirm new password" class="sf" name="new_password2" value="<?php echo $new_password2; ?>">
 
                 <button type="submit" class="submit" name="update">Update</button>
-
-                <h3>
-                    <?php
-                        echo $_SESSION['updated'];
-                        //unset($_SESSION['success']);
-                    ?>
-                </h3>
+                <div class="content">
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <h3>
+                            <?php
+                                echo $_SESSION['updated'];
+                                unset($_SESSION['updated']);
+                            ?>
+                        </h3>
+                    <?php endif ?>
+                </div>
             </form>
         </div>
     </main>
