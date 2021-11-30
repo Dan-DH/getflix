@@ -1,5 +1,8 @@
 <?php 
 $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
+if(!$database){
+      die("Connection failed: " . mysqli_connect_error());
+    }
 $apikey = "271b40684c0dc7716d75c02906a97e9f";
 $genre_id = [14,18,28,35,10751];
 //35: comedy,28: Action,18: Drama,10751: Family,14: Fantasy
