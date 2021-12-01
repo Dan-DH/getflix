@@ -169,6 +169,12 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Finish all the PDO files
 - Redeploy site on Heroku with PDO files
 
+- Pop up info
+- Deployment 
+- Achievements
+- Search filter
+- PHP mail in
+
 ## Resources
 - https://dev.to/techworld_with_nana/top-8-docker-best-practices-for-using-docker-in-production-1m39
 - https://www.section.io/engineering-education/dockerized-php-apache-and-mysql-container-development-environment/
@@ -213,3 +219,5 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - https://www.freecodecamp.org/news/how-to-deploy-an-application-to-heroku/
 - https://developers.themoviedb.org/3/getting-started/introduction to import movie list into our database
 - https://www.google.com/search?q=cinema+background&tbm=isch&ved=2ahUKEwiv9qyI77_0AhVL2KQKHVBFC3cQ2-cCegQIABAA&oq=cinema+background&gs_lcp=CgNpbWcQAzIECAAQQzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoHCCMQ7wMQJ1CsCVj8IGD0I2gBcAB4AIAB1QGIAeQPkgEGMTIuNi4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=g_ulYe-oHsuwkwXQiq24Bw&bih=875&biw=1760&client=firefox-b-d#imgrc=0i6WXUNI9UXzfM
+
+- https://www.sourcecodester.com/tutorials/php/13884/php-search-filter-using-pdo.html

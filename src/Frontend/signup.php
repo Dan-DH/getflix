@@ -35,7 +35,8 @@ include('../Backend/PDOserver.php');
                 <input type="text" placeholder="username" class="sf" name="username" value="<?php echo $username; ?>">
                 <input type="text" placeholder="email" class="sf" name="email" value="<?php echo $email; ?>">
                 <input type="password" placeholder="password" class="sf" name="password1" value="<?php echo $password1; ?>">
-                <input type="password" placeholder="confirm password" class="sf" name="password2" value="<?php echo $password2; ?>">
+                <input type="password" placeholder="confirm password" class="sf" name="password2" value="<?php echo $password2; ?>" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 characters">
+                <!-- <input type="password" placeholder="confirm password" class="sf" name="password2" value="<?php //echo $password2; ?>"> -->
 
                 <button type="submit" class="submit" name="signup">Submit</button>
 

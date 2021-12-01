@@ -27,6 +27,12 @@ color: black;
 #searchbar {
     border-radius: 1rem;
 }
+.search_result {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+}
 a {
     text-decoration: none;
     color: #2DB5E1;
