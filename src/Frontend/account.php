@@ -3,6 +3,10 @@
 // session_start();
 // $_SESSION["username"] = "Dario";
 
+if (empty($_SESSION['username'])){
+    header('location: ../Frontend/index.php');
+}
+
 //actual code
 include_once "../api/Database.php";
 $database = new Database();
