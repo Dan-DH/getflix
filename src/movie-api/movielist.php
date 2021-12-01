@@ -1,8 +1,23 @@
 <?php 
+
 $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
 if(!$database){
       die("Connection failed: " . mysqli_connect_error());
     }
+/*
+$servername = "database";
+$db_user = "root";
+$db_password = "getflixRoot";
+$dbname = "getflix";
+///Connecting to the database///
+try{
+      $db= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $e) {
+      echo "Connection failed : " . $e->getMessage();
+}*/
+
 $apikey = "271b40684c0dc7716d75c02906a97e9f";
 $genre_id = [14,18,28,35,10751];
 //35: comedy,28: Action,18: Drama,10751: Family,14: Fantasy
@@ -52,8 +67,24 @@ foreach($filtered as $id){
             array_push($movies,$id);
       }
 }   
- //adding movies from movies array to database         
+//adding movies from movies array to database  
+//$total = [];
+//$data = [];
+
 foreach($movies as $id){
+     /* $data = [
+            $id->title,
+            'https://image.tmdb.org/t/p/w500'. $id->poster_path,
+            $id->video,
+            ".implode(",",$id->genre_ids).",
+            $id->vote_average,
+            $id->overview
+      ];
+
+      array_push($total, $data);
+      echo $data;
+     */
+
       $query = "INSERT INTO movies (title, 
       image, 
       trailer, 
@@ -66,10 +97,32 @@ foreach($movies as $id){
       $id->vote_average,
       '$id->overview')";
       $result = mysqli_query($database, $query);
+      //$db->prepare($query)->execute([$id->title, 'https://image.tmdb.org/t/p/w500'$id->poster_path, $id->video])
 };
+//echo $total;
+/*
+      $query = "INSERT INTO movies (title, 
+      image, 
+      trailer, 
+      genre, 
+      rating, 
+      synopsis) VALUES (:title, :image, :trailer, :genre, :rating, :synopsis)";
+     
+      $result = $db->prepare($query)->execute($data);
+*/
 echo "<pre>";
 print_r($movies);
 echo "</pre>";
 
+/*
+$data = [
+            'title' => $id->title,
+            'image' => 'https://image.tmdb.org/t/p/w500'. $id->poster_path,
+            'trailer' => $id->video,
+            'genre' => ".implode(",",$id->genre_ids).",
+            'rating' => $id->vote_average,
+            'synopsis' => $id->overview
+      ];
+*/
 
 

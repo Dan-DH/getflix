@@ -120,12 +120,6 @@
                 </h3>
             </div>
         <?php endif ?>
-        
-        <!--
-        <?php //if (isset($_SESSION['username'])): ?>
-            //$_SESSION['success'] = ;
-        <?php //endif ?> 
-        -->
     </div> 
 
     <div>

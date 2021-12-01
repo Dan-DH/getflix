@@ -164,6 +164,10 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Duplicates being resolved.
 - PDO connection established well with account and contact page (+ styles accepted).
 
+## Day nine (01/12) :
+- Write code for the comment section
+- Finish all the PDO files
+- Redeploy site on Heroku with PDO files
 
 ## Resources
 - https://dev.to/techworld_with_nana/top-8-docker-best-practices-for-using-docker-in-production-1m39

@@ -31,7 +31,7 @@ catch (PDOException $e) {
     if (isset($_POST['login'])) {
 
         if (isset($_SESSION['username'])) {
-            header('location: test.php');
+            header('location: main.php');
         }
         
         $username = strip_tags($_POST['userinfo']);
@@ -66,7 +66,7 @@ catch (PDOException $e) {
                     // Logged in
                     $_SESSION['username'] = $username;
                     $_SESSION['success'] = "Welcome back $username! Ready to chill ?";
-                    header('location: ../Frontend/test.php');
+                    header('location: ../Frontend/main.php');
                 }
                 else {
                     array_push($errors, "Wrong user / password combo.");
@@ -135,7 +135,7 @@ catch (PDOException $e) {
                 if($insert_stmt->execute(array(':uname'=>$username,':uemail'=>$email,':upassword'=>$password))) {
                     $_SESSION['username'] = $username;
                     $_SESSION['success'] = "Logged in !";
-                    header('location: ../Frontend/test.php'); //redirect to main (test)
+                    header('location: ../Frontend/main.php'); //redirect to main
                 }
             }
         } catch (PDOEexception $e) {
