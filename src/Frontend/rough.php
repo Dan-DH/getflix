@@ -49,7 +49,7 @@
      <?php
   //  } -->
   ?> 
-    <!-- <div>
+     <div>
         <h3 id="comedy">Comedy</h3>
     </div> -->
 
@@ -89,7 +89,7 @@
 <!-- //         <div class="carousel-cell">
 //         <img src="<?php echo $value; ?>">
 //         </div>
-//         <?php -->
+//         <?php 
 //     }
 // }
 

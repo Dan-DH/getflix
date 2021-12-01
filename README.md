@@ -207,3 +207,4 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 
 - https://devcenter.heroku.com/articles/local-development-with-docker-compose
 - https://www.freecodecamp.org/news/how-to-deploy-an-application-to-heroku/
+- https://developers.themoviedb.org/3/getting-started/introduction to import movie list into our database

@@ -3,6 +3,19 @@ $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
 if(!$database){
       die("Connection failed: " . mysqli_connect_error());
     }
+
+//  $servername = "database";
+// $db_user = "root";
+// $db_password = "getflixRoot";
+// $dbname = "getflix";
+// ///Connecting to the database///
+// try{
+//     $database= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
+//     $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// }
+// catch (PDOException $e) {
+//     echo "Connection failed : " . $e->getMessage();
+// }
 $apikey = "271b40684c0dc7716d75c02906a97e9f";
 $genre_id = [14,18,28,35,10751];
 //35: comedy,28: Action,18: Drama,10751: Family,14: Fantasy
@@ -52,8 +65,9 @@ foreach($filtered as $id){
             array_push($movies,$id);
       }
 }   
- //adding movies from movies array to database         
+ //adding movies from movies array to database  
 foreach($movies as $id){
+
       $query = "INSERT INTO movies (title, 
       image, 
       trailer, 
