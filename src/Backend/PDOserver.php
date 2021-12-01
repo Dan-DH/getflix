@@ -149,4 +149,3 @@ catch (PDOException $e) {
         session_destroy();
         header('location: ../Frontend/index.php');
     }
-?>

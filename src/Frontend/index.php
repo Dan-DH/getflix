@@ -14,7 +14,10 @@
 </head>
 <body>
     <div class="navbar">
-        <h1>Getflix</h1>
+        <a href="welcome.html"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
+
+        <!--<h1>Getflix</h1>-->
+
         <!--
         <div class="buttons">
             <button type="submit" id="login" href>Log in</button>
