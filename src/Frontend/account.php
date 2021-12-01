@@ -106,7 +106,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <label for="password">New password:</label><br>
             <input type="password" class="inputfield" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"><br>
             <label for="password2">Repeat password:</label><br>
-            <input type="password" class="inputfield" id="password2" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"s><br>
+            <input type="password" class="inputfield" id="password2" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 characters"><br>
             <?php if ($info[0] == "Login or email already in use") {
                 echo "<p class='info'>Login or email already in use</p>";
             } elseif ($info[0] == "Passwords must match") {
