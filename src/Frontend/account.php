@@ -1,7 +1,9 @@
 <?php 
-//for testing purposes
-// session_start();
-// $_SESSION["username"] = "Dario";
+include_once('../Backend/session.php');
+
+if (empty($_SESSION['username'])){
+    header('location: ../Frontend/index.php');
+}
 
 //actual code
 include_once "../api/Database.php";
@@ -34,6 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
        $check->rowCount() > 0 ? array_push($info, "Login or email already in use") : true;
     };
 
+    //if no errors are found
     if (count($info) == 0) {
         //adding data to array if not null
         $newValues = [];
@@ -51,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         };
 
         //updating username in SESSION if needed
-        if (isset($login)) {
+        if (!empty($login)) {
             $_SESSION['username'] = $login;
         };
 
@@ -60,7 +63,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $db->prepare($query);
         $stmt->execute();
         $resultData = $stmt->fetch(PDO::FETCH_ASSOC);
-
         $info = "Your data has been updated";
     }   
 };
@@ -79,11 +81,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
 <div class="navbar">
-        <h1>Getflix</h1>
-        <div class="buttons">
-            <a href="./main.php"><button type="button" id="home">Home</button></a>
-            <a href="./login.php"><button type="button" id="logout">Log out</button></a>
-        </div>
+    <a href="./main.php"><h1>Getflix</h1></a>
+    <div class="buttons">
+        <a href="./main.php"><button type="button" id="home">Home</button></a>
+        <a href="./login.php"><button type="button" id="logout">Log out</button></a>
+    </div>
 </div>
 
 <div class="row userform">
@@ -142,22 +144,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <img class="achievImage <?php echo $result["comment_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.jpg" alt="Level 1" id="comment5">
                 <span>Wrote ten comments</span><br>
                 <img class="achievImage <?php echo $result["achievements_all"] ? 'trans' : ''; ?>" src="../assets/achievement3.jpg" alt="Level 1" id="all">
-                <span>Got all achievements !!</span>
+                <span>Unlocked all achievements</span>
             </div>
         </div>
     </div>
 </div>
 
-<footer id="footer">
+    <footer id="footer">
         <div class="container text-center">
             <div class="row d-flex">
                 <div class="col order-md-2 d-none d-sm-block">
-                    A collab between <a class="navig-link" href="https://github.com/Dan-DH" target="_blank"
-                        rel="noopener">Daniel</a>, <a class=" navig-link" href="https://github.com/Brigilets"
-                        target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link"
+                    A collab between <a class="navig-link2" href="https://github.com/Dan-DH" target="_blank"
+                        rel="noopener">Daniel</a>, <a class=" navig-link2" href="https://github.com/Brigilets"
+                        target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link2"
                         href="https://github.com/ShivaniKhatri96/" target="_blank" rel="noopener">Shivani</a> and <a
-                        class=" navig-link" href="https://github.com/teo-cozma" target="_blank"
-                        rel="noopener">Teodora</a>
+                        class=" navig-link2" href="https://github.com/teo-cozma" target="_blank"
+                        rel="noopener">Teodora</a>.
+                </div>
                 <div class="col-3 order-md-4  text-center hide2">
                     <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
                         <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
@@ -168,14 +171,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <img src="../assets/daniIcon.webp" alt="githubLink" class="portrait">
                     </a>
                 </div>
-                <div class="col-3 text-center hide2">
-                    <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
-                        <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
-                    </a>
-                </div>
                 <div class="col-3  text-center hide2">
                     <a href="https://github.com/ShivaniKhatri96" target="_blank" rel="noopener">
                         <img src="../assets/shivaniIcon.webp" alt="githubLink" class="portrait">
+                    </a>
+                </div>
+                <div class="col-3 text-center hide2">
+                    <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
+                        <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
                     </a>
                 </div>
                 <div class="col col-md-12 mt-2 order-md-1">

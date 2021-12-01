@@ -1,5 +1,6 @@
 <?php 
-session_start();
+include('../Backend/session.php');
+//session_start();
 
 // declaring variables for submission
 $username = "";
