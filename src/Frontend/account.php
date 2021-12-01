@@ -1,7 +1,5 @@
 <?php 
-include('../Backend/session.php');
-//for testing purposes
-// $_SESSION["username"] = "Dario";
+include_once('../Backend/session.php');
 
 if (empty($_SESSION['username'])){
     header('location: ../Frontend/index.php');
@@ -56,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         };
 
         //updating username in SESSION if needed
-        if (isset($login)) {
+        if (!empty($login)) {
             $_SESSION['username'] = $login;
         };
 
@@ -65,7 +63,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $db->prepare($query);
         $stmt->execute();
         $resultData = $stmt->fetch(PDO::FETCH_ASSOC);
-        echo $_SESSION['username'];
         $info = "Your data has been updated";
     }   
 };
