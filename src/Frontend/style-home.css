@@ -5,6 +5,9 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: 3px;
 }
+.black-font {
+color: black;
+}
 .navbar-bg{
  background-color:black;
 }
