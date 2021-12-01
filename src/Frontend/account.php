@@ -17,6 +17,13 @@ $stmt = $db->prepare($query);
 $stmt->execute();
 $resultData = $stmt->fetch(PDO::FETCH_ASSOC);
 
+//show achievements
+$userID = $resultData['userID'];
+$queryA = "SELECT * FROM achievements WHERE userID = '$userID';";
+$stmtA = $db->prepare($queryA);
+$stmtA->execute();
+$result = $stmtA->fetch(PDO::FETCH_ASSOC);
+
 // update account info
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $login = strip_tags($_POST['login']);
