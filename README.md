@@ -164,6 +164,10 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Duplicates being resolved.
 - PDO connection established well with account and contact page (+ styles accepted).
 
+## Day nine (01/12) :
+- Write code for the comment section
+- Finish all the PDO files
+- Redeploy site on Heroku with PDO files
 
 ## Resources
 - https://dev.to/techworld_with_nana/top-8-docker-best-practices-for-using-docker-in-production-1m39
@@ -207,4 +211,5 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 
 - https://devcenter.heroku.com/articles/local-development-with-docker-compose
 - https://www.freecodecamp.org/news/how-to-deploy-an-application-to-heroku/
+- https://developers.themoviedb.org/3/getting-started/introduction to import movie list into our database
 - https://www.google.com/search?q=cinema+background&tbm=isch&ved=2ahUKEwiv9qyI77_0AhVL2KQKHVBFC3cQ2-cCegQIABAA&oq=cinema+background&gs_lcp=CgNpbWcQAzIECAAQQzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoHCCMQ7wMQJ1CsCVj8IGD0I2gBcAB4AIAB1QGIAeQPkgEGMTIuNi4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=g_ulYe-oHsuwkwXQiq24Bw&bih=875&biw=1760&client=firefox-b-d#imgrc=0i6WXUNI9UXzfM

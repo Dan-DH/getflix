@@ -1,8 +1,8 @@
-<?//php include('../Backend/server.php');
-// if user is not logged in, page is inaccessible
-//     if (empty($_SESSION['username'])){
-//         header('location: index.php');
-//    }
+<?php include('../Backend/PDOserver.php');
+        // NB:if user is not logged in, page is inaccessible
+    if (empty($_SESSION['username'])){
+        header('location: index.php');
+   }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="./style-home.css">
-    <title>Document</title>
+    <title>Home page</title>
 </head>
 
 <body>
@@ -108,7 +108,7 @@
         </nav>
     </header>
     <div class="content">
-        <!-- <?php if (isset($_SESSION['success'])): ?>
+        <?php if (isset($_SESSION['success'])): ?>
         <div class="error success">
             <h3>
                 <?php
@@ -118,13 +118,6 @@
             </h3>
         </div>
         <?php endif ?>
-
-        <?php if (isset($_SESSION['username'])): ?>
-        <p>Welcome back <strong>
-                <?php echo $_SESSION['username']; ?>
-            </strong>. Ready to chill?</p>
-        <p><a href="login.php?logout='1'"><strong>Logout</strong></a></p>
-        <?php endif ?> -->
     </div>
     <main>
         <div class="container-fluid">
