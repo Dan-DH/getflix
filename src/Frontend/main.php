@@ -1,5 +1,5 @@
 <?//php include('../Backend/server.php');
-// if user is not logged in, page is inaccessible
+        // NB:if user is not logged in, page is inaccessible
 //     if (empty($_SESSION['username'])){
 //         header('location: index.php');
 //    }
