@@ -262,9 +262,9 @@
                     </p>
                     <div>ratings will be here</div>
                     <div>
-                        <form>
-                            <!-- <input type="text" -->
-                    </form>
+                        <!-- <form>
+                            <input type="text"
+                    </form> -->
 
                     </div>
                     </div>
