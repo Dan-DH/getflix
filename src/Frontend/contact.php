@@ -19,7 +19,7 @@ if (empty($_SESSION['username'])){
 <div class="navbar">
     <a href="test.php"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
     <div class="buttons">
-        <a href="./test.php"><button type="button" id="home">HOME</button></a>
+        <a href="./main.php"><button type="button" id="home">HOME</button></a>
         <?php if (isset($_SESSION['username'])): ?>
                 <a href="contact.php?logout='1'" name="logout">
                     <button type="button" id="logout">LOG OUT</button>
