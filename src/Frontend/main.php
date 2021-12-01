@@ -56,14 +56,15 @@
                     <form class="d-flex" action="" method="post">
                         <div class="row me-2 ms-4 ms-lg-0 mb-3 mb-lg-0">
                             <div class="col">
-                                <input class="collapse" id="searchbar" type="search" placeholder="Search"
+                                <input class="collapse" id="searchbar" name="searchbar" type="search" placeholder="Search"
                                     aria-label="Search">
                                 <!-- <input class="form-control collapse" id="searchbar" type="search" placeholder="Search" 
                                         aria-label="Search"> -->
+                                    
                             </div>
                             <div class="col  mt-lg-1">
                                 <!-- class="btn" -->
-                                <a data-bs-toggle="collapse" href="#searchbar" role="button" aria-expanded="false"
+                                <a data-bs-toggle="collapse" href="#searchbar" role="button" name="search" aria-expanded="false"
                                     aria-controls="searchbar"><i class="fa fa-search white-font fs-5"></i></a>
                             </div>
                         </div>
@@ -120,6 +121,11 @@
         <?php endif ?>
     </div>
     <main>
+        <div class="search_result">
+            <?php include('search.php')?>
+            <?php include('../Backend/errors.php')?>
+        </div>
+        
         <div class="container-fluid">
             <?php
                 // $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
