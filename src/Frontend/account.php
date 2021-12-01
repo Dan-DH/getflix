@@ -1,6 +1,6 @@
 <?php 
+include('../Backend/session.php');
 //for testing purposes
-// session_start();
 // $_SESSION["username"] = "Dario";
 
 if (empty($_SESSION['username'])){
@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $db->prepare($query);
         $stmt->execute();
         $resultData = $stmt->fetch(PDO::FETCH_ASSOC);
-
+        echo $_SESSION['username'];
         $info = "Your data has been updated";
     }   
 };
