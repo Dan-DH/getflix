@@ -35,9 +35,9 @@ CREATE TABLE movies (
 	image varchar(255) not null,
 	trailer varchar(255) not null,
 	genre varchar(255) not null,
-	rating float(2) not null
+	rating float(2) not null,
 	-- synopsis varchar(255) 
-	-- synopsis varchar(255) not null
+	synopsis varchar(255) not null
 );
 CREATE TABLE achievements (
 	userID int(10) not null primary key auto_increment,
