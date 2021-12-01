@@ -32,7 +32,7 @@ CREATE TABLE movies (
 	title varchar(255) not null,
 	image varchar(255) not null,
 	trailer varchar(255) not null,
-	genre varchar(255) not null,
+	genre varchar(800) not null,
 	rating float(2) not null,
 	synopsis varchar(255) not null
 );
