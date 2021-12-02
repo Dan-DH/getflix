@@ -1,8 +1,8 @@
 <?php include('../Backend/PDOserver.php');
         // NB:if user is not logged in, page is inaccessible
-    // if (empty($_SESSION['username'])){
-    //     header('location: index.php');
-    // }
+    if (empty($_SESSION['username'])){
+        header('location: index.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-bg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="./main.php">
                     <img src="../assets/Getflix.webp" width="200rem" height="80rem">
                 </a>
                 <button class="navbar-toggler font-color" type="button" data-bs-toggle="collapse"
@@ -53,7 +53,7 @@
 
                     </ul>
                     <!-- search bar -->
-                    <form class="d-flex" action="" method="post">
+                    <form class="d-flex" action="search-result.php" method="post">
                         <div class="row me-2 ms-4 ms-lg-0 mb-3 mb-lg-0">
                             <div class="col">
                                 <input class="collapse" id="searchbar" name="searchbar" type="search" placeholder="Search"
@@ -110,49 +110,60 @@
     </header>
     
     <main>
-        <div class="container-fluid">
+        <!-- <div class="container-fluid">
             <?php
-                $servername = "database";
-                $db_user = "root";
-                $db_password = "getflixRoot";
-                $dbname = "getflix";
-                try{
-                    $db= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
-                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                }
-                catch (PDOException $e) {
-                    echo "Connection failed : " . $e->getMessage();
-                }
+                // $servername = "database";
+                // $db_user = "root";
+                // $db_password = "getflixRoot";
+                // $dbname = "getflix";
+                // try{
+                //     $db= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
+                //     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                // }
+                // catch (PDOException $e) {
+                //     echo "Connection failed : " . $e->getMessage();
+                // }
             ?>
-        </div>
+        </div> -->
         <div>
             
             <div class="search_result">
-            
+                    
                 <style>
                     .search_result {
                         display: grid;
+                        grid-template-columns: auto auto;
                         justify-content: center;
                         text-align: justify;
                         margin: 0 auto;
-                        padding: 3em;
+                        padding: 0.5em 5em;
+                        grid-gap: 3em;
                     }
-                    #trailer {
+                    .trailer {
                         width: 100%;
                         height: 65%;
+                    }
+                    .syn {
+                        overflow: scroll;
                     }
                     .search-error {
                         text-align: center;
                     }
-                    @media screen and (min-width: 1280px) {
+                    
+                    
+                    @media screen and (max-width: 886px) {
                         .search_result{
-                            grid-template-columns: auto auto;
+                            grid-template-columns: auto;
                             grid-gap: 2em;
+                        }
+                        .poster {
+                            width: 70%;
+                            margin-top:2em;
                         }
                     }
                 </style>
                     <?php include('search.php')?>
-                </div>
+                
                 <h3 class="search-error">
                     <?php include('../Backend/errors.php')?>
                 </h3>

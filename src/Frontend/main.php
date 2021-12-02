@@ -2,9 +2,8 @@
         // NB:if user is not logged in, page is inaccessible
     if (empty($_SESSION['username'])){
         header('location: index.php');
-   }
+    }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +52,7 @@
 
                     </ul>
                     <!-- search bar -->
-                    <form class="d-flex" action="" method="post">
+                    <form class="d-flex" action="search-result.php" method="post">
                         <div class="row me-2 ms-4 ms-lg-0 mb-3 mb-lg-0">
                             <div class="col">
                                 <input class="collapse" id="searchbar" name="searchbar" type="search" placeholder="Search"
@@ -113,22 +112,24 @@
         <div class="error success">
             <h3>
                 <?php
-                        echo $_SESSION['success'];
-                        unset($_SESSION['success']);
-                    ?>
+                    echo $_SESSION['success'];
+                    unset($_SESSION['success']);
+                ?>
             </h3>
         </div>
         <?php endif ?>
     </div>
     <main>
-        <div class="search_result">
-            <?php include('search.php')?>
-            <h3>
-                <?php include('../Backend/errors.php')?>
-            </h3>
-            
-        </div>
-        
+        <?php if (isset($_POST['searchbar'])): ?>
+            <?php 
+                include('search.php');
+                header('location: ../Frontend/search-result.php');
+            ?>
+            <h3 class="search-error" style="text-align: center">
+                <?php include('../Backend/errors.php');?>
+            </h3> 
+        <?php endif ?>
+
         <div class="container-fluid">
             <?php
                 // $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
