@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="#"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
+        <a href="#"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
 
         <!--<h1>Getflix</h1>-->
         <div class="buttons">
@@ -19,7 +19,7 @@
     </div>
 
     <main>
-        <!--<img src="../assets/welcome-background.jpg" alt="cinema" id="welcome-bg">-->
+        <!--<img src="../assets/welcome-background.webp" alt="cinema" id="welcome-bg">-->
 
         <div class="welcomeBox">
             <h1>Your movie-watching experience from home</h1>
@@ -58,7 +58,7 @@
 
         <div class="footer_img">
             <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
-                <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
+                <img src="../assets/brigita.webp" alt="githubLink" class="portrait">
             </a>
             <a href="https://github.com/Dan-DH" target="_blank" rel="noopener">
                 <img src="../assets/daniIcon.webp" alt="githubLink" class="portrait">
@@ -67,7 +67,7 @@
                 <img src="../assets/shivaniIcon.webp" alt="githubLink" class="portrait">
             </a>
             <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
-                <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
+                <img src="../assets/teodora.webp" alt="githubLink" class="portrait">
             </a>
 
         </div>

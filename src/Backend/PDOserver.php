@@ -140,6 +140,10 @@ catch (PDOException $e) {
                 $insert_stmt=$db->prepare("INSERT INTO users (login, email, password) VALUES ('$username', '$email', '$password')");
 
                 if($insert_stmt->execute(array(':uname'=>$username,':uemail'=>$email,':upassword'=>$password))) {
+                    //adding user to achievements table
+                    $insert_ach=$db->prepare("INSERT INTO achievements () VALUES();");
+                    $insert_ach->execute();
+                    
                     $_SESSION['username'] = $username;
                     $_SESSION['success'] = "Logged in !";
                     header('location: ../Frontend/main.php'); //redirect to main
