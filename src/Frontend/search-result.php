@@ -132,22 +132,33 @@
                 <style>
                     .search_result {
                         display: grid;
+                        grid-template-columns: auto auto;
                         justify-content: center;
                         text-align: justify;
                         margin: 0 auto;
-                        padding: 3em;
+                        padding: 0.5em 5em;
+                        grid-gap: 3em;
                     }
-                    #trailer {
+                    .trailer {
                         width: 100%;
                         height: 65%;
+                    }
+                    .syn {
+                        overflow: scroll;
                     }
                     .search-error {
                         text-align: center;
                     }
-                    @media screen and (min-width: 1280px) {
+                    
+                    
+                    @media screen and (max-width: 886px) {
                         .search_result{
-                            grid-template-columns: auto auto;
+                            grid-template-columns: auto;
                             grid-gap: 2em;
+                        }
+                        .poster {
+                            width: 70%;
+                            margin-top: 2em;
                         }
                     }
                 </style>
