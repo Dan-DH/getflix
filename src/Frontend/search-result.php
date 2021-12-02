@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-lg navbar-bg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="../assets/Getflix.png" width="200rem" height="80rem">
+                    <img src="../assets/Getflix.webp" width="200rem" height="80rem">
                 </a>
                 <button class="navbar-toggler font-color" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -112,30 +112,10 @@
     <main>
         <div class="container-fluid">
             <?php
-                // $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
-                // if(!$database){
-                //   die("Connection failed: " . mysqli_connect_error());
-                // }
-                // $query= "Select * from movies";
-                // // $query= "Select * from movies where genre=35";
-                // // $query ="Select image from movies where movieID = 1";
-                // // $query ="SELECT image FROM movies WHERE genre LIKE "%28%";
-                // $result = mysqli_query($database, $query);
-                // while($data = $result->fetch_assoc()) {}
-
-                // declaring variables for db connection
-                // declaring variables for db connection
-                // development server
                 $servername = "database";
                 $db_user = "root";
                 $db_password = "getflixRoot";
                 $dbname = "getflix";
-                // production server
-                // $servername = "fdb33.awardspace.net";
-                // $db_user = "3998204_getflix";
-                // $db_password = "getflixRoot1";
-                // $dbname = "3998204_getflix";
-                ///Connecting to the database///
                 try{
                     $db= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
                     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -146,12 +126,9 @@
             ?>
         </div>
         <div>
-            <h3>
-                <?php include('../Backend/errors.php')?>
-            </h3>
-        
-
+            
             <div class="search_result">
+            
                 <style>
                     .search_result {
                         display: grid;
@@ -162,8 +139,12 @@
                     }
                     #trailer {
                         width: 100%;
+                        height: 65%;
                     }
-                    @media screen and (min-width: 992px) {
+                    .search-error {
+                        text-align: center;
+                    }
+                    @media screen and (min-width: 1280px) {
                         .search_result{
                             grid-template-columns: auto auto;
                             grid-gap: 2em;
@@ -172,7 +153,9 @@
                 </style>
                     <?php include('search.php')?>
                 </div>
-                
+                <h3 class="search-error">
+                    <?php include('../Backend/errors.php')?>
+                </h3>
             </div>
         </div>
     </main>
