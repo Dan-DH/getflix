@@ -66,6 +66,27 @@ a {
   .submit:hover{
     font-weight: bold;
   }
+  #popup {
+      display: none;
+  }
+  .card {
+    position: fixed;
+    top: 14%;
+     right: 25%;
+     width: 50%;
+     /* width: 1000px; */
+    bottom:12%;
+    z-index:1002;
+    overflow: auto;
+  }
+  #trailer-area {
+    width: 92%;
+    height:550px;
+    min-width: 90%;
+    min-height: 100%;
+  }
+
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
     .dropdown-menu {

@@ -166,3 +166,25 @@
                 <hr class="fw-bold">
             </div>   
         </div>
+
+           <div class="card-body">
+                <h5 class="card-title fs-1 ms-4">Bright</h5>
+                <p class="card-text ms-4">
+                    The Abundant Life Bible offers readers insights about living the abundant life through a relationship with Jesus Christ. Topics such as joy, peace, dealing with life's tough issues, and more offer practical guidance for daily life. The Abundant Life Bible is value priced—perfect for gift giving.
+                </p>
+                <p class="card-text ms-4 fw-bolder">
+                    Rating:
+                </p>
+                <hr class="fw-bold ms-4">
+                <div class="ms-4 mt-5">
+                    <form class="card-text">
+                        <input type="text" class="form-control py-3" id="comment-post" placeholder="Add a public comment...">
+                        <div class="d-flex justify-content-end">
+                        <input type="submit" class="my-3 submit py-2 px-3" value="COMMENT">
+                    </form>
+                </div>
+                <p class="card-text fw-light">
+                    Previous Comments
+                </p>
+                <hr class="fw-bold">
+            </div>   
