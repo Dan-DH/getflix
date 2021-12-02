@@ -4,7 +4,6 @@
         header('location: index.php');
    }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -123,7 +122,7 @@
     <main>
         <div class="search_result">
             <?php include('search.php')?>
-            <h3>
+            <h3 class="search-error" style="text-align: center">
                 <?php include('../Backend/errors.php')?>
             </h3>
             
