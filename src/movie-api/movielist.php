@@ -1,22 +1,8 @@
 <?php 
-
 $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
 if(!$database){
       die("Connection failed: " . mysqli_connect_error());
     }
-
-//  $servername = "database";
-// $db_user = "root";
-// $db_password = "getflixRoot";
-// $dbname = "getflix";
-// ///Connecting to the database///
-// try{
-//     $database= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
-//     $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// }
-// catch (PDOException $e) {
-//     echo "Connection failed : " . $e->getMessage();
-// }
 $apikey = "271b40684c0dc7716d75c02906a97e9f";
 $genre_id = [14,18,28,35,10751];
 //35: comedy,28: Action,18: Drama,10751: Family,14: Fantasy
@@ -53,7 +39,8 @@ foreach($filtered as $id){
       $result_filtered = json_decode($response5);
       foreach($result_filtered->results as $p){
             if($p->type == "Trailer" && $p->official==true){
-                   $id->video= 'https://www.youtube.com/watch?v='.$p->key;
+                  $id->video= 'https://www.youtube.com/embed/'.$p->key. '?rel=0&amp;showinfo=0&amp;wmode=opaque&amp;html5=1';
+                   //$id->video= 'https://www.youtube.com/watch?v='.$p->key;
                   // $id->trailer= $p->key;
                     break;
              }
@@ -66,26 +53,13 @@ foreach($filtered as $id){
             array_push($movies,$id);
       }
 }   
-//adding movies from movies array to database  
-//$total = [];
-//$data = [];
-/* 
 foreach($movies as $id){
-     $data = [
-            $id->title,
-            'https://image.tmdb.org/t/p/w500'. $id->poster_path,
-            $id->video,
-            ".implode(",",$id->genre_ids).",
-            $id->vote_average,
-            $id->overview
-      ];
+$synopsis=str_replace("'","\'",$id->overview);
+$id->overview= $synopsis;
+}
 
-      array_push($total, $data);
-      echo $data;
-     */
  //adding movies from movies array to database  
 foreach($movies as $id){
-
       $query = "INSERT INTO movies (title, 
       image, 
       trailer, 
@@ -97,33 +71,11 @@ foreach($movies as $id){
       '".implode(",",$id->genre_ids)."',
       $id->vote_average,
       '$id->overview')";
-      $result = mysqli_query($database, $query);
-      //$db->prepare($query)->execute([$id->title, 'https://image.tmdb.org/t/p/w500'$id->poster_path, $id->video])
+       $result = mysqli_query($database, $query);
 };
-//echo $total;
-/*
-      $query = "INSERT INTO movies (title, 
-      image, 
-      trailer, 
-      genre, 
-      rating, 
-      synopsis) VALUES (:title, :image, :trailer, :genre, :rating, :synopsis)";
-     
-      $result = $db->prepare($query)->execute($data);
-*/
 echo "<pre>";
 print_r($movies);
 echo "</pre>";
 
-/*
-$data = [
-            'title' => $id->title,
-            'image' => 'https://image.tmdb.org/t/p/w500'. $id->poster_path,
-            'trailer' => $id->video,
-            'genre' => ".implode(",",$id->genre_ids).",
-            'rating' => $id->vote_average,
-            'synopsis' => $id->overview
-      ];
-*/
 
 

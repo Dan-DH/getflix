@@ -269,7 +269,22 @@
                 </div>
             </div>
         </div>
+        <div class="card black-font" style="width: 35rem;">
+        
+        <div class="card-body">
+            <h5 class="card-title">Bright</h5>
+            <p class="card-text">
+            The Abundant Life Bible offers readers insights about living the abundant life through a relationship with Jesus Christ. Topics such as joy, peace, dealing with life's tough issues, and more offer practical guidance for daily life. The Abundant Life Bible is value priced—perfect for gift giving.
+                    </p>
+                    <div>ratings will be here</div>
+                    <div>
+                        <!-- <form>
+                            <input type="text"
+                    </form> -->
 
+                    </div>
+                    </div>
+                    </div>
     </main>
     <footer id="footer">
         <div class="container text-center">
