@@ -252,6 +252,11 @@
                     Fantasy
                 </div>
                 <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
+                    <!-- test movie that needs to be removed later -->
+                <div class="carousel-cell">
+                      <img data-tab="bright" src="http://www.thebrandage.com/assets/image/uploads/haberler/Bright_TUR.jpg" onclick="popup()"/>
+                 </div>
+                    <!-- test movie that needs to be removed later -->
                     <?php
                         $query= "Select image from movies where genre like '%14%'";
                         $data= $db->query($query);
@@ -269,27 +274,37 @@
                 </div>
             </div>
         </div>
-        <div class="card black-font" style="width: 35rem;">
-        
-        <div class="card-body">
-            <video poster="https://image.tmdb.org/t/p/w500/cinER0ESG0eJ49kXlExM0MEWGxW.jpg" controls>
-                <object data="video.mp4">
-                <embed src="https://www.youtube.com/embed/8YjFbMbfXaQ?rel=0&showinfo=0&wmode=opaque&html5=1">
-                    </object>
-                    </video>
-            <h5 class="card-title">Bright</h5>
-            <p class="card-text">
-            The Abundant Life Bible offers readers insights about living the abundant life through a relationship with Jesus Christ. Topics such as joy, peace, dealing with life's tough issues, and more offer practical guidance for daily life. The Abundant Life Bible is value priced—perfect for gift giving.
-                    </p>
-                    <div>ratings will be here!</div>
-                    <div>
-                        <form>
-                            <input type="text">
-                            <input type="submit" value="Submit">
-                         </form>
-                    </div>
-                    </div>
-                    </div>
+
+        <div class="card black-font" id="popup" style="width: 1000px;" >
+            <div class="d-flex justify-content-end me-4 mt-3">
+                <a class="fw-bold fs-5" href="#" id="closePopup" onclick="popupClose()">X</a>
+            </div>
+            <div class="d-flex justify-content-center mt-4 mb-4">
+                <iframe src="https://www.youtube.com/embed/8YjFbMbfXaQ?rel=0&showinfo=0&wmode=opaque&html5=1" allow="fullscreen" width="900px" height="500px" title="movie trailer">
+                </iframe>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title fs-1 ms-4">Bright</h5>
+                <p class="card-text ms-4">
+                    The Abundant Life Bible offers readers insights about living the abundant life through a relationship with Jesus Christ. Topics such as joy, peace, dealing with life's tough issues, and more offer practical guidance for daily life. The Abundant Life Bible is value priced—perfect for gift giving.
+                </p>
+                <p class="card-text ms-4 fw-bolder">
+                    Rating:
+                </p>
+                <hr class="fw-bold ms-4">
+                <div class="ms-4 mt-5">
+                    <form class="card-text">
+                        <input type="text" class="form-control py-3" id="comment-post" placeholder="Add a public comment...">
+                        <div class="d-flex justify-content-end">
+                        <input type="submit" class="my-3 submit py-2 px-3" value="COMMENT">
+                    </form>
+                </div>
+                <p class="card-text fw-light">
+                    Previous Comments
+                </p>
+                <hr class="fw-bold">
+            </div>   
+        </div>
     </main>
     <footer id="footer">
         <div class="container text-center">
@@ -328,6 +343,20 @@
             </div>
         </div>
     </footer>
+    <script>
+        function popupOpen() {
+            
+        }
+        function popupClose() {
+            let close = document.getElementById("closePopup");
+            if (popup.style.display === "none") {
+                popup.style.display = "block";
+            }
+            else {
+                popup.style.display= "none";
+            }
+        }
+     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
