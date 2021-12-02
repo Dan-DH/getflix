@@ -5,24 +5,23 @@ if (empty($_SESSION['username'])){
     header('location: ../Frontend/index.php');
 }
 
-//actual code
 include_once "../api/Database.php";
 $database = new Database();
 $db = $database->connect();
 
-//show user data
+//show user data and achievements
 $user = $_SESSION['username'];
-$query = "SELECT * FROM users WHERE login = '$user';";
+$query = "SELECT u.*, a.* FROM getflix.users u JOIN getflix.achievements a ON u.userID = a.userID WHERE u.login = '$user';";
 $stmt = $db->prepare($query);
 $stmt->execute();
 $resultData = $stmt->fetch(PDO::FETCH_ASSOC);
 
 //show achievements
-$userID = $resultData['userID'];
-$queryA = "SELECT * FROM achievements WHERE userID = '$userID';";
-$stmtA = $db->prepare($queryA);
-$stmtA->execute();
-$result = $stmtA->fetch(PDO::FETCH_ASSOC);
+// $userID = $resultData['userID'];
+// $queryA = "SELECT * FROM achievements WHERE userID = '$userID';";
+// $stmtA = $db->prepare($queryA);
+// $stmtA->execute();
+// $result = $stmtA->fetch(PDO::FETCH_ASSOC);
 
 // update account info
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -63,6 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //updating username in SESSION if needed
         if (!empty($login)) {
             $_SESSION['username'] = $login;
+            $user = $_SESSION['username'];
         };
 
         //updating form fields
@@ -87,13 +87,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Account</title>
 </head>
 <body>
-<div class="navbar">
-    <a href="./main.php"><h1>Getflix</h1></a>
-    <div class="buttons">
-        <a href="./main.php"><button type="button" id="home">Home</button></a>
-        <a href="./login.php"><button type="button" id="logout">Log out</button></a>
+    <div class="navbar">
+        <a href="./main.php"><h1>Getflix</h1></a>
+        <div class="buttons">
+            <a href="./main.php"><button type="button" id="home">Home</button></a>
+            <a href="./login.php"><button type="button" id="logout">Log out</button></a>
+        </div>
     </div>
-</div>
 
 <div class="row userform">
     <div class="col-12 col-md-4 containerForm">
@@ -125,37 +125,56 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <li class="passList">A lowercase letter</li>
                 <li class="passList">An uppercase letter</li>
                 <li class="passList">A number</li>
-                <li class="passList">Minimum 8 characters</li>
+                <li class="passList">Minimum 6 characters</li>
             </ul>
         </div>
     </div>
 
     <div class="col-12 col-md-7 containerAchievement">
-        <div class="row rowAchievement text-center">
+        <div class="row rowAchievement">
             <h3>Your achievements</h3>
-            <div class="col-6 col-md-6 achievementRow">
-                <img class="achievImage <?php echo $result["movie_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.webp" alt="Level 1" id="movie1">
-                <span>Watched your first movie</span><br>
-                <img class="achievImage <?php echo $result["movie_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.webp" alt="Level 2" id="movie3">
-                <span>Watched five movies</span><br>
-                <img class="achievImage <?php echo $result["movie_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 3" id="movie5">
-                <span>Watched ten movies</span><br>
-                <img class="achievImage <?php echo $result["contact_achievement"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="contact">
+            <div class="col-6 col-md-6 achievementCol text-center">
+                <img class="achievImage <?php echo $resultData["movie_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.webp" alt="Level 1" id="movie1"><br>
+                <span>Checked your first movie</span><br>
+                <img class="achievImage <?php echo $resultData["movie_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.webp" alt="Level 2" id="movie3"><br>
+                <span>Checked five movies</span><br>
+                <img class="achievImage <?php echo $resultData["movie_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 3" id="movie5"><br>
+                <span>Checked ten movies</span><br>
+                <img class="achievImage <?php echo $resultData["contact_achievement"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="contact"><br>
                 <span>Contacted the team</span>
             </div>
-            <div class="col-6 col-md-6 achievementRow">
-                <img class="achievImage <?php echo $result["comment_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.webp" alt="Level 1" id="comment1">
+            <div class="col-6 col-md-6 achievementCol">
+                <img class="achievImage <?php echo $resultData["comment_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.webp" alt="Level 1" id="comment1"><br>
                 <span>Wrote your first comment</span><br>
-                <img class="achievImage <?php echo $result["comment_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.webp" alt="Level 1" id="comment3">
+                <img class="achievImage <?php echo $resultData["comment_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.webp" alt="Level 1" id="comment3"><br>
                 <span>Wrote five comments</span><br>
-                <img class="achievImage <?php echo $result["comment_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="comment5">
+                <img class="achievImage <?php echo $resultData["comment_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="comment5"><br>
                 <span>Wrote ten comments</span><br>
-                <img class="achievImage <?php echo $result["achievements_all"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="all">
+                <img class="achievImage <?php echo $resultData["achievements_all"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="all"><br>
                 <span>Unlocked all achievements</span>
             </div>
         </div>
     </div>
 </div>
+
+
+<!-- pop up example -->
+<?php 
+$ach_img = "";
+$ach_text = "";
+$ach_popup = "
+<a class='a_popup' href='./main.php'>
+    <div class='achievement_popup'>
+    <img class='ach_Img' src= '../assets/achievement1.webp' alt='Achievement unlocked'><br>
+    <p class='ach_p'>Checked your first movie</p>
+    </div>
+</a>";
+if ($resultData['login'] == "Pepito2") {
+    echo $ach_popup;
+};
+?>
+<!-- pop up example -->
+
 
     <footer id="footer">
         <div class="container text-center">

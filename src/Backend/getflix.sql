@@ -7,6 +7,8 @@ CREATE TABLE users (
 	email varchar(255) not null,
 	login varchar(255) not null,
 	password varchar(255) not null,
+	comment_count int(4) not null default 0,
+	trailer_count int(4) not null default 0,
 	acc_date datetime not null default now()
 );
 
