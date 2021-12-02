@@ -96,7 +96,7 @@ if (empty($_SESSION['username'])){
                         <h3>
                             <?php
                                 echo $_SESSION['sent'];
-                                unset($_SESSION['sent']);
+                               // unset($_SESSION['sent']);
                             ?>
                         </h3>
                     </div>
