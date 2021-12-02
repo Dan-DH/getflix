@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-lg navbar-bg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="../assets/Getflix.png" width="200rem" height="80rem">
+                    <img src="../assets/Getflix.webp" width="200rem" height="80rem">
                 </a>
                 <button class="navbar-toggler font-color" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -123,7 +123,10 @@
     <main>
         <div class="search_result">
             <?php include('search.php')?>
-            <?php include('../Backend/errors.php')?>
+            <h3>
+                <?php include('../Backend/errors.php')?>
+            </h3>
+            
         </div>
         
         <div class="container-fluid">
@@ -301,7 +304,7 @@
                 </div>
                 <div class="col-3 order-md-4  text-center hide2">
                     <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
-                        <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
+                        <img src="../assets/brigita.webp" alt="githubLink" class="portrait">
                     </a>
                 </div>
                 <div class="col-3 text-center hide2">
@@ -316,7 +319,7 @@
                 </div>
                 <div class="col-3 text-center hide2">
                     <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
-                        <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
+                        <img src="../assets/teodora.webp" alt="githubLink" class="portrait">
                     </a>
                 </div>
                 <div class="col col-md-12 mt-2 order-md-1">

@@ -13,7 +13,7 @@ include('../Backend/PDOserver.php');
 </head>
 <body>
     <div class="navbar">
-        <a href="welcome.php"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
+        <a href="welcome.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
 
         <!--<h1>Getflix</h1>-->
         <!--
@@ -36,7 +36,6 @@ include('../Backend/PDOserver.php');
                 <input type="text" placeholder="email" class="sf" name="email" value="<?php echo $email; ?>">
                 <input type="password" placeholder="password" class="sf" name="password1" value="<?php echo $password1; ?>">
                 <input type="password" placeholder="confirm password" class="sf" name="password2" value="<?php echo $password2; ?>" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 characters">
-                <!-- <input type="password" placeholder="confirm password" class="sf" name="password2" value="<?php //echo $password2; ?>"> -->
 
                 <button type="submit" class="submit" name="signup">Submit</button>
 
@@ -53,7 +52,7 @@ include('../Backend/PDOserver.php');
 
         <div class="footer_img">
             <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
-                <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
+                <img src="../assets/brigita.webp" alt="githubLink" class="portrait">
             </a>
             <a href="https://github.com/Dan-DH" target="_blank" rel="noopener">
                 <img src="../assets/daniIcon.webp" alt="githubLink" class="portrait">
@@ -62,7 +61,7 @@ include('../Backend/PDOserver.php');
                 <img src="../assets/shivaniIcon.webp" alt="githubLink" class="portrait">
             </a>
             <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
-                <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
+                <img src="../assets/teodora.webp" alt="githubLink" class="portrait">
             </a>
         </div>
         <p>Copyright &#169; 2021</p>
