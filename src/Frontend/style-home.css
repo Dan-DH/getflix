@@ -11,6 +11,14 @@ body {
 .white-font {
     color:white;
 }
+/*
+#navbarSupportedContent {
+    text-align: right;
+    justify-content: right;
+}
+ul {
+    justify-content: right;
+}*/
 .navig-link:hover {
     color:lightskyblue;
     /* font-size: 1.2rem; */
@@ -23,12 +31,6 @@ body {
 }
 #searchbar {
     border-radius: 1rem;
-}
-.search_result {
-    display: grid;
-    justify-content: center;
-    text-align: center;
-    margin: 0 auto;
 }
 a {
     text-decoration: none;

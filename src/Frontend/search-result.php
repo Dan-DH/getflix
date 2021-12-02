@@ -1,8 +1,8 @@
 <?php include('../Backend/PDOserver.php');
         // NB:if user is not logged in, page is inaccessible
-    if (empty($_SESSION['username'])){
-        header('location: index.php');
-   }
+    // if (empty($_SESSION['username'])){
+    //     header('location: index.php');
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="./style-home.css">
-    <title>Home page</title>
+    <title>Search results</title>
 </head>
 
 <body>
@@ -108,27 +108,8 @@
             </div>
         </nav>
     </header>
-    <div class="content">
-        <?php if (isset($_SESSION['success'])): ?>
-        <div class="error success">
-            <h3>
-                <?php
-                        echo $_SESSION['success'];
-                        unset($_SESSION['success']);
-                    ?>
-            </h3>
-        </div>
-        <?php endif ?>
-    </div>
+    
     <main>
-        <div class="search_result">
-            <?php include('search.php')?>
-            <h3>
-                <?php include('../Backend/errors.php')?>
-            </h3>
-            
-        </div>
-        
         <div class="container-fluid">
             <?php
                 // $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
@@ -163,151 +144,39 @@
                     echo "Connection failed : " . $e->getMessage();
                 }
             ?>
-            <div class="row" id="comedy">
-                <div class="col-12 fs-4 mb-3 ms-3" >
-                    Comedy
-                </div>
-                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }' >
-                    <?php
-                        $query= "Select image from movies where genre like '%35%'";
-                        $data= $db->query($query);
-                        $data->setFetchMode(PDO::FETCH_ASSOC);
-                        foreach($data as $row) {
-                                foreach($row as $name=>$value){
-                                    ?>
-                                        <div class="carousel-cell">
-                                                <img src="<?php echo $value; ?>">
-                                        </div>
-                                    <?php
-                                }
-                        }
-                    ?>
-                </div>
-            </div>
-            <div class="row" id="action">
-                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
-                        Action
-                </div>
-                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
-                    <?php
-                        $query= "Select image from movies where genre like '%28%'";
-                        $data= $db->query($query);
-                        $data->setFetchMode(PDO::FETCH_ASSOC);
-                        foreach($data as $row) {
-                            foreach($row as $name=>$value){
-                                ?>
-                                    <div class="carousel-cell">
-                                        <img src="<?php echo $value; ?>">
-                                    </div>
-                                <?php
-                            }
-                        }
-                    ?>
-                </div>
-            </div>
-            <div class="row" id="drama">
-                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
-                    Drama
-                </div>
-                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
-                    <?php
-                        $query= "Select image from movies where genre like '%18%'";
-                        $data= $db->query($query);
-                        $data->setFetchMode(PDO::FETCH_ASSOC);
-                        foreach($data as $row) {
-                            foreach($row as $name=>$value){
-                                ?>
-                                    <div class="carousel-cell">
-                                         <img src="<?php echo $value; ?>">
-                                    </div>
-                                <?php
-                            }
-                        }
-                    ?>
-                </div>
-            </div>
-            <div class="row" id="family">
-                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
-                    Family
-                </div>
-                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
-                    <?php
-                        $query= "Select image from movies where genre like '%10751%'";
-                        $data= $db->query($query);
-                        $data->setFetchMode(PDO::FETCH_ASSOC);
-                        foreach($data as $row) {
-                            foreach($row as $name=>$value){
-                                ?>
-                                    <div class="carousel-cell">
-                                        <img src="<?php echo $value; ?>">
-                                    </div>
-                                <?php
-                            }
-                        }
-                    ?>
-                </div>
-            </div>
-            <div class="row" id="fantasy">
-                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
-                    Fantasy
-                </div>
-                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
-                    <?php
-                        $query= "Select image from movies where genre like '%14%'";
-                        $data= $db->query($query);
-                        $data->setFetchMode(PDO::FETCH_ASSOC);
-                        foreach($data as $row) {
-                            foreach($row as $name=>$value){
-                                ?>
-                                    <div class="carousel-cell">
-                                        <img src="<?php echo $value; ?>">
-                                    </div>
-                                <?php
-                            }
-                        }
-                    ?>
-                </div>
-            </div>
         </div>
+        <div>
+            <h3>
+                <?php include('../Backend/errors.php')?>
+            </h3>
+        
 
-    </main>
-    <footer id="footer">
-        <div class="container text-center">
-            <div class="row d-flex">
-                <div class="col order-md-2 d-none d-sm-block">
-                    A collab between <a class="navig-link2" href="https://github.com/Dan-DH" target="_blank"
-                        rel="noopener">Daniel</a>, <a class=" navig-link2" href="https://github.com/Brigilets"
-                        target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link2"
-                        href="https://github.com/ShivaniKhatri96/" target="_blank" rel="noopener">Shivani</a> and <a
-                        class=" navig-link2" href="https://github.com/teo-cozma" target="_blank"
-                        rel="noopener">Teodora</a>.
+            <div class="search_result">
+                <style>
+                    .search_result {
+                        display: grid;
+                        justify-content: center;
+                        text-align: justify;
+                        margin: 0 auto;
+                        padding: 3em;
+                    }
+                    #trailer {
+                        width: 100%;
+                    }
+                    @media screen and (min-width: 992px) {
+                        .search_result{
+                            grid-template-columns: auto auto;
+                            grid-gap: 2em;
+                        }
+                    }
+                </style>
+                    <?php include('search.php')?>
                 </div>
-                <div class="col-3 order-md-4  text-center hide2">
-                    <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
-                        <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
-                    </a>
-                </div>
-                <div class="col-3 text-center hide2">
-                    <a href="https://github.com/Dan-DH" target="_blank" rel="noopener">
-                        <img src="../assets/daniIcon.webp" alt="githubLink" class="portrait">
-                    </a>
-                </div>
-                <div class="col-3  text-center hide2">
-                    <a href="https://github.com/ShivaniKhatri96" target="_blank" rel="noopener">
-                        <img src="../assets/shivaniIcon.webp" alt="githubLink" class="portrait">
-                    </a>
-                </div>
-                <div class="col-3 text-center hide2">
-                    <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
-                        <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
-                    </a>
-                </div>
-                <div class="col col-md-12 mt-2 order-md-1">
-                    Copyright &#169; 2021
-                </div>
+                
             </div>
         </div>
-    </footer>
+    </main>
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
