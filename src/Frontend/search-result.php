@@ -1,8 +1,8 @@
 <?php include('../Backend/PDOserver.php');
         // NB:if user is not logged in, page is inaccessible
-    // if (empty($_SESSION['username'])){
-    //     header('location: index.php');
-    // }
+    if (empty($_SESSION['username'])){
+        header('location: index.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +25,8 @@
 
         <nav class="navbar navbar-expand-lg navbar-bg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="../assets/Getflix.png" width="200rem" height="80rem">
+                <a class="navbar-brand" href="./main.php">
+                    <img src="../assets/Getflix.webp" width="200rem" height="80rem">
                 </a>
                 <button class="navbar-toggler font-color" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -53,7 +53,7 @@
 
                     </ul>
                     <!-- search bar -->
-                    <form class="d-flex" action="" method="post">
+                    <form class="d-flex" action="search-result.php" method="post">
                         <div class="row me-2 ms-4 ms-lg-0 mb-3 mb-lg-0">
                             <div class="col">
                                 <input class="collapse" id="searchbar" name="searchbar" type="search" placeholder="Search"
@@ -110,69 +110,63 @@
     </header>
     
     <main>
-        <div class="container-fluid">
+        <!-- <div class="container-fluid">
             <?php
-                // $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
-                // if(!$database){
-                //   die("Connection failed: " . mysqli_connect_error());
+                // $servername = "database";
+                // $db_user = "root";
+                // $db_password = "getflixRoot";
+                // $dbname = "getflix";
+                // try{
+                //     $db= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
+                //     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 // }
-                // $query= "Select * from movies";
-                // // $query= "Select * from movies where genre=35";
-                // // $query ="Select image from movies where movieID = 1";
-                // // $query ="SELECT image FROM movies WHERE genre LIKE "%28%";
-                // $result = mysqli_query($database, $query);
-                // while($data = $result->fetch_assoc()) {}
-
-                // declaring variables for db connection
-                // declaring variables for db connection
-                // development server
-                $servername = "database";
-                $db_user = "root";
-                $db_password = "getflixRoot";
-                $dbname = "getflix";
-                // production server
-                // $servername = "fdb33.awardspace.net";
-                // $db_user = "3998204_getflix";
-                // $db_password = "getflixRoot1";
-                // $dbname = "3998204_getflix";
-                ///Connecting to the database///
-                try{
-                    $db= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
-                    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                }
-                catch (PDOException $e) {
-                    echo "Connection failed : " . $e->getMessage();
-                }
+                // catch (PDOException $e) {
+                //     echo "Connection failed : " . $e->getMessage();
+                // }
             ?>
-        </div>
+        </div> -->
         <div>
-            <h3>
-                <?php include('../Backend/errors.php')?>
-            </h3>
-        
-
+            
             <div class="search_result">
+                    
                 <style>
                     .search_result {
                         display: grid;
+                        grid-template-columns: auto auto;
                         justify-content: center;
                         text-align: justify;
                         margin: 0 auto;
-                        padding: 3em;
+                        padding: 0.5em 5em;
+                        grid-gap: 3em;
                     }
-                    #trailer {
+                    .trailer {
                         width: 100%;
+                        height: 65%;
                     }
-                    @media screen and (min-width: 992px) {
+                    .syn {
+                        overflow: scroll;
+                    }
+                    .search-error {
+                        text-align: center;
+                    }
+                    
+                    
+                    @media screen and (max-width: 886px) {
                         .search_result{
-                            grid-template-columns: auto auto;
+                            grid-template-columns: auto;
                             grid-gap: 2em;
+                        }
+                        .poster {
+                            width: 70%;
+                            margin-top:2em;
                         }
                     }
                 </style>
                     <?php include('search.php')?>
-                </div>
                 
+                <h3 class="search-error">
+                    <?php include('../Backend/errors.php')?>
+                </h3>
             </div>
         </div>
     </main>

@@ -17,7 +17,7 @@ if (empty($_SESSION['username'])){
 <body>
 
 <div class="navbar">
-    <a href="test.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
+    <a href="./main.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
     <div class="buttons">
         <a href="./main.php"><button type="button" id="home">HOME</button></a>
         <?php if (isset($_SESSION['username'])): ?>

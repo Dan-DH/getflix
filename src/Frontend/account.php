@@ -159,7 +159,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 <!-- pop up example -->
-<?php 
+<?php
+$increase = "UPDATE users SET comment_count = comment_count +1;";
+$inc_stmt = $db->prepare($query);
+$stmt->execute();
+$resultData = $stmt->fetch(PDO::FETCH_ASSOC);
 $ach_img = "";
 $ach_text = "";
 $ach_popup = "

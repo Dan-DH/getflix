@@ -71,7 +71,8 @@ foreach($movies as $id){
       '".implode(",",$id->genre_ids)."',
       $id->vote_average,
       '$id->overview')";
-       $result = mysqli_query($database, $query);
+      //commenting this section out because data has already been copied to the database
+      //$result = mysqli_query($database, $query);
 };
 echo "<pre>";
 print_r($movies);

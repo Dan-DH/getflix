@@ -69,6 +69,9 @@ a:hover {
   text-decoration: none;
   color: #2db5e1;
 }
+/* a:hover {
+  text-decoration: underline;
+} */
 
 .inputfield {
   min-width: 100%;
