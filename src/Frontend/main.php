@@ -123,7 +123,10 @@
     <main>
         <div class="search_result">
             <?php include('search.php')?>
-            <?php include('../Backend/errors.php')?>
+            <h3>
+                <?php include('../Backend/errors.php')?>
+            </h3>
+            
         </div>
         
         <div class="container-fluid">
