@@ -17,7 +17,7 @@ if (empty($_SESSION['username'])){
 <body>
 
 <div class="navbar">
-    <a href="test.php"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
+    <a href="test.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
     <div class="buttons">
         <a href="./main.php"><button type="button" id="home">HOME</button></a>
         <?php if (isset($_SESSION['username'])): ?>
@@ -114,7 +114,7 @@ if (empty($_SESSION['username'])){
     <footer id="mobile_footer">
         <div class="footer_img">
             <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
-                <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
+                <img src="../assets/brigita.webp" alt="githubLink" class="portrait">
             </a>
             <a href="https://github.com/Dan-DH" target="_blank" rel="noopener">
                 <img src="../assets/daniIcon.webp" alt="githubLink" class="portrait">
@@ -123,7 +123,7 @@ if (empty($_SESSION['username'])){
                 <img src="../assets/shivaniIcon.webp" alt="githubLink" class="portrait">
             </a>
             <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
-                <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
+                <img src="../assets/teodora.webp" alt="githubLink" class="portrait">
             </a>
 
         </div>

@@ -134,23 +134,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="row rowAchievement text-center">
             <h3>Your achievements</h3>
             <div class="col-6 col-md-6 achievementRow">
-                <img class="achievImage <?php echo $result["movie_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.jpg" alt="Level 1" id="movie1">
+                <img class="achievImage <?php echo $result["movie_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.webp" alt="Level 1" id="movie1">
                 <span>Watched your first movie</span><br>
-                <img class="achievImage <?php echo $result["movie_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.jpg" alt="Level 2" id="movie3">
+                <img class="achievImage <?php echo $result["movie_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.webp" alt="Level 2" id="movie3">
                 <span>Watched five movies</span><br>
-                <img class="achievImage <?php echo $result["movie_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.jpg" alt="Level 3" id="movie5">
+                <img class="achievImage <?php echo $result["movie_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 3" id="movie5">
                 <span>Watched ten movies</span><br>
-                <img class="achievImage <?php echo $result["contact_achievement"] ? 'trans' : ''; ?>" src="../assets/achievement3.jpg" alt="Level 1" id="contact">
+                <img class="achievImage <?php echo $result["contact_achievement"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="contact">
                 <span>Contacted the team</span>
             </div>
             <div class="col-6 col-md-6 achievementRow">
-                <img class="achievImage <?php echo $result["comment_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.jpg" alt="Level 1" id="comment1">
+                <img class="achievImage <?php echo $result["comment_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.webp" alt="Level 1" id="comment1">
                 <span>Wrote your first comment</span><br>
-                <img class="achievImage <?php echo $result["comment_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.jpg" alt="Level 1" id="comment3">
+                <img class="achievImage <?php echo $result["comment_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.webp" alt="Level 1" id="comment3">
                 <span>Wrote five comments</span><br>
-                <img class="achievImage <?php echo $result["comment_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.jpg" alt="Level 1" id="comment5">
+                <img class="achievImage <?php echo $result["comment_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="comment5">
                 <span>Wrote ten comments</span><br>
-                <img class="achievImage <?php echo $result["achievements_all"] ? 'trans' : ''; ?>" src="../assets/achievement3.jpg" alt="Level 1" id="all">
+                <img class="achievImage <?php echo $result["achievements_all"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="all">
                 <span>Unlocked all achievements</span>
             </div>
         </div>
@@ -170,7 +170,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="col-3 order-md-4  text-center hide2">
                     <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
-                        <img src="../assets/brigita.jpg" alt="githubLink" class="portrait">
+                        <img src="../assets/brigita.webp" alt="githubLink" class="portrait">
                     </a>
                 </div>
                 <div class="col-3 text-center hide2">
@@ -185,7 +185,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div class="col-3 text-center hide2">
                     <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
-                        <img src="../assets/teodora.jpg" alt="githubLink" class="portrait">
+                        <img src="../assets/teodora.webp" alt="githubLink" class="portrait">
                     </a>
                 </div>
                 <div class="col col-md-12 mt-2 order-md-1">
