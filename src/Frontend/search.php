@@ -1,28 +1,36 @@
 <?php 
 include('../Backend/PDOserver.php');
 
-$keyword = $_POST['searchbar'];
+$servername = "database";
+$db_user = "root";
+$db_password = "getflixRoot";
+$dbname = "getflix";
+
+try {
+    $db = new PDO("mysql:host=$servername;dbname=$dbname",$db_user, $db_password);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //echo "Connected successfully";
+} 
+catch (PDOException $e) {
+    echo "Connection failed : " . $e->getMessage();
+}
+
+
+//$keyword = $_POST['searchbar'];
 if (isset($_POST['searchbar'])) {
-    try {
+    $keyword = $_POST['searchbar'];
+
         if (!empty($_POST['searchbar'])) {
             $query = $db->prepare("SELECT * FROM movies WHERE title LIKE '%$keyword%'");
-            /*
-            $query->setFetchMore(PDO::FETCH_ASSOC);
-            foreach($query as $row) {
-                foreach($row as $image=>$value){
-
-                }
-            }*/
+        
             $query->execute();
 
-            // while ($row = $query->fetch()) {
-            //         echo $row['title'];
-            //         echo "<br><br>";
-            //         echo $row["image"];
-            //         echo "<br><br>";
-            //     }
             foreach($query as $row) {
-                if ($row = $query->fetch()) { ?>
+                if ($row = $query->fetch()) {
+                    // $_SESSION['$username'] = $username;
+                    // header('location: ../Frontend.search-result.php');
+                    ?>
+                    
                     <div class="grid-item">
                     <!--    <h3>
                             <strong>
@@ -50,9 +58,6 @@ if (isset($_POST['searchbar'])) {
                     </div>
                         <?php
                 } 
-                /*else {
-                    array_push($errors, "Sorry, no match found.");
-                }*/
             }
             
         }
@@ -60,13 +65,16 @@ if (isset($_POST['searchbar'])) {
         if (empty($_POST['searchbar'])) {
             array_push($errors, "Please fill in the field.");
         }
-        /*
-        else {
+        
+        if($row['title'] ==! $keyword) {
             array_push($errors, "Sorry, no match found.");
-        }*/
-            
-    } catch (PDOException $e) {
-        echo "Login failed : " . $e->getMessage();
-    }
+        }
 }
+
+// while ($row = $query->fetch()) {
+            //         echo $row['title'];
+            //         echo "<br><br>";
+            //         echo $row["image"];
+            //         echo "<br><br>";
+            //     }
 ?>
