@@ -72,9 +72,13 @@ a {
   color: #2db5e1;
   font-size: 15px;
 }
-a:hover {
+.navig-link2:hover {
+  color:lightskyblue;
   text-decoration: underline;
 }
+/* a:hover {
+  text-decoration: underline;
+} */
 
 .inputfield {
   min-width: 100%;
