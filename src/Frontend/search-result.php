@@ -135,9 +135,14 @@
                         padding: 0.5em 5em;
                         grid-gap: 3em;
                     }
+                    .poster {
+                        width: 100%;
+                        display: grid;
+                        justify-content: center;
+                    }
                     .trailer {
                         width: 100%;
-                        height: 65%;
+                        height: 50%;
                     }
                     .syn {
                         overflow: scroll;
@@ -146,22 +151,43 @@
                     .search-error {
                         text-align: center;
                     }
-                    @media screen and (max-width: 886px) {
+                    @media screen and (min-width: 1500px) {
+                        .trailer {
+                            width: 100%;
+                            height: 70%;
+                        }
+                    }
+                    @media screen and (max-width: 886px) and (min-width: 460px) {
                         .search_result{
                             grid-template-columns: auto;
                             grid-gap: 2em;
                         }
                         .poster {
-                            width: 70%;
+                            width: 100%;
                             margin-top:3em;
                         }
-                            .trailer {
+                        .trailer {
                             width: 100%;
-                            height: 50%;
-                        }
-                            .syn {
+                            height: 70%;
+                        }    
+                        .syn {
                             overflow: scroll;
-                            height: 10%;
+                            height: 20%;
+                            padding-bottom: 2em;
+                        }
+                    }
+                    @media screen and (max-width: 460px){
+                        .search_result{
+                            grid-template-columns: auto;
+                            grid-gap: 2em;
+                            padding: 1em;
+                        }
+                        .trailer {
+                            width: 100%;
+                            height: 40%;
+                        }
+                        .syn {
+                            font-size: 10px;
                         }
                     }
                 </style>

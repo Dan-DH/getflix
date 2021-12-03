@@ -21,6 +21,19 @@ body {
   align-items: center;
   width: 60%;
 }
+@media screen and (min-width: 460px) and (max-width: 780px){
+  .welcomeBox{
+    width: 80%;
+  }
+}
+@media screen and (max-width: 460px){
+  .welcomeBox{
+    width: 90%;
+  }
+  #CTA {
+    margin: 1em;
+  }
+}
 
 #CTA {
   font-size: 30px;

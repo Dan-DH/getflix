@@ -27,7 +27,7 @@ if (isset($_POST['searchbar'])) {
                 <div class="grid-item">
                     <?php
                     echo "<br><br>";?>
-                    <img src="<?php echo $row['image']; ?>" alt="poster" class="poster" style="width: 100%;">
+                    <img src="<?php echo $row['image']; ?>" alt="poster" class="poster">
                 </div>
                 <div class="grid-item">
                     <?php echo "<br><br>"; ?>
