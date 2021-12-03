@@ -139,7 +139,7 @@ catch (PDOException $e) {
 
             // No errors, save user to database
             if (count($errors) == 0) {
-                $password = password_hash($password1, PASSWORD_DEFAULT);
+                $password = $password1;
                 $insert_stmt=$db->prepare("INSERT INTO users (login, email, password) VALUES ('$username', '$email', '$password')");
 
                 if($insert_stmt->execute(array(':uname'=>$username,':uemail'=>$email,':upassword'=>$password))) {
