@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,15 +18,14 @@
   <form action="" method="post" name="reset">
   <h2>FORGOT PASSWORD</h2><br>
   <?php
+
+include_once('../mailer/includes/PHPMailer.php');
+include_once('../mailer/includes/SMTP.php');
+include_once('../mailer/includes/Exception.php');
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
-require_once ('../vendor/phpmailer/phpmailer/src/Exception.php');
-require_once  '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require_once  '../vendor/phpmailer/phpmailer/src/SMTP.php';
-//include ("../Backend/PDOserver.php");
-require("../vendor/autoload.php");
 
 // declaring variables for db connection
 // development server
@@ -42,10 +39,6 @@ try {
     // set error mode to exception
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Connected successfully";
-    /*
-    $statement = $connect->prepare("SELECT login, :email, password FROM getflix.users");
-    $statement->execute();
-    $user = $statement->fetch();*/
 } 
 catch (PDOException $e) {
     echo "Connection failed : " . $e->getMessage();
@@ -64,19 +57,6 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
       $results = $db->prepare($query);
       $results->execute();
       $row=$results->fetch(PDO::FETCH_ASSOC);
-      if ($results->userID == 0) { //num_rows where is it coming from?
-          $email_err .= "User Not Found";
-          echo $email_err;
-      /*<script>
-            // BLOCK MODAL if there is an error WITH JQUERY
-          $(window).ready(function(){
-          $('#popUpRecovery').modal('show'); 
-          })
-        </script>*/
-   
-        unset($_GET["reset"]);
-      }
-    else {
       $output = '';
       $expFormat = mktime(date("H")+1, date("i"), date("s"), date("m"), date("d"), date("Y"));
       $expDate = date("Y-m-d H:i:s", $expFormat);
@@ -88,51 +68,36 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
       $res=$db->prepare($sql)->execute();
       $output.='<p>Please click on the following link to reset your password.</p>';
       //replace the site url
-      $output.='<p><a href="http://localhost/Frontend/reset_password_ivan.php?key=' . $key . '&email=' . $email . '&action=reset" target="_blank">http://localhost/reset-password_ivan.php?key=' . $key . '&email=' . $email . '&action=reset</a></p>';
+      $output.='<p><a href="http://localhost:8082/Frontend/reset-password.php?key=' . $key . '&email=' . $email . '&action=reset" target="_blank">http://localhost:8082/reset-password.php?key=' . $key . '&email=' . $email . '&action=reset</a></p>';
       $body = $output;
       $subject = "Password Recovery";
       $email_to = $email;
-      //autoload the PHPMailer
-     
-      $mail = new PHPMailer(true);
 
 try {
-    // Server settings
-  //  $mail->SMTPDebug = SMTP::DEBUG_SERVER; // for detailed debug output
+    $mail = new PHPMailer();
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
-
-    $mail->Username = 'bxlgetflix@gmail.com'; // YOUR gmail email
-    $mail->Password = 'getflixbxl'; // YOUR gmail password
-
-    // Sender and recipient settings
-    $mail->setFrom('bxlgetflix@gmail.com', 'Getflix Team');
-$mail->addAddress($email/*, 'Receiver Name'*/);
-    $mail->addReplyTo('support@getflix.com', 'Getflix'); // to set the reply to
-
-    // Setting the email content
-    $mail->IsHTML(true);
-    $mail->Subject = $subject;
+    $mail->SMTPAuth = 'true';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = '587';
+    $mail->Username = 'bxlgetflix@gmail.com';
+    $mail->Password = 'getflixbxl';
+    $mail->Subject = 'Getflix: Password recovery';
+    $mail->setFrom('bxlgetflix@gmail.com');
+    $mail->isHTML(true);
     $mail->Body = $body;
-    $mail->AltBody = 'You need an html lail client to read this email';
-
-    $mail->send();
-    $mode= "The email was sent, please check your email. ";
-    
-   /* <script>
-      // BLOCK MODAL if there is an error WITH JQUERY
-    $(window).ready(function(){
-    $('#popUpSucces').modal('show'); 
-    })
-  </script>*/
+    $mail->addAddress('daniel.diaz.hdez@gmail.com');
+    if($mail->Send()) {
+        echo 'Email sent';
+    } else {
+        echo 'There was an error somewhere';
+    };
+    $mail->smtpClose();
 
 } catch (Exception $e) {
     echo "Error in sending email. Mailer Error: {$mail->ErrorInfo}";
 }
-}
+
 }
 }}?>
   <label for="input">Please enter your email address:</label><br>
