@@ -1,5 +1,5 @@
 <?php 
-//include('../Backend/PDOserver.php');
+include('../Backend/PDOserver.php');
 $servername = "database";
 $db_user = "root";
 $db_password = "getflixRoot";
@@ -20,10 +20,10 @@ if (isset($_POST['searchbar'])) {
         array_push($errors, "Please fill in the field.");
     }
     else {
-        $query = $db->prepare("SELECT * FROM movies WHERE title LIKE '%$keyword%'");
-        $query->execute();
+        $query = $db->query("SELECT * FROM movies WHERE title LIKE '%$keyword%'");
+        $query->setFetchMode(PDO::FETCH_ASSOC);
         foreach($query as $row) {
-            while($row = $query->fetch()) {?>
+            //while($row = $query->fetch()) {?>
                 <div class="grid-item">
                     <?php
                     echo "<br><br>";?>
@@ -42,7 +42,7 @@ if (isset($_POST['searchbar'])) {
                     </div>
                 </div>
                 <?php
-            }
+            //}
         }
         
     }
