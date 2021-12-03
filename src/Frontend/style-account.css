@@ -14,13 +14,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-h1 {
-  text-transform: uppercase;
-  color: #2db5e1;
-  font-size: 50px;
-  text-shadow: 5px 2px 10px #7d9ba5;
+  color: white;
 }
 
 a,
@@ -36,7 +30,6 @@ a:active {
 
 button {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  /*letter-spacing: 2px; /*removed letter spacing to avoid issue when hovering over logout*/
   font-size: 17px;
   height: 2.5em;
   border: 3px solid;
@@ -72,9 +65,9 @@ a {
   color: #2db5e1;
   font-size: 15px;
 }
-.navig-link2:hover {
-  color:lightskyblue;
-  text-decoration: underline;
+a:hover {
+  text-decoration: none;
+  color: #2db5e1;
 }
 /* a:hover {
   text-decoration: underline;
@@ -117,8 +110,8 @@ a {
 .achievImage {
   margin: 5% 0;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 7em;
+  height: 7em;
   opacity: 0.2;
 }
 
@@ -129,9 +122,10 @@ a {
 .rowAchievement {
   width: 100%;
   margin: 0;
+  text-align: center;
 }
 
-.achievementRow {
+.achievementCol {
   text-align: center;
 }
 
@@ -155,6 +149,48 @@ span {
   max-width: 50%;
 }
 
+/*achievement*/
+.achievement_popup {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  animation: popup 8s;
+  background-color: #1e2527;
+  border-radius: 5px 5px 0 0;
+  border-top: 1px solid#51d0fa;
+  border-right: 1px solid#51d0fa;
+  border-left: 1px solid#51d0fa;
+  width: 0;
+  text-align: center;
+  opacity: 0;
+}
+
+.ach_Img {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  margin-top: 10%;
+}
+
+.ach_p {
+  margin-top: 5%;
+}
+
+@keyframes popup {
+  0% {
+    opacity: 1;
+    width: 10em;
+  }
+  99% {
+    opacity: 0;
+    width: 10em;
+  }
+  100% {
+    width: 0;
+  }
+}
+/*achievement*/
+
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .hide2 {
@@ -171,11 +207,5 @@ span {
 
   span {
     display: inline;
-  }
-
-  .achievImage {
-    margin: 2% 0;
-    width: 150px;
-    height: 150px;
   }
 }

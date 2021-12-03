@@ -96,6 +96,9 @@ catch (PDOException $e) {
         $password = stripslashes($password);
         */
 
+        //variable for achievement
+        $_SESSION['signup_ach'] = "done";
+        
         $username = strip_tags($_REQUEST['username']);
         $email = strip_tags($_REQUEST['email']);
         $password1 = strip_tags($_REQUEST['password1']);

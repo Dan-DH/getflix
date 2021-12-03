@@ -1,9 +1,43 @@
 <?php 
+include_once('../Backend/session.php');
 include('../Backend/PDOcomments.php');
 if (empty($_SESSION['username'])){
     header('location: ../Frontend/index.php');
 }
+
+//contact achievement check
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $user = $_SESSION['username'];
+    //contact achievement check 
+    $contact_query = "SELECT u.userID, a.contact_achievement FROM users u JOIN achievements a ON u.userID = a.userID WHERE u.login = '$user';";
+    $contact_stmt = $db->prepare($contact_query);
+    $contact_stmt->execute();
+    $contact_query_result = $contact_stmt->fetch(PDO::FETCH_ASSOC);
+    $id = $contact_query_result['userID']; 
+
+    if ($contact_query_result['contact_achievement'] == 0) {
+        //updating the achievements table
+        $contact_unlock_query = "UPDATE achievements SET contact_achievement = 1 WHERE userID = $id;";
+        $contact_unl_stmt = $db->prepare($contact_unlock_query);
+        $contact_unl_stmt->execute();
+        //setting achievement for showing popup after refresh
+        $_SESSION['contact_ach'] = "done";
+    };
+};  
+
+//showing achievement on page refresh
+if ($_SESSION['contact_ach'] == "done") {
+    echo "
+    <a class='a_popup' href='./account.php'>
+        <div class='achievement_popup'>
+        <img class='ach_Img' src='../assets/achievement3.webp' alt='Achievement unlocked'><br>
+        <p class='ach_p'>Contacted the team</p>
+        </div>
+    </a>";
+    unset($_SESSION['contact_ach']);
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,18 +124,23 @@ if (empty($_SESSION['username'])){
             <br>
             <button type="submit" name="send" id='send' class="submit">Send</button>
 
-            <div class="content">
+            <!-- <div class="content">
                 <?php if (isset($_SESSION['username'])): ?>
                     <div class="error success">
                         <h3>
                             <?php
+<<<<<<< HEAD
                                 echo $_SESSION['sent'];
                                // unset($_SESSION['sent']);
+=======
+                                // echo $_SESSION['sent'];
+                                // unset($_SESSION['sent']);
+>>>>>>> 3c6b7838ee8b34e8f13b3bfde6511dbb3be8c44c
                             ?>
                         </h3>
                     </div>
                 <?php endif ?>
-            </div> 
+            </div>  -->
         </form>
     </div>
 </main>

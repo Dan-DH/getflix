@@ -3,6 +3,30 @@
     if (empty($_SESSION['username'])){
         header('location: index.php');
     }
+
+//$_SESSION['signup_ach'] = "done";//for testing only, to be removed
+//showing achievement on page refresh
+if ($_SESSION['signup_ach'] == "done") {
+    echo "
+    <a class='a_popup' href='./account.php'>
+        <div class='achievement_popup'>
+        <img class='ach_Img' src='../assets/achievement3.webp' alt='Achievement unlocked'><br>
+        <p class='ach_p'>Joined the Chill-Zone</p>
+        </div>
+    </a>";
+    unset($_SESSION['signup_ach']);
+
+    //updating the achievements table
+    $user = $_SESSION['username'];
+    $account_query = "SELECT u.userID, a.account_achievement FROM users u JOIN achievements a ON u.userID = a.userID WHERE u.login = '$user';";
+    $account_stmt = $db->prepare($account_query);
+    $account_stmt->execute();
+    $account_query_result = $account_stmt->fetch(PDO::FETCH_ASSOC);
+    $id = $account_query_result['userID'];
+    $account_unlock_query = "UPDATE achievements SET account_achievement = 1 WHERE userID = $id;";
+    $account_unl_stmt = $db->prepare($account_unlock_query);
+    $account_unl_stmt->execute();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -122,12 +146,13 @@
     <main>
         <?php if (isset($_POST['searchbar'])): ?>
             <?php 
-                include('search.php');
+                // If the user presses enter when the searchbar is activated (on the main page):
+                include('../Backend/search.php');
                 header('location: ../Frontend/search-result.php');
             ?>
-            <h3 class="search-error" style="text-align: center">
-                <?php include('../Backend/errors.php');?>
-            </h3> 
+            <!-- <h3 class="search-error" style="text-align: center">
+                <?php //include('../Backend/errors.php');?>
+            </h3>  -->
         <?php endif ?>
 
         <div class="container-fluid">
