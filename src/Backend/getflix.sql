@@ -58,7 +58,7 @@ CREATE TABLE achievements (
 	account_achievement bit(1) not null default 0
 );
 
--- INSERT INTO users (email, login, password) VALUES ("daniel@getflix.com", "Dan-DH", "holaworld");
+INSERT INTO users (email, login, password) VALUES ("daniel.diaz.hdez@gmail.com", "Dan-DH", "holaworld");
 -- INSERT INTO users (email, login, password) VALUES ("brigita@getflix.com", "Brigita Sabutyte", "12345");
 -- INSERT INTO users (email, login, password) VALUES ("shivani@getflix.com", "ShivaniKhatri", "shivani");
 -- INSERT INTO users (email, login, password) VALUES ("teosuperlongemailtoseewhathappens@getflix.co.uk", "Teo", "testpass");

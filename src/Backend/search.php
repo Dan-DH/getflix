@@ -27,7 +27,7 @@ if (isset($_POST['searchbar'])) {
                 <div class="grid-item">
                     <?php
                     echo "<br><br>";?>
-                    <img src="<?php echo $row['image']; ?>" alt="poster" class="poster" style="width: 100%;">
+                    <img src="<?php echo $row['image']; ?>" alt="poster" class="poster">
                 </div>
                 <div class="grid-item">
                     <?php echo "<br><br>"; ?>
@@ -37,7 +37,7 @@ if (isset($_POST['searchbar'])) {
                     echo "Rating : " . $row['rating'];
                     echo "<br><br>"; 
                     ?>
-                    <div class="syn" style="overflow: scroll; height: 100px">
+                    <div class="syn" style="overflow: scroll;">
                         <?php echo "Synopsis : " . $row['synopsis']; ?>
                     </div>
                 </div>

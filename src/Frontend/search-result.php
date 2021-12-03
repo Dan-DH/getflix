@@ -36,19 +36,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-5 me-lg-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font  me-lg-5 fs-5" href="#comedy">Comedy</a>
+                            <a class="nav-link navig-link white-font  me-lg-5 fs-5" href="../Frontend/main.php#comedy">Comedy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#action">Action</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#action">Action</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#drama">Drama</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#drama">Drama</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#family">Family</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#family">Family</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#fantasy">Fantasy</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#fantasy">Fantasy</a>
                         </li>
 
                     </ul>
@@ -135,24 +135,59 @@
                         padding: 0.5em 5em;
                         grid-gap: 3em;
                     }
+                    .poster {
+                        width: 100%;
+                        display: grid;
+                        justify-content: center;
+                    }
                     .trailer {
                         width: 100%;
-                        height: 65%;
+                        height: 50%;
                     }
                     .syn {
                         overflow: scroll;
+                        height: 20%;
                     }
                     .search-error {
                         text-align: center;
                     }
-                    @media screen and (max-width: 886px) {
+                    @media screen and (min-width: 1500px) {
+                        .trailer {
+                            width: 100%;
+                            height: 70%;
+                        }
+                    }
+                    @media screen and (max-width: 886px) and (min-width: 460px) {
                         .search_result{
                             grid-template-columns: auto;
                             grid-gap: 2em;
                         }
                         .poster {
-                            width: 70%;
-                            margin-top:2em;
+                            width: 100%;
+                            margin-top:3em;
+                        }
+                        .trailer {
+                            width: 100%;
+                            height: 70%;
+                        }    
+                        .syn {
+                            overflow: scroll;
+                            height: 20%;
+                            padding-bottom: 2em;
+                        }
+                    }
+                    @media screen and (max-width: 460px){
+                        .search_result{
+                            grid-template-columns: auto;
+                            grid-gap: 2em;
+                            padding: 1em;
+                        }
+                        .trailer {
+                            width: 100%;
+                            height: 40%;
+                        }
+                        .syn {
+                            font-size: 10px;
                         }
                     }
                 </style>
