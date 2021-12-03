@@ -162,7 +162,7 @@
                         }
                     }
                 </style>
-                    <?php include('search.php')?>
+                    <?php include('../Backend/search.php')?>
                 
                 <h3 class="search-error">
                     <?php include('../Backend/errors.php')?>
