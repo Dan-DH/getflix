@@ -110,25 +110,21 @@
     </header>
     
     <main>
-        <!-- <div class="container-fluid">
-            <?php
-                // $servername = "database";
-                // $db_user = "root";
-                // $db_password = "getflixRoot";
-                // $dbname = "getflix";
-                // try{
-                //     $db= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
-                //     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                // }
-                // catch (PDOException $e) {
-                //     echo "Connection failed : " . $e->getMessage();
-                // }
-            ?>
-        </div> -->
+        <?php
+            $servername = "database";
+            $db_user = "root";
+            $db_password = "getflixRoot";
+            $dbname = "getflix";
+            try{
+                $db= new PDO("mysql:host=$servername;dbname=$dbname",$db_user,$db_password);
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            }
+            catch (PDOException $e) {
+                echo "Connection failed : " . $e->getMessage();
+            }
+        ?>
         <div>
-            
-            <div class="search_result">
-                    
+            <div class="search_result"> 
                 <style>
                     .search_result {
                         display: grid;
@@ -149,8 +145,6 @@
                     .search-error {
                         text-align: center;
                     }
-                    
-                    
                     @media screen and (max-width: 886px) {
                         .search_result{
                             grid-template-columns: auto;
