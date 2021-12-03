@@ -1,10 +1,17 @@
 <?php 
 include('../Backend/PDOserver.php');
 
+// declaring variables for db connection
+// development server
 $servername = "database";
 $db_user = "root";
 $db_password = "getflixRoot";
 $dbname = "getflix";
+// production server
+// $servername = "fdb33.awardspace.net";
+// $db_user = "3998204_getflix";
+// $db_password = "getflixRoot1";
+// $dbname = "3998204_getflix";
 
 try {
     $db = new PDO("mysql:host=$servername;dbname=$dbname",$db_user, $db_password);
