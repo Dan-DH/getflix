@@ -11,6 +11,12 @@ CREATE TABLE users (
 	trailer_count int(4) not null default 0,
 	acc_date datetime not null default now()
 );
+CREATE TABLE password_reset_temp(
+	resetID int(10)not null primary key,
+	email varchar(225) not null,
+	user_key varchar(225) not null,
+	expDate datetime notnull 
+);
 
 CREATE TABLE contact (
 	messageID int(10) not null primary key auto_increment,
