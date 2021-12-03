@@ -9,26 +9,26 @@
 </head>
 <body>
 <header class="navbar">
-<a href="welcome.html"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
+<a href="welcome.html"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
 </header>
-                    <?php
-                    $array_err=array();
-                    $pattern = '/^(?=.*[0-9])(?=.*[A-Z])$/';
-                  
-                    if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"]) && ($_GET["action"] == "reset") && !isset($_POST["action"])) {
-                        $key = $_GET["key"];
-                        $email = $_GET["email"];
-                        $curDate = date("Y-m-d H:i:s");
-                        $query =  "SELECT * FROM password_reset_temp WHERE `key_temp`='$key' and `email`='$email';";
-                        $results = $conn->query($query);
-                        // $row=$results->fetch_assoc();
-                        if ($results->num_rows==0 ) {
-                            $error .= '<h2>Invalid Link</h2>';
-                        } else {
-                            $row=$results->fetch_assoc();
-                            $expDate = $row['expDate'];
-                            if ($expDate >= $curDate) {
-              ?>
+    <?php
+    $array_err=array();
+    $pattern = '/^(?=.*[0-9])(?=.*[A-Z])$/';
+    
+    if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"]) && ($_GET["action"] == "reset") && !isset($_POST["action"])) {
+        $key = $_GET["key"];
+        $email = $_GET["email"];
+        $curDate = date("Y-m-d H:i:s");
+        $query =  "SELECT * FROM password_reset_temp WHERE key_temp='$key' and email='$email';";
+        $results = $conn->query($query);
+        // $row=$results->fetch_assoc();
+        if ($results->num_rows==0 ) {
+            $error .= '<h2>Invalid Link</h2>';
+        } else {
+            $row=$results->fetch_assoc();
+            $expDate = $row['expDate'];
+            if ($expDate >= $curDate) {
+    ?>
 <main>
     <div class="fill_form">
 <form action="" method="post">

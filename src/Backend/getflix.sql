@@ -12,11 +12,11 @@ CREATE TABLE users (
 	acc_date datetime not null default now()
 );
 
-CREATE TABLE password_reset_temp(
-	resetID int(10)not null primary key,
+CREATE TABLE password_reset_temp (
+	resetID int(10) not null primary key,
 	email varchar(225) not null,
 	user_key varchar(225) not null,
-	expDate datetime notnull 
+	expDate datetime not null default now()
 );
 
 CREATE TABLE contact (
