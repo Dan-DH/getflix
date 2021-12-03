@@ -81,10 +81,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="navbar">
-        <a href="./main.php"><h1>Getflix</h1></a>
+        <a href="./main.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
         <div class="buttons">
             <a href="./main.php"><button type="button" id="home">Home</button></a>
-            <a href="./login.php"><button type="button" id="logout">Log out</button></a>
+            <a href="./index.php"><button type="button" id="logout">Log out</button></a>
         </div>
     </div>
 

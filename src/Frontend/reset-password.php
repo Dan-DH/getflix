@@ -71,7 +71,7 @@
 
                     if (isset($_POST["password1"])) {
                         $password1 = $_POST["password1"];
-                        $sql= "UPDATE users SET password = '$password1' WHERE email = '$email';";
+                        $sql= "UPDATE users SET password = '$password1' WHERE email = '$get_email';";
                         $res=$db->prepare($sql)->execute();
                         $sql1= "DELETE FROM password_reset_temp WHERE email = '$get_email';";
                         $res1=$db->prepare($sql1)->execute();
