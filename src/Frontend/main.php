@@ -123,7 +123,7 @@
         <?php if (isset($_POST['searchbar'])): ?>
             <?php 
                 // If the user presses enter when the searchbar is activated (on the main page):
-                include('search.php');
+                include('../Backend/search.php');
                 header('location: ../Frontend/search-result.php');
             ?>
             <!-- <h3 class="search-error" style="text-align: center">
