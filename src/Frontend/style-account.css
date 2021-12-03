@@ -149,7 +149,7 @@ span {
   max-width: 50%;
 }
 
-/*achivement test*/
+/*achievement*/
 .achievement_popup {
   position: fixed;
   bottom: 0;
@@ -189,7 +189,7 @@ span {
     width: 0;
   }
 }
-/*achivement test*/
+/*achievement*/
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {

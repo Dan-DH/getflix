@@ -1,6 +1,5 @@
 <?php 
-include('../Backend/session.php');
-//session_start();
+session_start();
 
 // declaring variables for submission
 $username = "";
@@ -8,16 +7,10 @@ $email = "";
 $errors = array();
 
 // declaring variables for db connection
-// development server
 $servername = "database";
 $db_user = "root";
 $db_password = "getflixRoot";
 $dbname = "getflix";
-// production server
-// $servername = "fdb33.awardspace.net";
-// $db_user = "3998204_getflix";
-// $db_password = "getflixRoot1";
-// $dbname = "3998204_getflix";
 
 ///Connecting to the database///
 try {
@@ -38,7 +31,7 @@ catch (PDOException $e) {
     if (isset($_POST['login'])) {
 
         if (isset($_SESSION['username'])) {
-            header('location: main.php');
+            header('location: test.php');
         }
         
         $username = strip_tags($_POST['userinfo']);
@@ -73,7 +66,7 @@ catch (PDOException $e) {
                     // Logged in
                     $_SESSION['username'] = $username;
                     $_SESSION['success'] = "Welcome back $username! Ready to chill ?";
-                    header('location: ../Frontend/main.php');
+                    header('location: ../Frontend/test.php');
                 }
                 else {
                     array_push($errors, "Wrong user / password combo.");
@@ -96,9 +89,6 @@ catch (PDOException $e) {
         $password = stripslashes($password);
         */
 
-        //variable for achievement
-        $_SESSION['signup_ach'] = "done";
-        
         $username = strip_tags($_REQUEST['username']);
         $email = strip_tags($_REQUEST['email']);
         $password1 = strip_tags($_REQUEST['password1']);
@@ -143,13 +133,9 @@ catch (PDOException $e) {
                 $insert_stmt=$db->prepare("INSERT INTO users (login, email, password) VALUES ('$username', '$email', '$password')");
 
                 if($insert_stmt->execute(array(':uname'=>$username,':uemail'=>$email,':upassword'=>$password))) {
-                    //adding user to achievements table
-                    $insert_ach=$db->prepare("INSERT INTO achievements () VALUES();");
-                    $insert_ach->execute();
-                    
                     $_SESSION['username'] = $username;
                     $_SESSION['success'] = "Logged in !";
-                    header('location: ../Frontend/main.php'); //redirect to main
+                    header('location: ../Frontend/test.php'); //redirect to main (test)
                 }
             }
         } catch (PDOEexception $e) {
