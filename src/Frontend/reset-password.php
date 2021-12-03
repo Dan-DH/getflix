@@ -24,7 +24,7 @@
         $db = new PDO("mysql:host=$servername;dbname=$dbname",$db_user, $db_password);
         // set error mode to exception
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected successfully";
+        //echo "Connected successfully";
     } 
     catch (PDOException $e) {
         echo "Connection failed : " . $e->getMessage();
@@ -45,6 +45,7 @@
         $expDate = $row['expDate'];
         if ($expDate >= $curDate) {
     ?>
+    
 <main>
     <div class="fill_form">
 <form action="" method="post">
@@ -55,10 +56,7 @@
    <input type="password" name="password1" class='sf' placeholder='Please,enter your new password'><br>
    <label for="password2">Repeat your new password</label>
    <input type="password" name="password2" class='sf' placeholder='Please,repeat your new password'>
-   <br>
-<button name="submit" type="submit">SUBMIT</button>
-</form>
-    </div>
+<br>
               <?php
                     } else {
                         $error .= "<h2>Link Expired</h2>>";
@@ -71,13 +69,17 @@
 
                     if (isset($_POST["password1"])) {
                         $password1 = $_POST["password1"];
-                        $sql= "UPDATE users SET password = '$password1' WHERE email = '$email';";
+                        $sql= "UPDATE users SET password = '$password1' WHERE email = '$get_email';";
                         $res=$db->prepare($sql)->execute();
                         $sql1= "DELETE FROM password_reset_temp WHERE email = '$get_email';";
                         $res1=$db->prepare($sql1)->execute();
-                        echo '<div class="error"><p>Congratulations! Your password has been updated successfully.</p>';
+                        echo '<div><b>Your password has been updated successfully, you are ready to enjoy the chill zone.</b></div>';
                     }
                     ?>
+                       <br>
+<button name="submit" type="submit">SUBMIT</button>
+</form>
+    </div>
 </main>
 </body>
 </html>

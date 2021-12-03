@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +9,7 @@
 </head>
 <body>
 <div class="navbar">
-<a href="welcome.html"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
+<a href="welcome.html"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
     </div>
 
     <main>
@@ -40,7 +38,7 @@ try {
     $db = new PDO("mysql:host=$servername;dbname=$dbname",$db_user, $db_password);
     // set error mode to exception
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully";
+  //  echo "Connected successfully";
 } 
 catch (PDOException $e) {
     echo "Connection failed : " . $e->getMessage();
@@ -88,9 +86,9 @@ try {
     $mail->setFrom('bxlgetflix@gmail.com');
     $mail->isHTML(true);
     $mail->Body = $body;
-    $mail->addAddress('daniel.diaz.hdez@gmail.com');
+    $mail->addAddress($email);
     if($mail->Send()) {
-        echo 'Email sent';
+        echo '<div>We sent you password recovery link, please check your email.<div><br>';
     } else {
         echo 'There was an error somewhere';
     };
@@ -104,9 +102,7 @@ try {
 }}?>
   <label for="input">Please enter your email address:</label><br>
             <input class="sf" type="email" name="email" placeholder="please enter your email">
-            <?php $email=$_POST['email'];
-             echo $email;
-?>
+
             <br>
             <button name='reset' type="submit" id="reset">SUBMIT</button>
         </form>
