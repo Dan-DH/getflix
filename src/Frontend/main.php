@@ -122,12 +122,13 @@
     <main>
         <?php if (isset($_POST['searchbar'])): ?>
             <?php 
+                // If the user presses enter when the searchbar is activated (on the main page):
                 include('search.php');
                 header('location: ../Frontend/search-result.php');
             ?>
-            <h3 class="search-error" style="text-align: center">
-                <?php include('../Backend/errors.php');?>
-            </h3> 
+            <!-- <h3 class="search-error" style="text-align: center">
+                <?php //include('../Backend/errors.php');?>
+            </h3>  -->
         <?php endif ?>
 
         <div class="container-fluid">
