@@ -1,18 +1,18 @@
 body {
-    background: black;
-    color: white;
-    /* margin: 0; */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    letter-spacing: 3px;
+  background: black;
+  color: white;
+  /* margin: 0; */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 3px;
 }
 .black-font {
-color: black;
+  color: black;
 }
-.navbar-bg{
- background-color:black;
+.navbar-bg {
+  background-color: black;
 }
 .white-font {
-    color:white;
+  color: white;
 }
 /*
 #navbarSupportedContent {
@@ -23,76 +23,122 @@ ul {
     justify-content: right;
 }*/
 .navig-link:hover {
-    color:lightskyblue;
-    /* font-size: 1.2rem; */
+  color: lightskyblue;
+  /* font-size: 1.2rem; */
 }
 .navig-link:active {
-    color: lightseagreen;
-  }
+  color: lightseagreen;
+}
 .font-align {
-    color: white;
+  color: white;
 }
 #searchbar {
-    border-radius: 1rem;
+  border-radius: 1rem;
 }
 a {
-    text-decoration: none;
-    color: #2DB5E1;
-    font-size: 15px;
+  text-decoration: none;
+  color: #2db5e1;
+  font-size: 15px;
 }
 .navig-link2:hover {
-    color:lightskyblue;
-    text-decoration: underline;
+  color: lightskyblue;
+  text-decoration: underline;
 }
 #footer {
-    /* position: absolute;*/
-    bottom: 0;
-    width: 100%;
-    /* height: 70px; */
-    margin-top: 30px;
+  /* position: absolute;*/
+  bottom: 0;
+  width: 100%;
+  /* height: 70px; */
+  margin-top: 30px;
 }
 .portrait {
-    border-radius: 50%;
-    max-width: 50%;
+  border-radius: 50%;
+  max-width: 50%;
 }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-    .dropdown-menu {
-        margin-left: -6rem;
-    }
- }
- /* Medium devices (tablets, 768px and up) */
- @media (min-width: 768px) { 
-    .hide2 {
-        display: none;
-          }
- }
-/* The box-sizing property allows us to include the padding and border in an element's total width and height. */
- * {box-sizing: border-box;}
+/*achievement*/
+.achievement_popup {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  animation: popup 8s;
+  background-color: #1e2527;
+  border-radius: 5px 5px 0 0;
+  border-top: 1px solid#51d0fa;
+  border-right: 1px solid#51d0fa;
+  border-left: 1px solid#51d0fa;
+  width: 0;
+  text-align: center;
+  opacity: 0;
+  z-index: 9;
+}
 
- /* body { font-family: sans-serif; } */
- /* .carousel {
+.ach_Img {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  margin-top: 10%;
+}
+
+.ach_p {
+  margin-top: 5%;
+}
+
+@keyframes popup {
+  0% {
+    opacity: 1;
+    width: 10em;
+  }
+  99% {
+    opacity: 0;
+    width: 10em;
+  }
+  100% {
+    width: 0;
+  }
+}
+/*achievement*/
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .dropdown-menu {
+    margin-left: -6rem;
+  }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .hide2 {
+    display: none;
+  }
+}
+/* The box-sizing property allows us to include the padding and border in an element's total width and height. */
+* {
+  box-sizing: border-box;
+}
+
+/* body { font-family: sans-serif; } */
+/* .carousel {
      background: black;
  } */
 .carousel-cell {
-    width: 200px;
-    height: 300px;
-    margin-right: 10px;
-    background: #8C8;
-    border-radius: 5px;
-    /* counter-increment: carousel-cell; */
+  width: 200px;
+  height: 300px;
+  margin-right: 10px;
+  background: #8c8;
+  border-radius: 5px;
+  /* counter-increment: carousel-cell; */
 }
 
 .carousel-cell img {
-    width: 200px;
-    height: 300px;
-    /* background-size: cover; */
+  width: 200px;
+  height: 300px;
+  /* background-size: cover; */
 }
- 
-  .content, .success {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      margin: 2em 0em;
-  }
+
+.content,
+.success {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 2em 0em;
+}

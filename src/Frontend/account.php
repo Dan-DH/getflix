@@ -227,33 +227,6 @@ if ($t_query_result['trailer_count'] == 1 || $t_query_result['trailer_count'] ==
 };      
 ?>
 
-<!-- pop up example -contact-->
-<?php
-$user = $_SESSION['username'];
-//contact achievement check 
-$contact_query = "SELECT u.userID, a.contact_achievement FROM users u JOIN achievements a ON u.userID = a.userID WHERE u.login = '$user';";
-$contact_stmt = $db->prepare($contact_query);
-$contact_stmt->execute();
-$contact_query_result = $contact_stmt->fetch(PDO::FETCH_ASSOC);
-$id = $contact_query_result['userID']; 
-
-if ($contact_query_result['contact_achievement'] == 0) {
-    //showing achievement popup
-    echo "
-        <a class='a_popup' href='./main.php'>
-            <div class='achievement_popup'>
-            <img class='ach_Img' src='../assets/achievement3.webp' alt='Achievement unlocked'><br>
-            <p class='ach_p'>'Contacted the team'</p>
-            </div>
-        </a>";
-
-    //updating the achievements table
-    $contact_unlock_query = "UPDATE achievements SET contact_achievement = 1 WHERE userID = $id;";
-    $contact_unl_stmt = $db->prepare($contact_unlock_query);
-    $contact_unl_stmt->execute();
-};      
-?>
-
 <!-- pop up example -sign-up-->
 <?php
 //on page load
@@ -271,7 +244,7 @@ if ($account_query_result['account_achievement'] == 0) {
         <a class='a_popup' href='./main.php'>
             <div class='achievement_popup'>
             <img class='ach_Img' src='../assets/achievement3.webp' alt='Achievement unlocked'><br>
-            <p class='ach_p'>'Joined the Chill-Zone'</p>
+            <p class='ach_p'>Joined the Chill-Zone</p>
             </div>
         </a>";
 
