@@ -37,7 +37,7 @@ if (isset($_POST['searchbar'])) {
                     echo "Rating : " . $row['rating'];
                     echo "<br><br>"; 
                     ?>
-                    <div class="syn" style="overflow: scroll; height: 100px">
+                    <div class="syn" style="overflow: scroll;">
                         <?php echo "Synopsis : " . $row['synopsis']; ?>
                     </div>
                 </div>

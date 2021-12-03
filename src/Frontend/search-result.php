@@ -36,19 +36,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-5 me-lg-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font  me-lg-5 fs-5" href="#comedy">Comedy</a>
+                            <a class="nav-link navig-link white-font  me-lg-5 fs-5" href="../Frontend/main.php#comedy">Comedy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#action">Action</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#action">Action</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#drama">Drama</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#drama">Drama</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#family">Family</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#family">Family</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#fantasy">Fantasy</a>
+                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#fantasy">Fantasy</a>
                         </li>
 
                     </ul>
@@ -141,6 +141,7 @@
                     }
                     .syn {
                         overflow: scroll;
+                        height: 20%;
                     }
                     .search-error {
                         text-align: center;
@@ -152,7 +153,15 @@
                         }
                         .poster {
                             width: 70%;
-                            margin-top:2em;
+                            margin-top:3em;
+                        }
+                            .trailer {
+                            width: 100%;
+                            height: 50%;
+                        }
+                            .syn {
+                            overflow: scroll;
+                            height: 10%;
                         }
                     }
                 </style>
