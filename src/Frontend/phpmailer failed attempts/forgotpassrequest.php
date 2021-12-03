@@ -29,11 +29,14 @@ $db_user = "root";
 $db_password = "getflixRoot";
 $dbname = "getflix";
 $errors=array();
+
+
+
 try {
     $db = new PDO("mysql:host=$servername;dbname=$dbname",$db_user, $db_password);
     // set error mode to exception
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //echo "Connected successfully";
+    echo "Connected successfully";
     /*
     $statement = $connect->prepare("SELECT login, :email, password FROM getflix.users");
     $statement->execute();

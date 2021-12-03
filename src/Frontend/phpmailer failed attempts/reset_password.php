@@ -16,43 +16,7 @@
 <form action="" method="post">
     <h2>PASSWORD RESET</h2>
     <?php
-    //include('PDOserver.php');
-    $servername = "database";
-$db_user = "root";
-$db_password = "getflixRoot";
-$dbname = "getflix";
-$errors=array();
-///Connecting to the database///
-try {
-    $db = new PDO("mysql:host=$servername;dbname=$dbname",$db_user, $db_password);
-    // set error mode to exception
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //echo "Connected successfully";
-    /*
-    $statement = $connect->prepare("SELECT login, :email, password FROM getflix.users");
-    $statement->execute();
-    $user = $statement->fetch();*/
-} 
-catch (PDOException $e) {
-    echo "Connection failed : " . $e->getMessage();
-}//retrieving data from the link we sent to user for password recovery
-                    if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"]) && ($_GET["action"] == "reset") && !isset($_POST["action"])) {
-                        $key = $_GET["key"];
-                        $email = $_GET["email"];
-                        $curDate = date("Y-m-d H:i:s");
-                        $query ="SELECT * FROM password_reset_temp WHERE key='$key' and email='$email'";
-                        $stmt = $db->prepare($query);
-                        $stmt->execute();
-                       // $row = mysqli_num_rows($query);
-                       $row= $stmt->fetch(PDO::FETCH_ASSOC);
-                        if ($row == "") {
-                            array_push($errors, '<h2>Invalid Link</h2>');
-                        } else {
-                            $row= $stmt->fetch(PDO::FETCH_ASSOC);
-                            //$row = mysqli_fetch_assoc($query);
-                            $expDate = $row['expDate'];
-                            if ($expDate >= $curDate) {
-                                ?> 
+  
     <label for="password1">Enter your new password</label>
    <input type="password" name="password1" class='sf' placeholder='Please,enter your new password'><br>
    <label for="password2">Repeat your new password</label>
