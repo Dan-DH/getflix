@@ -1,10 +1,16 @@
-<?php include("../composant/head.html");
-include ("../Composant_php/config.php")
-?>
-<div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Password Reset</title>
+</head>
+<body>
+<header class="navbar">
+<a href="welcome.html"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
+</header>
                     <?php
                     $array_err=array();
                     $pattern = '/^(?=.*[0-9])(?=.*[A-Z])$/';
@@ -22,25 +28,27 @@ include ("../Composant_php/config.php")
                             $row=$results->fetch_assoc();
                             $expDate = $row['expDate'];
                             if ($expDate >= $curDate) {
-                                ?> 
-                                <h2>Reset Password</h2>   
-                                <form method="post" action="" name="update">
-                                    <input type="hidden" name="action" value="update" class="form-control"/>
-                                    <div class="form-group">
-                                        <label><strong>Enter New Password:</strong></label>
-                                        <input type="password"  name="pass1" value="update" class="form-control"/>
-                                    </div>
+              ?>
+<main>
+    <div class="fill_form">
+<form action="" method="post">
+    <h2>PASSWORD RESET</h2>
+    
+  
+    <label for="password1">Enter your new password</label>
+   <input type="password" name="password1" class='sf' placeholder='Please,enter your new password'><br>
+   <label for="password2">Repeat your new password</label>
+   <input type="password" name="password2" class='sf' placeholder='Please,repeat your new password'>
+   <br>
+<button name="submit" type="submit">SUBMIT</button>
+</form>
+    </div>
+  
 
-                                    <div class="form-group">
-                                        <label><strong>Re-Enter New Password:</strong></label>
-                                        <input type="password"  name="pass2" value="update" class="form-control"/>
-                                    </div>
-                                    <input type="hidden" name="email" value="<?php echo $email; ?>"/>
-                                    <div class="form-group">
-                                        <input type="submit" id="reset" value="Reset Password"  class="btn btn-primary"/>
-                                    </div>
-                                </form>
-                                <?php
+</main>
+</body>
+</html>
+              <?php
                             } else {
                                 $error .= "<h2>Link Expired</h2>>";
                             }
@@ -81,7 +89,4 @@ include ("../Composant_php/config.php")
                     }
                     ?>
 
-                </div>
-                <div class="col-md-4"></div>
-            </div>
-        </div>
+
