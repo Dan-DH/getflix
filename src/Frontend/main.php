@@ -98,13 +98,13 @@ if ($_SESSION['signup_ach'] == "done") {
                                 class="fa fa-bell white-font fs-5"></i></a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>
-                                <a class="dropdown-item" href="#">notification 1</a>
+                                <a class="dropdown-item" href="#">Check the most popular movies. Did you see them all?</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">notification 2</a>
+                                <a class="dropdown-item" href="#">Check out your account page for new achievements!</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">notification 3</a>
+                                <a class="dropdown-item" href="#">Having trouble? We are here for you on contact page!</a>
                             </li>
                         </ul>
                     </div>

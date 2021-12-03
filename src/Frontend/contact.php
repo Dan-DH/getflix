@@ -59,7 +59,6 @@ if ($_SESSION['contact_ach'] == "done") {
                     <button type="button" id="logout">LOG OUT</button>
                 </a>
         <?php endif ?>
-        
     </div>
 </div>
 
