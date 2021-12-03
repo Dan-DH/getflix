@@ -30,6 +30,7 @@ require_once  '../vendor/phpmailer/phpmailer/src/SMTP.php';
 //include ("../Backend/PDOserver.php");
 require("../vendor/autoload.php");
 
+
 // declaring variables for db connection
 // development server
 $servername = "database";
@@ -111,7 +112,7 @@ try {
     // Sender and recipient settings
     $mail->setFrom('bxlgetflix@gmail.com', 'Getflix Team');
 $mail->addAddress($email/*, 'Receiver Name'*/);
-    $mail->addReplyTo('support@getflix.com', 'Getflix'); // to set the reply to
+    $mail->addReplyTo('bxlgetflix@gmail.com', 'Getflix Team'); // to set the reply to
 
     // Setting the email content
     $mail->IsHTML(true);

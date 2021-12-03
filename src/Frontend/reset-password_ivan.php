@@ -1,17 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Password Reset</title>
-</head>
-<body>
-<header class="navbar">
-<a href="welcome.html"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
-</header>
-                    <?php
+<?php
+// declaring variables for db connection
+// development server
+$servername = "database";
+$db_user = "root";
+$db_password = "getflixRoot";
+$dbname = "getflix";
+// production server
+// $servername = "fdb33.awardspace.net";
+// $db_user = "3998204_getflix";
+// $db_password = "getflixRoot1";
+// $dbname = "3998204_getflix";
+
+///Connecting to the database///
+try {
+    $db = new PDO("mysql:host=$servername;dbname=$dbname",$db_user, $db_password);
+    // set error mode to exception
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //echo "Connected successfully";
+    /*
+    $statement = $connect->prepare("SELECT login, :email, password FROM getflix.users");
+    $statement->execute();
+    $user = $statement->fetch();*/
+} 
+catch (PDOException $e) {
+    echo "Connection failed : " . $e->getMessage();
+}
                     $array_err=array();
                     $pattern = '/^(?=.*[0-9])(?=.*[A-Z])$/';
                   
@@ -19,8 +32,9 @@
                         $key = $_GET["key"];
                         $email = $_GET["email"];
                         $curDate = date("Y-m-d H:i:s");
-                        $query =  "SELECT * FROM password_reset_temp WHERE `key_temp`='$key' and `email`='$email';";
-                        $results = $conn->query($query);
+                        $query =  "SELECT * FROM password_reset_temp WHERE user_key='$key' and email='$email'";
+                        $results = prepare->query($query);
+                        $results->execute();
                         // $row=$results->fetch_assoc();
                         if ($results->num_rows==0 ) {
                             $error .= '<h2>Invalid Link</h2>';
@@ -28,27 +42,9 @@
                             $row=$results->fetch_assoc();
                             $expDate = $row['expDate'];
                             if ($expDate >= $curDate) {
-              ?>
-<main>
-    <div class="fill_form">
-<form action="" method="post">
-    <h2>PASSWORD RESET</h2>
-    
-  
-    <label for="password1">Enter your new password</label>
-   <input type="password" name="password1" class='sf' placeholder='Please,enter your new password'><br>
-   <label for="password2">Repeat your new password</label>
-   <input type="password" name="password2" class='sf' placeholder='Please,repeat your new password'>
-   <br>
-<button name="submit" type="submit">SUBMIT</button>
-</form>
-    </div>
-  
-
-</main>
-</body>
-</html>
-              <?php
+                                ?> 
+                                <!--put reset password form-->s 
+  <?php
                             } else {
                                 $error .= "<h2>Link Expired</h2>>";
                             }
@@ -90,3 +86,36 @@
                     ?>
 
 
+              <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Password Reset</title>
+</head>
+<body>
+<header class="navbar">
+<a href="welcome.html"><img src="../assets/Getflix.png" width="200rem" height="80rem"></a>
+</header>
+<main>
+    <div class="fill_form">
+<form action="" method="post">
+    <h2>PASSWORD RESET</h2>
+    
+  
+    <label for="password1">Enter your new password</label>
+   <input type="password" name="password1" class='sf' placeholder='Please,enter your new password'><br>
+   <label for="password2">Repeat your new password</label>
+   <input type="password" name="password2" class='sf' placeholder='Please,repeat your new password'>
+   <br>
+<button name="submit" type="submit">SUBMIT</button>
+</form>
+    </div>
+  
+
+</main>
+</body>
+</html>
+             
