@@ -186,6 +186,7 @@ Another technical difficulty related to the mailer and 'forgot password' functio
 Corrections to the searchbar and search-results page : fruitless morning retracing steps taken and comparing code. However, later adjusted the fetch function and the foreach loop querying through the database, and now the search engine works well across all users and local machines once pulled from the repo. A few more responsive design adjustments followed.
 
 Pursuit of the mailer and forgot password feature ; more translation problems, new tutorials specific to PDO + advice from other colleagues attempted.
+PHPmailer functioning.
 
 ## Resources
 - https://dev.to/techworld_with_nana/top-8-docker-best-practices-for-using-docker-in-production-1m39

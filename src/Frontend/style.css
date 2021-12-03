@@ -16,6 +16,14 @@ main {
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 560px){
+  .navbar {
+    margin: 0em 1em;
+  }
+  .button {
+    width: auto;
+  }
+}
 
 h1 {
   text-transform: uppercase;
@@ -191,10 +199,6 @@ footer {
   button {
     font-size: 11px;
     border: 2px solid;
-  }
-  .navbar {
-    margin: 1em auto;
-    width: 90%;
   }
   h1 {
     font-size: 25px;
