@@ -129,13 +129,8 @@ if ($_SESSION['contact_ach'] == "done") {
                     <div class="error success">
                         <h3>
                             <?php
-<<<<<<< HEAD
-                                echo $_SESSION['sent'];
-                               // unset($_SESSION['sent']);
-=======
                                 // echo $_SESSION['sent'];
                                 // unset($_SESSION['sent']);
->>>>>>> 3c6b7838ee8b34e8f13b3bfde6511dbb3be8c44c
                             ?>
                         </h3>
                     </div>
