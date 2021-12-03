@@ -84,7 +84,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="./main.php"><h1>Getflix</h1></a>
         <div class="buttons">
             <a href="./main.php"><button type="button" id="home">Home</button></a>
-            <a href="./login.php"><button type="button" id="logout">Log out</button></a>
+            <a href="./index.php"><button type="button" id="logout">Log out</button></a>
         </div>
     </div>
 
