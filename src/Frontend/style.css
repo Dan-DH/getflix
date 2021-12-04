@@ -16,6 +16,14 @@ main {
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 560px){
+  .navbar {
+    margin: 0em 1em;
+  }
+  .button {
+    width: auto;
+  }
+}
 
 h1 {
   text-transform: uppercase;
@@ -54,6 +62,48 @@ a:hover {
 #send {
   margin-bottom: 0%;
 }
+
+/*achievement*/
+.achievement_popup {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  animation: popup 8s;
+  background-color: #1e2527;
+  border-radius: 5px 5px 0 0;
+  border-top: 1px solid#51d0fa;
+  border-right: 1px solid#51d0fa;
+  border-left: 1px solid#51d0fa;
+  width: 0;
+  text-align: center;
+  opacity: 0;
+}
+
+.ach_Img {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  margin-top: 10%;
+}
+
+.ach_p {
+  margin-top: 5%;
+}
+
+@keyframes popup {
+  0% {
+    opacity: 1;
+    width: 10em;
+  }
+  99% {
+    opacity: 0;
+    width: 10em;
+  }
+  100% {
+    width: 0;
+  }
+}
+/*achievement*/
 
 /*---------------------Sign up / Login content---------------------*/
 
@@ -97,11 +147,11 @@ h2 {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 1.5em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.5em;
 }
 #mobile_footer {
   display: none;
@@ -149,10 +199,6 @@ footer {
   button {
     font-size: 11px;
     border: 2px solid;
-  }
-  .navbar {
-    margin: 1em auto;
-    width: 90%;
   }
   h1 {
     font-size: 25px;
@@ -211,4 +257,3 @@ footer {
     grid-gap: 1em;
   }
 }
-

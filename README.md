@@ -29,7 +29,7 @@ Each person is going to do at least a little bit of backend work. However, each 
 - HTML
 - CSS
 - Javascript
-- PHP
+- PHP (PDO to establish connections with the database)
 - SQL
 
 ---
@@ -151,18 +151,18 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Make a proper welcome page that includes the sign up form but also a "sneak peek" into what the site offers.
 
 ## Day six (26/11) : 
-- Technical issues : lost in PDO translation, error messages popping up, buttons not working properly (redirecting to irrelevant pages).
+Technical issues : lost in PDO translation, error messages popping up, buttons not working properly (redirecting to irrelevant pages).
 
 ## Day seven (29/11) :
-- Some technical issues resolved over the weekend : managed to make buttons work properly to direct to relevant pages, log in and sign up pages still connected to database + account page (though still some issues with the proper display of error messages ; resolved in the afternoon).
-- Style changes : log in and sign up buttons removed from the navbar as they are redundant.
-- Deployment strategy : how can we use Heroku to deploy our final site ?
-- Movie list API ! how to use SQL SELECT or other methods to sort and categorise movies based on gerne + avoid duplicates ?
+Some technical issues resolved over the weekend : managed to make buttons work properly to direct to relevant pages, log in and sign up pages still connected to database + account page (though still some issues with the proper display of error messages ; resolved in the afternoon).
+Style changes : log in and sign up buttons removed from the navbar as they are redundant.
+Deployment strategy : how can we use Heroku to deploy our final site ?
+Movie list API ! how to use SQL SELECT or other methods to sort and categorise movies based on gerne + avoid duplicates ?
 
 ## Day eight (30/11) : 
-- Create a welcome page that will introduce first-timers to our site (see Netflix).
-- Duplicates being resolved.
-- PDO connection established well with account and contact page (+ styles accepted).
+Create a welcome page that will introduce first-timers to our site (see Netflix).
+Duplicates being resolved.
+PDO connection established well with account and contact page (+ styles accepted).
 
 ## Day nine (01/12) :
 - Write code for the comment section
@@ -170,10 +170,23 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - Redeploy site on Heroku with PDO files
 
 - Pop up info
-- Deployment 
+- Deployment : Heroku unable to deploy all our pages properly (only the login appears as an 'index' file). Decision to forgo using Heroku as a deployment host and switched to atwebpages.
 - Achievements
 - Search filter
-- PHP mail in
+- PHPmailer
+
+## Day ten (02/12) :
+Pursuing the same tasks from the previous day.
+Lots of difficulties encountered with creating the search page to display results after a user inputs a keyword in the searchbar. Mainly, these issues had to do with proper connection to the database, display of correct and corresponding information on the interface, and linking the pages together. In the latter situation, the headers that allow to page redirection seemed to be all over the place, and it seems that 'exit()' should have been implemented as a 'best pratice' in general, but also apparently to avoid this kind of error. The solution implement was to create new PDO connections on certain pages, though that might also contribute to the same error or produce a new kind. At any rate, this newly discovered 'best practice' will be implemented in future projects.
+Finally reached a point where the code links the main page to the search-results page, while also displaying the data in the wanted form and layout (a few adjustments were made to accomodate for responsiveness, still in progress). The searchbar, however, seemed to work only on local device and in one account. Corrections to follow...
+
+Another technical difficulty related to the mailer and 'forgot password' functions, particularly the fact that most tutorials that were looked up used mysqli instead of PDO. Most of the documents (main, contact, account, log in and sign up) were fairly easy to 'translate' into PDO (having been initially written in mysqli), resulting in a secure connection (and perhaps more secure code overall).
+
+## Day eleven (03/12) :
+Corrections to the searchbar and search-results page : fruitless morning retracing steps taken and comparing code. However, later adjusted the fetch function and the foreach loop querying through the database, and now the search engine works well across all users and local machines once pulled from the repo. A few more responsive design adjustments followed.
+
+Pursuit of the mailer and forgot password feature ; more translation problems, new tutorials specific to PDO + advice from other colleagues attempted.
+PHPmailer functioning.
 
 ## Resources
 - https://dev.to/techworld_with_nana/top-8-docker-best-practices-for-using-docker-in-production-1m39
@@ -221,3 +234,6 @@ Getting set up, dividing up the roles, determining the steps to follow, and our 
 - https://www.google.com/search?q=cinema+background&tbm=isch&ved=2ahUKEwiv9qyI77_0AhVL2KQKHVBFC3cQ2-cCegQIABAA&oq=cinema+background&gs_lcp=CgNpbWcQAzIECAAQQzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoHCCMQ7wMQJ1CsCVj8IGD0I2gBcAB4AIAB1QGIAeQPkgEGMTIuNi4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=g_ulYe-oHsuwkwXQiq24Bw&bih=875&biw=1760&client=firefox-b-d#imgrc=0i6WXUNI9UXzfM
 
 - https://www.sourcecodester.com/tutorials/php/13884/php-search-filter-using-pdo.html
+
+- https://www.youtube.com/watch?v=OL-nSfHquUE
+- https://www.youtube.com/watch?v=maYnD0Sdr7c

@@ -37,7 +37,7 @@
                 <input type="password" placeholder="password" class="sf" name="password" value="<?php echo $password; ?>">
                 <button type="submit" class="submit" name="login">Login</button>
 
-                <a href="#">Forgot password ?</a>
+                <a href="pass_recovery_request.php">Forgot password ?</a>
                 <p>Not yet a member ? <a href="signup.php">Sign up !</a></p>
             </form>
         </div>
