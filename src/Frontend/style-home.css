@@ -1,19 +1,9 @@
-<<<<<<< HEAD
  body {
     background: black;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: 3px;
 } 
-=======
-body {
-  background: black;
-  color: white;
-  /* margin: 0; */
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  letter-spacing: 3px;
-}
->>>>>>> 9fa42e42d57f4aa8e6968cee56a231dbef2c87fb
 .black-font {
   color: black;
 }
@@ -25,12 +15,7 @@ body {
 }
 
 .navig-link:hover {
-<<<<<<< HEAD
     color:lightskyblue;
-=======
-  color: lightskyblue;
-  /* font-size: 1.2rem; */
->>>>>>> 9fa42e42d57f4aa8e6968cee56a231dbef2c87fb
 }
 .navig-link:active {
   color: lightseagreen;
@@ -51,17 +36,9 @@ a {
   text-decoration: underline;
 }
 #footer {
-<<<<<<< HEAD
     bottom: 0;
     width: 100%;
     margin-top: 30px;
-=======
-  /* position: absolute;*/
-  bottom: 0;
-  width: 100%;
-  /* height: 70px; */
-  margin-top: 30px;
->>>>>>> 9fa42e42d57f4aa8e6968cee56a231dbef2c87fb
 }
 .portrait {
   border-radius: 50%;
