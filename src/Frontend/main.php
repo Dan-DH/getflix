@@ -57,12 +57,9 @@
                             <div class="col">
                                 <input class="collapse" id="searchbar" name="searchbar" type="search" placeholder="Search"
                                     aria-label="Search">
-                                <!-- <input class="form-control collapse" id="searchbar" type="search" placeholder="Search" 
-                                        aria-label="Search"> -->
                                     
                             </div>
                             <div class="col  mt-lg-1">
-                                <!-- class="btn" -->
                                 <a data-bs-toggle="collapse" href="#searchbar" role="button" name="search" aria-expanded="false"
                                     aria-controls="searchbar"><i class="fa fa-search white-font fs-5"></i></a>
                             </div>
@@ -132,18 +129,6 @@
 
         <div class="container-fluid">
             <?php
-                // $database = mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
-                // if(!$database){
-                //   die("Connection failed: " . mysqli_connect_error());
-                // }
-                // $query= "Select * from movies";
-                // // $query= "Select * from movies where genre=35";
-                // // $query ="Select image from movies where movieID = 1";
-                // // $query ="SELECT image FROM movies WHERE genre LIKE "%28%";
-                // $result = mysqli_query($database, $query);
-                // while($data = $result->fetch_assoc()) {}
-
-                // declaring variables for db connection
                 // declaring variables for db connection
                 // development server
                 $servername = "database";
@@ -168,130 +153,136 @@
                 <div class="col-12 fs-4 mb-3 ms-3" >
                     Comedy
                 </div>
-                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }' >
+                <div class="col-12">
+                    <div class="carousel1">
                     <?php
-                        $query= "Select image from movies where genre like '%35%'";
+                        $query= "Select movieID,image from movies where genre like '%35%'";
                         $data= $db->query($query);
                         $data->setFetchMode(PDO::FETCH_ASSOC);
                         foreach($data as $row) {
-                                foreach($row as $name=>$value){
-                                    ?>
-                                        <div class="carousel-cell">
-                                                <img src="<?php echo $value; ?>">
-                                        </div>
-                                    <?php
-                                }
-                        }
+                                ?>
+                                    <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
+                                        <img src="<?php echo $row['image']; ?>">
+                                    </div>
+                                <?php
+                            }
                     ?>
+                    </div>  
                 </div>
             </div>
+
             <div class="row" id="action">
                 <div class="col-12 fs-4 mt-5 mb-3 ms-3">
                         Action
                 </div>
-                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
+                <div class="col-12">
+                    <div class="carousel2">
                     <?php
-                        $query= "Select image from movies where genre like '%28%'";
+                        $query= "Select movieID,image from movies where genre like '%28%'";
                         $data= $db->query($query);
                         $data->setFetchMode(PDO::FETCH_ASSOC);
                         foreach($data as $row) {
-                            foreach($row as $name=>$value){
                                 ?>
-                                    <div class="carousel-cell">
-                                        <img src="<?php echo $value; ?>">
+                                    <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
+                                        <img src="<?php echo $row['image']; ?>">
                                     </div>
                                 <?php
                             }
-                        }
                     ?>
+                    </div>  
                 </div>
             </div>
+
             <div class="row" id="drama">
                 <div class="col-12 fs-4 mt-5 mb-3 ms-3">
                     Drama
                 </div>
-                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
+                <div class="col-12">
+                    <div class="carousel3">
                     <?php
-                        $query= "Select image from movies where genre like '%18%'";
+                        $query= "Select movieID,image from movies where genre like '%18%'";
                         $data= $db->query($query);
                         $data->setFetchMode(PDO::FETCH_ASSOC);
                         foreach($data as $row) {
-                            foreach($row as $name=>$value){
                                 ?>
-                                    <div class="carousel-cell">
-                                         <img src="<?php echo $value; ?>">
+                                    <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
+                                        <img src="<?php echo $row['image']; ?>">
                                     </div>
                                 <?php
                             }
-                        }
                     ?>
+                    </div>  
                 </div>
-            </div>
+               
             <div class="row" id="family">
                 <div class="col-12 fs-4 mt-5 mb-3 ms-3">
                     Family
                 </div>
-                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
+                <div class="col-12">
+                    <div class="carousel4">
                     <?php
-                        $query= "Select image from movies where genre like '%10751%'";
+                        $query= "Select movieID,image from movies where genre like '%10751%'";
                         $data= $db->query($query);
                         $data->setFetchMode(PDO::FETCH_ASSOC);
                         foreach($data as $row) {
-                            foreach($row as $name=>$value){
                                 ?>
-                                    <div class="carousel-cell">
-                                        <img src="<?php echo $value; ?>">
+                                    <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
+                                        <img src="<?php echo $row['image']; ?>">
                                     </div>
                                 <?php
                             }
-                        }
                     ?>
+                    </div>  
                 </div>
             </div>
+
             <div class="row" id="fantasy">
                 <div class="col-12 fs-4 mt-5 mb-3 ms-3">
                     Fantasy
                 </div>
-                <div class="col-12 carousel" data-flickity='{ "groupCells": true, "wrapAround":true }'>
-                    <!-- test movie that needs to be removed later -->
-                <div class="carousel-cell">
-                      <img data-tab="bright" id="open"  onclick= "popupOpen()" src="http://www.thebrandage.com/assets/image/uploads/haberler/Bright_TUR.jpg" onclick="popup()"/>
-                    </div>
-                    <!-- test movie that needs to be removed later -->
-                    <?php
-                        $query= "Select image from movies where genre like '%14%'";
-                        $data= $db->query($query);
-                        $data->setFetchMode(PDO::FETCH_ASSOC);
-                        foreach($data as $row) {
-                            foreach($row as $name=>$value){
-                                ?>
-                                    <div class="carousel-cell">
-                                        <img src="<?php echo $value; ?>">
-                                    </div>
-                                <?php
-                            }
-                        }
-                    ?>
-                </div>
-            </div>
+                <div class="col-12">
+                    <div class="carousel5">
+                        <?php
+                            $query= "Select movieID,image from movies where genre like '%14%'";
+                            $data= $db->query($query);
+                            $data->setFetchMode(PDO::FETCH_ASSOC);
+                            foreach($data as $row) {
+                                    ?>
+                                        <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
+                                            <img src="<?php echo $row['image']; ?>">
+                                        </div>
+                                    <?php
+                                }
+                        ?>
+                     </div>
+                </div> 
+             </div> 
+            
         </div>
-        <div id="popup">
+
+        <?php
+             $query= "Select movieID,title,trailer,rating,synopsis from movies";
+             $data= $db->query($query);
+             $data->setFetchMode(PDO::FETCH_ASSOC);
+             foreach($data as $row) {
+                ?>
+               <section id="<?php echo $row['movieID'] ?>" class="hide">
         <div class="card black-font">
             <div class="d-flex justify-content-end me-4 mt-3">
-                <a class="fw-bold fs-5" href="#" id="closePopup" onclick="popupClose()">X</a>
+                <a class="fw-bold fs-5" href="#"  onclick="popupClose(<?php echo $row['movieID'] ?>)">X</a>
             </div>
             <div class="d-flex justify-content-center mt-4 mb-4">
-                <!-- width="900px" height="500px" -->
-                <iframe id="trailer-area" src="https://www.youtube.com/embed/8YjFbMbfXaQ?rel=0&showinfo=0&wmode=opaque&html5=1"  allow="fullscreen"  title="movie trailer">
-                </iframe>
+               
+                <iframe class="trailer-area" src="<?php echo $row['trailer'] ?>"  allow="fullscreen"  title="movie trailer-<?php echo $row['title'] ?>">
+                            </iframe>
             </div>
             <div class="card-body mx-4">
-                <h5 class="card-title fs-1">Bright</h5>
+                <h5 class="card-title fs-1"><?php echo $row['title'] ?></h5>
                 <p class="card-text">
-                    The Abundant Life Bible offers readers insights about living the abundant life through a relationship with Jesus Christ. Topics such as joy, peace, dealing with life's tough issues, and more offer practical guidance for daily life. The Abundant Life Bible is value priced—perfect for gift giving.
+                <?php echo $row['synopsis'] ?>
                 </p>
                 <p class="card-text fw-bolder">
-                    Rating:
+                    Rating: <?php echo $row['rating'] ?>
                 </p>
                 <hr class="fw-bold">
                 <div class="mt-5">
@@ -301,14 +292,20 @@
                         <input type="submit" class="my-3 submit py-2 px-3" value="COMMENT">
                     </form>
                 </div>
+                <p class="card-text fw-bold">
+                   Please pause the video before closing!!! <br> Reload the page if you forget to pause
+                </p>
                 <p class="card-text fw-light">
                     Previous Comments
                 </p>
                 <hr class="fw-bold">
             </div>   
         </div>
-    </div>
-        
+                </section>
+                <?php
+                 }
+         ?>
+ 
     </main>
     <footer id="footer">
         <div class="container text-center">
@@ -346,28 +343,17 @@
                 </div>
             </div>
         </div>
-    </footer>
-    <script>
-        function popupOpen() {
-            let open = document.getElementById("open");
-            popup.style.display = "inline";
-        }
-        function popupClose() {
-            let close = document.getElementById("closePopup");
-            if (popup.style.display === "none") {
-                popup.style.display = "block";
-            }
-            else {
-                popup.style.display= "none";
-            }
-        }
-     </script>
+    </footer>   
+
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        <script src="./main.js"></script> 
+
 </body>
 </html>

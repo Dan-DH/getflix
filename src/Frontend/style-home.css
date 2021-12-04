@@ -1,10 +1,9 @@
-body {
+ body {
     background: black;
     color: white;
-    /* margin: 0; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: 3px;
-}
+} 
 .black-font {
 color: black;
 }
@@ -14,17 +13,9 @@ color: black;
 .white-font {
     color:white;
 }
-/*
-#navbarSupportedContent {
-    text-align: right;
-    justify-content: right;
-}
-ul {
-    justify-content: right;
-}*/
+
 .navig-link:hover {
     color:lightskyblue;
-    /* font-size: 1.2rem; */
 }
 .navig-link:active {
     color: lightseagreen;
@@ -45,10 +36,8 @@ a {
     text-decoration: underline;
 }
 #footer {
-    /* position: absolute;*/
     bottom: 0;
     width: 100%;
-    /* height: 70px; */
     margin-top: 30px;
 }
 .portrait {
@@ -66,20 +55,24 @@ a {
   .submit:hover{
     font-weight: bold;
   }
-  #popup {
+  .hide {
       display: none;
   }
+
   .card {
     position: fixed;
     top: 14%;
      right: 25%;
      width: 50%;
-     /* width: 1000px; */
-    bottom:12%;
-    z-index:1002;
-    overflow: auto;
+    bottom:12%; 
+    z-index:1;
+    overflow: auto; 
+     /* overflow: auto; 
+    width:900px;
+     height:500px; */
   }
-  #trailer-area {
+
+  .trailer-area {
     width: 92%;
     height:550px;
     min-width: 90%;
@@ -101,29 +94,26 @@ a {
  }
 /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
  * {box-sizing: border-box;}
-
- /* body { font-family: sans-serif; } */
- /* .carousel {
-     background: black;
- } */
 .carousel-cell {
     width: 200px;
     height: 300px;
     margin-right: 10px;
     background: #8C8;
     border-radius: 5px;
-    /* counter-increment: carousel-cell; */
 }
 
 .carousel-cell img {
     width: 200px;
     height: 300px;
-    /* background-size: cover; */
 }
- 
+ /* .carousel-cell.is-clicked {
+    background:#ED2;
+ } */
+
   .content, .success {
       display: flex;
       justify-content: center;
       text-align: center;
       margin: 2em 0em;
   }
+
