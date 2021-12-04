@@ -125,7 +125,10 @@ a {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .dropdown-menu {
+  .notify {
+    margin-left: -12rem;
+  }
+  .userinfo {
     margin-left: -6rem;
   }
 }

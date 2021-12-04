@@ -93,15 +93,21 @@ if ($_SESSION['signup_ach'] == "done") {
                     <div class="nav-item dropdown me-2 ms-5 ms-lg-0">
                         <a class="nav-link white-font" href="#" id="notify" role="button" data-bs-toggle="dropdown"><i
                                 class="fa fa-bell white-font fs-5"></i></a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu notify" aria-labelledby="navbarDropdown">
                             <li>
-                                <a class="dropdown-item" href="#">Check the most popular movies. Did you see them all?</a>
+                                <a class="dropdown-item" href="#">Check the most popular movies.<br> Did you see them all?</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Check out your account page for new achievements!</a>
+                                <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Having trouble? We are here for you on contact page!</a>
+                                <a class="dropdown-item" href="#">Check out your account page <br>for new achievements!</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Having trouble?<br> Get help on contact page!</a>
                             </li>
                         </ul>
                     </div>
@@ -111,7 +117,7 @@ if ($_SESSION['signup_ach'] == "done") {
                             data-bs-toggle="dropdown">
                             <i class="fa fa-id-card white-font"></i>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu userinfo" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="./account.php">Account Page</a></li>
                             <li>
                                 <hr class="dropdown-divider">
