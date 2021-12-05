@@ -76,12 +76,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style-account.css">
+    <link rel="stylesheet" href="./style-account.css">
     <title>Account</title>
+    <style>
+        @media screen and (max-width: 992px) and (min-width: 560px) {
+            .navbar {
+                margin: 0em 1em;
+            }
+            button,
+            .submit {
+                font-size: 14px;
+            }
+        }
+        @media screen and (max-width: 560px){
+            .logo {
+                width: 10rem;
+                height: 4rem;
+            }
+            .navbar{
+                margin: 0em 1em;
+            }
+            
+            button {
+                font-size: 11px;
+                border: 2px solid;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
-        <a href="./main.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
+        <a href="./main.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo"></a>
         <div class="buttons">
             <a href="./main.php"><button type="button" id="home">Home</button></a>
             <a href="./index.php"><button type="button" id="logout">Log out</button></a>
@@ -153,106 +178,106 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <!-- pop up example -comments-->
 <?php
-$user = $_SESSION['username'];
-//comment count increase
-$c_increase = "UPDATE users SET comment_count = comment_count +1 WHERE login = '$user';"; //this triggers on comment sent
-$c_inc_stmt = $db->prepare($c_increase);
-$c_inc_stmt->execute();
-//comment achievement check
-$c_ach_query = "SELECT u.*, a.* FROM users u JOIN achievements a ON u.userID = a.userID WHERE u.login = '$user';";
-$c_ach_stmt = $db->prepare($c_ach_query);
-$c_ach_stmt->execute();
-$c_query_result = $c_ach_stmt->fetch(PDO::FETCH_ASSOC);
-$id = $c_query_result['userID'];
+// $user = $_SESSION['username'];
+// //comment count increase
+// $c_increase = "UPDATE users SET comment_count = comment_count +1 WHERE login = '$user';"; //this triggers on comment sent
+// $c_inc_stmt = $db->prepare($c_increase);
+// $c_inc_stmt->execute();
+// //comment achievement check
+// $c_ach_query = "SELECT u.*, a.* FROM users u JOIN achievements a ON u.userID = a.userID WHERE u.login = '$user';";
+// $c_ach_stmt = $db->prepare($c_ach_query);
+// $c_ach_stmt->execute();
+// $c_query_result = $c_ach_stmt->fetch(PDO::FETCH_ASSOC);
+// $id = $c_query_result['userID'];
 
-if ($c_query_result['comment_count'] == 1 || $c_query_result['comment_count'] == 3 || $c_query_result['comment_count'] ==5)  {
-    //setting popup arrays
-    $c_image_array = array(1=>"../assets/achievement1.webp", 3=>"../assets/achievement2.webp", 5=>"../assets/achievement3.webp");
-    $c_text_array = array(1=>"Wrote your first comment", 3=>"Wrote three comments", 5=>"Wrote five comments");
-    $c_ach_array = array(1=>"comment_achievement1", 3=>"comment_achievement3", 5=>"comment_achievement5");
-    $c_ach_img = $c_image_array[$c_query_result['comment_count']];
-    $c_ach_text = $c_text_array[$c_query_result['comment_count']];
-    $c_ach_table = $c_ach_array[$c_query_result['comment_count']];
+// if ($c_query_result['comment_count'] == 1 || $c_query_result['comment_count'] == 3 || $c_query_result['comment_count'] ==5)  {
+//     //setting popup arrays
+//     $c_image_array = array(1=>"../assets/achievement1.webp", 3=>"../assets/achievement2.webp", 5=>"../assets/achievement3.webp");
+//     $c_text_array = array(1=>"Wrote your first comment", 3=>"Wrote three comments", 5=>"Wrote five comments");
+//     $c_ach_array = array(1=>"comment_achievement1", 3=>"comment_achievement3", 5=>"comment_achievement5");
+//     $c_ach_img = $c_image_array[$c_query_result['comment_count']];
+//     $c_ach_text = $c_text_array[$c_query_result['comment_count']];
+//     $c_ach_table = $c_ach_array[$c_query_result['comment_count']];
 
-    //showing achievement popup
-    echo "
-        <a class='a_popup' href='./main.php'>
-            <div class='achievement_popup'>
-            <img class='ach_Img' src= $c_ach_img alt='Achievement unlocked'><br>
-            <p class='ach_p'>$c_ach_text</p>
-            </div>
-        </a>";
-    //updating the achievements table
-    $c_unlock_query = "UPDATE achievements SET $c_ach_table = 1 WHERE userID = $id;";
-    $c_unl_stmt = $db->prepare($c_unlock_query);
-    $c_unl_stmt->execute();
-};      
+//     //showing achievement popup
+//     echo "
+//         <a class='a_popup' href='./main.php'>
+//             <div class='achievement_popup'>
+//             <img class='ach_Img' src= $c_ach_img alt='Achievement unlocked'><br>
+//             <p class='ach_p'>$c_ach_text</p>
+//             </div>
+//         </a>";
+//     //updating the achievements table
+//     $c_unlock_query = "UPDATE achievements SET $c_ach_table = 1 WHERE userID = $id;";
+//     $c_unl_stmt = $db->prepare($c_unlock_query);
+//     $c_unl_stmt->execute();
+// };      
 ?>
 
 <!-- pop up example -trailers-->
 <?php
-$user = $_SESSION['username'];
-//trailer count increase
-$t_increase = "UPDATE users SET trailer_count = trailer_count +1 WHERE login = '$user';"; //this triggers on trailer sent
-$t_inc_stmt = $db->prepare($t_increase);
-$t_inc_stmt->execute();
-//trailer achievement check
-$t_ach_query = "SELECT u.*, a.* FROM users u JOIN achievements a ON u.userID = a.userID WHERE u.login = '$user';";
-$t_ach_stmt = $db->prepare($t_ach_query);
-$t_ach_stmt->execute();
-$t_query_result = $t_ach_stmt->fetch(PDO::FETCH_ASSOC);
-$id = $t_query_result['userID']; 
+// $user = $_SESSION['username'];
+// //trailer count increase
+// $t_increase = "UPDATE users SET trailer_count = trailer_count +1 WHERE login = '$user';"; //this triggers on trailer sent
+// $t_inc_stmt = $db->prepare($t_increase);
+// $t_inc_stmt->execute();
+// //trailer achievement check
+// $t_ach_query = "SELECT u.*, a.* FROM users u JOIN achievements a ON u.userID = a.userID WHERE u.login = '$user';";
+// $t_ach_stmt = $db->prepare($t_ach_query);
+// $t_ach_stmt->execute();
+// $t_query_result = $t_ach_stmt->fetch(PDO::FETCH_ASSOC);
+// $id = $t_query_result['userID']; 
 
-if ($t_query_result['trailer_count'] == 1 || $t_query_result['trailer_count'] == 3 || $t_query_result['trailer_count'] ==5)  {
-    //setting popup arrays
-    $t_image_array = array(1=>"../assets/achievement1.webp", 3=>"../assets/achievement2.webp", 5=>"../assets/achievement3.webp");
-    $t_text_array = array(1=>"Checked your first movie", 3=>"Checked three movies", 5=>"Checked five movies");
-    $t_ach_array = array(1=>"movie_achievement1", 3=>"movie_achievement3", 5=>"movie_achievement5");
-    $t_ach_img = $t_image_array[$t_query_result['trailer_count']];
-    $t_ach_text = $t_text_array[$t_query_result['trailer_count']];
-    $t_ach_table = $t_ach_array[$t_query_result['trailer_count']];
+// if ($t_query_result['trailer_count'] == 1 || $t_query_result['trailer_count'] == 3 || $t_query_result['trailer_count'] ==5)  {
+//     //setting popup arrays
+//     $t_image_array = array(1=>"../assets/achievement1.webp", 3=>"../assets/achievement2.webp", 5=>"../assets/achievement3.webp");
+//     $t_text_array = array(1=>"Checked your first movie", 3=>"Checked three movies", 5=>"Checked five movies");
+//     $t_ach_array = array(1=>"movie_achievement1", 3=>"movie_achievement3", 5=>"movie_achievement5");
+//     $t_ach_img = $t_image_array[$t_query_result['trailer_count']];
+//     $t_ach_text = $t_text_array[$t_query_result['trailer_count']];
+//     $t_ach_table = $t_ach_array[$t_query_result['trailer_count']];
 
-    //showing achievement popup
-    echo "
-        <a class='a_popup' href='./main.php'>
-            <div class='achievement_popup'>
-            <img class='ach_Img' src= $t_ach_img alt='Achievement unlocked'><br>
-            <p class='ach_p'>$t_ach_text</p>
-            </div>
-        </a>";
-    //updating the achievements table
-    $t_unlock_query = "UPDATE achievements SET $t_ach_table = 1 WHERE userID = $id;";
-    $t_unl_stmt = $db->prepare($t_unlock_query);
-    $t_unl_stmt->execute();
-};      
+//     //showing achievement popup
+//     echo "
+//         <a class='a_popup' href='./main.php'>
+//             <div class='achievement_popup'>
+//             <img class='ach_Img' src= $t_ach_img alt='Achievement unlocked'><br>
+//             <p class='ach_p'>$t_ach_text</p>
+//             </div>
+//         </a>";
+//     //updating the achievements table
+//     $t_unlock_query = "UPDATE achievements SET $t_ach_table = 1 WHERE userID = $id;";
+//     $t_unl_stmt = $db->prepare($t_unlock_query);
+//     $t_unl_stmt->execute();
+// };      
 ?>
 
 <!-- pop up example -sign-up-->
 <?php
 //on page load
-$user = $_SESSION['username'];
-//new account achievement check 
-$account_query = "SELECT u.userID, a.account_achievement FROM users u JOIN achievements a ON u.userID = a.userID WHERE u.login = '$user';";
-$account_stmt = $db->prepare($account_query);
-$account_stmt->execute();
-$account_query_result = $account_stmt->fetch(PDO::FETCH_ASSOC);
-$id = $account_query_result['userID']; 
+// $user = $_SESSION['username'];
+// //new account achievement check 
+// $account_query = "SELECT u.userID, a.account_achievement FROM users u JOIN achievements a ON u.userID = a.userID WHERE u.login = '$user';";
+// $account_stmt = $db->prepare($account_query);
+// $account_stmt->execute();
+// $account_query_result = $account_stmt->fetch(PDO::FETCH_ASSOC);
+// $id = $account_query_result['userID']; 
 
-if ($account_query_result['account_achievement'] == 0) {
-    //showing achievement popup
-    echo "
-        <a class='a_popup' href='./main.php'>
-            <div class='achievement_popup'>
-            <img class='ach_Img' src='../assets/achievement3.webp' alt='Achievement unlocked'><br>
-            <p class='ach_p'>Joined the Chill-Zone</p>
-            </div>
-        </a>";
+// if ($account_query_result['account_achievement'] == 0) {
+//     //showing achievement popup
+//     echo "
+//         <a class='a_popup' href='./main.php'>
+//             <div class='achievement_popup'>
+//             <img class='ach_Img' src='../assets/achievement3.webp' alt='Achievement unlocked'><br>
+//             <p class='ach_p'>Joined the Chill-Zone</p>
+//             </div>
+//         </a>";
 
-    //updating the achievements table
-    $account_unlock_query = "UPDATE achievements SET account_achievement = 1 WHERE userID = $id;";
-    $account_unl_stmt = $db->prepare($account_unlock_query);
-    $account_unl_stmt->execute();
-};      
+//     //updating the achievements table
+//     $account_unlock_query = "UPDATE achievements SET account_achievement = 1 WHERE userID = $id;";
+//     $account_unl_stmt = $db->prepare($account_unlock_query);
+//     $account_unl_stmt->execute();
+// };      
 ?>
 <!-- pop up example -->
 

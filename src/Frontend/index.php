@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="welcome.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
+        <a href="welcome.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo"></a>
 
         <!--<h1>Getflix</h1>-->
 
