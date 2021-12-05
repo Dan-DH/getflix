@@ -10,10 +10,10 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="#"><img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo"></a>
+        <a href="#"><img src="../assets/Getflix.webp" width="200" height="80" class="logo" alt="getflix-logo"></a>
 
         <div class="buttons">
-            <a href="index.php"><button type="submit" id="login" href>Log in</button></a>
+            <a href="index.php" class="button" id ="login">Log in</a>
         </div>
     </div>
 
@@ -31,7 +31,6 @@
     </footer>
 
     <footer id="mobile_footer">
-
         <div class="footer_img">
             <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
                 <img src="../assets/brigita.webp" alt="githubLink" class="portrait">
@@ -45,8 +44,8 @@
             <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
                 <img src="../assets/teodora.webp" alt="githubLink" class="portrait">
             </a>
-
         </div>
         <p>Copyright &#169; 2021</p>
+    </footer>
 </body>
 </html>

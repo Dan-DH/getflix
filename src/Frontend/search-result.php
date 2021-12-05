@@ -18,6 +18,78 @@
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="./style-home.css">
     <title>Search results</title>
+    <style>
+        .search_result {
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: center;
+            text-align: justify;
+            margin: 0 auto;
+            padding: 0.5em 5em;
+            grid-gap: 3em;
+        }
+        .poster {
+            width: 100%;
+            display: grid;
+            justify-content: center;
+        }
+        .trailer {
+            width: 100%;
+            height: 50%;
+        }
+        .syn {
+            overflow: scroll;
+            height: 20%;
+        }
+        .search-error {
+            text-align: center;
+        }
+        @media screen and (min-width: 1500px) {
+            .trailer {
+                width: 100%;
+                height: 70%;
+            }
+        }
+        @media screen and (max-width: 886px) and (min-width: 460px) {
+            .search_result{
+                grid-template-columns: auto;
+                grid-gap: 2em;
+            }
+            .poster {
+                width: 100%;
+                margin-top:3em;
+            }
+            .trailer {
+                width: 100%;
+                height: 70%;
+            }    
+            .syn {
+                overflow: scroll;
+                height: 20%;
+                padding-bottom: 2em;
+            }
+        }
+        @media screen and (max-width: 560px){
+            .logo{
+                width: 10rem;
+                height: 4rem;
+            }
+        }
+        @media screen and (max-width: 460px){
+            .search_result{
+                grid-template-columns: auto;
+                grid-gap: 2em;
+                padding: 1em;
+            }
+            .trailer {
+                width: 100%;
+                height: 40%;
+            }
+            .syn {
+                font-size: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -127,83 +199,8 @@
         ?>
         <div>
             <div class="search_result"> 
-                <style>
-                    .search_result {
-                        display: grid;
-                        grid-template-columns: auto auto;
-                        justify-content: center;
-                        text-align: justify;
-                        margin: 0 auto;
-                        padding: 0.5em 5em;
-                        grid-gap: 3em;
-                    }
-                    .poster {
-                        width: 100%;
-                        display: grid;
-                        justify-content: center;
-                    }
-                    .trailer {
-                        width: 100%;
-                        height: 50%;
-                    }
-                    .syn {
-                        overflow: scroll;
-                        height: 20%;
-                    }
-                    .search-error {
-                        text-align: center;
-                    }
-                    @media screen and (min-width: 1500px) {
-                        .trailer {
-                            width: 100%;
-                            height: 70%;
-                        }
-                    }
-                    @media screen and (max-width: 886px) and (min-width: 460px) {
-                        .search_result{
-                            grid-template-columns: auto;
-                            grid-gap: 2em;
-                        }
-                        .poster {
-                            width: 100%;
-                            margin-top:3em;
-                        }
-                        .trailer {
-                            width: 100%;
-                            height: 70%;
-                        }    
-                        .syn {
-                            overflow: scroll;
-                            height: 20%;
-                            padding-bottom: 2em;
-                        }
-                    }
-                    @media screen and (max-width: 560px){
-                        .logo{
-                            width: 10rem;
-                            height: 4rem;
-                        }
-                    }
-                    @media screen and (max-width: 460px){
-                        .search_result{
-                            grid-template-columns: auto;
-                            grid-gap: 2em;
-                            padding: 1em;
-                        }
-                        .trailer {
-                            width: 100%;
-                            height: 40%;
-                        }
-                        .syn {
-                            font-size: 10px;
-                        }
-                    }
-                </style>
-                    <?php include('../Backend/search.php')?>
-                
-                <h3 class="search-error">
-                    <?php include('../Backend/errors.php')?>
-                </h3>
+                <?php include('../Backend/search.php')?>
+                <h3 class="search-error"><?php include('../Backend/errors.php')?></h3>
             </div>
         </div>
     </main>

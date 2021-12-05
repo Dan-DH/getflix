@@ -6,24 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-   
-    <!-- Bootstrap link 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
     <title>Login</title>
 </head>
 <body>
     <div class="navbar">
-        <a href="welcome.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo"></a>
-
-        <!--<h1>Getflix</h1>-->
-
-        <!--
-        <div class="buttons">
-            <button type="submit" id="login" href>Log in</button>
-            <button type="submit" id="sign">Sign up</button>
-        </div>
-        -->
+        <a href="welcome.php"><img src="../assets/Getflix.webp" width="200" height="80" class="logo" alt="getflix-logo"></a>
     </div>
 
     <main>
@@ -48,7 +35,6 @@
     </footer>
 
     <footer id="mobile_footer">
-
         <div class="footer_img">
             <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
                 <img src="../assets/brigita.webp" alt="githubLink" class="portrait">
@@ -62,12 +48,9 @@
             <a href="https://github.com/teo-cozma" target="_blank" rel="noopener">
                 <img src="../assets/teodora.webp" alt="githubLink" class="portrait">
             </a>
-
         </div>
         <p>Copyright &#169; 2021</p>
-            
     </footer>
 
 </body>
-
 </html>

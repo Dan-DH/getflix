@@ -50,13 +50,11 @@ if ($_SESSION['contact_ach'] == "done") {
 <body>
 
 <div class="navbar">
-    <a href="./main.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo"></a>
+    <a href="main.php"><img src="../assets/Getflix.webp" width="200" height="80" class="logo" alt="getflix-logo"></a>
     <div class="buttons">
-        <a href="./main.php"><button type="button" id="home">HOME</button></a>
+        <a href="./main.php" class="button" id="home">HOME</a>
         <?php if (isset($_SESSION['username'])): ?>
-                <a href="contact.php?logout='1'" name="logout">
-                    <button type="button" id="logout">LOG OUT</button>
-                </a>
+                <a href="contact.php?logout='1'" class="button">LOG OUT</a>
         <?php endif ?>
     </div>
 </div>
@@ -68,18 +66,18 @@ if ($_SESSION['contact_ach'] == "done") {
             <h2>Contact Us</h2><br>
             <?php include('../Backend/errors.php') ?>
 
-            <input type="text" name="name" placeholder='Please, enter your name' id="name" href="index.php" class="sf" value="<?php echo $name; ?>">
-            <input type="text" name="email" placeholder="Please, enter your email" id="email" href="home.php" class="sf" value="<?php echo $email; ?>">
+            <input type="text" name="name" placeholder='Please, enter your name' id="name" class="sf" value="<?php echo $name; ?>">
+            <input type="text" name="email" placeholder="Please, enter your email" id="email" class="sf" value="<?php echo $email; ?>">
         
             <!--<label for="issue_type" >-->
-                <select name="issue" id="issue_type" class="sf" value="<?php echo $issue; ?>">
+                <select name="issue" id="issue_type" class="sf">
                     <option value="">Please, specify your issue</option>
                     <option value="movies not loading">Movies not loading</option>
                     <option value="cannot update my profile">Cannot update my profile info</option>
                     <option value="other">Other</option>
                 </select>
             <!--</label>-->
-            <textarea name="message" id="problem" class="sf" placeholder="Tell us more about your issue" value="<?php echo $message; ?>"></textarea>
+            <textarea name="message" id="problem" class="sf" placeholder="Tell us more about your issue"></textarea>
             <br>
             <button type="submit" name="send" id='send' class="submit">Send</button>
 
