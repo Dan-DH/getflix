@@ -44,20 +44,17 @@ if ($_SESSION['contact_ach'] == "done") {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="styleB.css">-->
     <link rel="stylesheet" href="style.css">
     <title>Contact us</title>
 </head>
 <body>
 
 <div class="navbar">
-    <a href="./main.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
+    <a href="main.php"><img src="../assets/Getflix.webp" width="200" height="80" class="logo" alt="getflix-logo"></a>
     <div class="buttons">
-        <a href="./main.php"><button type="button" id="home">HOME</button></a>
+        <a href="./main.php" class="button" id="home">HOME</a>
         <?php if (isset($_SESSION['username'])): ?>
-                <a href="contact.php?logout='1'" name="logout">
-                    <button type="button" id="logout">LOG OUT</button>
-                </a>
+                <a href="contact.php?logout='1'" class="button">LOG OUT</a>
         <?php endif ?>
     </div>
 </div>
@@ -69,57 +66,18 @@ if ($_SESSION['contact_ach'] == "done") {
             <h2>Contact Us</h2><br>
             <?php include('../Backend/errors.php') ?>
 
-            <?php //include('../Backend/PDOcomments.php');
-
-            //$database=mysqli_connect('database', 'root', 'getflixRoot', 'getflix');
-            /* $status="";
-            //validation for form method
-            if(isset($_POST['submit'])){
-            //$pdo = openConnection();
-                //getting data from the form
-                $name = mysqli_real_escape_string($database,$_POST['name']);
-                $email = mysqli_real_escape_string($database,$_POST['email']);
-                $issue = mysqli_real_escape_string($database, $_POST['issue']);
-                $message = mysqli_real_escape_string($database, $_POST['message']);
-
-                // added automatically $contact_date =mysqli_real_escape_string($database,date("j M Y H:i:s "));
-                //validation for unfilled fields native php function empty()
-                if(empty($name) || empty($email) || empty($issue) || empty($message)){
-                    $status="Please fill in all the fields";
-                    echo $status;
-                };//checking if name is not too long
-                if(strlen($name)>255){
-                        $status="Please, enter a valid name.";
-                        echo $status;
-                        //validating email for case not valid
-                    };if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                        $status='Please, enter a valid email address.';
-                        echo $status;
-                    }else{
-                // IF EVERYTHING IS CORRECTLY FILLED
-                    //executing query and returning the message
-                //query to insert the variables into DB
-                    $sql="INSERT INTO contact (name, email ,issue ,message) VALUES('$name', '$email', '$issue', '$message')";
-                    mysqli_query($database, $sql);   
-                    $status= "Your message was sent, we'll be in touch with you shortly.";
-                    echo $status;
-                    };
-                }
-                */
-            ?>
-
-            <input type="text" name="name" placeholder='Please, enter your name' id="name" href="index.php" class="sf" value="<?php echo $name; ?>">
-            <input type="text" name="email" placeholder="Please, enter your email" id="email" href="home.php" class="sf" value="<?php echo $email; ?>">
+            <input type="text" name="name" placeholder='Please, enter your name' id="name" class="sf" value="<?php echo $name; ?>">
+            <input type="text" name="email" placeholder="Please, enter your email" id="email" class="sf" value="<?php echo $email; ?>">
         
             <!--<label for="issue_type" >-->
-                <select name="issue" id="issue_type" class="sf" value="<?php echo $issue; ?>">
+                <select name="issue" id="issue_type" class="sf">
                     <option value="">Please, specify your issue</option>
                     <option value="movies not loading">Movies not loading</option>
                     <option value="cannot update my profile">Cannot update my profile info</option>
                     <option value="other">Other</option>
                 </select>
             <!--</label>-->
-            <textarea name="message" id="problem" class="sf" placeholder="Tell us more about your issue" value="<?php echo $message; ?>"></textarea>
+            <textarea name="message" id="problem" class="sf" placeholder="Tell us more about your issue"></textarea>
             <br>
             <button type="submit" name="send" id='send' class="submit">Send</button>
 

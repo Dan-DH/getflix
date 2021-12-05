@@ -1,5 +1,4 @@
 <?php 
-//include('../Backend/server.php');
 include('../Backend/PDOserver.php');
 ?>
 <!DOCTYPE html>
@@ -13,15 +12,7 @@ include('../Backend/PDOserver.php');
 </head>
 <body>
     <div class="navbar">
-        <a href="welcome.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
-
-        <!--<h1>Getflix</h1>-->
-        <!--
-        <div class="buttons">
-            <button type="submit" id="login">Log in</button>
-            <button type="submit" id="sign">Sign up</button>
-        </div>
-        -->
+        <a href="welcome.php"><img src="../assets/Getflix.webp" width="200" height="80" class="logo" alt="getflix-logo"></a>
     </div>
 
     <main>
@@ -47,9 +38,7 @@ include('../Backend/PDOserver.php');
         <p>Copyright &#169; 2021</p> 
         <p>A collab between <a href="https://github.com/Dan-DH">Daniel</a>, <a href="https://github.com/Brigilets">Brigita</a>, <a href="https://github.com/ShivaniKhatri96/">Shivani</a> and <a href="https://github.com/teo-cozma">Teodora</a>.</p>
     </footer>
-
     <footer id="mobile_footer">
-
         <div class="footer_img">
             <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
                 <img src="../assets/brigita.webp" alt="githubLink" class="portrait">
@@ -64,10 +53,8 @@ include('../Backend/PDOserver.php');
                 <img src="../assets/teodora.webp" alt="githubLink" class="portrait">
             </a>
         </div>
-        <p>Copyright &#169; 2021</p>
-            
+        <p>Copyright &#169; 2021</p>    
     </footer>
 
 </body>
-
 </html>

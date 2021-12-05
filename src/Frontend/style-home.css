@@ -122,6 +122,30 @@ a {
     min-height: 100%;
   }
 
+/* The box-sizing property allows us to include the padding and border in an element's total width and height. */
+* {box-sizing: border-box;}
+.carousel-cell {
+    width: 250px;
+    height: 350px;
+    /* width: 200px; */
+    /* height: 300px; */
+    margin-right: 10px;
+    background: #8C8;
+    border-radius: 5px;
+}
+
+.carousel-cell img {
+    width: 250px;
+    height: 350px;
+    /* width: 200px; */
+    /* height: 300px; */
+}
+  .content, .success {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin: 2em 0em;
+  }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
@@ -138,24 +162,4 @@ a {
     display: none;
   }
 }
-/* The box-sizing property allows us to include the padding and border in an element's total width and height. */
- * {box-sizing: border-box;}
-.carousel-cell {
-    width: 200px;
-    height: 300px;
-    margin-right: 10px;
-    background: #8C8;
-    border-radius: 5px;
-}
-
-.carousel-cell img {
-    width: 200px;
-    height: 300px;
-}
-  .content, .success {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      margin: 2em 0em;
-  }
 

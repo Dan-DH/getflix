@@ -1,5 +1,5 @@
 <?php include('../Backend/PDOserver.php');
-        // NB:if user is not logged in, page is inaccessible
+    // NB:if user is not logged in, page is inaccessible
     if (empty($_SESSION['username'])){
         header('location: index.php');
     }
@@ -30,7 +30,6 @@ if ($_SESSION['signup_ach'] == "done") {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,16 +39,23 @@ if ($_SESSION['signup_ach'] == "done") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="./style-home.css">
+    <style>
+        @media screen and (max-width: 560px){
+            .logo {
+                width: 10rem;
+                height: 4rem;
+            }
+        }
+    </style>
     <title>Home page</title>
 </head>
 
 <body>
     <header>
-
         <nav class="navbar navbar-expand-lg navbar-bg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="../assets/Getflix.webp" width="200rem" height="80rem">
+                    <img src="../assets/Getflix.webp" width="200" height="80" class="logo" alt="getflix-logo">
                 </a>
                 <button class="navbar-toggler font-color" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -73,7 +79,6 @@ if ($_SESSION['signup_ach'] == "done") {
                         <li class="nav-item">
                             <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#fantasy">Fantasy</a>
                         </li>
-
                     </ul>
                     <!-- search bar -->
                     <form class="d-flex" action="search-result.php" method="post">
@@ -81,7 +86,6 @@ if ($_SESSION['signup_ach'] == "done") {
                             <div class="col">
                                 <input class="collapse" id="searchbar" name="searchbar" type="search" placeholder="Search"
                                     aria-label="Search">
-                                    
                             </div>
                             <div class="col  mt-lg-1">
                                 <a data-bs-toggle="collapse" href="#searchbar" role="button" name="search" aria-expanded="false"
@@ -101,13 +105,13 @@ if ($_SESSION['signup_ach'] == "done") {
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Check out your account page <br>for new achievements!</a>
+                                <a class="dropdown-item" href="./account.php">Check out your account page <br>for new achievements!</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Having trouble?<br> Get help on contact page!</a>
+                                <a class="dropdown-item" href="./contact.php">Having trouble?<br> Get help on contact page!</a>
                             </li>
                         </ul>
                     </div>
@@ -134,6 +138,8 @@ if ($_SESSION['signup_ach'] == "done") {
             </div>
         </nav>
     </header>
+    
+    <!--Welcome back message-->
     <div class="content">
         <?php if (isset($_SESSION['success'])): ?>
         <div class="error success">
@@ -153,9 +159,6 @@ if ($_SESSION['signup_ach'] == "done") {
                 include('../Backend/search.php');
                 header('location: ../Frontend/search-result.php');
             ?>
-            <!-- <h3 class="search-error" style="text-align: center">
-                <?php //include('../Backend/errors.php');?>
-            </h3>  -->
         <?php endif ?>
 
         <div class="container-fluid">
@@ -180,14 +183,15 @@ if ($_SESSION['signup_ach'] == "done") {
                     echo "Connection failed : " . $e->getMessage();
                 }
             ?>
-            <div class="row" id="comedy">
+   
+            <div class="row" id="topMovies">
                 <div class="col-12 fs-4 mb-3 ms-3" >
-                    Comedy
+                   Top 10 Movies
                 </div>
                 <div class="col-12">
-                    <div class="carousel1">
+                    <div class="carousel0">
                     <?php
-                        $query= "Select movieID,image from movies where genre like '%35%'";
+                        $query= "Select movieID,image FROM movies ORDER BY rating DESC LIMIT 10;";
                         $data= $db->query($query);
                         $data->setFetchMode(PDO::FETCH_ASSOC);
                         foreach($data as $row) {
@@ -202,24 +206,46 @@ if ($_SESSION['signup_ach'] == "done") {
                 </div>
             </div>
 
+            <div class="row" id="comedy">
+                <div class="col-12 fs-4 mb-3 ms-3" >
+                    Comedy
+                </div>
+                <div class="col-12">
+                    <div class="carousel1">
+                        <?php
+                        $query= "Select movieID,image from movies where genre like '%35%'";
+                        $data= $db->query($query);
+                        $data->setFetchMode(PDO::FETCH_ASSOC);
+                        foreach($data as $row) {
+                        ?>
+                            <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
+                                <img src="<?php echo $row['image']; ?>">
+                            </div>
+                        <?php
+                            }
+                        ?>
+                    </div>  
+                </div>
+            </div>
+
             <div class="row" id="action">
                 <div class="col-12 fs-4 mt-5 mb-3 ms-3">
-                        Action
+                    Action
                 </div>
                 <div class="col-12">
                     <div class="carousel2">
-                    <?php
+                        <?php
                         $query= "Select movieID,image from movies where genre like '%28%'";
                         $data= $db->query($query);
                         $data->setFetchMode(PDO::FETCH_ASSOC);
                         foreach($data as $row) {
-                                ?>
-                                    <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
-                                        <img src="<?php echo $row['image']; ?>">
-                                    </div>
-                                <?php
+                        ?>
+                            <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
+                                <img src="<?php echo $row['image']; ?>">
+                            </div>
+                        <?php
                             }
-                    ?>
+                        ?>
                     </div>  
                 </div>
             </div>
@@ -230,18 +256,18 @@ if ($_SESSION['signup_ach'] == "done") {
                 </div>
                 <div class="col-12">
                     <div class="carousel3">
-                    <?php
+                        <?php
                         $query= "Select movieID,image from movies where genre like '%18%'";
                         $data= $db->query($query);
                         $data->setFetchMode(PDO::FETCH_ASSOC);
                         foreach($data as $row) {
-                                ?>
-                                    <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
-                                        <img src="<?php echo $row['image']; ?>">
-                                    </div>
-                                <?php
+                        ?>
+                            <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
+                                <img src="<?php echo $row['image']; ?>">
+                            </div>
+                        <?php
                             }
-                    ?>
+                        ?>
                     </div>  
                 </div>
                
@@ -251,18 +277,18 @@ if ($_SESSION['signup_ach'] == "done") {
                 </div>
                 <div class="col-12">
                     <div class="carousel4">
-                    <?php
+                        <?php
                         $query= "Select movieID,image from movies where genre like '%10751%'";
                         $data= $db->query($query);
                         $data->setFetchMode(PDO::FETCH_ASSOC);
                         foreach($data as $row) {
-                                ?>
-                                    <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
-                                        <img src="<?php echo $row['image']; ?>">
-                                    </div>
-                                <?php
+                        ?>
+                            <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
+                                <img src="<?php echo $row['image']; ?>">
+                            </div>
+                        <?php
                             }
-                    ?>
+                        ?>
                     </div>  
                 </div>
             </div>
@@ -274,16 +300,16 @@ if ($_SESSION['signup_ach'] == "done") {
                 <div class="col-12">
                     <div class="carousel5">
                         <?php
-                            $query= "Select movieID,image from movies where genre like '%14%'";
-                            $data= $db->query($query);
-                            $data->setFetchMode(PDO::FETCH_ASSOC);
-                            foreach($data as $row) {
-                                    ?>
-                                        <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
-                                            <img src="<?php echo $row['image']; ?>">
-                                        </div>
-                                    <?php
-                                }
+                        $query= "Select movieID,image from movies where genre like '%14%'";
+                        $data= $db->query($query);
+                        $data->setFetchMode(PDO::FETCH_ASSOC);
+                        foreach($data as $row) {
+                        ?>
+                            <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
+                                <img src="<?php echo $row['image']; ?>">
+                            </div>
+                        <?php
+                            }
                         ?>
                      </div>
                 </div> 
@@ -292,50 +318,44 @@ if ($_SESSION['signup_ach'] == "done") {
         </div>
 
         <?php
-             $query= "Select movieID,title,trailer,rating,synopsis from movies";
-             $data= $db->query($query);
-             $data->setFetchMode(PDO::FETCH_ASSOC);
-             foreach($data as $row) {
-                ?>
-               <section id="<?php echo $row['movieID'] ?>" class="hide">
-        <div class="card black-font">
-            <div class="d-flex justify-content-end me-4 mt-3">
-                <a class="fw-bold fs-5" href="#"  onclick="popupClose(<?php echo $row['movieID'] ?>)">X</a>
-            </div>
-            <div class="d-flex justify-content-center mt-4 mb-4">
-               
-                <iframe class="trailer-area" src="<?php echo $row['trailer'] ?>"  allow="fullscreen"  title="movie trailer-<?php echo $row['title'] ?>">
-                            </iframe>
-            </div>
-            <div class="card-body mx-4">
-                <h5 class="card-title fs-1"><?php echo $row['title'] ?></h5>
-                <p class="card-text">
-                <?php echo $row['synopsis'] ?>
-                </p>
-                <p class="card-text fw-bolder">
-                    Rating: <?php echo $row['rating'] ?>
-                </p>
-                <hr class="fw-bold">
-                <div class="mt-5">
-                    <form class="card-text">
-                        <input type="text" class="form-control py-3" id="comment-post" placeholder="Add a public comment...">
-                        <div class="d-flex justify-content-end">
-                        <input type="submit" class="my-3 submit py-2 px-3" value="COMMENT">
-                    </form>
+        $query= "Select movieID,title,trailer,rating,synopsis from movies";
+        $data= $db->query($query);
+        $data->setFetchMode(PDO::FETCH_ASSOC);
+        foreach($data as $row) {
+        ?>
+            <section id="<?php echo $row['movieID'] ?>" class="hide">
+                <div class="card black-font">
+                    <div class="d-flex justify-content-end me-4 mt-3">
+                        <a class="fw-bold fs-5" href="#" onclick="popupClose(<?php echo $row['movieID'] ?>)">X</a>
+                    </div>
+                    <div class="d-flex justify-content-center mt-4 mb-4">
+                        <iframe class="trailer-area" src="<?php echo $row['trailer'] ?>" allow="fullscreen" title="movie trailer-<?php echo $row['title'] ?>"></iframe>
+                    </div>
+                    <div class="card-body mx-4">
+                        <h5 class="card-title fs-1"><?php echo $row['title'] ?></h5>
+                        <p class="card-text"><?php echo $row['synopsis'] ?></p>
+                        <p class="card-text fw-bolder">Rating: <?php echo $row['rating'] ?></p>
+                        <hr class="fw-bold">
+                        <div class="mt-5">
+                            <form class="card-text">
+                                <input type="text" class="form-control py-3" id="comment-post" placeholder="Add a public comment...">
+                                <div class="d-flex justify-content-end">
+                                <input type="submit" class="my-3 submit py-2 px-3" value="COMMENT">
+                            </form>
+                        </div>
+                        <p class="card-text fw-bold">
+                            Please pause the video before closing!!! <br> Reload the page if you forget to pause.
+                        </p>
+                        <p class="card-text fw-light">
+                            Previous Comments
+                        </p>
+                        <hr class="fw-bold">
+                    </div>   
                 </div>
-                <p class="card-text fw-bold">
-                   Please pause the video before closing!!! <br> Reload the page if you forget to pause
-                </p>
-                <p class="card-text fw-light">
-                    Previous Comments
-                </p>
-                <hr class="fw-bold">
-            </div>   
-        </div>
-                </section>
-                <?php
-                 }
-         ?>
+            </section>
+        <?php
+            }
+        ?>
  
     </main>
     <footer id="footer">
@@ -376,13 +396,14 @@ if ($_SESSION['signup_ach'] == "done") {
         </div>
     </footer>   
 
-    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         <script src="./main.js"></script> 
 
