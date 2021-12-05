@@ -98,15 +98,34 @@ a {
   .submit:hover{
     font-weight: bold;
   }
+  .font-navbar {
+    font-size: 12px;
+  }
+  .font-notifications {
+    font-size: 10px;
+  }
+  .search-font {
+    width: 150px;
+    height: 20px;
+  }
+  .notify {
+    margin-left: -2rem;
+  }
+  .userinfo {
+    margin-left: -2rem;
+  }
+.font-titles {
+  font-size: 10px;
+}
+  /* card pop-up */
   .hide {
       display: none;
   }
-
   .card {
     position: fixed;
     top: 14%;
-     right: 25%;
-     width: 50%;
+     right: 10%;
+     width: 80%;
     bottom:12%; 
     z-index:1;
     overflow: auto; 
@@ -117,18 +136,136 @@ a {
 
   .trailer-area {
     width: 92%;
-    height:550px;
+    height: 150px;
     min-width: 90%;
     min-height: 100%;
   }
-
+  .xclose {
+    font-size: 12px;
+  }
+/* carousel */
 /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
 * {box-sizing: border-box;}
 .carousel-cell {
+    width: 80px;
+    height: 120px;
+    margin-right: 10px;
+    background: #8C8;
+    border-radius: 5px;
+}
+
+.carousel-cell img {
+  width: 80px;
+  height: 120px;
+}
+/*  */
+  .content, .success {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      margin: 2em 0em;
+  }
+
+
+
+  /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) { 
+    .hide2 {
+      display: none;
+    }
+    .font-notifications {
+      font-size: 12px;
+    }
+    .font-titles {
+      font-size: 12px;
+    }
+    .search-font {
+      width: 200px;
+      height: 30px;
+    }
+    .carousel-cell {
+        width: 100px;
+        height: 150px;
+        margin-right: 10px;
+        background: #8C8;
+        border-radius: 5px;
+    }
+    
+    .carousel-cell img {
+      width: 100px;
+      height: 150px;
+    }
+    .trailer-area {
+      height: 200px;
+    }
+    .xclose {
+      font-size: 14px;
+    }
+  }
+
+  /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  
+  .font-navbar {
+    font-size: 18px;
+  }
+  .font-notifications {
+    font-size: 15px;
+  }
+  .font-titles {
+    font-size: 16px;
+  }
+  .xclose {
+    font-size: 18px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  
+  .carousel-cell {
+    width: 200px;
+    height: 300px;
+    margin-right: 10px;
+    background: #8C8;
+    border-radius: 5px;
+}
+
+.carousel-cell img {
+    width: 200px;
+    height: 300px;
+}
+
+.trailer-area {
+  height: 350px;
+}
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+  
+  .notify {
+    margin-left: -12rem;
+  }
+  .userinfo {
+    margin-left: -6rem;
+  }
+  .trailer-area {
+    height: 400px;
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+  .font-navbar {
+    font-size: 25px;
+  }
+  .font-titles {
+    font-size: 24px;
+  }
+  .carousel-cell {
     width: 250px;
     height: 350px;
-    /* width: 200px; */
-    /* height: 300px; */
     margin-right: 10px;
     background: #8C8;
     border-radius: 5px;
@@ -137,29 +274,22 @@ a {
 .carousel-cell img {
     width: 250px;
     height: 350px;
-    /* width: 200px; */
-    /* height: 300px; */
 }
-  .content, .success {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      margin: 2em 0em;
-  }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .notify {
-    margin-left: -12rem;
-  }
-  .userinfo {
-    margin-left: -6rem;
-  }
+.card {
+   right: 25%;
+   width: 50%;
+ }
+ .trailer-area {
+  width: 92%;
+  height:550px;
+  min-width: 90%;
+  min-height: 100%;
 }
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  .hide2 {
-    display: none;
-  }
+.xclose {
+  font-size: 22px;
 }
+}
+
+
 

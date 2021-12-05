@@ -191,13 +191,14 @@ span {
   }
 }
 /*achievement*/
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+ /* Small devices (landscape phones, 576px and up) */
+ @media (min-width: 576px) { 
   .hide2 {
     display: none;
   }
-
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
   .userform {
     margin: 1% 0;
   }

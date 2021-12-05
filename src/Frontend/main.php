@@ -54,7 +54,7 @@ if ($_SESSION['signup_ach'] == "done") {
 <body>
     <header>
 
-        <nav class="navbar navbar-expand-lg navbar-bg">
+        <nav class="navbar navbar-expand-xl navbar-xl">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo">
@@ -65,76 +65,76 @@ if ($_SESSION['signup_ach'] == "done") {
                     <i class="fa fa-align-justify font-align"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-5 me-lg-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-5 ms-xl-3 ms-xxl-5 me-xl-auto mb-2 mb-xl-0">
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font  me-lg-5 fs-5" href="#comedy">Comedy</a>
+                            <a class="nav-link navig-link white-font me-xl-3 me-xxl-5 font-navbar" href="#comedy">Comedy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#action">Action</a>
+                            <a class="nav-link navig-link white-font me-xl-3 me-xxl-5 font-navbar" href="#action">Action</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#drama">Drama</a>
+                            <a class="nav-link navig-link white-font me-xl-3 me-xxl-5 font-navbar" href="#drama">Drama</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#family">Family</a>
+                            <a class="nav-link navig-link white-font me-xl-3 me-xxl-5 font-navbar" href="#family">Family</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="#fantasy">Fantasy</a>
+                            <a class="nav-link navig-link white-font me-xl-3 me-xxl-5 font-navbar" href="#fantasy">Fantasy</a>
                         </li>
 
                     </ul>
                     <!-- search bar -->
                     <form class="d-flex" action="search-result.php" method="post">
-                        <div class="row me-2 ms-4 ms-lg-0 mb-3 mb-lg-0">
+                        <div class="row me-2 ms-4 ms-xl-0 mb-3 mb-xl-0">
                             <div class="col">
-                                <input class="collapse" id="searchbar" name="searchbar" type="search" placeholder="Search"
+                                <input class="collapse search-font" id="searchbar" name="searchbar" type="search" placeholder="Search"
                                     aria-label="Search">
                                     
                             </div>
-                            <div class="col  mt-lg-1">
+                            <div class="col  mt-xl-1">
                                 <a data-bs-toggle="collapse" href="#searchbar" role="button" name="search" aria-expanded="false"
-                                    aria-controls="searchbar"><i class="fa fa-search white-font fs-5"></i></a>
+                                    aria-controls="searchbar"><i class="fa fa-search white-font font-navbar"></i></a>
                             </div>
                         </div>
                     </form>
                     <!-- notifications -->
-                    <div class="nav-item dropdown me-2 ms-5 ms-lg-0">
+                    <div class="nav-item dropdown me-2 ms-5 ms-xl-0">
                         <a class="nav-link white-font" href="#" id="notify" role="button" data-bs-toggle="dropdown"><i
-                                class="fa fa-bell white-font fs-5"></i></a>
+                                class="fa fa-bell white-font font-navbar"></i></a>
                         <ul class="dropdown-menu notify" aria-labelledby="navbarDropdown">
                             <li>
-                                <a class="dropdown-item" href="#">Check the most popular movies.<br> Did you see them all?</a>
+                                <a class="dropdown-item font-notifications" href="#">Check top 10 movies!</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Check out your account page <br>for new achievements!</a>
+                                <a class="dropdown-item font-notifications" href="#">Having trouble?<br> Get help on contact page!</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Having trouble?<br> Get help on contact page!</a>
+                                <a class="dropdown-item font-notifications" href="#">Welcome to Getflix!</a>
                             </li>
                         </ul>
                     </div>
                     <!-- user pages -->
-                    <div class="nav-item dropdown me-5 ms-5 ms-lg-0">
-                        <a class="nav-link white-font fs-5" href="#" id="navbarDropdown" role="button"
+                    <div class="nav-item dropdown me-5 ms-5 ms-xl-0">
+                        <a class="nav-link white-font font-navbar" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown">
                             <i class="fa fa-id-card white-font"></i>
                         </a>
                         <ul class="dropdown-menu userinfo" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="./account.php">Account Page</a></li>
+                            <li><a class="dropdown-item font-notifications" href="./account.php">Account Page</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="./contact.php">Contact Page</a></li>
+                            <li><a class="dropdown-item font-notifications" href="./contact.php">Contact Page</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item fw-bold" href="index.php?logout='1'" name="logout">Log out</a>
+                            <li><a class="dropdown-item fw-bold font-notifications" href="index.php?logout='1'" name="logout">Log out</a>
                             </li>
                         </ul>
                     </div>
@@ -190,7 +190,7 @@ if ($_SESSION['signup_ach'] == "done") {
             ?>
    
             <div class="row" id="topMovies">
-                <div class="col-12 fs-4 mb-3 ms-3" >
+                <div class="col-12 font-titles mb-3 ms-3" >
                    Top 10 Movies
                 </div>
                 <div class="col-12">
@@ -212,7 +212,7 @@ if ($_SESSION['signup_ach'] == "done") {
             </div>
 
             <div class="row" id="comedy">
-                <div class="col-12 fs-4 mb-3 ms-3" >
+                <div class="col-12 font-titles mt-5 mb-3 ms-3" >
                     Comedy
                 </div>
                 <div class="col-12">
@@ -234,7 +234,7 @@ if ($_SESSION['signup_ach'] == "done") {
             </div>
 
             <div class="row" id="action">
-                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
+                <div class="col-12 font-titles mt-5 mb-3 ms-3">
                         Action
                 </div>
                 <div class="col-12">
@@ -256,7 +256,7 @@ if ($_SESSION['signup_ach'] == "done") {
             </div>
 
             <div class="row" id="drama">
-                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
+                <div class="col-12 font-titles mt-5 mb-3 ms-3">
                     Drama
                 </div>
                 <div class="col-12">
@@ -277,7 +277,7 @@ if ($_SESSION['signup_ach'] == "done") {
                 </div>
                
             <div class="row" id="family">
-                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
+                <div class="col-12 font-titles mt-5 mb-3 ms-3">
                     Family
                 </div>
                 <div class="col-12">
@@ -299,7 +299,7 @@ if ($_SESSION['signup_ach'] == "done") {
             </div>
 
             <div class="row" id="fantasy">
-                <div class="col-12 fs-4 mt-5 mb-3 ms-3">
+                <div class="col-12 font-titles mt-5 mb-3 ms-3">
                     Fantasy
                 </div>
                 <div class="col-12">
@@ -321,8 +321,8 @@ if ($_SESSION['signup_ach'] == "done") {
              </div> 
             
         </div>
-
-        <?php
+                               
+       <?php
              $query= "Select movieID,title,trailer,rating,synopsis from movies";
              $data= $db->query($query);
              $data->setFetchMode(PDO::FETCH_ASSOC);
@@ -331,9 +331,9 @@ if ($_SESSION['signup_ach'] == "done") {
                <section id="<?php echo $row['movieID'] ?>" class="hide">
         <div class="card black-font">
             <div class="d-flex justify-content-end me-4 mt-3">
-                <a class="fw-bold fs-5" href="#"  onclick="popupClose(<?php echo $row['movieID'] ?>)">X</a>
+                <a class="fw-bold xclose" href="#"  onclick="popupClose(<?php echo $row['movieID'] ?>)">X</a>
             </div>
-            <div class="d-flex justify-content-center mt-4 mb-4">
+            <div class="d-flex justify-content-center mt-2 mt-md-3 mt-xxl-4 mb-4">
                
                 <iframe class="trailer-area" src="<?php echo $row['trailer'] ?>"  allow="fullscreen"  title="movie trailer-<?php echo $row['title'] ?>">
                             </iframe>
@@ -349,9 +349,9 @@ if ($_SESSION['signup_ach'] == "done") {
                 <hr class="fw-bold">
                 <div class="mt-5">
                     <form class="card-text">
-                        <input type="text" class="form-control py-3" id="comment-post" placeholder="Add a public comment...">
+                        <input type="text" class="form-control py-lg-2 py-xxl-3" id="comment-post" placeholder="Add a public comment...">
                         <div class="d-flex justify-content-end">
-                        <input type="submit" class="my-3 submit py-2 px-3" value="COMMENT">
+                        <input type="submit" class="my-3 submit  px-md-1 py-xl-1 px-xl-2 py-xxl-2 px-xxl-3" value="COMMENT">
                     </form>
                 </div>
                 <p class="card-text fw-bold">
@@ -367,12 +367,13 @@ if ($_SESSION['signup_ach'] == "done") {
                 <?php
                  }
          ?>
+
  
     </main>
-    <footer id="footer">
+    <footer id="footer" class="my-5">
         <div class="container text-center">
             <div class="row d-flex">
-                <div class="col order-md-2 d-none d-sm-block">
+                <div class="col order-sm-2 d-none d-sm-block">
                     A collab between <a class="navig-link2" href="https://github.com/Dan-DH" target="_blank"
                         rel="noopener">Daniel</a>, <a class=" navig-link2" href="https://github.com/Brigilets"
                         target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link2"
@@ -380,7 +381,8 @@ if ($_SESSION['signup_ach'] == "done") {
                         class=" navig-link2" href="https://github.com/teo-cozma" target="_blank"
                         rel="noopener">Teodora</a>.
                 </div>
-                <div class="col-3 order-md-4  text-center hide2">
+                
+                <div class="col-3  text-center hide2">
                     <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
                         <img src="../assets/brigita.webp" alt="githubLink" class="portrait">
                     </a>
@@ -400,7 +402,7 @@ if ($_SESSION['signup_ach'] == "done") {
                         <img src="../assets/teodora.webp" alt="githubLink" class="portrait">
                     </a>
                 </div>
-                <div class="col col-md-12 mt-2 order-md-1">
+                <div class="col col-sm-12 mt-2 order-sm-1">
                     Copyright &#169; 2021
                 </div>
             </div>

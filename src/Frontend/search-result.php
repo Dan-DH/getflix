@@ -21,94 +21,96 @@
 </head>
 
 <body>
-    <header>
+<header>
 
-        <nav class="navbar navbar-expand-lg navbar-bg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="./main.php">
-                    <img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo">
-                </a>
-                <button class="navbar-toggler font-color" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fa fa-align-justify font-align"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-5 me-lg-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link navig-link white-font  me-lg-5 fs-5" href="../Frontend/main.php#comedy">Comedy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#action">Action</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#drama">Drama</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#family">Family</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link navig-link white-font me-lg-5 fs-5" href="../Frontend/main.php#fantasy">Fantasy</a>
-                        </li>
+<nav class="navbar navbar-expand-xl navbar-xl">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="./main.php">
+            <img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo">
+        </a>
+        <button class="navbar-toggler font-color" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-align-justify font-align"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-5 ms-xl-3 ms-xxl-5 me-xl-auto mb-2 mb-xl-0">
+                <li class="nav-item">
+                    <a class="nav-link navig-link white-font me-xl-3 me-xxl-5 font-navbar" href="../Frontend/main.php#comedy">Comedy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navig-link white-font me-xl-3 me-xxl-5 font-navbar" href="../Frontend/main.php#action">Action</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navig-link white-font me-xl-3 me-xxl-5 font-navbar" href="../Frontend/main.php#drama">Drama</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navig-link white-font me-xl-3 me-xxl-5 font-navbar" href="../Frontend/main.php#family">Family</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navig-link white-font me-xl-3 me-xxl-5 font-navbar" href="../Frontend/main.php#fantasy">Fantasy</a>
+                </li>
 
-                    </ul>
-                    <!-- search bar -->
-                    <form class="d-flex" action="search-result.php" method="post">
-                        <div class="row me-2 ms-4 ms-lg-0 mb-3 mb-lg-0">
-                            <div class="col">
-                                <input class="collapse" id="searchbar" name="searchbar" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <!-- <input class="form-control collapse" id="searchbar" type="search" placeholder="Search" 
-                                        aria-label="Search"> -->
-                                    
-                            </div>
-                            <div class="col  mt-lg-1">
-                                <!-- class="btn" -->
-                                <a data-bs-toggle="collapse" href="#searchbar" role="button" name="search" aria-expanded="false"
-                                    aria-controls="searchbar"><i class="fa fa-search white-font fs-5"></i></a>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- notifications -->
-                    <div class="nav-item dropdown me-2 ms-5 ms-lg-0">
-                        <a class="nav-link white-font" href="#" id="notify" role="button" data-bs-toggle="dropdown"><i
-                                class="fa fa-bell white-font fs-5"></i></a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="#">notification 1</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">notification 2</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">notification 3</a>
-                            </li>
-                        </ul>
+            </ul>
+            <!-- search bar -->
+            <form class="d-flex" action="search-result.php" method="post">
+                <div class="row me-2 ms-4 ms-xl-0 mb-3 mb-xl-0">
+                    <div class="col">
+                        <input class="collapse search-font" id="searchbar" name="searchbar" type="search" placeholder="Search"
+                            aria-label="Search">
+                            
                     </div>
-                    <!-- user pages -->
-                    <div class="nav-item dropdown me-5 ms-5 ms-lg-0">
-                        <a class="nav-link white-font fs-5" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown">
-                            <i class="fa fa-id-card white-font"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="./account.php">Account Page</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="./contact.php">Contact Page</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item fw-bold" href="index.php?logout='1'" name="logout">Log out</a>
-                            </li>
-                        </ul>
+                    <div class="col  mt-xl-1">
+                        <a data-bs-toggle="collapse" href="#searchbar" role="button" name="search" aria-expanded="false"
+                            aria-controls="searchbar"><i class="fa fa-search white-font font-navbar"></i></a>
                     </div>
                 </div>
+            </form>
+            <!-- notifications -->
+            <div class="nav-item dropdown me-2 ms-5 ms-xl-0">
+                <a class="nav-link white-font" href="#" id="notify" role="button" data-bs-toggle="dropdown"><i
+                        class="fa fa-bell white-font font-navbar"></i></a>
+                <ul class="dropdown-menu notify" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item font-notifications" href="#">Check top 10 movies!</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item font-notifications" href="#">Having trouble?<br> Get help on contact page!</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item font-notifications" href="#">Welcome to Getflix!</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
-    
+            <!-- user pages -->
+            <div class="nav-item dropdown me-5 ms-5 ms-xl-0">
+                <a class="nav-link white-font font-navbar" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown">
+                    <i class="fa fa-id-card white-font"></i>
+                </a>
+                <ul class="dropdown-menu userinfo" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item font-notifications" href="./account.php">Account Page</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item font-notifications" href="./contact.php">Contact Page</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item fw-bold font-notifications" href="index.php?logout='1'" name="logout">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+</header>
     <main>
         <?php
             $servername = "database";

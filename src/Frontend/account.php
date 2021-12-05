@@ -285,7 +285,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <footer id="footer">
         <div class="container text-center">
             <div class="row d-flex">
-                <div class="col order-md-2 d-none d-sm-block">
+                <div class="col order-sm-2 d-none d-sm-block">
                     A collab between <a class="navig-link2" href="https://github.com/Dan-DH" target="_blank"
                         rel="noopener">Daniel</a>, <a class=" navig-link2" href="https://github.com/Brigilets"
                         target="_blank" rel="noopener">Brigita</a>, <a class=" navig-link2"
@@ -293,7 +293,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         class=" navig-link2" href="https://github.com/teo-cozma" target="_blank"
                         rel="noopener">Teodora</a>.
                 </div>
-                <div class="col-3 order-md-4  text-center hide2">
+                <div class="col-3  text-center hide2">
                     <a href="https://github.com/Brigilets" target="_blank" rel="noopener">
                         <img src="../assets/brigita.webp" alt="githubLink" class="portrait">
                     </a>
@@ -313,7 +313,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <img src="../assets/teodora.webp" alt="githubLink" class="portrait">
                     </a>
                 </div>
-                <div class="col col-md-12 mt-2 order-md-1">
+                <div class="col col-sm-12 mt-2 order-sm-1">
                     Copyright &#169; 2021
                 </div>
             </div>
