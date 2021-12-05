@@ -40,6 +40,14 @@ if ($_SESSION['signup_ach'] == "done") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="./style-home.css">
+    <style>
+        @media screen and (max-width: 560px){
+            .logo {
+                width: 10rem;
+                height: 4rem;
+            }
+        }
+    </style>
     <title>Home page</title>
 </head>
 
@@ -49,7 +57,7 @@ if ($_SESSION['signup_ach'] == "done") {
         <nav class="navbar navbar-expand-lg navbar-bg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="../assets/Getflix.webp" width="200rem" height="80rem">
+                    <img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo">
                 </a>
                 <button class="navbar-toggler font-color" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

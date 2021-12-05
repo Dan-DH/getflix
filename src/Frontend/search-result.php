@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-lg navbar-bg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./main.php">
-                    <img src="../assets/Getflix.webp" width="200rem" height="80rem">
+                    <img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo">
                 </a>
                 <button class="navbar-toggler font-color" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -174,6 +174,12 @@
                             overflow: scroll;
                             height: 20%;
                             padding-bottom: 2em;
+                        }
+                    }
+                    @media screen and (max-width: 560px){
+                        .logo{
+                            width: 10rem;
+                            height: 4rem;
                         }
                     }
                     @media screen and (max-width: 460px){

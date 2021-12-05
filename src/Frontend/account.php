@@ -76,12 +76,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style-account.css">
+    <link rel="stylesheet" href="./style-account.css">
     <title>Account</title>
+    <style>
+        @media screen and (max-width: 992px) and (min-width: 560px) {
+            .navbar {
+                margin: 0em 1em;
+            }
+            button,
+            .submit {
+                font-size: 14px;
+            }
+        }
+        @media screen and (max-width: 560px){
+            .logo {
+                width: 10rem;
+                height: 4rem;
+            }
+            .navbar{
+                margin: 0em 1em;
+            }
+            
+            button {
+                font-size: 11px;
+                border: 2px solid;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
-        <a href="./main.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
+        <a href="./main.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo"></a>
         <div class="buttons">
             <a href="./main.php"><button type="button" id="home">Home</button></a>
             <a href="./index.php"><button type="button" id="logout">Log out</button></a>
