@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="welcome.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
+        <a href="welcome.php"><img src="../assets/Getflix.webp" width="200" height="80" alt="getflix-logo"></a>
     </div>
 <main>
   <div class="fill_form">
