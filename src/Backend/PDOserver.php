@@ -44,11 +44,10 @@ catch (PDOException $e) {
         $username = strip_tags($_POST['userinfo']);
         $email = strip_tags($_POST['userinfo']);
         $password = strip_tags($_POST['password']);
-        //$hash_encrypt = password_hash($password, PASSWORD_DEFAULT);
 
         // ensure the fields are filled properly :
         if (empty($username)) {
-        array_push($errors, "Username / email is required");
+        array_push($errors, "Username is required");
         }
         /*elseif (empty($email)) {
             array_push($errors, "Username / email is required");
