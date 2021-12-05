@@ -79,11 +79,38 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="./style-account.css">
     <title>Account</title>
     <style>
+        button {
+            letter-spacing: 1px;
+            font-size: 17px;
+            padding: 0.5em 1em;
+            border: 1px solid;
+            border-radius: 10px;
+        }
+        button:hover {
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .button {
+            letter-spacing: 1px;
+            font-size: 17px;
+            padding: 0.5em 1em;
+            border: 3px solid;
+            border-radius: 10px;
+            text-transform: uppercase;
+            background-color: black;
+            color: #2db5e1;
+            border-color: #2db5e1;
+        }
+        .button:hover {
+            cursor: pointer;
+            font-weight: bold;
+        }
         @media screen and (max-width: 992px) and (min-width: 560px) {
             .navbar {
                 margin: 0em 1em;
             }
             button,
+            .button,
             .submit {
                 font-size: 14px;
             }
@@ -96,8 +123,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             .navbar{
                 margin: 0em 1em;
             }
-            
-            button {
+            .submit {
+                font-size: 14px;
+            }
+            .button {
                 font-size: 11px;
                 border: 2px solid;
             }
@@ -106,74 +135,76 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="navbar">
-        <a href="./main.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem" class="logo"></a>
+        <a href="main.php"><img src="../assets/Getflix.webp" width="200" height="80" class="logo" alt="getflix-logo"></a>
         <div class="buttons">
-            <a href="./main.php"><button type="button" id="home">Home</button></a>
-            <a href="./index.php"><button type="button" id="logout">Log out</button></a>
+            <a href="./main.php" class="button" id="home">Home</a>
+            <?php if (isset($_SESSION['username'])): ?>
+                <a href="contact.php?logout='1'" class="button">LOG OUT</a>
+            <?php endif ?>
         </div>
     </div>
 
-<div class="row userform">
-    <div class="col-12 col-md-4 containerForm">
+    <div class="row userform">
+        <div class="col-12 col-md-4 containerForm">
 
-        <form action="account.php" method="post">
-            <label for="login">Current login:</label><br>
-            <input type="text" class="inputfield" id="login" name="login" placeholder="<?php echo $resultData['login']?>" value=""><br>
-            <label for="email">Current email:</label><br>
-            <input type="text" class="inputfield" id="email" name="email" placeholder="<?php echo $resultData['email']?>" value=""><br>
-            <label for="password">New password:</label><br>
-            <input type="password" class="inputfield" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"><br>
-            <label for="password2">Repeat password:</label><br>
-            <input type="password" class="inputfield" id="password2" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 characters"><br>
-            <?php if ($info[0] == "Login or email already in use") {
-                echo "<p class='info'>Login or email already in use</p>";
-            } elseif ($info[0] == "Passwords must match") {
-                echo "<p class='info'>Passwords must match</p>";
-            } else {
-                echo "<p class='info'>$info</p>";
-            } ?>
-            <div class="text-center">
-                <button type="submit" class="submit">Update my data</button>
-            </div>
-        </form>
+            <form action="account.php" method="post">
+                <label for="login">Current login:</label><br>
+                <input type="text" class="inputfield" id="login" name="login" placeholder="<?php echo $resultData['login']?>" value=""><br>
+                <label for="email">Current email:</label><br>
+                <input type="text" class="inputfield" id="email" name="email" placeholder="<?php echo $resultData['email']?>" value=""><br>
+                <label for="password">New password:</label><br>
+                <input type="password" class="inputfield" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"><br>
+                <label for="password2">Repeat password:</label><br>
+                <input type="password" class="inputfield" id="password2" name="password2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 characters"><br>
+                <?php if ($info[0] == "Login or email already in use") {
+                    echo "<p class='info'>Login or email already in use</p>";
+                } elseif ($info[0] == "Passwords must match") {
+                    echo "<p class='info'>Passwords must match</p>";
+                } else {
+                    echo "<p class='info'>$info</p>";
+                } ?>
+                <div class="text-center">
+                    <button type="submit" class="submit">Update my data</button>
+                </div>
+            </form>
 
-        <div id="message">
-            <p class="passList"><b>Password must contain:</b></p>
-            <ul class="passList">
-                <li class="passList">A lowercase letter</li>
-                <li class="passList">An uppercase letter</li>
-                <li class="passList">A number</li>
-                <li class="passList">Minimum 6 characters</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="col-12 col-md-6 containerAchievement">
-        <div class="row rowAchievement">
-            <h3>Your achievements</h3>
-            <div class="col-6 col-md-6 achievementCol text-center">
-                <img class="achievImage <?php echo $resultData["movie_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.webp" alt="Level 1" id="movie1"><br>
-                <span>Checked your first movie</span><br>
-                <img class="achievImage <?php echo $resultData["movie_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.webp" alt="Level 2" id="movie3"><br>
-                <span>Checked three movies</span><br>
-                <img class="achievImage <?php echo $resultData["movie_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 3" id="movie5"><br>
-                <span>Checked five movies</span><br>
-                <img class="achievImage <?php echo $resultData["contact_achievement"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="contact"><br>
-                <span>Contacted the team</span>
-            </div>
-            <div class="col-6 col-md-6 achievementCol">
-                <img class="achievImage <?php echo $resultData["comment_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.webp" alt="Level 1" id="comment1"><br>
-                <span>Wrote your first comment</span><br>
-                <img class="achievImage <?php echo $resultData["comment_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.webp" alt="Level 1" id="comment3"><br>
-                <span>Wrote three comments</span><br>
-                <img class="achievImage <?php echo $resultData["comment_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="comment5"><br>
-                <span>Wrote five comments</span><br>
-                <img class="achievImage <?php echo $resultData["account_achievement"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="all"><br>
-                <span>Joined the Chill-Zone</span>
+            <div id="message">
+                <p class="passList"><b>Password must contain:</b></p>
+                <ul class="passList">
+                    <li class="passList">A lowercase letter</li>
+                    <li class="passList">An uppercase letter</li>
+                    <li class="passList">A number</li>
+                    <li class="passList">Minimum 6 characters</li>
+                </ul>
             </div>
         </div>
+
+        <div class="col-12 col-md-6 containerAchievement">
+            <div class="row rowAchievement">
+                <h3>Your achievements</h3>
+                <div class="col-6 col-md-6 achievementCol text-center">
+                    <img class="achievImage <?php echo $resultData["movie_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.webp" alt="Level 1" id="movie1"><br>
+                    <span>Checked your first movie</span><br>
+                    <img class="achievImage <?php echo $resultData["movie_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.webp" alt="Level 2" id="movie3"><br>
+                    <span>Checked three movies</span><br>
+                    <img class="achievImage <?php echo $resultData["movie_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 3" id="movie5"><br>
+                    <span>Checked five movies</span><br>
+                    <img class="achievImage <?php echo $resultData["contact_achievement"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="contact"><br>
+                    <span>Contacted the team</span>
+                </div>
+                <div class="col-6 col-md-6 achievementCol">
+                    <img class="achievImage <?php echo $resultData["comment_achievement1"] ? 'trans' : ''; ?>" src="../assets/achievement1.webp" alt="Level 1" id="comment1"><br>
+                    <span>Wrote your first comment</span><br>
+                    <img class="achievImage <?php echo $resultData["comment_achievement3"] ? 'trans' : ''; ?>" src="../assets/achievement2.webp" alt="Level 1" id="comment3"><br>
+                    <span>Wrote three comments</span><br>
+                    <img class="achievImage <?php echo $resultData["comment_achievement5"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="comment5"><br>
+                    <span>Wrote five comments</span><br>
+                    <img class="achievImage <?php echo $resultData["account_achievement"] ? 'trans' : ''; ?>" src="../assets/achievement3.webp" alt="Level 1" id="all"><br>
+                    <span>Joined the Chill-Zone</span>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
 
 <!-- pop up example -comments-->

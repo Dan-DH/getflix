@@ -9,12 +9,12 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="welcome.html"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
+        <a href="welcome.php"><img src="../assets/Getflix.webp" width="200rem" height="80rem"></a>
     </div>
 <main>
   <div class="fill_form">
      
-    <form action="" method="post" name="reset">
+    <form action="pass_recovery_request" method="post" name="reset">
         <h2>FORGOT PASSWORD</h2><br>
   <?php
 
