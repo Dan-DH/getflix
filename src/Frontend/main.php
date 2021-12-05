@@ -183,6 +183,29 @@ if ($_SESSION['signup_ach'] == "done") {
                     echo "Connection failed : " . $e->getMessage();
                 }
             ?>
+   
+            <div class="row" id="topMovies">
+                <div class="col-12 fs-4 mb-3 ms-3" >
+                   Top 10 Movies
+                </div>
+                <div class="col-12">
+                    <div class="carousel0">
+                    <?php
+                        $query= "Select movieID,image FROM movies ORDER BY rating DESC LIMIT 10;";
+                        $data= $db->query($query);
+                        $data->setFetchMode(PDO::FETCH_ASSOC);
+                        foreach($data as $row) {
+                                ?>
+                                    <div class="carousel-cell" data-tab="<?php echo $row['movieID']; ?>">
+                                        <img src="<?php echo $row['image']; ?>">
+                                    </div>
+                                <?php
+                            }
+                    ?>
+                    </div>  
+                </div>
+            </div>
+
             <div class="row" id="comedy">
                 <div class="col-12 fs-4 mb-3 ms-3" >
                     Comedy

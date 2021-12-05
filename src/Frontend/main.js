@@ -1,3 +1,17 @@
+const carousel0 = document.querySelector('.carousel0');
+const flkty0 = new Flickity( carousel0, {
+      initialIndex: 1,
+      wrapAround: true,
+      groupCells: true
+  
+  });
+  
+flkty0.on( 'staticClick', function( event, pointer, cellElement, cellIndex ) {
+  let cellid= cellElement.getAttribute("data-tab");
+let open = document.getElementById(`${cellid}`); 
+  open.classList.remove('hide');
+});
+
 const carousel1 = document.querySelector('.carousel1');
 const flkty1 = new Flickity( carousel1, {
       initialIndex: 1,
@@ -5,7 +19,7 @@ const flkty1 = new Flickity( carousel1, {
       groupCells: true
   
   });
-
+  
 flkty1.on( 'staticClick', function( event, pointer, cellElement, cellIndex ) {
   let cellid= cellElement.getAttribute("data-tab");
 let open = document.getElementById(`${cellid}`); 
@@ -65,6 +79,7 @@ flkty5.on( 'staticClick', function( event, pointer, cellElement, cellIndex ) {
 let open = document.getElementById(`${cellid}`); 
   open.classList.remove('hide');
 });
+
   function popupClose(id) {
     let open = document.getElementById(`${id}`); 
     open.classList.add('hide');
