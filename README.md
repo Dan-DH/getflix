@@ -25,13 +25,15 @@ Each person is going to do at least a little bit of backend work. However, each 
 - Docker
 - VS Code
 - Adobe XD
+- PHPMyAdmin
 
-### Languages :
+### Languages and frameworks:
 - HTML
 - CSS
 - Javascript
 - PHP (PDO to establish connections with the database + PHP)
 - SQL
+- Bootstrap v5
 
 ---
 
