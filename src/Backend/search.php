@@ -1,5 +1,6 @@
 <?php 
 include('../Backend/PDOserver.php');
+// development server
 $servername = "database";
 $db_user = "root";
 $db_password = "getflixRoot";

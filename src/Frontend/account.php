@@ -11,7 +11,7 @@ $db = $database->connect();
 
 //show user data and achievements
 $user = $_SESSION['username'];
-$query = "SELECT u.*, a.* FROM getflix.users u JOIN getflix.achievements a ON u.userID = a.userID WHERE u.login = '$user';";
+$query = "SELECT u.*, a.* FROM users u JOIN achievements a ON u.userID = a.userID WHERE u.login = '$user';";
 $stmt = $db->prepare($query);
 $stmt->execute();
 $resultData = $stmt->fetch(PDO::FETCH_ASSOC);

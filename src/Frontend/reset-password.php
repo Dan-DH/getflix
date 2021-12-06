@@ -18,7 +18,7 @@
     $db_user = "root";
     $db_password = "getflixRoot";
     $dbname = "getflix";
-    ///Connecting to the database///
+
     try {
         $db = new PDO("mysql:host=$servername;dbname=$dbname",$db_user, $db_password);
         // set error mode to exception

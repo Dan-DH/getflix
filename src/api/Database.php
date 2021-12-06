@@ -1,16 +1,11 @@
 <?php
 class Database {
     // development server
-    // private $dbhost = "database"; 
-    // private $dbuser = "root";
-    // private $dbpass = "getflixRoot";
-    // private $db = "getflix";
+    private $dbhost = "database"; 
+    private $dbuser = "root";
+    private $dbpass = "getflixRoot";
+    private $db = "getflix";
     private $conn;
-    // production server
-    private $dbhost = "fdb33.awardspace.net";
-    private $dbuser = "3998204_getflix";
-    private $dbpass = "getflixRoot1";
-    private $db = "3998204_getflix";
 
     public function connect() {
         $this->conn = null;

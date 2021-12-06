@@ -9,12 +9,12 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="welcome.php"><img src="../assets/Getflix.webp" width="200" height="80" alt="getflix-logo"></a>
+        <a href="./welcome.php"><img src="../assets/Getflix.webp" width="200" height="80" alt="getflix-logo"></a>
     </div>
 <main>
   <div class="fill_form">
      
-    <form action="pass_recovery_request" method="post" name="reset">
+    <form action="pass_recovery_request.php" method="post" name="reset">
         <h2>FORGOT PASSWORD</h2><br>
   <?php
 
@@ -32,11 +32,6 @@ $servername = "database";
 $db_user = "root";
 $db_password = "getflixRoot";
 $dbname = "getflix";
-// production server
-// private $dbhost = "fdb33.awardspace.net";
-// private $dbuser = "3998204_getflix";
-// private $dbpass = "getflixRoot1";
-// private $db = "3998204_getflix";
 
 ///Connecting to the database///
 try {
@@ -88,7 +83,7 @@ if (isset($_POST["reset"])){
                 $mail->SMTPSecure = 'tls';
                 $mail->Port = '587';
                 $mail->Username = 'bxlgetflix@gmail.com';
-                $mail->Password = 'getflixbxl'; //change password after final deployment
+                $mail->Password = ''; //change password after final deployment
                 $mail->Subject = 'Getflix: Password recovery';
                 $mail->setFrom('bxlgetflix@gmail.com');
                 $mail->isHTML(true);
