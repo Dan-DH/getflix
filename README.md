@@ -30,6 +30,7 @@ Each person is going to do at least a little bit of backend work. However, each 
 - VS Code
 - Adobe XD
 - PHPMyAdmin
+- MariaDB
 
 ### Languages and frameworks:
 - HTML
