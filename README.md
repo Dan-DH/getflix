@@ -1,5 +1,9 @@
 # Getflix project
 
+## Website
+
+<a href="http://getflix.atwebpages.com/Frontend/welcome.php" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/Dan-DH/getflix/master/src/assets/Screenshot%20(979).webp?raw=true" alt="Website link" width="400"/></a>
+
 ## Getting organized (22/11)
 
 ### Team members
